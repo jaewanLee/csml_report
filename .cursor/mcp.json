@@ -1,0 +1,30 @@
+{
+    "mcpServers": {
+        "context7-mcp": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "@smithery/cli@latest",
+                "run",
+                "@upstash/context7-mcp",
+                "--key",
+                "1947ddc4-ab38-4996-bab7-9ecf6b2af696"
+            ]
+        },
+        "sequential-thinking": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "@modelcontextprotocol/server-sequential-thinking"
+            ]
+        },
+        "serena": {
+            "command": "uvx",
+            "args": [
+                "--from",
+                "git+https://github.com/oraios/serena",
+                "serena-mcp-server"
+            ]
+        }
+    }
+}

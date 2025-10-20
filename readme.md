@@ -27,6 +27,29 @@ This project develops a **stacking ensemble model** to predict BTC 'Sell' signal
 - **ML Libraries:** scikit-learn, xgboost, scikit-optimize
 - **Interpretability:** shap
 - **Development:** Python 3.8+, Jupyter
+- **Environment:** Conda environment "csml"
+
+## 🚀 Getting Started
+
+### Environment Setup
+```bash
+# Create conda environment with Python 3.13 (compatible with all packages)
+conda create -n csml python=3.13
+
+# Activate environment
+conda activate csml
+
+# Install requirements
+pip install -r requirements.txt
+```
+
+**Note:** If you're using Python 3.14, please create a new environment with Python 3.13 as some packages don't support Python 3.14 yet.
+
+### Project Execution
+1. **Data Collection:** Run `01_data_collector.py` to collect BTC historical data
+2. **Feature Engineering:** Run `02_feature_engineer.py` to create technical indicators
+3. **Model Training:** Run `03_train_l0.py` and `04_train_l1.py` for model training
+4. **Evaluation:** Run `05_evaluate_final.py` for final performance assessment
 
 ## 📈 Results
 

@@ -1,0 +1,96 @@
+2025-10-20 18:32:02,426 - INFO - Successfully connected to binance
+2025-10-20 18:32:02,975 - INFO - Exchange health check passed
+2025-10-20 18:32:02,976 - INFO - Starting data collection for all timeframes
+2025-10-20 18:32:02,976 - INFO - Starting collection for 4h
+2025-10-20 18:32:02,976 - INFO - Collecting 4h data from 2020-05-12T00:00:00Z to now
+2025-10-20 18:32:09,263 - INFO - No more data available
+2025-10-20 18:32:09,280 - INFO - Validating 4h data...
+2025-10-20 18:32:09,289 - INFO - Data validation completed for 4h
+2025-10-20 18:32:09,289 - INFO - Successfully collected 11925 records for 4h
+2025-10-20 18:32:09,290 - ERROR - Failed to save 4h data: Unable to find a usable engine; tried using: 'pyarrow', 'fastparquet'.
+A suitable version of pyarrow or fastparquet is required for parquet support.
+Trying to import the above resulted in these errors:
+ - Missing optional dependency 'pyarrow'. pyarrow is required for parquet support. Use pip or conda to install pyarrow.
+ - Missing optional dependency 'fastparquet'. fastparquet is required for parquet support. Use pip or conda to install fastparquet.
+2025-10-20 18:32:09,290 - ERROR - Failed to collect 4h data: Unable to find a usable engine; tried using: 'pyarrow', 'fastparquet'.
+A suitable version of pyarrow or fastparquet is required for parquet support.
+Trying to import the above resulted in these errors:
+ - Missing optional dependency 'pyarrow'. pyarrow is required for parquet support. Use pip or conda to install pyarrow.
+ - Missing optional dependency 'fastparquet'. fastparquet is required for parquet support. Use pip or conda to install fastparquet.
+2025-10-20 18:32:09,290 - INFO - Starting collection for 1d
+2025-10-20 18:32:09,290 - INFO - Collecting 1d data from 2020-05-12T00:00:00Z to now
+2025-10-20 18:32:10,720 - INFO - No more data available
+2025-10-20 18:32:10,724 - INFO - Validating 1d data...
+2025-10-20 18:32:10,728 - INFO - Data validation completed for 1d
+2025-10-20 18:32:10,728 - INFO - Successfully collected 1988 records for 1d
+2025-10-20 18:32:10,729 - ERROR - Failed to save 1d data: Unable to find a usable engine; tried using: 'pyarrow', 'fastparquet'.
+A suitable version of pyarrow or fastparquet is required for parquet support.
+Trying to import the above resulted in these errors:
+ - Missing optional dependency 'pyarrow'. pyarrow is required for parquet support. Use pip or conda to install pyarrow.
+ - Missing optional dependency 'fastparquet'. fastparquet is required for parquet support. Use pip or conda to install fastparquet.
+2025-10-20 18:32:10,729 - ERROR - Failed to collect 1d data: Unable to find a usable engine; tried using: 'pyarrow', 'fastparquet'.
+A suitable version of pyarrow or fastparquet is required for parquet support.
+Trying to import the above resulted in these errors:
+ - Missing optional dependency 'pyarrow'. pyarrow is required for parquet support. Use pip or conda to install pyarrow.
+ - Missing optional dependency 'fastparquet'. fastparquet is required for parquet support. Use pip or conda to install fastparquet.
+2025-10-20 18:32:10,729 - INFO - Starting collection for 1w
+2025-10-20 18:32:10,729 - INFO - Collecting 1w data from 2020-05-12T00:00:00Z to now
+2025-10-20 18:32:11,678 - INFO - No more data available
+2025-10-20 18:32:11,679 - INFO - Validating 1w data...
+2025-10-20 18:32:11,682 - INFO - Data validation completed for 1w
+2025-10-20 18:32:11,682 - INFO - Successfully collected 284 records for 1w
+2025-10-20 18:32:11,683 - ERROR - Failed to save 1w data: Unable to find a usable engine; tried using: 'pyarrow', 'fastparquet'.
+A suitable version of pyarrow or fastparquet is required for parquet support.
+Trying to import the above resulted in these errors:
+ - Missing optional dependency 'pyarrow'. pyarrow is required for parquet support. Use pip or conda to install pyarrow.
+ - Missing optional dependency 'fastparquet'. fastparquet is required for parquet support. Use pip or conda to install fastparquet.
+2025-10-20 18:32:11,683 - ERROR - Failed to collect 1w data: Unable to find a usable engine; tried using: 'pyarrow', 'fastparquet'.
+A suitable version of pyarrow or fastparquet is required for parquet support.
+Trying to import the above resulted in these errors:
+ - Missing optional dependency 'pyarrow'. pyarrow is required for parquet support. Use pip or conda to install pyarrow.
+ - Missing optional dependency 'fastparquet'. fastparquet is required for parquet support. Use pip or conda to install fastparquet.
+2025-10-20 18:32:11,683 - INFO - Data collection completed:
+2025-10-20 18:32:11,683 - INFO -   Successful: 0 timeframes - []
+2025-10-20 18:32:11,683 - WARNING -   Failed: 3 timeframes - ['4h', '1d', '1w']
+2025-10-20 18:32:11,683 - INFO - Starting data collection for specific timeframes: ['1h', '4h']
+2025-10-20 18:32:11,683 - INFO - Starting collection for 1h
+2025-10-20 18:32:11,683 - WARNING - Timeframe 1h not in configured timeframes. Skipping.
+2025-10-20 18:32:11,683 - INFO - Starting collection for 4h
+2025-10-20 18:32:11,683 - INFO - Collecting 4h data from 2020-05-12T00:00:00Z to now
+2025-10-20 18:32:17,995 - INFO - No more data available
+2025-10-20 18:32:18,026 - INFO - Validating 4h data...
+2025-10-20 18:32:18,033 - INFO - Data validation completed for 4h
+2025-10-20 18:32:18,033 - INFO - Successfully collected 11925 records for 4h
+2025-10-20 18:32:18,034 - ERROR - Failed to save 4h data: Unable to find a usable engine; tried using: 'pyarrow', 'fastparquet'.
+A suitable version of pyarrow or fastparquet is required for parquet support.
+Trying to import the above resulted in these errors:
+ - Missing optional dependency 'pyarrow'. pyarrow is required for parquet support. Use pip or conda to install pyarrow.
+ - Missing optional dependency 'fastparquet'. fastparquet is required for parquet support. Use pip or conda to install fastparquet.
+2025-10-20 18:32:18,034 - ERROR - Failed to collect 4h data: Unable to find a usable engine; tried using: 'pyarrow', 'fastparquet'.
+A suitable version of pyarrow or fastparquet is required for parquet support.
+Trying to import the above resulted in these errors:
+ - Missing optional dependency 'pyarrow'. pyarrow is required for parquet support. Use pip or conda to install pyarrow.
+ - Missing optional dependency 'fastparquet'. fastparquet is required for parquet support. Use pip or conda to install fastparquet.
+2025-10-20 18:32:18,034 - INFO - Collection completed:
+2025-10-20 18:32:18,034 - INFO -   Successful: 0 timeframes - []
+2025-10-20 18:32:18,034 - WARNING -   Failed: 2 timeframes - ['1h', '4h']
+2025-10-20 18:32:18,034 - INFO - Starting data collection for specific timeframes: ['1d']
+2025-10-20 18:32:18,034 - INFO - Starting collection for 1d
+2025-10-20 18:32:18,034 - INFO - Collecting 1d data from 2020-05-12T00:00:00Z to now
+2025-10-20 18:32:19,503 - INFO - No more data available
+2025-10-20 18:32:19,505 - INFO - Validating 1d data...
+2025-10-20 18:32:19,507 - INFO - Data validation completed for 1d
+2025-10-20 18:32:19,507 - INFO - Successfully collected 1988 records for 1d
+2025-10-20 18:32:19,508 - ERROR - Failed to save 1d data: Unable to find a usable engine; tried using: 'pyarrow', 'fastparquet'.
+A suitable version of pyarrow or fastparquet is required for parquet support.
+Trying to import the above resulted in these errors:
+ - Missing optional dependency 'pyarrow'. pyarrow is required for parquet support. Use pip or conda to install pyarrow.
+ - Missing optional dependency 'fastparquet'. fastparquet is required for parquet support. Use pip or conda to install fastparquet.
+2025-10-20 18:32:19,508 - ERROR - Failed to collect 1d data: Unable to find a usable engine; tried using: 'pyarrow', 'fastparquet'.
+A suitable version of pyarrow or fastparquet is required for parquet support.
+Trying to import the above resulted in these errors:
+ - Missing optional dependency 'pyarrow'. pyarrow is required for parquet support. Use pip or conda to install pyarrow.
+ - Missing optional dependency 'fastparquet'. fastparquet is required for parquet support. Use pip or conda to install fastparquet.
+2025-10-20 18:32:19,508 - INFO - Collection completed:
+2025-10-20 18:32:19,508 - INFO -   Successful: 0 timeframes - []
+2025-10-20 18:32:19,508 - WARNING -   Failed: 1 timeframes - ['1d']

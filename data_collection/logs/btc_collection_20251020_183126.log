@@ -1,0 +1,6 @@
+2025-10-20 18:31:29,069 - INFO - Successfully connected to binance
+2025-10-20 18:31:29,069 - INFO - Collecting 1d data from 2024-01-01T00:00:00Z to 2024-01-02T00:00:00Z
+2025-10-20 18:31:29,134 - INFO - Reached end date
+2025-10-20 18:31:29,140 - INFO - Validating 1d data...
+2025-10-20 18:31:29,145 - INFO - Data validation completed for 1d
+2025-10-20 18:31:29,145 - INFO - Successfully collected 659 records for 1d

@@ -143,8 +143,8 @@
 
 #### Tasks:
 - [ ] **4.1** Local development environment (Mac M1 Pro):
-  - Set up Python virtual environment
-  - Install required packages (ccxt, pandas, scikit-learn, xgboost, etc.)
+  - Set up conda environment "csml" with Python 3.8
+  - Install required packages from shared `requirements.txt`
   - Configure Jupyter notebook environment
   - Set up project structure with proper imports
 - [ ] **4.2** Git repository management:
