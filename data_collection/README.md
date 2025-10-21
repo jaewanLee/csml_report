@@ -43,7 +43,7 @@ data_collection/
 - **H4**: 2020-03-01 to 2025-10-19 (keep current for buffer)
 - **D1**: 2020-01-08 to 2025-10-19 (2020-05-12 - 125 days for 120 MA)
 - **W1**: 2019-02-11 to 2025-10-19 (2020-05-12 - 65 weeks for 60 MA)
-- **M1**: 2018-04-12 to 2025-10-19 (2020-05-12 - 25 months for 20 MA)
+- **M1**: 2018-03-12 to 2025-10-19 (2020-05-12 - 26 months for lagging span)
 - **Training Data**: 2020-05-12 to 2024-04-20
 - **Test Data**: 2024-04-20 to 2025-10-19
 

@@ -15,11 +15,11 @@
   "price_statistics": {
     "min_price": 3782.13,
     "max_price": 126199.63,
-    "mean_price": 45653.07276253548
+    "mean_price": 45653.042423131505
   },
   "volume_statistics": {
     "min_volume": 3282.17352,
     "max_volume": 760705.362783,
-    "mean_volume": 75747.50836954778
+    "mean_volume": 75747.61555591959
   }
 }

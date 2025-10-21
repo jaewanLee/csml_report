@@ -1,0 +1,90 @@
+2025-10-21 17:05:10,822 - INFO - Successfully connected to binance
+2025-10-21 17:05:11,350 - INFO - Exchange health check passed
+2025-10-21 17:05:11,351 - INFO - Starting data collection for all timeframes with timeframe-specific dates
+2025-10-21 17:05:11,351 - INFO - Starting collection for 4h from 2020-03-01T00:00:00Z to 2025-10-19T23:59:59Z
+2025-10-21 17:05:11,353 - INFO - Collecting 4h data from 2020-03-01T00:00:00Z to 2025-10-19T23:59:59Z
+2025-10-21 17:05:17,669 - INFO - Reached end date
+2025-10-21 17:05:17,693 - INFO - Validating 4h data...
+2025-10-21 17:05:17,718 - INFO - Data validation completed for 4h
+2025-10-21 17:05:17,718 - INFO - Successfully collected 12363 records for 4h
+2025-10-21 17:05:17,761 - INFO - Saved 4h data to /Users/al02260279/Documents/private/btc_prediction/data_collection/data/btc_4h_20251021.parquet
+2025-10-21 17:05:17,764 - INFO - Quality report saved for 4h
+2025-10-21 17:05:17,764 - INFO - Successfully completed 4h
+2025-10-21 17:05:17,764 - INFO - Starting collection for 1d from 2020-01-08T00:00:00Z to 2025-10-19T23:59:59Z
+2025-10-21 17:05:17,764 - INFO - Collecting 1d data from 2020-01-08T00:00:00Z to 2025-10-19T23:59:59Z
+2025-10-21 17:05:19,113 - INFO - Reached end date
+2025-10-21 17:05:19,115 - INFO - Validating 1d data...
+2025-10-21 17:05:19,116 - INFO - Data validation completed for 1d
+2025-10-21 17:05:19,117 - INFO - Successfully collected 2114 records for 1d
+2025-10-21 17:05:19,120 - INFO - Saved 1d data to /Users/al02260279/Documents/private/btc_prediction/data_collection/data/btc_1d_20251021.parquet
+2025-10-21 17:05:19,122 - INFO - Quality report saved for 1d
+2025-10-21 17:05:19,122 - INFO - Successfully completed 1d
+2025-10-21 17:05:19,122 - INFO - Starting collection for 1w from 2019-02-11T00:00:00Z to 2025-10-19T23:59:59Z
+2025-10-21 17:05:19,122 - INFO - Collecting 1w data from 2019-02-11T00:00:00Z to 2025-10-19T23:59:59Z
+2025-10-21 17:05:19,603 - INFO - Reached end date
+2025-10-21 17:05:19,604 - INFO - Validating 1w data...
+2025-10-21 17:05:19,606 - WARNING - Found 1 extreme price changes in low for 1w
+2025-10-21 17:05:19,607 - INFO - Data validation completed for 1w
+2025-10-21 17:05:19,607 - INFO - Successfully collected 350 records for 1w
+2025-10-21 17:05:19,609 - INFO - Saved 1w data to /Users/al02260279/Documents/private/btc_prediction/data_collection/data/btc_1w_20251021.parquet
+2025-10-21 17:05:19,611 - INFO - Quality report saved for 1w
+2025-10-21 17:05:19,611 - INFO - Successfully completed 1w
+2025-10-21 17:05:19,611 - INFO - Starting collection for 1M from 2018-03-12T00:00:00Z to 2025-10-19T23:59:59Z
+2025-10-21 17:05:19,611 - INFO - Collecting 1M data from 2018-03-12T00:00:00Z to 2025-10-19T23:59:59Z
+2025-10-21 17:05:20,565 - INFO - No more data available
+2025-10-21 17:05:20,566 - INFO - Validating 1M data...
+2025-10-21 17:05:20,566 - WARNING - Found 1 extreme price changes in open for 1M
+2025-10-21 17:05:20,567 - WARNING - Found 2 extreme price changes in high for 1M
+2025-10-21 17:05:20,567 - WARNING - Found 3 extreme price changes in low for 1M
+2025-10-21 17:05:20,568 - WARNING - Found 1 extreme price changes in close for 1M
+2025-10-21 17:05:20,569 - INFO - Data validation completed for 1M
+2025-10-21 17:05:20,569 - INFO - Successfully collected 91 records for 1M
+2025-10-21 17:05:20,571 - INFO - Saved 1M data to /Users/al02260279/Documents/private/btc_prediction/data_collection/data/btc_1M_20251021.parquet
+2025-10-21 17:05:20,573 - INFO - Quality report saved for 1M
+2025-10-21 17:05:20,573 - INFO - Successfully completed 1M
+2025-10-21 17:05:20,573 - INFO - Data collection completed:
+2025-10-21 17:05:20,573 - INFO -   Successful: 4 timeframes - ['4h', '1d', '1w', '1M']
+2025-10-21 17:05:20,628 - INFO - Starting data collection for all timeframes with timeframe-specific dates
+2025-10-21 17:05:20,628 - INFO - Starting collection for 4h from 2020-03-01T00:00:00Z to 2025-10-19T23:59:59Z
+2025-10-21 17:05:20,628 - INFO - Collecting 4h data from 2020-03-01T00:00:00Z to 2025-10-19T23:59:59Z
+2025-10-21 17:05:26,873 - INFO - Reached end date
+2025-10-21 17:05:26,884 - INFO - Validating 4h data...
+2025-10-21 17:05:26,888 - INFO - Data validation completed for 4h
+2025-10-21 17:05:26,888 - INFO - Successfully collected 12363 records for 4h
+2025-10-21 17:05:26,898 - INFO - Saved 4h data to /Users/al02260279/Documents/private/btc_prediction/data_collection/data/btc_4h_20251021.parquet
+2025-10-21 17:05:26,900 - INFO - Quality report saved for 4h
+2025-10-21 17:05:26,900 - INFO - Successfully completed 4h
+2025-10-21 17:05:26,900 - INFO - Starting collection for 1d from 2020-01-08T00:00:00Z to 2025-10-19T23:59:59Z
+2025-10-21 17:05:26,900 - INFO - Collecting 1d data from 2020-01-08T00:00:00Z to 2025-10-19T23:59:59Z
+2025-10-21 17:05:28,325 - INFO - Reached end date
+2025-10-21 17:05:28,329 - INFO - Validating 1d data...
+2025-10-21 17:05:28,334 - INFO - Data validation completed for 1d
+2025-10-21 17:05:28,334 - INFO - Successfully collected 2114 records for 1d
+2025-10-21 17:05:28,341 - INFO - Saved 1d data to /Users/al02260279/Documents/private/btc_prediction/data_collection/data/btc_1d_20251021.parquet
+2025-10-21 17:05:28,343 - INFO - Quality report saved for 1d
+2025-10-21 17:05:28,343 - INFO - Successfully completed 1d
+2025-10-21 17:05:28,344 - INFO - Starting collection for 1w from 2019-02-11T00:00:00Z to 2025-10-19T23:59:59Z
+2025-10-21 17:05:28,344 - INFO - Collecting 1w data from 2019-02-11T00:00:00Z to 2025-10-19T23:59:59Z
+2025-10-21 17:05:28,816 - INFO - Reached end date
+2025-10-21 17:05:28,819 - INFO - Validating 1w data...
+2025-10-21 17:05:28,820 - WARNING - Found 1 extreme price changes in low for 1w
+2025-10-21 17:05:28,822 - INFO - Data validation completed for 1w
+2025-10-21 17:05:28,823 - INFO - Successfully collected 350 records for 1w
+2025-10-21 17:05:28,826 - INFO - Saved 1w data to /Users/al02260279/Documents/private/btc_prediction/data_collection/data/btc_1w_20251021.parquet
+2025-10-21 17:05:28,828 - INFO - Quality report saved for 1w
+2025-10-21 17:05:28,828 - INFO - Successfully completed 1w
+2025-10-21 17:05:28,828 - INFO - Starting collection for 1M from 2018-03-12T00:00:00Z to 2025-10-19T23:59:59Z
+2025-10-21 17:05:28,828 - INFO - Collecting 1M data from 2018-03-12T00:00:00Z to 2025-10-19T23:59:59Z
+2025-10-21 17:05:29,778 - INFO - No more data available
+2025-10-21 17:05:29,782 - INFO - Validating 1M data...
+2025-10-21 17:05:29,784 - WARNING - Found 1 extreme price changes in open for 1M
+2025-10-21 17:05:29,784 - WARNING - Found 2 extreme price changes in high for 1M
+2025-10-21 17:05:29,785 - WARNING - Found 3 extreme price changes in low for 1M
+2025-10-21 17:05:29,786 - WARNING - Found 1 extreme price changes in close for 1M
+2025-10-21 17:05:29,788 - INFO - Data validation completed for 1M
+2025-10-21 17:05:29,788 - INFO - Successfully collected 91 records for 1M
+2025-10-21 17:05:29,792 - INFO - Saved 1M data to /Users/al02260279/Documents/private/btc_prediction/data_collection/data/btc_1M_20251021.parquet
+2025-10-21 17:05:29,794 - INFO - Quality report saved for 1M
+2025-10-21 17:05:29,794 - INFO - Successfully completed 1M
+2025-10-21 17:05:29,794 - INFO - Data collection completed:
+2025-10-21 17:05:29,794 - INFO -   Successful: 4 timeframes - ['4h', '1d', '1w', '1M']

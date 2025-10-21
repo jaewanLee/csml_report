@@ -39,7 +39,8 @@ COLLECTION_CONFIG = {
             'end_date': '2025-10-19T23:59:59Z'
         },
         '1M': {
-            'start_date': '2018-04-12T00:00:00Z',  # 2020-05-12 - 25 months
+            'start_date':
+            '2018-03-12T00:00:00Z',  # 2020-05-12 - 26 months (for lagging span)
             'end_date': '2025-10-19T23:59:59Z'
         }
     },
