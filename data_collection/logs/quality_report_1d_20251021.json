@@ -1,9 +1,9 @@
 {
   "timeframe": "1d",
-  "total_records": 1988,
+  "total_records": 2061,
   "date_range": {
-    "start": "2020-05-12T00:00:00",
-    "end": "2025-10-20T00:00:00"
+    "start": "2020-03-01T00:00:00",
+    "end": "2025-10-21T00:00:00"
   },
   "missing_values": {
     "open": 0,
@@ -13,13 +13,13 @@
     "volume": 0
   },
   "price_statistics": {
-    "min_price": 8528.78,
+    "min_price": 3782.13,
     "max_price": 126199.63,
-    "mean_price": 47980.904532193155
+    "mean_price": 46591.5208212033
   },
   "volume_statistics": {
-    "min_volume": 3282.17352,
+    "min_volume": 1729.33018,
     "max_volume": 760705.362783,
-    "mean_volume": 75269.34867805734
+    "mean_volume": 76251.81827564968
   }
 }

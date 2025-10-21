@@ -25,7 +25,7 @@ COLLECTION_CONFIG = {
     'symbol': 'BTC/USDT',
     'timeframes': ['4h', '1d', '1w', '1M'],
     'start_date': '2020-03-01T00:00:00Z',
-    'end_date': None,  # Current date
+    'end_date': '2025-10-19T23:59:59Z',  # Fixed end date for reproducibility
     'batch_size': 1000,  # Records per API call
     'retry_attempts': 3,
     'retry_delay': 1,  # seconds

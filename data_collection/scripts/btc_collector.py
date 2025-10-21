@@ -315,9 +315,15 @@ class BTCDataCollector:
         # Check data continuity (gaps in time series)
         if len(df) > 1:
             time_diff = df.index.to_series().diff().dropna()
-            expected_interval = pd.Timedelta(
-                timeframe.replace("m", "min").replace("h",
-                                                      "h").replace("d", "D"))
+            # Handle different timeframe formats for pandas Timedelta
+            if timeframe == '1M':
+                expected_interval = pd.Timedelta(
+                    days=30)  # Approximate monthly interval
+            else:
+                expected_interval = pd.Timedelta(
+                    timeframe.replace("m",
+                                      "min").replace("h",
+                                                     "h").replace("d", "D"))
             gaps = (time_diff > expected_interval * 1.5).sum()
             if gaps > 0:
                 self.logger.warning(

@@ -11,7 +11,7 @@ This module handles the collection of BTC historical data using ccxt library as 
 - [ ] **1.1** Set up ccxt library and configure exchange connections
 - [ ] **1.2** Create data collection folder structure (`data_collection/`)
 - [ ] **1.3** Collect OHLCV data for multiple timeframes (H4, D1, W1, M1)
-- [ ] **1.4** Data period: 2020-03-01 to 2025-10-19 (full collection) with training: 2020-05-12 to 2024-04-20, test: 2024-04-20 to 2025-10-19
+- [ ] **1.4** Data period: 2020-03-01 to 2025-10-19 (fixed end date for reproducibility) with training: 2020-05-12 to 2024-04-20, test: 2024-04-20 to 2025-10-19
 - [ ] **1.5** Implement data validation and quality checks
 - [ ] **1.6** Store data in Parquet format (better compression and performance)
 - [ ] **1.7** Create data collection pipeline with error handling and logging
@@ -40,7 +40,7 @@ data_collection/
 - **M1 (Monthly)**: Longest timeframe for major trend analysis
 
 ### **Data Periods**
-- **Full Collection**: 2020-03-01 to 2025-10-19 (includes buffer for M1 lag features)
+- **Full Collection**: 2020-03-01 to 2025-10-19 (fixed end date for reproducibility)
 - **Training Data**: 2020-05-12 to 2024-04-20
 - **Test Data**: 2024-04-20 to 2025-10-19
 - **Buffer Period**: 2020-03-01 to 2020-05-11 (for M1 lag features t-1, t-2)
@@ -70,7 +70,7 @@ data_collection/
 - **Next:** Test and validate collection process
 
 ### **Task 1.4: Data Periods**
-- **Full Collection:** 2020-03-01 to 2025-10-19 (includes M1 lag buffer)
+- **Full Collection:** 2020-03-01 to 2025-10-19 (fixed end date for reproducibility)
 - **Training:** 2020-05-12 to 2024-04-20
 - **Test:** 2024-04-20 to 2025-10-19
 - **Buffer:** 2020-03-01 to 2020-05-11 (for M1 lags t-1, t-2)

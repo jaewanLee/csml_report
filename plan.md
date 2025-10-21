@@ -21,7 +21,7 @@
 #### Tasks:
 - [ ] **1.1** Set up ccxt library and configure exchange connections
 - [ ] **1.2** Collect OHLCV data for multiple timeframes (H4, D1, W1, **M1**)
-- [ ] **1.3** Data period: 2020-03-01 to 2025-10-19 (full collection) with training: 2020-05-12 to 2024-04-20, test: 2024-04-20 to 2025-10-19
+- [ ] **1.3** Data period: 2020-03-01 to 2025-10-19 (fixed end date for reproducibility) with training: 2020-05-12 to 2024-04-20, test: 2024-04-20 to 2025-10-19
 - [ ] **1.4** Implement data validation and quality checks
 - [ ] **1.5** Store data in Parquet format (better compression and performance)
 - [ ] **1.6** Create data collection pipeline with error handling and logging
