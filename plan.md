@@ -19,17 +19,17 @@
 **Objective:** Collect comprehensive BTC historical data for all timeframes
 
 #### Tasks:
-- [ ] **1.1** Set up ccxt library and configure exchange connections
-- [ ] **1.2** Collect OHLCV data for multiple timeframes (H4, D1, W1, **M1**)
-- [ ] **1.3** Data period: 2020-03-01 to 2025-10-19 (fixed end date for reproducibility) with training: 2020-05-12 to 2024-04-20, test: 2024-04-20 to 2025-10-19
-- [ ] **1.4** Implement data validation and quality checks
-- [ ] **1.5** Store data in Parquet format (better compression and performance)
-- [ ] **1.6** Create data collection pipeline with error handling and logging
+- [x] **1.1** Set up ccxt library and configure exchange connections
+- [x] **1.2** Collect OHLCV data for multiple timeframes (H4, D1, W1, **M1**)
+- [x] **1.3** Data period: 2020-03-01 to 2025-10-19 (fixed end date for reproducibility) with training: 2020-05-12 to 2024-04-20, test: 2024-04-20 to 2025-10-19
+- [x] **1.4** Implement data validation and quality checks
+- [x] **1.5** Store data in Parquet format (better compression and performance)
+- [x] **1.6** Create data collection pipeline with error handling and logging
 
 #### Deliverables:
-- Raw BTC OHLCV datasets for all timeframes (Parquet format)
-- Data quality report
-- Modular data collection pipeline script
+- [x] Raw BTC OHLCV datasets for all timeframes (Parquet format)
+- [x] Data quality report
+- [x] Modular data collection pipeline script
 
 ---
 
@@ -38,14 +38,19 @@
 **Objective:** Create systematic Ablation Study feature sets to answer research questions
 
 #### Tasks:
-- [ ] **2.1** Data exploration and threshold analysis:
-  - Analyze actual data to determine optimal threshold (-15% vs -10%)
-  - Count Sell labels for different thresholds
-  - Validate data quality and completeness
+- [x] **2.1** Data exploration and threshold analysis:
+  - ✅ Analyzed actual 4H data to determine optimal threshold
+  - ✅ Counted Sell labels for different thresholds (-10%, -15%, -20%)
+  - ✅ **DECISION: Selected -15% threshold** (see results.md for detailed analysis)
+  - ✅ Validated data quality and completeness
 - [ ] **2.2** Calculate technical indicators for ALL timeframes (H4, D1, W1, M1):
   - RSI (14-period) - based on CLOSE prices
   - MACD (12,26,9) - based on CLOSE prices
-  - Moving Averages (7,14,20,60,120) - based on CLOSE prices
+  - **Moving Averages (timeframe-specific):**
+    - **H4:** (7,14,20,60,120) - all periods available
+    - **D1:** (7,14,20,60,120) - all periods available  
+    - **W1:** (7,14,20,60) - 120 MA requires 2.3 years of data
+    - **M1:** (7,14,20) - 60/120 MA require 5-10 years of data
   - Ichimoku Cloud components - based on CLOSE prices
   - OHLCV derivatives - all calculations use CLOSE prices
 - [ ] **2.3** Create Ablation Study feature sets (RQ1 - MTF contribution):
@@ -77,7 +82,8 @@
   - Proper temporal alignment for multi-timeframe features
 - [ ] **2.8** Data split:
   - Train/Validation: 2020-05-12 to 2024-04-20 (split using TimeSeriesSplit)
-  - Final Test: 2024-04-20 to 2025-10-19 (never use during training)
+  - Final Test: 2024-04-20 to 2025-09-19 (30-day buffer for label creation)
+  - Label Buffer: 2025-09-20 to 2025-10-19 (for final test labels)
   - Buffer Period: 2020-03-01 to 2020-05-11 (for M1 lag features t-1, t-2)
   - Ensure temporal order: past → future prediction
   - No shuffle: maintain time series data order
@@ -87,6 +93,7 @@
 - Target variable file: y.parquet
 - Data exploration report with threshold analysis
 - Feature importance analysis
+
 
 ---
 

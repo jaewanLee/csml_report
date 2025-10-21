@@ -358,23 +358,28 @@ class BTCDataCollector:
 
     def collect_all_timeframes(self):
         """
-        Collect data for all configured timeframes with improved error handling
+        Collect data for all configured timeframes with timeframe-specific date ranges
         """
-        self.logger.info("Starting data collection for all timeframes")
+        self.logger.info("Starting data collection for all timeframes with timeframe-specific dates")
 
         successful_timeframes = []
         failed_timeframes = []
 
         for timeframe in COLLECTION_CONFIG["timeframes"]:
             try:
-                self.logger.info(f"Starting collection for {timeframe}")
+                # Get timeframe-specific date range
+                timeframe_dates = COLLECTION_CONFIG["timeframe_dates"][timeframe]
+                start_date = timeframe_dates["start_date"]
+                end_date = timeframe_dates["end_date"]
+                
+                self.logger.info(f"Starting collection for {timeframe} from {start_date} to {end_date}")
 
                 # Use retry logic for data collection
                 df = self._retry_with_backoff(
                     lambda: self.collect_timeframe_data(
                         timeframe=timeframe,
-                        start_date=COLLECTION_CONFIG["start_date"],
-                        end_date=COLLECTION_CONFIG["end_date"],
+                        start_date=start_date,
+                        end_date=end_date,
                     ),
                     max_retries=3,
                     base_delay=2.0,

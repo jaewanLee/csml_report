@@ -8,19 +8,19 @@ This module handles the collection of BTC historical data using ccxt library as 
 **Duration:** 1-2 days
 
 #### **Tasks to Complete:**
-- [ ] **1.1** Set up ccxt library and configure exchange connections
-- [ ] **1.2** Create data collection folder structure (`data_collection/`)
-- [ ] **1.3** Collect OHLCV data for multiple timeframes (H4, D1, W1, M1)
-- [ ] **1.4** Data period: 2020-03-01 to 2025-10-19 (fixed end date for reproducibility) with training: 2020-05-12 to 2024-04-20, test: 2024-04-20 to 2025-10-19
-- [ ] **1.5** Implement data validation and quality checks
-- [ ] **1.6** Store data in Parquet format (better compression and performance)
-- [ ] **1.7** Create data collection pipeline with error handling and logging
+- [x] **1.1** Set up ccxt library and configure exchange connections
+- [x] **1.2** Create data collection folder structure (`data_collection/`)
+- [x] **1.3** Collect OHLCV data for multiple timeframes (H4, D1, W1, M1)
+- [x] **1.4** Data period: 2020-03-01 to 2025-10-19 (fixed end date for reproducibility) with training: 2020-05-12 to 2024-04-20, test: 2024-04-20 to 2025-10-19
+- [x] **1.5** Implement data validation and quality checks
+- [x] **1.6** Store data in Parquet format (better compression and performance)
+- [x] **1.7** Create data collection pipeline with error handling and logging
 
 #### **Deliverables:**
-- [ ] Raw BTC OHLCV datasets for all timeframes (Parquet format)
-- [ ] Data quality report
-- [ ] Modular data collection pipeline script
-- [ ] Configuration files for exchange settings
+- [x] Raw BTC OHLCV datasets for all timeframes (Parquet format)
+- [x] Data quality report
+- [x] Modular data collection pipeline script
+- [x] Configuration files for exchange settings
 
 ## 📁 Folder Structure
 ```
@@ -39,11 +39,13 @@ data_collection/
 - **W1 (Weekly)**: Long-term trend identification
 - **M1 (Monthly)**: Longest timeframe for major trend analysis
 
-### **Data Periods**
-- **Full Collection**: 2020-03-01 to 2025-10-19 (fixed end date for reproducibility)
+### **Data Periods (Timeframe-Specific)**
+- **H4**: 2020-03-01 to 2025-10-19 (keep current for buffer)
+- **D1**: 2020-01-08 to 2025-10-19 (2020-05-12 - 125 days for 120 MA)
+- **W1**: 2019-02-11 to 2025-10-19 (2020-05-12 - 65 weeks for 60 MA)
+- **M1**: 2018-04-12 to 2025-10-19 (2020-05-12 - 25 months for 20 MA)
 - **Training Data**: 2020-05-12 to 2024-04-20
 - **Test Data**: 2024-04-20 to 2025-10-19
-- **Buffer Period**: 2020-03-01 to 2020-05-11 (for M1 lag features t-1, t-2)
 
 ### **Storage Format**
 - **Parquet files** for better compression and performance
@@ -72,7 +74,8 @@ data_collection/
 ### **Task 1.4: Data Periods**
 - **Full Collection:** 2020-03-01 to 2025-10-19 (fixed end date for reproducibility)
 - **Training:** 2020-05-12 to 2024-04-20
-- **Test:** 2024-04-20 to 2025-10-19
+- **Test:** 2024-04-20 to 2025-09-19 (30-day buffer for label creation)
+- **Label Buffer:** 2025-09-20 to 2025-10-19 (for final test labels)
 - **Buffer:** 2020-03-01 to 2020-05-11 (for M1 lags t-1, t-2)
 - **Status:** 🔄 Ready for execution
 
@@ -120,7 +123,14 @@ collector.collect_timeframe('1d', '2020-05-12', '2024-04-20')
 ```
 
 ## 📈 Progress Tracking
-- **Completed:** 2/7 tasks (28.6%)
-- **In Progress:** 1/7 tasks (14.3%)
-- **Pending:** 4/7 tasks (57.1%)
-- **Next Steps:** Execute data collection and validate results
+- **Completed:** 7/7 tasks (100%) ✅
+- **In Progress:** 0/7 tasks (0%)
+- **Pending:** 0/7 tasks (0%)
+- **Status:** Step 1 Data Collection COMPLETED
+- **Next Steps:** Proceed to Step 2 Feature Engineering
+
+## 🎯 Threshold Analysis Results (Step 2.1)
+
+**Status**: ✅ COMPLETED - See [results.md](../results.md) for detailed analysis and methodology
+
+**Key Decision**: Selected -15% threshold for balanced class distribution and meaningful signals

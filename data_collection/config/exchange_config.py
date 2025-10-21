@@ -20,12 +20,29 @@ EXCHANGE_CONFIG = {
     }
 }
 
-# Data collection settings
+# Data collection settings - TIMEFRAME-SPECIFIC DATE RANGES
 COLLECTION_CONFIG = {
     'symbol': 'BTC/USDT',
     'timeframes': ['4h', '1d', '1w', '1M'],
-    'start_date': '2020-03-01T00:00:00Z',
-    'end_date': '2025-10-19T23:59:59Z',  # Fixed end date for reproducibility
+    # Timeframe-specific date ranges for efficient data collection
+    'timeframe_dates': {
+        '4h': {
+            'start_date': '2020-03-01T00:00:00Z',  # Keep current for buffer
+            'end_date': '2025-10-19T23:59:59Z'
+        },
+        '1d': {
+            'start_date': '2020-01-08T00:00:00Z',  # 2020-05-12 - 125 days
+            'end_date': '2025-10-19T23:59:59Z'
+        },
+        '1w': {
+            'start_date': '2019-02-11T00:00:00Z',  # 2020-05-12 - 65 weeks
+            'end_date': '2025-10-19T23:59:59Z'
+        },
+        '1M': {
+            'start_date': '2018-04-12T00:00:00Z',  # 2020-05-12 - 25 months
+            'end_date': '2025-10-19T23:59:59Z'
+        }
+    },
     'batch_size': 1000,  # Records per API call
     'retry_attempts': 3,
     'retry_delay': 1,  # seconds

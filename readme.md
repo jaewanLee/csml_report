@@ -25,6 +25,21 @@ This project conducts a **systematic Ablation Study** to identify optimal Multi-
 - **Time Series Aware:** Proper handling of temporal data with no data leakage
 - **Feature Pruning:** XGBoost-based importance selection for A4_Pruned
 - **Research Focus:** Data-driven answers to specific research questions
+- **Realistic Indicators:** Timeframe-specific MA periods based on available historical data
+
+## 📊 Technical Indicators Strategy
+
+**Moving Averages (timeframe-specific):**
+- **H4:** (7,14,20,60,120) - all periods available
+- **D1:** (7,14,20,60,120) - all periods available  
+- **W1:** (7,14,20,60) - 120 MA requires 2.3 years of data
+- **M1:** (7,14,20) - 60/120 MA require 5-10 years of data
+
+**Other Indicators (all timeframes):**
+- RSI (14-period) - based on CLOSE prices
+- MACD (12,26,9) - based on CLOSE prices
+- Ichimoku Cloud components - based on CLOSE prices
+- OHLCV derivatives - all calculations use CLOSE prices
 
 ## 📁 Project Structure
 
@@ -84,7 +99,7 @@ btc_prediction/
 
 ## 🔬 Ablation Study Workflow
 
-1. **Data Collection (Step 1):** Collect H4, D1, W1, M1 timeframes (2020-03-01 to 2025-10-19)
+1. **Data Collection (Step 1):** ✅ COMPLETED - Collected H4, D1, W1, M1 timeframes (2020-03-01 to 2025-10-19)
 2. **Feature Engineering (Step 2):** Create 5 feature sets (A0→A4)
 3. **Environment Setup (Step 3):** Build modular codebase
 4. **Experiment Loop (Step 4):** Run A0→A1→A2→A3→A4_Pruned sequentially
@@ -135,7 +150,22 @@ python evaluation/04_evaluate_results.py
 
 ## 📈 Results
 
-*Results will be documented here after model training and evaluation.*
+### Step 1: Data Collection ✅ COMPLETED
+- **H4 (4h)**: 12,361 records collected
+- **D1 (1d)**: 2,061 records collected  
+- **W1 (1w)**: 295 records collected
+- **M1 (1M)**: 68 records collected
+- **Total**: 14,785 records across all timeframes
+- **Period**: 2020-03-01 to 2025-10-19 (fixed end date for reproducibility)
+- **Format**: Parquet files with data validation and quality reports
+
+### Step 2: Feature Engineering & Threshold Analysis ✅ COMPLETED
+- **Threshold Analysis**: Tested -10%, -15%, -20% thresholds on 4H training data
+- **Decision**: Selected -15% threshold for balanced class distribution and meaningful signals
+- **Data Split**: Training (2020-05-12 to 2024-04-19), Test (2024-04-20 to 2025-09-19)
+- **Detailed Results**: See [results.md](results.md) for comprehensive analysis and methodology
+
+*Results for Steps 3-6 will be documented as they are completed.*
 
 ## 🎯 Conclusion
 
