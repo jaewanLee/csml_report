@@ -504,7 +504,7 @@ if __name__ == "__main__":
         exit(1)
 
     print("✅ Exchange health check passed")
-    print("📊 Collecting all timeframes (4h, 1d, 1w)...")
+    print("📊 Collecting all timeframes (4h, 1d, 1w, 1M)...")
     print("⏱️  Estimated time: 2-5 minutes")
     print()
 

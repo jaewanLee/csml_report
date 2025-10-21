@@ -23,8 +23,8 @@ EXCHANGE_CONFIG = {
 # Data collection settings
 COLLECTION_CONFIG = {
     'symbol': 'BTC/USDT',
-    'timeframes': ['4h', '1d', '1w'],
-    'start_date': '2020-05-12T00:00:00Z',
+    'timeframes': ['4h', '1d', '1w', '1M'],
+    'start_date': '2020-03-01T00:00:00Z',
     'end_date': None,  # Current date
     'batch_size': 1000,  # Records per API call
     'retry_attempts': 3,
@@ -39,4 +39,19 @@ VALIDATION_CONFIG = {
     ['timestamp', 'open', 'high', 'low', 'close', 'volume'],
     'duplicate_threshold':
     0.95,  # Similarity threshold for duplicate detection
+    # Timeframe-specific validation
+    'timeframe_validation': {
+        '4h': {
+            'min_records_per_day': 6
+        },
+        '1d': {
+            'min_records_per_day': 1
+        },
+        '1w': {
+            'min_records_per_day': 1
+        },
+        '1M': {
+            'min_records_per_day': 1
+        }  # Monthly data - at least 1 record per month
+    }
 }
