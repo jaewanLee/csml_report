@@ -31,7 +31,7 @@ COLLECTION_CONFIG = {
             'end_date': '2025-10-19T23:59:59Z'
         },
         '1d': {
-            'start_date': '2020-01-08T00:00:00Z',  # 2020-05-12 - 125 days
+            'start_date': '2019-12-08T00:00:00Z',  # 2020-05-12 - 125 days
             'end_date': '2025-10-19T23:59:59Z'
         },
         '1w': {
@@ -40,7 +40,7 @@ COLLECTION_CONFIG = {
         },
         '1M': {
             'start_date':
-            '2018-03-12T00:00:00Z',  # 2020-05-12 - 26 months (for lagging span)
+            '2017-12-01T00:00:00Z',  # 2020-05-12 - 26 months (for lagging span)
             'end_date': '2025-10-19T23:59:59Z'
         }
     },
