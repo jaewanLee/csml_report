@@ -43,56 +43,77 @@
   - ✅ Counted Sell labels for different thresholds (-10%, -15%, -20%)
   - ✅ **DECISION: Selected -15% threshold** (see results.md for detailed analysis)
   - ✅ Validated data quality and completeness
-- [ ] **2.2** Calculate technical indicators for ALL timeframes (H4, D1, W1, M1):
-  - RSI (14-period) - based on CLOSE prices
-  - MACD (12,26,9) - based on CLOSE prices
-  - **Moving Averages (timeframe-specific):**
-    - **H4:** (7,14,20,60,120) - all periods available
-    - **D1:** (7,14,20,60,120) - all periods available  
-    - **W1:** (7,14,20,60) - 120 MA requires 2.3 years of data
-    - **M1:** (7,14,20) - 60/120 MA require 5-10 years of data
-  - Ichimoku Cloud components - based on CLOSE prices
-  - OHLCV derivatives - all calculations use CLOSE prices
-- [ ] **2.3** Create Ablation Study feature sets (RQ1 - MTF contribution):
-  - **A0 (Baseline):** H4 indicators (current time t only)
-  - **A1 (MTF-1):** A0 + D1 indicators (current time t only)
-  - **A2 (MTF-2):** A1 + W1 indicators (current time t only)
-  - **A3 (MTF-3):** A2 + M1 indicators (current time t only)
-- [ ] **2.4** Create lag features (RQ2 - Historical contribution):
-  - H4 Lags: t-1 ~ t-6
-  - D1 Lags: t-1 ~ t-7
-  - W1 Lags: t-1 ~ t-4
-  - M1 Lags: t-1 ~ t-2
-- [ ] **2.5** Create A4 feature set:
-  - **A4 (Historical Lags):** A3 + all lag features from 2.4
-- [ ] **2.6** Target variable creation (Binary: Sell vs Rest):
-  - Threshold strategy: Start with -15%, adjust to -10% if insufficient labels
-  - Method: Current bar close price → scan 30-day window for first threshold breach
-  - Priority order: First detected threshold (chronological order)
-  - Price calculation: 
+- [x] **2.2** Calculate technical indicators for ALL timeframes (H4, D1, W1, M1):
+  - ✅ RSI (14-period) - based on CLOSE prices
+  - ✅ MACD (12,26,9) - based on CLOSE prices **MODIFICATION: Removed MACD from M1 data due to insufficient historical data**
+  - ✅ **Moving Averages (timeframe-specific):**
+    - ✅ **H4:** (7,14,20,60,120) - all periods available
+    - ✅ **D1:** (7,14,20,60,120) - all periods available  
+    - ✅ **W1:** (7,14,20,60) - 120 MA requires 2.3 years of data
+    - ✅ **M1:** (7,14,20) - 60/120 MA require 5-10 years of data **MODIFICATION: Removed 60,120 MA from M1**
+  - ✅ Ichimoku Cloud components - based on CLOSE prices **MODIFICATION: Removed leading_span_A, leading_span_B from M1**
+  - ✅ OHLCV derivatives - all calculations use CLOSE prices
+- [x] **2.3** Create Ablation Study feature sets (RQ1 - MTF contribution):
+  - ✅ **A0 (Baseline):** H4 indicators (current time t only) - 19 features
+  - ✅ **A1 (MTF-1):** A0 + D1 indicators (current time t only) - 38 features
+  - ✅ **A2 (MTF-2):** A1 + W1 indicators (current time t only) - 56 features
+  - ✅ **A3 (MTF-3):** A2 + M1 indicators (current time t only) - 67 features **MODIFICATION: Reduced from 68 to 67 due to M1 MACD removal**
+- [x] **2.4** Create lag features (RQ2 - Historical contribution):
+  - ✅ H4 Lags: t-1 ~ t-6 (114 features)
+  - ✅ D1 Lags: t-1 ~ t-7 (133 features)
+  - ✅ W1 Lags: t-1 ~ t-4 (72 features)
+  - ✅ M1 Lags: t-1 ~ t-2 (24 features) **MODIFICATION: Reduced from 28 to 24 due to M1 MACD removal**
+- [x] **2.5** Create A4 feature set:
+  - ✅ **A4 (Historical Lags):** A3 + all lag features from 2.4 - 416 features **MODIFICATION: Reduced from 420 to 416 due to M1 MACD removal**
+- [x] **2.6** Target variable creation (Binary: Sell vs Rest):
+  - ✅ Threshold strategy: -15% vs +5% thresholds
+  - ✅ Method: Current bar close price → scan 30-day window for first threshold breach
+  - ✅ Priority order: First detected threshold (chronological order) **MODIFICATION: Fixed logic bug using direct assignment approach**
+  - ✅ Price calculation: 
     - SELL: (lowest_low - current_close) / current_close ≤ -15%
     - BUY: (highest_high - current_close) / current_close ≥ +5%
     - First detected threshold determines label (chronological order)
-  - Example: Day 10: +5% detected → BUY, Day 20: -15% detected → Still BUY (first seen)
-  - Example: Day 10: -15% detected → SELL, Day 20: +5% detected → Still SELL (first seen)
-  - Handle class imbalance with class weights
-- [ ] **2.7** Data leakage prevention:
-  - Use completed candles only (e.g., 2020-01-01 00:00-04:00 candle available at 04:01)
-  - No future data usage in feature engineering
-  - Proper temporal alignment for multi-timeframe features
-- [ ] **2.8** Data split:
-  - Train/Validation: 2020-05-12 to 2024-04-20 (split using TimeSeriesSplit)
-  - Final Test: 2024-04-20 to 2025-09-19 (30-day buffer for label creation)
-  - Label Buffer: 2025-09-20 to 2025-10-19 (for final test labels)
-  - Buffer Period: 2020-03-01 to 2020-05-11 (for M1 lag features t-1, t-2)
-  - Ensure temporal order: past → future prediction
-  - No shuffle: maintain time series data order
+  - ✅ **Results: 11,737 records, 2,691 SELL (22.9%), 9,046 REST (77.1%)**
+  - ✅ Handle class imbalance with class weights
+- [x] **2.7** Data leakage prevention:
+  - ✅ Use completed candles only (e.g., 2020-01-01 00:00-04:00 candle available at 04:01)
+  - ✅ No future data usage in feature engineering
+  - ✅ Proper temporal alignment for multi-timeframe features
+- [x] **2.8** Data split:
+  - ✅ Train/Validation: 2020-05-12 to 2024-04-20 (split using TimeSeriesSplit)
+  - ✅ Final Test: 2024-04-20 to 2025-09-19 (30-day buffer for label creation)
+  - ✅ Label Buffer: 2025-09-20 to 2025-10-19 (for final test labels)
+  - ✅ Buffer Period: 2020-03-01 to 2020-05-11 (for M1 lag features t-1, t-2)
+  - ✅ Ensure temporal order: past → future prediction
+  - ✅ No shuffle: maintain time series data order
 
 #### Deliverables:
-- 5 separate feature files: A0.parquet, A1.parquet, A2.parquet, A3.parquet, A4.parquet
-- Target variable file: y.parquet
-- Data exploration report with threshold analysis
-- Feature importance analysis
+- ✅ 5 separate feature files: A0.parquet, A1.parquet, A2.parquet, A3.parquet, A4.parquet
+- ✅ Target variable file: y.parquet
+- ✅ Data exploration report with threshold analysis
+- ✅ Feature importance analysis
+
+#### **Key Modifications Made During Implementation:**
+
+1. **M1 Data Limitations:**
+   - **Issue:** M1 data insufficient for MACD calculation (needs 35 months, only had 28 months)
+   - **Solution:** Removed MACD indicators from M1 data to avoid missing values
+   - **Impact:** A3 reduced from 68 to 67 features, A4 reduced from 420 to 416 features
+
+2. **Target Variable Logic Bug:**
+   - **Issue:** Initial implementation used `idxmax()` which finds last occurrence, not first
+   - **Solution:** Implemented direct assignment approach with single loop for efficiency
+   - **Result:** Correct class distribution (22.9% SELL, 77.1% REST)
+
+3. **Temporal Alignment:**
+   - **Issue:** Complex monthly alignment for M1 data
+   - **Solution:** Enhanced alignment logic with timeframe-specific offsets
+   - **Result:** Proper temporal alignment without data leakage
+
+4. **Data Validation:**
+   - **Issue:** Missing values in M1 indicators due to insufficient historical data
+   - **Solution:** Removed problematic indicators and used full data for calculations
+   - **Result:** Clean feature sets with no missing values
 
 
 ---
@@ -103,22 +124,20 @@
 
 #### Tasks:
 - [ ] **3.1** Conda environment setup (Python 3.13, requirements.txt)
-- [ ] **3.2** Create modular codebase structure:
+- [ ] **3.2** Create modular codebase structure for ablation study experiments:
   ```
   btc_prediction/
   ├── config/
   │   ├── settings.py               # Data paths, constants
   │   └── model_params.py           # Hyperparameter grids
-  ├── data_processing/
-  │   ├── 01_data_collector.py      # Data collection wrapper
-  │   └── 02_feature_engineer.py  # Create A0-A4 feature sets
-  ├── training/
+  ├── training/                     # NEW: Ablation study experiment framework
   │   ├── 03_run_experiment.py      # Main experiment runner (takes exp_id)
   │   ├── train_l0.py               # L0 model training utilities
-  │   └── train_l1.py               # L1 meta-model training utilities
+  │   ├── train_l1.py               # L1 meta-model training utilities
+  │   └── feature_pruning.py        # A4 feature pruning utilities
   ├── evaluation/
   │   └── 04_evaluate_results.py    # Analyze experiment_results.csv
-  ├── models/
+  ├── models/                       # NEW: Model implementations
   │   ├── level0/
   │   │   ├── xgboost_model.py
   │   │   ├── random_forest_model.py
@@ -127,34 +146,48 @@
   │   │   └── meta_model.py
   │   └── ensemble/
   │       └── stacking_ensemble.py
-  ├── utils/
+  ├── utils/                        # NEW: Shared utilities
   │   ├── data_utils.py
   │   ├── cv_utils.py               # TimeSeriesSplit utilities
   │   └── evaluation_utils.py
-  ├── features/                     # Step 2 output: Feature sets
-  │   ├── A0.parquet
-  │   ├── A1.parquet
-  │   ├── A2.parquet
-  │   ├── A3.parquet
-  │   ├── A4.parquet
-  │   ├── A4_Pruned.parquet
-  │   └── y.parquet
-  ├── logs/                         # Training logs and artifacts
+  ├── features/                     # ✅ COMPLETED: Feature sets from Step 2
+  │   ├── A0.parquet               # ✅ 19 features (H4 only)
+  │   ├── A1.parquet               # ✅ 38 features (H4 + D1)
+  │   ├── A2.parquet               # ✅ 56 features (H4 + D1 + W1)
+  │   ├── A3.parquet               # ✅ 67 features (H4 + D1 + W1 + M1)
+  │   ├── A4.parquet               # ✅ 416 features (A3 + historical lags)
+  │   ├── A4_Pruned.parquet        # 🔄 TO CREATE: Pruned feature set
+  │   └── y.parquet                # ✅ 11,737 records (target variable)
+  ├── logs/                         # NEW: Training logs and artifacts
   │   ├── experiment_results.csv    # Main results table
   │   └── models/                   # Saved model artifacts
-  └── notebooks/                    # Jupyter notebooks for exploration
-      ├── 01_data_exploration.ipynb
-      ├── 02_feature_engineering.ipynb
-      └── 03_results_analysis.ipynb
+  └── notebooks/                    # ✅ COMPLETED: Data processing notebooks
+      ├── 01_data_exploration.ipynb # ✅ COMPLETED
+      ├── 02_feature_engineering.ipynb # ✅ COMPLETED
+      └── 03_results_analysis.ipynb # 🔄 TO CREATE: Results analysis
   ```
-- [ ] **3.3** Implement modular model classes (XGB, RF, LR, MetaLR)
-- [ ] **3.4** Implement StackingEnsemble wrapper
-- [ ] **3.5** Implement TimeSeriesSplit CV framework (n_splits=5 baseline)
+- [ ] **3.3** Implement modular model classes (XGB, RF, LR, MetaLR):
+  - **XGBoost model** with Bayesian optimization tuning
+  - **Random Forest model** with Bayesian optimization tuning  
+  - **Logistic Regression model** with GridSearchCV tuning
+  - **Meta-LR model** for Level 1 stacking
+- [ ] **3.4** Implement StackingEnsemble wrapper:
+  - **Level 0 models** training and prediction
+  - **Meta-feature generation** using TimeSeriesSplit
+  - **Level 1 meta-model** training and final prediction
+- [ ] **3.5** Implement TimeSeriesSplit CV framework (n_splits=5 baseline):
+  - **Proper temporal splits** to prevent data leakage
+  - **Consistent splits** for tuning and meta-feature generation
+  - **Fallback to Rolling Window** if needed
 - [ ] **3.6** **Create 03_run_experiment.py:**
   - Takes `exp_id` argument (e.g., "A1")
   - Loads corresponding feature set (A1.parquet)
   - Runs full pipeline: L0 tuning → Meta-feature generation → L1 tuning → Final training → Evaluation
   - Saves results to `experiment_results.csv`
+- [ ] **3.7** **Create feature_pruning.py:**
+  - **A4 feature pruning** using XGBoost importance
+  - **Creates A4_Pruned.parquet** with selected features
+  - **Prevents overfitting** on high-dimensional A4 set
 
 #### Deliverables:
 - Complete modular codebase structure
