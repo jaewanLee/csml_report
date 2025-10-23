@@ -123,13 +123,13 @@
 **Objective:** Build modular codebase for systematic experiment execution
 
 #### Tasks:
-- [ ] **3.1** Conda environment setup (Python 3.13, requirements.txt)
-- [ ] **3.2** Create modular codebase structure for ablation study experiments:
+- [x] **3.1** Conda environment setup (Python 3.13, requirements.txt)
+- [x] **3.2** Create modular codebase structure for ablation study experiments:
   ```
   btc_prediction/
   ├── config/
-  │   ├── settings.py               # Data paths, constants
-  │   └── model_params.py           # Hyperparameter grids
+  │   ├── settings.py               # ✅ Data paths, constants, temporal split boundaries
+  │   └── model_params.py           # ✅ Hyperparameter grids for all models
   ├── training/                     # NEW: Ablation study experiment framework
   │   ├── 03_run_experiment.py      # Main experiment runner (takes exp_id)
   │   ├── train_l0.py               # L0 model training utilities
@@ -146,10 +146,10 @@
   │   │   └── meta_model.py
   │   └── ensemble/
   │       └── stacking_ensemble.py
-  ├── utils/                        # NEW: Shared utilities
-  │   ├── data_utils.py
-  │   ├── cv_utils.py               # TimeSeriesSplit utilities
-  │   └── evaluation_utils.py
+  ├── utils/                        # ✅ COMPLETED: Shared utilities
+  │   ├── data_utils.py             # ✅ Data loading, temporal split, validation
+  │   ├── cv_utils.py               # ✅ TimeSeriesSplit utilities (n_splits=5)
+  │   └── evaluation_utils.py       # ✅ Metrics calculation and comparison
   ├── features/                     # ✅ COMPLETED: Feature sets from Step 2
   │   ├── A0.parquet               # ✅ 19 features (H4 only)
   │   ├── A1.parquet               # ✅ 38 features (H4 + D1)
@@ -175,10 +175,11 @@
   - **Level 0 models** training and prediction
   - **Meta-feature generation** using TimeSeriesSplit
   - **Level 1 meta-model** training and final prediction
-- [ ] **3.5** Implement TimeSeriesSplit CV framework (n_splits=5 baseline):
-  - **Proper temporal splits** to prevent data leakage
-  - **Consistent splits** for tuning and meta-feature generation
-  - **Fallback to Rolling Window** if needed
+- [x] **3.5** Implement TimeSeriesSplit CV framework (n_splits=5 baseline):
+  - ✅ **Proper temporal splits** to prevent data leakage
+  - ✅ **Consistent splits** for tuning and meta-feature generation
+  - ✅ **Data leakage prevention** with temporal gap (TRAIN_END='2024-04-19', TEST_START='2024-04-21')
+  - ✅ **Fallback to Rolling Window** if needed
 - [ ] **3.6** **Create 03_run_experiment.py:**
   - Takes `exp_id` argument (e.g., "A1")
   - Loads corresponding feature set (A1.parquet)
@@ -190,11 +191,14 @@
   - **Prevents overfitting** on high-dimensional A4 set
 
 #### Deliverables:
-- Complete modular codebase structure
-- Base model classes and interfaces
-- Level 0 and Level 1 model modules
-- Experiment runner script (03_run_experiment.py)
-- TimeSeriesSplit cross-validation framework
+- ✅ Complete modular codebase structure
+- ✅ Configuration files (settings.py, model_params.py)
+- ✅ Utility functions (data_utils.py, cv_utils.py, evaluation_utils.py)
+- ✅ TimeSeriesSplit cross-validation framework (n_splits=5)
+- ✅ Data leakage prevention with temporal gap
+- [ ] Base model classes and interfaces
+- [ ] Level 0 and Level 1 model modules
+- [ ] Experiment runner script (03_run_experiment.py)
 
 ---
 
@@ -354,7 +358,18 @@
 
 ## 🎯 Next Immediate Action
 
-**Ready to start with Step 1: Data Collection**
+**Ready to continue with Step 3: Model Implementations**
+
+**Completed in Step 3:**
+- ✅ Configuration files (settings.py, model_params.py)
+- ✅ Utility functions (data_utils.py, cv_utils.py, evaluation_utils.py)
+- ✅ TimeSeriesSplit framework with data leakage prevention
+- ✅ Temporal split boundaries (TRAIN_END='2024-04-19', TEST_START='2024-04-21')
+
+**Next Tasks:**
+- [ ] Implement Level 0 model classes (XGBoost, Random Forest, Logistic Regression)
+- [ ] Implement Level 1 meta-model class
+- [ ] Create experiment runner script (03_run_experiment.py)
 
 The systematic Ablation Study approach will provide clear answers to both research questions through controlled experiments, ensuring fair comparison across all feature combinations.
 
