@@ -1,0 +1,190 @@
+2025-10-27 18:37:22,736 - xgboost_training_A0 - INFO - 🚀 Starting XGBoost training and evaluation for A0
+2025-10-27 18:37:22,736 - xgboost_training_A0 - INFO - Use tuned parameters: True
+2025-10-27 18:37:22,736 - xgboost_training_A0 - INFO - 1. Loading data...
+2025-10-27 18:37:22,773 - xgboost_training_A0 - INFO -    Features shape: (11737, 19)
+2025-10-27 18:37:22,774 - xgboost_training_A0 - INFO -    Target distribution: {0: 9004, 1: 2733}
+2025-10-27 18:37:22,774 - xgboost_training_A0 - INFO - 2. Validating data quality...
+2025-10-27 18:37:22,775 - xgboost_training_A0 - INFO -    ✅ Data quality validation passed!
+2025-10-27 18:37:22,775 - xgboost_training_A0 - INFO - 3. Splitting data...
+2025-10-27 18:37:22,775 - xgboost_training_A0 - INFO - 4. Loading tuning results...
+2025-10-27 18:37:22,776 - xgboost_training_A0 - INFO -    Best parameters: OrderedDict({'colsample_bytree': 0.817361227076125, 'learning_rate': 0.27680267566682176, 'max_depth': 6, 'n_estimators': 854, 'reg_alpha': 3, 'reg_lambda': 1, 'scale_pos_weight': 6, 'subsample': 0.6103204340214085})
+2025-10-27 18:37:22,776 - xgboost_training_A0 - INFO - 5. Training model...
+2025-10-27 18:37:22,776 - models.level0.xgboost_model.xgboost_A0 - INFO - Training xgboost_A0 with parameters: OrderedDict({'colsample_bytree': 0.817361227076125, 'learning_rate': 0.27680267566682176, 'max_depth': 6, 'n_estimators': 854, 'reg_alpha': 3, 'reg_lambda': 1, 'scale_pos_weight': 6, 'subsample': 0.6103204340214085})
+2025-10-27 18:37:24,061 - models.level0.xgboost_model.xgboost_A0 - INFO - Training completed. Feature count: 19
+2025-10-27 18:37:24,061 - xgboost_training_A0 - INFO -    ✅ Model training completed!
+2025-10-27 18:37:24,061 - xgboost_training_A0 - INFO - 6. Evaluating on training set...
+2025-10-27 18:37:24,091 - models.level0.xgboost_model.xgboost_A0 - INFO - Evaluation Results:
+2025-10-27 18:37:24,091 - models.level0.xgboost_model.xgboost_A0 - INFO -   accuracy: 0.9998
+2025-10-27 18:37:24,091 - models.level0.xgboost_model.xgboost_A0 - INFO -   precision: 0.9991
+2025-10-27 18:37:24,091 - models.level0.xgboost_model.xgboost_A0 - INFO -   recall: 1.0000
+2025-10-27 18:37:24,091 - models.level0.xgboost_model.xgboost_A0 - INFO -   f1: 0.9996
+2025-10-27 18:37:24,091 - models.level0.xgboost_model.xgboost_A0 - INFO -   roc_auc: 1.0000
+2025-10-27 18:37:24,091 - xgboost_training_A0 - INFO -    Training metrics: {'accuracy': 0.999768223432611, 'precision': 0.9991063449508489, 'recall': 1.0, 'f1': 0.9995529727313366, 'roc_auc': 1.0}
+2025-10-27 18:37:24,091 - xgboost_training_A0 - INFO - 7. Evaluating on test set...
+2025-10-27 18:37:24,104 - models.level0.xgboost_model.xgboost_A0 - INFO - Evaluation Results:
+2025-10-27 18:37:24,104 - models.level0.xgboost_model.xgboost_A0 - INFO -   accuracy: 0.2438
+2025-10-27 18:37:24,105 - models.level0.xgboost_model.xgboost_A0 - INFO -   precision: 0.1218
+2025-10-27 18:37:24,105 - models.level0.xgboost_model.xgboost_A0 - INFO -   recall: 0.5976
+2025-10-27 18:37:24,105 - models.level0.xgboost_model.xgboost_A0 - INFO -   f1: 0.2023
+2025-10-27 18:37:24,105 - models.level0.xgboost_model.xgboost_A0 - INFO -   roc_auc: 0.3433
+2025-10-27 18:37:24,105 - xgboost_training_A0 - INFO -    Test metrics: {'accuracy': 0.2437843073942525, 'precision': 0.12177121771217712, 'recall': 0.5975855130784709, 'f1': 0.20231607629427792, 'roc_auc': 0.3432580095960378}
+2025-10-27 18:37:24,105 - xgboost_training_A0 - INFO - 8. Generating meta-features for stacking...
+2025-10-27 18:37:24,105 - models.level0.xgboost_model.xgboost_A0 - INFO - Generating meta-features for xgboost_A0
+2025-10-27 18:37:24,105 - models.level0.xgboost_model.xgboost_A0 - INFO - Processing fold 1/5
+2025-10-27 18:37:24,105 - models.level0.xgboost_model.xgboost_A0 - INFO -   val_idx range: 1439-2876 (len: 1438)
+2025-10-27 18:37:24,431 - models.level0.xgboost_model.xgboost_A0 - INFO -   val_proba shape: (1438, 2)
+2025-10-27 18:37:24,434 - models.level0.xgboost_model.xgboost_A0 - INFO -   val_proba sample: [0.7387384  0.26126158]
+2025-10-27 18:37:24,439 - models.level0.xgboost_model.xgboost_A0 - INFO -   val_proba sum: [1. 1. 1. 1. 1.]
+2025-10-27 18:37:24,439 - models.level0.xgboost_model.xgboost_A0 - INFO -   Assigned sum check: [1. 1. 1. 1. 1.]
+2025-10-27 18:37:24,439 - models.level0.xgboost_model.xgboost_A0 - INFO -   Meta features non-zero count: 2876
+2025-10-27 18:37:24,439 - models.level0.xgboost_model.xgboost_A0 - INFO - Processing fold 2/5
+2025-10-27 18:37:24,439 - models.level0.xgboost_model.xgboost_A0 - INFO -   val_idx range: 2877-4314 (len: 1438)
+2025-10-27 18:37:25,093 - models.level0.xgboost_model.xgboost_A0 - INFO -   val_proba shape: (1438, 2)
+2025-10-27 18:37:25,093 - models.level0.xgboost_model.xgboost_A0 - INFO -   val_proba sample: [0.08877814 0.91122186]
+2025-10-27 18:37:25,093 - models.level0.xgboost_model.xgboost_A0 - INFO -   val_proba sum: [1. 1. 1. 1. 1.]
+2025-10-27 18:37:25,093 - models.level0.xgboost_model.xgboost_A0 - INFO -   Assigned sum check: [1. 1. 1. 1. 1.]
+2025-10-27 18:37:25,093 - models.level0.xgboost_model.xgboost_A0 - INFO -   Meta features non-zero count: 5752
+2025-10-27 18:37:25,093 - models.level0.xgboost_model.xgboost_A0 - INFO - Processing fold 3/5
+2025-10-27 18:37:25,093 - models.level0.xgboost_model.xgboost_A0 - INFO -   val_idx range: 4315-5752 (len: 1438)
+2025-10-27 18:37:26,019 - models.level0.xgboost_model.xgboost_A0 - INFO -   val_proba shape: (1438, 2)
+2025-10-27 18:37:26,019 - models.level0.xgboost_model.xgboost_A0 - INFO -   val_proba sample: [0.90091336 0.09908664]
+2025-10-27 18:37:26,020 - models.level0.xgboost_model.xgboost_A0 - INFO -   val_proba sum: [1. 1. 1. 1. 1.]
+2025-10-27 18:37:26,020 - models.level0.xgboost_model.xgboost_A0 - INFO -   Assigned sum check: [1.         0.99999999 1.         0.99999997 0.99999998]
+2025-10-27 18:37:26,020 - models.level0.xgboost_model.xgboost_A0 - INFO -   Meta features non-zero count: 8628
+2025-10-27 18:37:26,020 - models.level0.xgboost_model.xgboost_A0 - INFO - Processing fold 4/5
+2025-10-27 18:37:26,020 - models.level0.xgboost_model.xgboost_A0 - INFO -   val_idx range: 5753-7190 (len: 1438)
+2025-10-27 18:37:27,102 - models.level0.xgboost_model.xgboost_A0 - INFO -   val_proba shape: (1438, 2)
+2025-10-27 18:37:27,102 - models.level0.xgboost_model.xgboost_A0 - INFO -   val_proba sample: [9.9981880e-01 1.8122341e-04]
+2025-10-27 18:37:27,102 - models.level0.xgboost_model.xgboost_A0 - INFO -   val_proba sum: [1. 1. 1. 1. 1.]
+2025-10-27 18:37:27,102 - models.level0.xgboost_model.xgboost_A0 - INFO -   Assigned sum check: [1.00000003 0.99999999 1.00000002 1.00000003 0.99999999]
+2025-10-27 18:37:27,102 - models.level0.xgboost_model.xgboost_A0 - INFO -   Meta features non-zero count: 11504
+2025-10-27 18:37:27,102 - models.level0.xgboost_model.xgboost_A0 - INFO - Processing fold 5/5
+2025-10-27 18:37:27,102 - models.level0.xgboost_model.xgboost_A0 - INFO -   val_idx range: 7191-8628 (len: 1438)
+2025-10-27 18:37:28,552 - models.level0.xgboost_model.xgboost_A0 - INFO -   val_proba shape: (1438, 2)
+2025-10-27 18:37:28,552 - models.level0.xgboost_model.xgboost_A0 - INFO -   val_proba sample: [9.996841e-01 3.158856e-04]
+2025-10-27 18:37:28,552 - models.level0.xgboost_model.xgboost_A0 - INFO -   val_proba sum: [1. 1. 1. 1. 1.]
+2025-10-27 18:37:28,553 - models.level0.xgboost_model.xgboost_A0 - INFO -   Assigned sum check: [0.99999998 0.99999999 1.00000001 1.00000001 1.00000002]
+2025-10-27 18:37:28,553 - models.level0.xgboost_model.xgboost_A0 - INFO -   Meta features non-zero count: 14380
+2025-10-27 18:37:28,553 - models.level0.xgboost_model.xgboost_A0 - INFO - Meta-feature generation completed
+2025-10-27 18:37:28,553 - xgboost_training_A0 - INFO -    Meta-features shape: (8629, 2)
+2025-10-27 18:37:28,553 - xgboost_training_A0 - INFO - 9. Saving model and results...
+2025-10-27 18:37:28,558 - models.level0.xgboost_model.xgboost_A0 - INFO - Model saved to: /Users/al02260279/Documents/private/btc_prediction/logs/models/A0/l0/xgboost_A0_model.pkl
+2025-10-27 18:37:28,558 - xgboost_training_A0 - INFO -    Model saved to: /Users/al02260279/Documents/private/btc_prediction/logs/models/A0/l0/xgboost_A0_model.pkl
+2025-10-27 18:37:28,558 - xgboost_training_A0 - INFO -    Evaluation results saved to: /Users/al02260279/Documents/private/btc_prediction/logs/xgboost_evaluation_results_A0.pkl
+2025-10-27 18:37:28,559 - xgboost_training_A0 - INFO - 10. Results Summary:
+2025-10-27 18:37:28,559 - xgboost_training_A0 - INFO - ==================================================
+2025-10-27 18:37:28,559 - xgboost_training_A0 - INFO - Experiment ID: A0
+2025-10-27 18:37:28,559 - xgboost_training_A0 - INFO - Features: 19
+2025-10-27 18:37:28,559 - xgboost_training_A0 - INFO - Training samples: 8629
+2025-10-27 18:37:28,559 - xgboost_training_A0 - INFO - Test samples: 3097
+2025-10-27 18:37:28,559 - xgboost_training_A0 - INFO - 
+2025-10-27 18:37:28,559 - xgboost_training_A0 - INFO - Training Metrics:
+2025-10-27 18:37:28,559 - xgboost_training_A0 - INFO -   accuracy: 0.9998
+2025-10-27 18:37:28,559 - xgboost_training_A0 - INFO -   precision: 0.9991
+2025-10-27 18:37:28,559 - xgboost_training_A0 - INFO -   recall: 1.0000
+2025-10-27 18:37:28,559 - xgboost_training_A0 - INFO -   f1: 0.9996
+2025-10-27 18:37:28,559 - xgboost_training_A0 - INFO -   roc_auc: 1.0000
+2025-10-27 18:37:28,559 - xgboost_training_A0 - INFO - 
+2025-10-27 18:37:28,559 - xgboost_training_A0 - INFO - Test Metrics:
+2025-10-27 18:37:28,559 - xgboost_training_A0 - INFO -   accuracy: 0.2438
+2025-10-27 18:37:28,559 - xgboost_training_A0 - INFO -   precision: 0.1218
+2025-10-27 18:37:28,559 - xgboost_training_A0 - INFO -   recall: 0.5976
+2025-10-27 18:37:28,559 - xgboost_training_A0 - INFO -   f1: 0.2023
+2025-10-27 18:37:28,559 - xgboost_training_A0 - INFO -   roc_auc: 0.3433
+2025-10-27 18:37:28,559 - xgboost_training_A0 - INFO - ==================================================
+2025-10-27 18:37:28,559 - xgboost_training_A0 - INFO - 🎉 Training and evaluation completed successfully!
+2025-10-27 18:46:34,809 - xgboost_training_A0 - INFO - 🚀 Starting XGBoost training and evaluation for A0
+2025-10-27 18:46:34,809 - xgboost_training_A0 - INFO - Use tuned parameters: True
+2025-10-27 18:46:34,809 - xgboost_training_A0 - INFO - 1. Loading data...
+2025-10-27 18:46:34,844 - xgboost_training_A0 - INFO -    Features shape: (11737, 19)
+2025-10-27 18:46:34,845 - xgboost_training_A0 - INFO -    Target distribution: {0: 9004, 1: 2733}
+2025-10-27 18:46:34,845 - xgboost_training_A0 - INFO - 2. Validating data quality...
+2025-10-27 18:46:34,846 - xgboost_training_A0 - INFO -    ✅ Data quality validation passed!
+2025-10-27 18:46:34,846 - xgboost_training_A0 - INFO - 3. Splitting data...
+2025-10-27 18:46:34,847 - xgboost_training_A0 - INFO - 4. Loading tuning results...
+2025-10-27 18:46:34,847 - xgboost_training_A0 - INFO -    Best parameters: OrderedDict({'colsample_bytree': 0.8086806135380625, 'learning_rate': 0.1388012917012243, 'max_depth': 4, 'n_estimators': 435, 'reg_alpha': 7, 'reg_lambda': 2, 'scale_pos_weight': 3, 'subsample': 0.7051602170107042})
+2025-10-27 18:46:34,847 - xgboost_training_A0 - INFO - 5. Training model...
+2025-10-27 18:46:34,847 - models.level0.xgboost_model.xgboost_A0 - INFO - Training xgboost_A0 with parameters: OrderedDict({'colsample_bytree': 0.8086806135380625, 'learning_rate': 0.1388012917012243, 'max_depth': 4, 'n_estimators': 435, 'reg_alpha': 7, 'reg_lambda': 2, 'scale_pos_weight': 3, 'subsample': 0.7051602170107042})
+2025-10-27 18:46:35,342 - models.level0.xgboost_model.xgboost_A0 - INFO - Training completed. Feature count: 19
+2025-10-27 18:46:35,342 - xgboost_training_A0 - INFO -    ✅ Model training completed!
+2025-10-27 18:46:35,342 - xgboost_training_A0 - INFO - 6. Evaluating on training set...
+2025-10-27 18:46:35,357 - models.level0.xgboost_model.xgboost_A0 - INFO - Evaluation Results:
+2025-10-27 18:46:35,357 - models.level0.xgboost_model.xgboost_A0 - INFO -   accuracy: 0.9776
+2025-10-27 18:46:35,357 - models.level0.xgboost_model.xgboost_A0 - INFO -   precision: 0.9230
+2025-10-27 18:46:35,357 - models.level0.xgboost_model.xgboost_A0 - INFO -   recall: 0.9969
+2025-10-27 18:46:35,357 - models.level0.xgboost_model.xgboost_A0 - INFO -   f1: 0.9585
+2025-10-27 18:46:35,357 - models.level0.xgboost_model.xgboost_A0 - INFO -   roc_auc: 0.9990
+2025-10-27 18:46:35,357 - xgboost_training_A0 - INFO -    Training metrics: {'accuracy': 0.9776335612469579, 'precision': 0.9229813664596274, 'recall': 0.9968694096601073, 'f1': 0.9585035476241669, 'roc_auc': 0.9990306229952428}
+2025-10-27 18:46:35,357 - xgboost_training_A0 - INFO - 7. Evaluating on test set...
+2025-10-27 18:46:35,366 - models.level0.xgboost_model.xgboost_A0 - INFO - Evaluation Results:
+2025-10-27 18:46:35,366 - models.level0.xgboost_model.xgboost_A0 - INFO -   accuracy: 0.2373
+2025-10-27 18:46:35,366 - models.level0.xgboost_model.xgboost_A0 - INFO -   precision: 0.1195
+2025-10-27 18:46:35,366 - models.level0.xgboost_model.xgboost_A0 - INFO -   recall: 0.5895
+2025-10-27 18:46:35,366 - models.level0.xgboost_model.xgboost_A0 - INFO -   f1: 0.1988
+2025-10-27 18:46:35,366 - models.level0.xgboost_model.xgboost_A0 - INFO -   roc_auc: 0.3378
+2025-10-27 18:46:35,366 - xgboost_training_A0 - INFO -    Test metrics: {'accuracy': 0.23732644494672264, 'precision': 0.11954304365565076, 'recall': 0.5895372233400402, 'f1': 0.19877883310719133, 'roc_auc': 0.33778091626683177}
+2025-10-27 18:46:35,366 - xgboost_training_A0 - INFO - 8. Generating meta-features for stacking...
+2025-10-27 18:46:35,366 - models.level0.xgboost_model.xgboost_A0 - INFO - Generating meta-features for xgboost_A0
+2025-10-27 18:46:35,366 - models.level0.xgboost_model.xgboost_A0 - INFO - Processing fold 1/5
+2025-10-27 18:46:35,366 - models.level0.xgboost_model.xgboost_A0 - INFO -   val_idx range: 1439-2876 (len: 1438)
+2025-10-27 18:46:35,560 - models.level0.xgboost_model.xgboost_A0 - INFO -   val_proba shape: (1438, 2)
+2025-10-27 18:46:35,561 - models.level0.xgboost_model.xgboost_A0 - INFO -   val_proba sample: [0.7396036  0.26039642]
+2025-10-27 18:46:35,561 - models.level0.xgboost_model.xgboost_A0 - INFO -   val_proba sum: [1. 1. 1. 1. 1.]
+2025-10-27 18:46:35,561 - models.level0.xgboost_model.xgboost_A0 - INFO -   Assigned sum check: [1. 1. 1. 1. 1.]
+2025-10-27 18:46:35,561 - models.level0.xgboost_model.xgboost_A0 - INFO -   Meta features non-zero count: 2876
+2025-10-27 18:46:35,561 - models.level0.xgboost_model.xgboost_A0 - INFO - Processing fold 2/5
+2025-10-27 18:46:35,561 - models.level0.xgboost_model.xgboost_A0 - INFO -   val_idx range: 2877-4314 (len: 1438)
+2025-10-27 18:46:35,902 - models.level0.xgboost_model.xgboost_A0 - INFO -   val_proba shape: (1438, 2)
+2025-10-27 18:46:35,902 - models.level0.xgboost_model.xgboost_A0 - INFO -   val_proba sample: [0.2594943 0.7405057]
+2025-10-27 18:46:35,902 - models.level0.xgboost_model.xgboost_A0 - INFO -   val_proba sum: [1. 1. 1. 1. 1.]
+2025-10-27 18:46:35,902 - models.level0.xgboost_model.xgboost_A0 - INFO -   Assigned sum check: [1. 1. 1. 1. 1.]
+2025-10-27 18:46:35,902 - models.level0.xgboost_model.xgboost_A0 - INFO -   Meta features non-zero count: 5752
+2025-10-27 18:46:35,903 - models.level0.xgboost_model.xgboost_A0 - INFO - Processing fold 3/5
+2025-10-27 18:46:35,903 - models.level0.xgboost_model.xgboost_A0 - INFO -   val_idx range: 4315-5752 (len: 1438)
+2025-10-27 18:46:36,321 - models.level0.xgboost_model.xgboost_A0 - INFO -   val_proba shape: (1438, 2)
+2025-10-27 18:46:36,321 - models.level0.xgboost_model.xgboost_A0 - INFO -   val_proba sample: [0.925915   0.07408497]
+2025-10-27 18:46:36,321 - models.level0.xgboost_model.xgboost_A0 - INFO -   val_proba sum: [1. 1. 1. 1. 1.]
+2025-10-27 18:46:36,321 - models.level0.xgboost_model.xgboost_A0 - INFO -   Assigned sum check: [0.99999998 0.99999999 0.99999997 0.99999999 0.99999997]
+2025-10-27 18:46:36,321 - models.level0.xgboost_model.xgboost_A0 - INFO -   Meta features non-zero count: 8628
+2025-10-27 18:46:36,321 - models.level0.xgboost_model.xgboost_A0 - INFO - Processing fold 4/5
+2025-10-27 18:46:36,321 - models.level0.xgboost_model.xgboost_A0 - INFO -   val_idx range: 5753-7190 (len: 1438)
+2025-10-27 18:46:36,763 - models.level0.xgboost_model.xgboost_A0 - INFO -   val_proba shape: (1438, 2)
+2025-10-27 18:46:36,763 - models.level0.xgboost_model.xgboost_A0 - INFO -   val_proba sample: [0.99414504 0.00585496]
+2025-10-27 18:46:36,763 - models.level0.xgboost_model.xgboost_A0 - INFO -   val_proba sum: [1. 1. 1. 1. 1.]
+2025-10-27 18:46:36,763 - models.level0.xgboost_model.xgboost_A0 - INFO -   Assigned sum check: [1.         1.00000001 1.00000001 1.00000001 0.99999998]
+2025-10-27 18:46:36,763 - models.level0.xgboost_model.xgboost_A0 - INFO -   Meta features non-zero count: 11504
+2025-10-27 18:46:36,763 - models.level0.xgboost_model.xgboost_A0 - INFO - Processing fold 5/5
+2025-10-27 18:46:36,763 - models.level0.xgboost_model.xgboost_A0 - INFO -   val_idx range: 7191-8628 (len: 1438)
+2025-10-27 18:46:37,214 - models.level0.xgboost_model.xgboost_A0 - INFO -   val_proba shape: (1438, 2)
+2025-10-27 18:46:37,214 - models.level0.xgboost_model.xgboost_A0 - INFO -   val_proba sample: [0.9949004  0.00509958]
+2025-10-27 18:46:37,214 - models.level0.xgboost_model.xgboost_A0 - INFO -   val_proba sum: [1. 1. 1. 1. 1.]
+2025-10-27 18:46:37,214 - models.level0.xgboost_model.xgboost_A0 - INFO -   Assigned sum check: [0.99999999 0.99999998 0.99999997 1.00000001 0.99999998]
+2025-10-27 18:46:37,215 - models.level0.xgboost_model.xgboost_A0 - INFO -   Meta features non-zero count: 14380
+2025-10-27 18:46:37,215 - models.level0.xgboost_model.xgboost_A0 - INFO - Meta-feature generation completed
+2025-10-27 18:46:37,215 - xgboost_training_A0 - INFO -    Meta-features shape: (8629, 2)
+2025-10-27 18:46:37,215 - xgboost_training_A0 - INFO - 9. Saving model and results...
+2025-10-27 18:46:37,218 - models.level0.xgboost_model.xgboost_A0 - INFO - Model saved to: /Users/al02260279/Documents/private/btc_prediction/logs/models/A0/l0/xgboost_A0_model.pkl
+2025-10-27 18:46:37,218 - xgboost_training_A0 - INFO -    Model saved to: /Users/al02260279/Documents/private/btc_prediction/logs/models/A0/l0/xgboost_A0_model.pkl
+2025-10-27 18:46:37,218 - xgboost_training_A0 - INFO -    Evaluation results saved to: /Users/al02260279/Documents/private/btc_prediction/logs/xgboost_evaluation_results_A0.pkl
+2025-10-27 18:46:37,218 - xgboost_training_A0 - INFO - 10. Results Summary:
+2025-10-27 18:46:37,218 - xgboost_training_A0 - INFO - ==================================================
+2025-10-27 18:46:37,219 - xgboost_training_A0 - INFO - Experiment ID: A0
+2025-10-27 18:46:37,219 - xgboost_training_A0 - INFO - Features: 19
+2025-10-27 18:46:37,219 - xgboost_training_A0 - INFO - Training samples: 8629
+2025-10-27 18:46:37,219 - xgboost_training_A0 - INFO - Test samples: 3097
+2025-10-27 18:46:37,219 - xgboost_training_A0 - INFO - 
+2025-10-27 18:46:37,219 - xgboost_training_A0 - INFO - Training Metrics:
+2025-10-27 18:46:37,219 - xgboost_training_A0 - INFO -   accuracy: 0.9776
+2025-10-27 18:46:37,219 - xgboost_training_A0 - INFO -   precision: 0.9230
+2025-10-27 18:46:37,219 - xgboost_training_A0 - INFO -   recall: 0.9969
+2025-10-27 18:46:37,219 - xgboost_training_A0 - INFO -   f1: 0.9585
+2025-10-27 18:46:37,219 - xgboost_training_A0 - INFO -   roc_auc: 0.9990
+2025-10-27 18:46:37,219 - xgboost_training_A0 - INFO - 
+2025-10-27 18:46:37,219 - xgboost_training_A0 - INFO - Test Metrics:
+2025-10-27 18:46:37,219 - xgboost_training_A0 - INFO -   accuracy: 0.2373
+2025-10-27 18:46:37,219 - xgboost_training_A0 - INFO -   precision: 0.1195
+2025-10-27 18:46:37,219 - xgboost_training_A0 - INFO -   recall: 0.5895
+2025-10-27 18:46:37,219 - xgboost_training_A0 - INFO -   f1: 0.1988
+2025-10-27 18:46:37,219 - xgboost_training_A0 - INFO -   roc_auc: 0.3378
+2025-10-27 18:46:37,219 - xgboost_training_A0 - INFO - ==================================================
+2025-10-27 18:46:37,219 - xgboost_training_A0 - INFO - 🎉 Training and evaluation completed successfully!

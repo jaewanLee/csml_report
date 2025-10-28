@@ -3,15 +3,16 @@ BTC Prediction Project - Model Hyperparameter Grids
 """
 
 # XGBoost hyperparameter space for Bayesian optimization
+# More conservative ranges to prevent overfitting
 XGBOOST_PARAMS = {
-    'max_depth': (3, 10),
-    'learning_rate': (0.01, 0.3),
-    'n_estimators': (100, 1000),
-    'subsample': (0.6, 1.0),
-    'colsample_bytree': (0.6, 1.0),
-    'reg_alpha': (0, 10),
-    'reg_lambda': (0, 10),
-    'scale_pos_weight': (1, 10)  # Handle class imbalance
+    'max_depth': (3, 6),           # Reduced from (3, 10)
+    'learning_rate': (0.01, 0.15), # Reduced from (0.01, 0.3)
+    'n_estimators': (100, 500),    # Reduced from (100, 1000)
+    'subsample': (0.7, 0.9),       # Reduced from (0.6, 1.0)
+    'colsample_bytree': (0.7, 0.9), # Reduced from (0.6, 1.0)
+    'reg_alpha': (1, 20),          # Increased from (0, 10)
+    'reg_lambda': (1, 20),         # Increased from (0, 10)
+    'scale_pos_weight': (1, 5)     # Reduced from (1, 10)
 }
 
 # Random Forest hyperparameter space for Bayesian optimization

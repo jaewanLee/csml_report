@@ -23,7 +23,7 @@ EXCHANGE_CONFIG = {
 # Data collection settings - TIMEFRAME-SPECIFIC DATE RANGES
 COLLECTION_CONFIG = {
     'symbol': 'BTC/USDT',
-    'timeframes': ['4h', '1d', '1w', '1M'],
+    'timeframes': ['4h', '1d', '1w'],
     # Timeframe-specific date ranges for efficient data collection
     'timeframe_dates': {
         '4h': {
@@ -35,12 +35,7 @@ COLLECTION_CONFIG = {
             'end_date': '2025-10-19T23:59:59Z'
         },
         '1w': {
-            'start_date': '2019-02-11T00:00:00Z',  # 2020-05-12 - 65 weeks
-            'end_date': '2025-10-19T23:59:59Z'
-        },
-        '1M': {
-            'start_date':
-            '2017-12-01T00:00:00Z',  # 2020-05-12 - 26 months (for lagging span)
+            'start_date': '2017-12-01T00:00:00Z',  # 2020-05-12 - 26 months
             'end_date': '2025-10-19T23:59:59Z'
         }
     },
@@ -67,9 +62,6 @@ VALIDATION_CONFIG = {
         },
         '1w': {
             'min_records_per_day': 1
-        },
-        '1M': {
-            'min_records_per_day': 1
-        }  # Monthly data - at least 1 record per month
+        }
     }
 }

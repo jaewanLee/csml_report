@@ -1,0 +1,303 @@
+2025-10-27 18:36:01,200 - xgboost_tuning_A0 - INFO - 🚀 Starting XGBoost hyperparameter tuning for A0
+2025-10-27 18:36:01,200 - xgboost_tuning_A0 - INFO - Parameters: n_splits=5, n_iter=10
+2025-10-27 18:36:01,200 - xgboost_tuning_A0 - INFO - 1. Loading data...
+2025-10-27 18:36:01,292 - xgboost_tuning_A0 - INFO -    Features shape: (11737, 19)
+2025-10-27 18:36:01,294 - xgboost_tuning_A0 - INFO -    Target distribution: {0: 9004, 1: 2733}
+2025-10-27 18:36:01,294 - xgboost_tuning_A0 - INFO - 2. Validating data quality...
+2025-10-27 18:36:01,296 - xgboost_tuning_A0 - INFO -    ✅ Data quality validation passed!
+2025-10-27 18:36:01,297 - xgboost_tuning_A0 - INFO - 3. Splitting data...
+2025-10-27 18:36:01,299 - xgboost_tuning_A0 - INFO - 4. Cross-validation splits info:
+2025-10-27 18:36:01,302 - xgboost_tuning_A0 - INFO - 5. Starting hyperparameter tuning...
+2025-10-27 18:36:01,302 - models.level0.xgboost_model.xgboost_A0 - INFO - Starting hyperparameter tuning for xgboost_A0
+2025-10-27 18:36:01,302 - models.level0.xgboost_model.xgboost_A0 - INFO - Data shape: (8629, 19), Target distribution: {0: 6393, 1: 2236}
+2025-10-27 18:36:01,307 - models.level0.xgboost_model.xgboost_A0 - INFO - Running Bayesian optimization...
+2025-10-27 18:36:02,841 - xgboost_tuning_A0 - ERROR - ❌ Hyperparameter tuning failed: Must have at least 1 validation dataset for early stopping.
+2025-10-27 18:37:07,435 - xgboost_tuning_A0 - INFO - 🚀 Starting XGBoost hyperparameter tuning for A0
+2025-10-27 18:37:07,435 - xgboost_tuning_A0 - INFO - Parameters: n_splits=5, n_iter=10
+2025-10-27 18:37:07,435 - xgboost_tuning_A0 - INFO - 1. Loading data...
+2025-10-27 18:37:07,525 - xgboost_tuning_A0 - INFO -    Features shape: (11737, 19)
+2025-10-27 18:37:07,527 - xgboost_tuning_A0 - INFO -    Target distribution: {0: 9004, 1: 2733}
+2025-10-27 18:37:07,527 - xgboost_tuning_A0 - INFO - 2. Validating data quality...
+2025-10-27 18:37:07,528 - xgboost_tuning_A0 - INFO -    ✅ Data quality validation passed!
+2025-10-27 18:37:07,528 - xgboost_tuning_A0 - INFO - 3. Splitting data...
+2025-10-27 18:37:07,530 - xgboost_tuning_A0 - INFO - 4. Cross-validation splits info:
+2025-10-27 18:37:07,533 - xgboost_tuning_A0 - INFO - 5. Starting hyperparameter tuning...
+2025-10-27 18:37:07,533 - models.level0.xgboost_model.xgboost_A0 - INFO - Starting hyperparameter tuning for xgboost_A0
+2025-10-27 18:37:07,534 - models.level0.xgboost_model.xgboost_A0 - INFO - Data shape: (8629, 19), Target distribution: {0: 6393, 1: 2236}
+2025-10-27 18:37:07,537 - models.level0.xgboost_model.xgboost_A0 - INFO - Running Bayesian optimization...
+2025-10-27 18:37:19,824 - models.level0.xgboost_model.xgboost_A0 - INFO - Best parameters: OrderedDict({'colsample_bytree': 0.817361227076125, 'learning_rate': 0.27680267566682176, 'max_depth': 6, 'n_estimators': 854, 'reg_alpha': 3, 'reg_lambda': 1, 'scale_pos_weight': 6, 'subsample': 0.6103204340214085})
+2025-10-27 18:37:19,825 - models.level0.xgboost_model.xgboost_A0 - INFO - Best CV score: 0.2007
+2025-10-27 18:37:19,825 - xgboost_tuning_A0 - INFO -    ✅ Tuning completed!
+2025-10-27 18:37:19,825 - xgboost_tuning_A0 - INFO -    Best parameters: OrderedDict({'colsample_bytree': 0.817361227076125, 'learning_rate': 0.27680267566682176, 'max_depth': 6, 'n_estimators': 854, 'reg_alpha': 3, 'reg_lambda': 1, 'scale_pos_weight': 6, 'subsample': 0.6103204340214085})
+2025-10-27 18:37:19,825 - xgboost_tuning_A0 - INFO - 6. Saving tuning results...
+2025-10-27 18:37:19,826 - xgboost_tuning_A0 - INFO -    Results saved to: /Users/al02260279/Documents/private/btc_prediction/logs/xgboost_tuning_results_A0.pkl
+2025-10-27 18:37:19,826 - xgboost_tuning_A0 - INFO - 7. Quick evaluation with best parameters...
+2025-10-27 18:37:19,826 - models.level0.xgboost_model.xgboost_A0 - INFO - Training xgboost_A0 with parameters: OrderedDict({'colsample_bytree': 0.817361227076125, 'learning_rate': 0.27680267566682176, 'max_depth': 6, 'n_estimators': 854, 'reg_alpha': 3, 'reg_lambda': 1, 'scale_pos_weight': 6, 'subsample': 0.6103204340214085})
+2025-10-27 18:37:21,254 - models.level0.xgboost_model.xgboost_A0 - INFO - Training completed. Feature count: 19
+2025-10-27 18:37:21,286 - models.level0.xgboost_model.xgboost_A0 - INFO - Evaluation Results:
+2025-10-27 18:37:21,286 - models.level0.xgboost_model.xgboost_A0 - INFO -   accuracy: 0.9998
+2025-10-27 18:37:21,286 - models.level0.xgboost_model.xgboost_A0 - INFO -   precision: 0.9991
+2025-10-27 18:37:21,286 - models.level0.xgboost_model.xgboost_A0 - INFO -   recall: 1.0000
+2025-10-27 18:37:21,286 - models.level0.xgboost_model.xgboost_A0 - INFO -   f1: 0.9996
+2025-10-27 18:37:21,286 - models.level0.xgboost_model.xgboost_A0 - INFO -   roc_auc: 1.0000
+2025-10-27 18:37:21,286 - xgboost_tuning_A0 - INFO -    Training metrics: {'accuracy': 0.999768223432611, 'precision': 0.9991063449508489, 'recall': 1.0, 'f1': 0.9995529727313366, 'roc_auc': 1.0}
+2025-10-27 18:37:21,301 - models.level0.xgboost_model.xgboost_A0 - INFO - Evaluation Results:
+2025-10-27 18:37:21,301 - models.level0.xgboost_model.xgboost_A0 - INFO -   accuracy: 0.2438
+2025-10-27 18:37:21,301 - models.level0.xgboost_model.xgboost_A0 - INFO -   precision: 0.1218
+2025-10-27 18:37:21,301 - models.level0.xgboost_model.xgboost_A0 - INFO -   recall: 0.5976
+2025-10-27 18:37:21,301 - models.level0.xgboost_model.xgboost_A0 - INFO -   f1: 0.2023
+2025-10-27 18:37:21,301 - models.level0.xgboost_model.xgboost_A0 - INFO -   roc_auc: 0.3433
+2025-10-27 18:37:21,301 - xgboost_tuning_A0 - INFO -    Test metrics: {'accuracy': 0.2437843073942525, 'precision': 0.12177121771217712, 'recall': 0.5975855130784709, 'f1': 0.20231607629427792, 'roc_auc': 0.3432580095960378}
+2025-10-27 18:37:21,301 - xgboost_tuning_A0 - INFO - 8. Saving tuned model...
+2025-10-27 18:37:21,307 - models.level0.xgboost_model.xgboost_A0 - INFO - Model saved to: /Users/al02260279/Documents/private/btc_prediction/logs/models/A0/l0/xgboost_A0_model.pkl
+2025-10-27 18:37:21,307 - xgboost_tuning_A0 - INFO -    Model saved to: /Users/al02260279/Documents/private/btc_prediction/logs/models/A0/l0/xgboost_A0_model.pkl
+2025-10-27 18:37:21,307 - xgboost_tuning_A0 - INFO - 🎉 Hyperparameter tuning completed successfully!
+2025-10-27 18:46:25,752 - xgboost_tuning_A0 - INFO - 🚀 Starting XGBoost hyperparameter tuning for A0
+2025-10-27 18:46:25,753 - xgboost_tuning_A0 - INFO - Parameters: n_splits=5, n_iter=10
+2025-10-27 18:46:25,753 - xgboost_tuning_A0 - INFO - 1. Loading data...
+2025-10-27 18:46:25,850 - xgboost_tuning_A0 - INFO -    Features shape: (11737, 19)
+2025-10-27 18:46:25,851 - xgboost_tuning_A0 - INFO -    Target distribution: {0: 9004, 1: 2733}
+2025-10-27 18:46:25,851 - xgboost_tuning_A0 - INFO - 2. Validating data quality...
+2025-10-27 18:46:25,853 - xgboost_tuning_A0 - INFO -    ✅ Data quality validation passed!
+2025-10-27 18:46:25,853 - xgboost_tuning_A0 - INFO - 3. Splitting data...
+2025-10-27 18:46:25,855 - xgboost_tuning_A0 - INFO - 4. Cross-validation splits info:
+2025-10-27 18:46:25,858 - xgboost_tuning_A0 - INFO - 5. Starting hyperparameter tuning...
+2025-10-27 18:46:25,858 - models.level0.xgboost_model.xgboost_A0 - INFO - Starting hyperparameter tuning for xgboost_A0
+2025-10-27 18:46:25,858 - models.level0.xgboost_model.xgboost_A0 - INFO - Data shape: (8629, 19), Target distribution: {0: 6393, 1: 2236}
+2025-10-27 18:46:25,862 - models.level0.xgboost_model.xgboost_A0 - INFO - Running Bayesian optimization...
+2025-10-27 18:46:33,059 - models.level0.xgboost_model.xgboost_A0 - INFO - Best parameters: OrderedDict({'colsample_bytree': 0.8086806135380625, 'learning_rate': 0.1388012917012243, 'max_depth': 4, 'n_estimators': 435, 'reg_alpha': 7, 'reg_lambda': 2, 'scale_pos_weight': 3, 'subsample': 0.7051602170107042})
+2025-10-27 18:46:33,059 - models.level0.xgboost_model.xgboost_A0 - INFO - Best CV score: 0.1676
+2025-10-27 18:46:33,060 - xgboost_tuning_A0 - INFO -    ✅ Tuning completed!
+2025-10-27 18:46:33,060 - xgboost_tuning_A0 - INFO -    Best parameters: OrderedDict({'colsample_bytree': 0.8086806135380625, 'learning_rate': 0.1388012917012243, 'max_depth': 4, 'n_estimators': 435, 'reg_alpha': 7, 'reg_lambda': 2, 'scale_pos_weight': 3, 'subsample': 0.7051602170107042})
+2025-10-27 18:46:33,060 - xgboost_tuning_A0 - INFO - 6. Saving tuning results...
+2025-10-27 18:46:33,062 - xgboost_tuning_A0 - INFO -    Results saved to: /Users/al02260279/Documents/private/btc_prediction/logs/xgboost_tuning_results_A0.pkl
+2025-10-27 18:46:33,062 - xgboost_tuning_A0 - INFO - 7. Quick evaluation with best parameters...
+2025-10-27 18:46:33,062 - models.level0.xgboost_model.xgboost_A0 - INFO - Training xgboost_A0 with parameters: OrderedDict({'colsample_bytree': 0.8086806135380625, 'learning_rate': 0.1388012917012243, 'max_depth': 4, 'n_estimators': 435, 'reg_alpha': 7, 'reg_lambda': 2, 'scale_pos_weight': 3, 'subsample': 0.7051602170107042})
+2025-10-27 18:46:33,578 - models.level0.xgboost_model.xgboost_A0 - INFO - Training completed. Feature count: 19
+2025-10-27 18:46:33,594 - models.level0.xgboost_model.xgboost_A0 - INFO - Evaluation Results:
+2025-10-27 18:46:33,594 - models.level0.xgboost_model.xgboost_A0 - INFO -   accuracy: 0.9776
+2025-10-27 18:46:33,594 - models.level0.xgboost_model.xgboost_A0 - INFO -   precision: 0.9230
+2025-10-27 18:46:33,594 - models.level0.xgboost_model.xgboost_A0 - INFO -   recall: 0.9969
+2025-10-27 18:46:33,594 - models.level0.xgboost_model.xgboost_A0 - INFO -   f1: 0.9585
+2025-10-27 18:46:33,594 - models.level0.xgboost_model.xgboost_A0 - INFO -   roc_auc: 0.9990
+2025-10-27 18:46:33,594 - xgboost_tuning_A0 - INFO -    Training metrics: {'accuracy': 0.9776335612469579, 'precision': 0.9229813664596274, 'recall': 0.9968694096601073, 'f1': 0.9585035476241669, 'roc_auc': 0.9990306229952428}
+2025-10-27 18:46:33,602 - models.level0.xgboost_model.xgboost_A0 - INFO - Evaluation Results:
+2025-10-27 18:46:33,602 - models.level0.xgboost_model.xgboost_A0 - INFO -   accuracy: 0.2373
+2025-10-27 18:46:33,602 - models.level0.xgboost_model.xgboost_A0 - INFO -   precision: 0.1195
+2025-10-27 18:46:33,602 - models.level0.xgboost_model.xgboost_A0 - INFO -   recall: 0.5895
+2025-10-27 18:46:33,602 - models.level0.xgboost_model.xgboost_A0 - INFO -   f1: 0.1988
+2025-10-27 18:46:33,602 - models.level0.xgboost_model.xgboost_A0 - INFO -   roc_auc: 0.3378
+2025-10-27 18:46:33,602 - xgboost_tuning_A0 - INFO -    Test metrics: {'accuracy': 0.23732644494672264, 'precision': 0.11954304365565076, 'recall': 0.5895372233400402, 'f1': 0.19877883310719133, 'roc_auc': 0.33778091626683177}
+2025-10-27 18:46:33,603 - xgboost_tuning_A0 - INFO - 8. Saving tuned model...
+2025-10-27 18:46:33,605 - models.level0.xgboost_model.xgboost_A0 - INFO - Model saved to: /Users/al02260279/Documents/private/btc_prediction/logs/models/A0/l0/xgboost_A0_model.pkl
+2025-10-27 18:46:33,605 - xgboost_tuning_A0 - INFO -    Model saved to: /Users/al02260279/Documents/private/btc_prediction/logs/models/A0/l0/xgboost_A0_model.pkl
+2025-10-27 18:46:33,605 - xgboost_tuning_A0 - INFO - 🎉 Hyperparameter tuning completed successfully!
+2025-10-27 18:53:01,127 - xgboost_tuning_A0 - INFO - 🚀 Starting XGBoost hyperparameter tuning for A0
+2025-10-27 18:53:01,127 - xgboost_tuning_A0 - INFO - Parameters: n_splits=5, n_iter=10
+2025-10-27 18:53:01,127 - xgboost_tuning_A0 - INFO - 1. Loading data...
+2025-10-27 18:53:01,222 - xgboost_tuning_A0 - INFO -    Features shape: (11737, 19)
+2025-10-27 18:53:01,224 - xgboost_tuning_A0 - INFO -    Target distribution: {0: 9004, 1: 2733}
+2025-10-27 18:53:01,224 - xgboost_tuning_A0 - INFO - 2. Validating data quality...
+2025-10-27 18:53:01,226 - xgboost_tuning_A0 - INFO -    ✅ Data quality validation passed!
+2025-10-27 18:53:01,226 - xgboost_tuning_A0 - INFO - 3. Splitting data...
+2025-10-27 18:53:01,229 - xgboost_tuning_A0 - INFO - 4. Cross-validation splits info:
+2025-10-27 18:53:01,232 - xgboost_tuning_A0 - INFO - 5. Starting hyperparameter tuning...
+2025-10-27 18:53:01,232 - models.level0.xgboost_model.xgboost_A0 - INFO - Starting hyperparameter tuning for xgboost_A0
+2025-10-27 18:53:01,233 - models.level0.xgboost_model.xgboost_A0 - INFO - Data shape: (8629, 19), Target distribution: {0: 6393, 1: 2236}
+2025-10-27 18:53:01,239 - models.level0.xgboost_model.xgboost_A0 - INFO - Running Bayesian optimization with early stopping...
+2025-10-27 18:53:02,931 - xgboost_tuning_A0 - ERROR - ❌ Hyperparameter tuning failed: XGBClassifier.fit() got an unexpected keyword argument 'early_stopping_rounds'
+2025-10-27 18:54:19,156 - xgboost_tuning_A0 - INFO - 🚀 Starting XGBoost hyperparameter tuning for A0
+2025-10-27 18:54:19,156 - xgboost_tuning_A0 - INFO - Parameters: n_splits=5, n_iter=10
+2025-10-27 18:54:19,156 - xgboost_tuning_A0 - INFO - 1. Loading data...
+2025-10-27 18:54:19,240 - xgboost_tuning_A0 - INFO -    Features shape: (11737, 19)
+2025-10-27 18:54:19,242 - xgboost_tuning_A0 - INFO -    Target distribution: {0: 9004, 1: 2733}
+2025-10-27 18:54:19,242 - xgboost_tuning_A0 - INFO - 2. Validating data quality...
+2025-10-27 18:54:19,244 - xgboost_tuning_A0 - INFO -    ✅ Data quality validation passed!
+2025-10-27 18:54:19,244 - xgboost_tuning_A0 - INFO - 3. Splitting data...
+2025-10-27 18:54:19,246 - xgboost_tuning_A0 - INFO - 4. Cross-validation splits info:
+2025-10-27 18:54:19,249 - xgboost_tuning_A0 - INFO - 5. Starting hyperparameter tuning...
+2025-10-27 18:54:19,249 - models.level0.xgboost_model.xgboost_A0 - INFO - Starting hyperparameter tuning for xgboost_A0
+2025-10-27 18:54:19,249 - models.level0.xgboost_model.xgboost_A0 - INFO - Data shape: (8629, 19), Target distribution: {0: 6393, 1: 2236}
+2025-10-27 18:54:19,253 - models.level0.xgboost_model.xgboost_A0 - INFO - Running Bayesian optimization with early stopping...
+2025-10-27 18:54:20,478 - xgboost_tuning_A0 - ERROR - ❌ Hyperparameter tuning failed: XGBClassifier.fit() got an unexpected keyword argument 'callbacks'
+2025-10-27 18:55:47,865 - xgboost_tuning_A0 - INFO - 🚀 Starting XGBoost hyperparameter tuning for A0
+2025-10-27 18:55:47,866 - xgboost_tuning_A0 - INFO - Parameters: n_splits=5, n_iter=10
+2025-10-27 18:55:47,866 - xgboost_tuning_A0 - INFO - 1. Loading data...
+2025-10-27 18:55:47,981 - xgboost_tuning_A0 - INFO -    Features shape: (11737, 19)
+2025-10-27 18:55:47,982 - xgboost_tuning_A0 - INFO -    Target distribution: {0: 9004, 1: 2733}
+2025-10-27 18:55:47,982 - xgboost_tuning_A0 - INFO - 2. Validating data quality...
+2025-10-27 18:55:47,984 - xgboost_tuning_A0 - INFO -    ✅ Data quality validation passed!
+2025-10-27 18:55:47,984 - xgboost_tuning_A0 - INFO - 3. Splitting data...
+2025-10-27 18:55:47,987 - xgboost_tuning_A0 - INFO - 4. Cross-validation splits info:
+2025-10-27 18:55:47,989 - xgboost_tuning_A0 - INFO - 5. Starting hyperparameter tuning...
+2025-10-27 18:55:47,989 - models.level0.xgboost_model.xgboost_A0 - INFO - Starting hyperparameter tuning for xgboost_A0
+2025-10-27 18:55:47,990 - models.level0.xgboost_model.xgboost_A0 - INFO - Data shape: (8629, 19), Target distribution: {0: 6393, 1: 2236}
+2025-10-27 18:55:47,991 - models.level0.xgboost_model.xgboost_A0 - INFO - Running Bayesian optimization with manual CV and early stopping...
+2025-10-27 18:55:47,999 - xgboost_tuning_A0 - ERROR - ❌ Hyperparameter tuning failed: XGBClassifier.fit() got an unexpected keyword argument 'callbacks'
+2025-10-27 18:57:08,001 - xgboost_tuning_A0 - INFO - 🚀 Starting XGBoost hyperparameter tuning for A0
+2025-10-27 18:57:08,001 - xgboost_tuning_A0 - INFO - Parameters: n_splits=5, n_iter=10
+2025-10-27 18:57:08,001 - xgboost_tuning_A0 - INFO - 1. Loading data...
+2025-10-27 18:57:08,092 - xgboost_tuning_A0 - INFO -    Features shape: (11737, 19)
+2025-10-27 18:57:08,097 - xgboost_tuning_A0 - INFO -    Target distribution: {0: 9004, 1: 2733}
+2025-10-27 18:57:08,097 - xgboost_tuning_A0 - INFO - 2. Validating data quality...
+2025-10-27 18:57:08,098 - xgboost_tuning_A0 - INFO -    ✅ Data quality validation passed!
+2025-10-27 18:57:08,098 - xgboost_tuning_A0 - INFO - 3. Splitting data...
+2025-10-27 18:57:08,101 - xgboost_tuning_A0 - INFO - 4. Cross-validation splits info:
+2025-10-27 18:57:08,104 - xgboost_tuning_A0 - INFO - 5. Starting hyperparameter tuning...
+2025-10-27 18:57:08,104 - models.level0.xgboost_model.xgboost_A0 - INFO - Starting hyperparameter tuning for xgboost_A0
+2025-10-27 18:57:08,104 - models.level0.xgboost_model.xgboost_A0 - INFO - Data shape: (8629, 19), Target distribution: {0: 6393, 1: 2236}
+2025-10-27 18:57:08,106 - models.level0.xgboost_model.xgboost_A0 - INFO - Running Bayesian optimization with manual CV and early stopping...
+2025-10-27 18:57:08,114 - xgboost_tuning_A0 - ERROR - ❌ Hyperparameter tuning failed: XGBClassifier.fit() got an unexpected keyword argument 'early_stopping_rounds'
+2025-10-27 19:00:14,745 - xgboost_tuning_A0 - INFO - 🚀 Starting XGBoost hyperparameter tuning for A0
+2025-10-27 19:00:14,745 - xgboost_tuning_A0 - INFO - Parameters: n_splits=5, n_iter=10
+2025-10-27 19:00:14,745 - xgboost_tuning_A0 - INFO - 1. Loading data...
+2025-10-27 19:00:14,830 - xgboost_tuning_A0 - INFO -    Features shape: (11737, 19)
+2025-10-27 19:00:14,832 - xgboost_tuning_A0 - INFO -    Target distribution: {0: 9004, 1: 2733}
+2025-10-27 19:00:14,832 - xgboost_tuning_A0 - INFO - 2. Validating data quality...
+2025-10-27 19:00:14,833 - xgboost_tuning_A0 - INFO -    ✅ Data quality validation passed!
+2025-10-27 19:00:14,834 - xgboost_tuning_A0 - INFO - 3. Splitting data...
+2025-10-27 19:00:14,836 - xgboost_tuning_A0 - INFO - 4. Cross-validation splits info:
+2025-10-27 19:00:14,839 - xgboost_tuning_A0 - INFO - 5. Starting hyperparameter tuning...
+2025-10-27 19:00:14,839 - models.level0.xgboost_model.xgboost_A0 - INFO - Starting hyperparameter tuning for xgboost_A0
+2025-10-27 19:00:14,839 - models.level0.xgboost_model.xgboost_A0 - INFO - Data shape: (8629, 19), Target distribution: {0: 6393, 1: 2236}
+2025-10-27 19:00:14,841 - models.level0.xgboost_model.xgboost_A0 - INFO - Running Bayesian optimization with manual CV and early stopping...
+2025-10-27 19:00:15,018 - models.level0.xgboost_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(5), 'learning_rate': 0.03568087058126293, 'n_estimators': np.int64(412), 'subsample': 0.8193700315892974, 'colsample_bytree': 0.7891665505707183, 'reg_alpha': np.int64(3), 'reg_lambda': np.int64(10), 'scale_pos_weight': np.int64(2)} -> CV F1: -0.0471
+2025-10-27 19:00:15,021 - models.level0.xgboost_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(3), 'learning_rate': 0.10112438621283941, 'n_estimators': np.int64(123), 'subsample': 0.844399754453365, 'colsample_bytree': 0.8877105418031501, 'reg_alpha': np.int64(1), 'reg_lambda': np.int64(20), 'scale_pos_weight': np.int64(3)} -> CV F1: nan
+2025-10-27 19:00:15,021 - models.level0.xgboost_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(5), 'learning_rate': 0.010989282730760438, 'n_estimators': np.int64(109), 'subsample': 0.8049549320516778, 'colsample_bytree': 0.7799721943430511, 'reg_alpha': np.int64(2), 'reg_lambda': np.int64(20), 'scale_pos_weight': np.int64(2)} -> CV F1: nan
+2025-10-27 19:00:15,021 - models.level0.xgboost_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(3), 'learning_rate': 0.09657404130663222, 'n_estimators': np.int64(253), 'subsample': 0.8966461771613576, 'colsample_bytree': 0.793352578649596, 'reg_alpha': np.int64(17), 'reg_lambda': np.int64(14), 'scale_pos_weight': np.int64(3)} -> CV F1: nan
+2025-10-27 19:00:15,022 - models.level0.xgboost_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(3), 'learning_rate': 0.1419082457958794, 'n_estimators': np.int64(325), 'subsample': 0.7770833005079832, 'colsample_bytree': 0.7031932504440428, 'reg_alpha': np.int64(5), 'reg_lambda': np.int64(6), 'scale_pos_weight': np.int64(4)} -> CV F1: nan
+2025-10-27 19:00:15,022 - models.level0.xgboost_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(5), 'learning_rate': 0.12664728764306302, 'n_estimators': np.int64(169), 'subsample': 0.7782121215146481, 'colsample_bytree': 0.7364472175576124, 'reg_alpha': np.int64(15), 'reg_lambda': np.int64(9), 'scale_pos_weight': np.int64(2)} -> CV F1: nan
+2025-10-27 19:00:15,022 - models.level0.xgboost_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(5), 'learning_rate': 0.014383860943778203, 'n_estimators': np.int64(437), 'subsample': 0.7899508266739531, 'colsample_bytree': 0.7790300472003628, 'reg_alpha': np.int64(19), 'reg_lambda': np.int64(15), 'scale_pos_weight': np.int64(2)} -> CV F1: nan
+2025-10-27 19:00:15,022 - models.level0.xgboost_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(5), 'learning_rate': 0.08291679640361532, 'n_estimators': np.int64(484), 'subsample': 0.8689067697356303, 'colsample_bytree': 0.8494640220274762, 'reg_alpha': np.int64(11), 'reg_lambda': np.int64(12), 'scale_pos_weight': np.int64(5)} -> CV F1: nan
+2025-10-27 19:00:15,023 - models.level0.xgboost_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(5), 'learning_rate': 0.04863988548315608, 'n_estimators': np.int64(219), 'subsample': 0.7330533878126004, 'colsample_bytree': 0.7031272813482388, 'reg_alpha': np.int64(9), 'reg_lambda': np.int64(9), 'scale_pos_weight': np.int64(2)} -> CV F1: nan
+2025-10-27 19:00:15,023 - models.level0.xgboost_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(3), 'learning_rate': 0.03783793657243273, 'n_estimators': np.int64(385), 'subsample': 0.8580351081062412, 'colsample_bytree': 0.8211919949562023, 'reg_alpha': np.int64(19), 'reg_lambda': np.int64(13), 'scale_pos_weight': np.int64(5)} -> CV F1: nan
+2025-10-27 19:00:15,024 - xgboost_tuning_A0 - ERROR - ❌ Hyperparameter tuning failed: Input y contains NaN.
+2025-10-27 19:00:58,368 - xgboost_tuning_A0 - INFO - 🚀 Starting XGBoost hyperparameter tuning for A0
+2025-10-27 19:00:58,368 - xgboost_tuning_A0 - INFO - Parameters: n_splits=5, n_iter=10
+2025-10-27 19:00:58,368 - xgboost_tuning_A0 - INFO - 1. Loading data...
+2025-10-27 19:00:58,452 - xgboost_tuning_A0 - INFO -    Features shape: (11737, 19)
+2025-10-27 19:00:58,455 - xgboost_tuning_A0 - INFO -    Target distribution: {0: 9004, 1: 2733}
+2025-10-27 19:00:58,455 - xgboost_tuning_A0 - INFO - 2. Validating data quality...
+2025-10-27 19:00:58,456 - xgboost_tuning_A0 - INFO -    ✅ Data quality validation passed!
+2025-10-27 19:00:58,456 - xgboost_tuning_A0 - INFO - 3. Splitting data...
+2025-10-27 19:00:58,458 - xgboost_tuning_A0 - INFO - 4. Cross-validation splits info:
+2025-10-27 19:00:58,461 - xgboost_tuning_A0 - INFO - 5. Starting hyperparameter tuning...
+2025-10-27 19:00:58,461 - models.level0.xgboost_model.xgboost_A0 - INFO - Starting hyperparameter tuning for xgboost_A0
+2025-10-27 19:00:58,461 - models.level0.xgboost_model.xgboost_A0 - INFO - Data shape: (8629, 19), Target distribution: {0: 6393, 1: 2236}
+2025-10-27 19:00:58,463 - models.level0.xgboost_model.xgboost_A0 - INFO - Running Bayesian optimization with manual CV and early stopping...
+2025-10-27 19:00:58,636 - models.level0.xgboost_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(5), 'learning_rate': 0.03568087058126293, 'n_estimators': np.int64(412), 'subsample': 0.8193700315892974, 'colsample_bytree': 0.7891665505707183, 'reg_alpha': np.int64(3), 'reg_lambda': np.int64(10), 'scale_pos_weight': np.int64(2)} -> CV F1: -0.0471
+2025-10-27 19:00:58,639 - models.level0.xgboost_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(3), 'learning_rate': 0.10112438621283941, 'n_estimators': np.int64(123), 'subsample': 0.844399754453365, 'colsample_bytree': 0.8877105418031501, 'reg_alpha': np.int64(1), 'reg_lambda': np.int64(20), 'scale_pos_weight': np.int64(3)} -> CV F1: nan
+2025-10-27 19:00:58,639 - models.level0.xgboost_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(5), 'learning_rate': 0.010989282730760438, 'n_estimators': np.int64(109), 'subsample': 0.8049549320516778, 'colsample_bytree': 0.7799721943430511, 'reg_alpha': np.int64(2), 'reg_lambda': np.int64(20), 'scale_pos_weight': np.int64(2)} -> CV F1: nan
+2025-10-27 19:00:58,639 - models.level0.xgboost_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(3), 'learning_rate': 0.09657404130663222, 'n_estimators': np.int64(253), 'subsample': 0.8966461771613576, 'colsample_bytree': 0.793352578649596, 'reg_alpha': np.int64(17), 'reg_lambda': np.int64(14), 'scale_pos_weight': np.int64(3)} -> CV F1: nan
+2025-10-27 19:00:58,639 - models.level0.xgboost_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(3), 'learning_rate': 0.1419082457958794, 'n_estimators': np.int64(325), 'subsample': 0.7770833005079832, 'colsample_bytree': 0.7031932504440428, 'reg_alpha': np.int64(5), 'reg_lambda': np.int64(6), 'scale_pos_weight': np.int64(4)} -> CV F1: nan
+2025-10-27 19:00:58,640 - models.level0.xgboost_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(5), 'learning_rate': 0.12664728764306302, 'n_estimators': np.int64(169), 'subsample': 0.7782121215146481, 'colsample_bytree': 0.7364472175576124, 'reg_alpha': np.int64(15), 'reg_lambda': np.int64(9), 'scale_pos_weight': np.int64(2)} -> CV F1: nan
+2025-10-27 19:00:58,640 - models.level0.xgboost_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(5), 'learning_rate': 0.014383860943778203, 'n_estimators': np.int64(437), 'subsample': 0.7899508266739531, 'colsample_bytree': 0.7790300472003628, 'reg_alpha': np.int64(19), 'reg_lambda': np.int64(15), 'scale_pos_weight': np.int64(2)} -> CV F1: nan
+2025-10-27 19:00:58,640 - models.level0.xgboost_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(5), 'learning_rate': 0.08291679640361532, 'n_estimators': np.int64(484), 'subsample': 0.8689067697356303, 'colsample_bytree': 0.8494640220274762, 'reg_alpha': np.int64(11), 'reg_lambda': np.int64(12), 'scale_pos_weight': np.int64(5)} -> CV F1: nan
+2025-10-27 19:00:58,640 - models.level0.xgboost_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(5), 'learning_rate': 0.04863988548315608, 'n_estimators': np.int64(219), 'subsample': 0.7330533878126004, 'colsample_bytree': 0.7031272813482388, 'reg_alpha': np.int64(9), 'reg_lambda': np.int64(9), 'scale_pos_weight': np.int64(2)} -> CV F1: nan
+2025-10-27 19:00:58,641 - models.level0.xgboost_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(3), 'learning_rate': 0.03783793657243273, 'n_estimators': np.int64(385), 'subsample': 0.8580351081062412, 'colsample_bytree': 0.8211919949562023, 'reg_alpha': np.int64(19), 'reg_lambda': np.int64(13), 'scale_pos_weight': np.int64(5)} -> CV F1: nan
+2025-10-27 19:00:58,641 - xgboost_tuning_A0 - ERROR - ❌ Hyperparameter tuning failed: Input y contains NaN.
+2025-10-27 19:21:31,162 - xgboost_tuning_A0 - INFO - 🚀 Starting XGBoost hyperparameter tuning for A0
+2025-10-27 19:21:31,162 - xgboost_tuning_A0 - INFO - Parameters: n_splits=5, n_iter=10
+2025-10-27 19:21:31,162 - xgboost_tuning_A0 - INFO - 1. Loading data...
+2025-10-27 19:21:31,245 - xgboost_tuning_A0 - INFO -    Features shape: (11737, 19)
+2025-10-27 19:21:31,248 - xgboost_tuning_A0 - INFO -    Target distribution: {0: 9004, 1: 2733}
+2025-10-27 19:21:31,248 - xgboost_tuning_A0 - INFO - 2. Validating data quality...
+2025-10-27 19:21:31,249 - xgboost_tuning_A0 - INFO -    ✅ Data quality validation passed!
+2025-10-27 19:21:31,249 - xgboost_tuning_A0 - INFO - 3. Splitting data...
+2025-10-27 19:21:31,252 - xgboost_tuning_A0 - INFO - 4. Cross-validation splits info:
+2025-10-27 19:21:31,255 - xgboost_tuning_A0 - INFO - 5. Starting hyperparameter tuning...
+2025-10-27 19:21:31,255 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - 🚀 Starting hyperparameter tuning for xgboost_A0
+2025-10-27 19:21:31,255 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Data shape: (8629, 19), Target distribution: {0: 6393, 1: 2236}
+2025-10-27 19:21:31,257 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Running Bayesian optimization with manual CV and early stopping...
+2025-10-27 19:21:31,428 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(5), 'learning_rate': 0.03568087058126293, 'n_estimators': np.int64(412), 'subsample': 0.8193700315892974, 'colsample_bytree': 0.7891665505707183, 'reg_alpha': np.int64(3), 'reg_lambda': np.int64(10), 'scale_pos_weight': np.int64(2)} -> CV F1: -0.0471
+2025-10-27 19:21:31,431 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(3), 'learning_rate': 0.10112438621283941, 'n_estimators': np.int64(123), 'subsample': 0.844399754453365, 'colsample_bytree': 0.8877105418031501, 'reg_alpha': np.int64(1), 'reg_lambda': np.int64(20), 'scale_pos_weight': np.int64(3)} -> CV F1: nan
+2025-10-27 19:21:31,431 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(5), 'learning_rate': 0.010989282730760438, 'n_estimators': np.int64(109), 'subsample': 0.8049549320516778, 'colsample_bytree': 0.7799721943430511, 'reg_alpha': np.int64(2), 'reg_lambda': np.int64(20), 'scale_pos_weight': np.int64(2)} -> CV F1: nan
+2025-10-27 19:21:31,431 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(3), 'learning_rate': 0.09657404130663222, 'n_estimators': np.int64(253), 'subsample': 0.8966461771613576, 'colsample_bytree': 0.793352578649596, 'reg_alpha': np.int64(17), 'reg_lambda': np.int64(14), 'scale_pos_weight': np.int64(3)} -> CV F1: nan
+2025-10-27 19:21:31,432 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(3), 'learning_rate': 0.1419082457958794, 'n_estimators': np.int64(325), 'subsample': 0.7770833005079832, 'colsample_bytree': 0.7031932504440428, 'reg_alpha': np.int64(5), 'reg_lambda': np.int64(6), 'scale_pos_weight': np.int64(4)} -> CV F1: nan
+2025-10-27 19:21:31,432 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(5), 'learning_rate': 0.12664728764306302, 'n_estimators': np.int64(169), 'subsample': 0.7782121215146481, 'colsample_bytree': 0.7364472175576124, 'reg_alpha': np.int64(15), 'reg_lambda': np.int64(9), 'scale_pos_weight': np.int64(2)} -> CV F1: nan
+2025-10-27 19:21:31,432 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(5), 'learning_rate': 0.014383860943778203, 'n_estimators': np.int64(437), 'subsample': 0.7899508266739531, 'colsample_bytree': 0.7790300472003628, 'reg_alpha': np.int64(19), 'reg_lambda': np.int64(15), 'scale_pos_weight': np.int64(2)} -> CV F1: nan
+2025-10-27 19:21:31,432 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(5), 'learning_rate': 0.08291679640361532, 'n_estimators': np.int64(484), 'subsample': 0.8689067697356303, 'colsample_bytree': 0.8494640220274762, 'reg_alpha': np.int64(11), 'reg_lambda': np.int64(12), 'scale_pos_weight': np.int64(5)} -> CV F1: nan
+2025-10-27 19:21:31,433 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(5), 'learning_rate': 0.04863988548315608, 'n_estimators': np.int64(219), 'subsample': 0.7330533878126004, 'colsample_bytree': 0.7031272813482388, 'reg_alpha': np.int64(9), 'reg_lambda': np.int64(9), 'scale_pos_weight': np.int64(2)} -> CV F1: nan
+2025-10-27 19:21:31,433 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(3), 'learning_rate': 0.03783793657243273, 'n_estimators': np.int64(385), 'subsample': 0.8580351081062412, 'colsample_bytree': 0.8211919949562023, 'reg_alpha': np.int64(19), 'reg_lambda': np.int64(13), 'scale_pos_weight': np.int64(5)} -> CV F1: nan
+2025-10-27 19:21:31,434 - xgboost_tuning_A0 - ERROR - ❌ Hyperparameter tuning failed: Input y contains NaN.
+2025-10-27 19:21:39,887 - xgboost_tuning_A0 - INFO - 🚀 Starting XGBoost hyperparameter tuning for A0
+2025-10-27 19:21:39,887 - xgboost_tuning_A0 - INFO - Parameters: n_splits=5, n_iter=10
+2025-10-27 19:21:39,887 - xgboost_tuning_A0 - INFO - 1. Loading data...
+2025-10-27 19:21:39,926 - xgboost_tuning_A0 - INFO -    Features shape: (11737, 19)
+2025-10-27 19:21:39,926 - xgboost_tuning_A0 - INFO -    Target distribution: {0: 9004, 1: 2733}
+2025-10-27 19:21:39,926 - xgboost_tuning_A0 - INFO - 2. Validating data quality...
+2025-10-27 19:21:39,928 - xgboost_tuning_A0 - INFO -    ✅ Data quality validation passed!
+2025-10-27 19:21:39,928 - xgboost_tuning_A0 - INFO - 3. Splitting data...
+2025-10-27 19:21:39,929 - xgboost_tuning_A0 - INFO - 4. Cross-validation splits info:
+2025-10-27 19:21:39,932 - xgboost_tuning_A0 - INFO - 5. Starting hyperparameter tuning...
+2025-10-27 19:21:39,932 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - 🚀 Starting hyperparameter tuning for xgboost_A0
+2025-10-27 19:21:39,932 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Data shape: (8629, 19), Target distribution: {0: 6393, 1: 2236}
+2025-10-27 19:21:39,934 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Running Bayesian optimization with manual CV and early stopping...
+2025-10-27 19:21:40,180 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(5), 'learning_rate': 0.03568087058126293, 'n_estimators': np.int64(412), 'subsample': 0.8193700315892974, 'colsample_bytree': 0.7891665505707183, 'reg_alpha': np.int64(3), 'reg_lambda': np.int64(10), 'scale_pos_weight': np.int64(2)} -> CV F1: -0.0471
+2025-10-27 19:21:40,183 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(3), 'learning_rate': 0.10112438621283941, 'n_estimators': np.int64(123), 'subsample': 0.844399754453365, 'colsample_bytree': 0.8877105418031501, 'reg_alpha': np.int64(1), 'reg_lambda': np.int64(20), 'scale_pos_weight': np.int64(3)} -> CV F1: nan
+2025-10-27 19:21:40,183 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(5), 'learning_rate': 0.010989282730760438, 'n_estimators': np.int64(109), 'subsample': 0.8049549320516778, 'colsample_bytree': 0.7799721943430511, 'reg_alpha': np.int64(2), 'reg_lambda': np.int64(20), 'scale_pos_weight': np.int64(2)} -> CV F1: nan
+2025-10-27 19:21:40,183 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(3), 'learning_rate': 0.09657404130663222, 'n_estimators': np.int64(253), 'subsample': 0.8966461771613576, 'colsample_bytree': 0.793352578649596, 'reg_alpha': np.int64(17), 'reg_lambda': np.int64(14), 'scale_pos_weight': np.int64(3)} -> CV F1: nan
+2025-10-27 19:21:40,184 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(3), 'learning_rate': 0.1419082457958794, 'n_estimators': np.int64(325), 'subsample': 0.7770833005079832, 'colsample_bytree': 0.7031932504440428, 'reg_alpha': np.int64(5), 'reg_lambda': np.int64(6), 'scale_pos_weight': np.int64(4)} -> CV F1: nan
+2025-10-27 19:21:40,184 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(5), 'learning_rate': 0.12664728764306302, 'n_estimators': np.int64(169), 'subsample': 0.7782121215146481, 'colsample_bytree': 0.7364472175576124, 'reg_alpha': np.int64(15), 'reg_lambda': np.int64(9), 'scale_pos_weight': np.int64(2)} -> CV F1: nan
+2025-10-27 19:21:40,184 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(5), 'learning_rate': 0.014383860943778203, 'n_estimators': np.int64(437), 'subsample': 0.7899508266739531, 'colsample_bytree': 0.7790300472003628, 'reg_alpha': np.int64(19), 'reg_lambda': np.int64(15), 'scale_pos_weight': np.int64(2)} -> CV F1: nan
+2025-10-27 19:21:40,184 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(5), 'learning_rate': 0.08291679640361532, 'n_estimators': np.int64(484), 'subsample': 0.8689067697356303, 'colsample_bytree': 0.8494640220274762, 'reg_alpha': np.int64(11), 'reg_lambda': np.int64(12), 'scale_pos_weight': np.int64(5)} -> CV F1: nan
+2025-10-27 19:21:40,185 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(5), 'learning_rate': 0.04863988548315608, 'n_estimators': np.int64(219), 'subsample': 0.7330533878126004, 'colsample_bytree': 0.7031272813482388, 'reg_alpha': np.int64(9), 'reg_lambda': np.int64(9), 'scale_pos_weight': np.int64(2)} -> CV F1: nan
+2025-10-27 19:21:40,185 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(3), 'learning_rate': 0.03783793657243273, 'n_estimators': np.int64(385), 'subsample': 0.8580351081062412, 'colsample_bytree': 0.8211919949562023, 'reg_alpha': np.int64(19), 'reg_lambda': np.int64(13), 'scale_pos_weight': np.int64(5)} -> CV F1: nan
+2025-10-27 19:21:40,186 - xgboost_tuning_A0 - ERROR - ❌ Hyperparameter tuning failed: Input y contains NaN.
+2025-10-27 19:22:07,502 - xgboost_tuning_A0 - INFO - 🚀 Starting XGBoost hyperparameter tuning for A0
+2025-10-27 19:22:07,502 - xgboost_tuning_A0 - INFO - Parameters: n_splits=5, n_iter=10
+2025-10-27 19:22:07,502 - xgboost_tuning_A0 - INFO - 1. Loading data...
+2025-10-27 19:22:07,587 - xgboost_tuning_A0 - INFO -    Features shape: (11737, 19)
+2025-10-27 19:22:07,590 - xgboost_tuning_A0 - INFO -    Target distribution: {0: 9004, 1: 2733}
+2025-10-27 19:22:07,590 - xgboost_tuning_A0 - INFO - 2. Validating data quality...
+2025-10-27 19:22:07,592 - xgboost_tuning_A0 - INFO -    ✅ Data quality validation passed!
+2025-10-27 19:22:07,592 - xgboost_tuning_A0 - INFO - 3. Splitting data...
+2025-10-27 19:22:07,598 - xgboost_tuning_A0 - INFO - 4. Cross-validation splits info:
+2025-10-27 19:22:07,601 - xgboost_tuning_A0 - INFO - 5. Starting hyperparameter tuning...
+2025-10-27 19:22:07,601 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - 🚀 Starting hyperparameter tuning for xgboost_A0
+2025-10-27 19:22:07,601 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Data shape: (8629, 19), Target distribution: {0: 6393, 1: 2236}
+2025-10-27 19:22:07,603 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Running Bayesian optimization with manual CV and early stopping...
+2025-10-27 19:22:07,777 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(5), 'learning_rate': 0.03568087058126293, 'n_estimators': np.int64(412), 'subsample': 0.8193700315892974, 'colsample_bytree': 0.7891665505707183, 'reg_alpha': np.int64(3), 'reg_lambda': np.int64(10), 'scale_pos_weight': np.int64(2)} -> CV F1: -0.0471
+2025-10-27 19:22:07,781 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(3), 'learning_rate': 0.10112438621283941, 'n_estimators': np.int64(123), 'subsample': 0.844399754453365, 'colsample_bytree': 0.8877105418031501, 'reg_alpha': np.int64(1), 'reg_lambda': np.int64(20), 'scale_pos_weight': np.int64(3)} -> CV F1: nan
+2025-10-27 19:22:07,781 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(5), 'learning_rate': 0.010989282730760438, 'n_estimators': np.int64(109), 'subsample': 0.8049549320516778, 'colsample_bytree': 0.7799721943430511, 'reg_alpha': np.int64(2), 'reg_lambda': np.int64(20), 'scale_pos_weight': np.int64(2)} -> CV F1: nan
+2025-10-27 19:22:07,782 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(3), 'learning_rate': 0.09657404130663222, 'n_estimators': np.int64(253), 'subsample': 0.8966461771613576, 'colsample_bytree': 0.793352578649596, 'reg_alpha': np.int64(17), 'reg_lambda': np.int64(14), 'scale_pos_weight': np.int64(3)} -> CV F1: nan
+2025-10-27 19:22:07,782 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(3), 'learning_rate': 0.1419082457958794, 'n_estimators': np.int64(325), 'subsample': 0.7770833005079832, 'colsample_bytree': 0.7031932504440428, 'reg_alpha': np.int64(5), 'reg_lambda': np.int64(6), 'scale_pos_weight': np.int64(4)} -> CV F1: nan
+2025-10-27 19:22:07,782 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(5), 'learning_rate': 0.12664728764306302, 'n_estimators': np.int64(169), 'subsample': 0.7782121215146481, 'colsample_bytree': 0.7364472175576124, 'reg_alpha': np.int64(15), 'reg_lambda': np.int64(9), 'scale_pos_weight': np.int64(2)} -> CV F1: nan
+2025-10-27 19:22:07,782 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(5), 'learning_rate': 0.014383860943778203, 'n_estimators': np.int64(437), 'subsample': 0.7899508266739531, 'colsample_bytree': 0.7790300472003628, 'reg_alpha': np.int64(19), 'reg_lambda': np.int64(15), 'scale_pos_weight': np.int64(2)} -> CV F1: nan
+2025-10-27 19:22:07,783 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(5), 'learning_rate': 0.08291679640361532, 'n_estimators': np.int64(484), 'subsample': 0.8689067697356303, 'colsample_bytree': 0.8494640220274762, 'reg_alpha': np.int64(11), 'reg_lambda': np.int64(12), 'scale_pos_weight': np.int64(5)} -> CV F1: nan
+2025-10-27 19:22:07,783 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(5), 'learning_rate': 0.04863988548315608, 'n_estimators': np.int64(219), 'subsample': 0.7330533878126004, 'colsample_bytree': 0.7031272813482388, 'reg_alpha': np.int64(9), 'reg_lambda': np.int64(9), 'scale_pos_weight': np.int64(2)} -> CV F1: nan
+2025-10-27 19:22:07,783 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(3), 'learning_rate': 0.03783793657243273, 'n_estimators': np.int64(385), 'subsample': 0.8580351081062412, 'colsample_bytree': 0.8211919949562023, 'reg_alpha': np.int64(19), 'reg_lambda': np.int64(13), 'scale_pos_weight': np.int64(5)} -> CV F1: nan
+2025-10-27 19:22:07,784 - xgboost_tuning_A0 - ERROR - ❌ Hyperparameter tuning failed: Input y contains NaN.
+2025-10-27 19:23:05,838 - xgboost_tuning_A0 - INFO - 🚀 Starting XGBoost hyperparameter tuning for A0
+2025-10-27 19:23:05,838 - xgboost_tuning_A0 - INFO - Parameters: n_splits=5, n_iter=10
+2025-10-27 19:23:05,838 - xgboost_tuning_A0 - INFO - 1. Loading data...
+2025-10-27 19:23:05,922 - xgboost_tuning_A0 - INFO -    Features shape: (11737, 19)
+2025-10-27 19:23:05,924 - xgboost_tuning_A0 - INFO -    Target distribution: {0: 9004, 1: 2733}
+2025-10-27 19:23:05,924 - xgboost_tuning_A0 - INFO - 2. Validating data quality...
+2025-10-27 19:23:05,926 - xgboost_tuning_A0 - INFO -    ✅ Data quality validation passed!
+2025-10-27 19:23:05,926 - xgboost_tuning_A0 - INFO - 3. Splitting data...
+2025-10-27 19:23:05,928 - xgboost_tuning_A0 - INFO - 4. Cross-validation splits info:
+2025-10-27 19:23:05,931 - xgboost_tuning_A0 - INFO - 5. Starting hyperparameter tuning...
+2025-10-27 19:23:05,931 - xgboost_tuning_A0 - ERROR - ❌ Hyperparameter tuning failed: XGBoostGeminiModel() takes no arguments
+2025-10-27 19:24:39,869 - xgboost_tuning_A0 - INFO - 🚀 Starting XGBoost hyperparameter tuning for A0
+2025-10-27 19:24:39,870 - xgboost_tuning_A0 - INFO - Parameters: n_splits=5, n_iter=10
+2025-10-27 19:24:39,870 - xgboost_tuning_A0 - INFO - 1. Loading data...
+2025-10-27 19:24:39,964 - xgboost_tuning_A0 - INFO -    Features shape: (11737, 19)
+2025-10-27 19:24:39,967 - xgboost_tuning_A0 - INFO -    Target distribution: {0: 9004, 1: 2733}
+2025-10-27 19:24:39,967 - xgboost_tuning_A0 - INFO - 2. Validating data quality...
+2025-10-27 19:24:39,968 - xgboost_tuning_A0 - INFO -    ✅ Data quality validation passed!
+2025-10-27 19:24:39,968 - xgboost_tuning_A0 - INFO - 3. Splitting data...
+2025-10-27 19:24:39,971 - xgboost_tuning_A0 - INFO - 4. Cross-validation splits info:
+2025-10-27 19:24:39,974 - xgboost_tuning_A0 - INFO - 5. Starting hyperparameter tuning...
+2025-10-27 19:24:39,974 - xgboost_tuning_A0 - ERROR - ❌ Hyperparameter tuning failed: name 'create_time_series_cv' is not defined
+2025-10-27 19:25:35,524 - xgboost_tuning_A0 - INFO - 🚀 Starting XGBoost hyperparameter tuning for A0
+2025-10-27 19:25:35,524 - xgboost_tuning_A0 - INFO - Parameters: n_splits=5, n_iter=10
+2025-10-27 19:25:35,524 - xgboost_tuning_A0 - INFO - 1. Loading data...
+2025-10-27 19:25:35,614 - xgboost_tuning_A0 - INFO -    Features shape: (11737, 19)
+2025-10-27 19:25:35,616 - xgboost_tuning_A0 - INFO -    Target distribution: {0: 9004, 1: 2733}
+2025-10-27 19:25:35,616 - xgboost_tuning_A0 - INFO - 2. Validating data quality...
+2025-10-27 19:25:35,618 - xgboost_tuning_A0 - INFO -    ✅ Data quality validation passed!
+2025-10-27 19:25:35,618 - xgboost_tuning_A0 - INFO - 3. Splitting data...
+2025-10-27 19:25:35,620 - xgboost_tuning_A0 - INFO - 4. Cross-validation splits info:
+2025-10-27 19:25:35,623 - xgboost_tuning_A0 - INFO - 5. Starting hyperparameter tuning...
+2025-10-27 19:25:35,623 - xgboost_tuning_A0 - ERROR - ❌ Hyperparameter tuning failed: name 'param_space' is not defined

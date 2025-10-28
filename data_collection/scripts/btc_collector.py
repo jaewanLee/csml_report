@@ -316,14 +316,9 @@ class BTCDataCollector:
         if len(df) > 1:
             time_diff = df.index.to_series().diff().dropna()
             # Handle different timeframe formats for pandas Timedelta
-            if timeframe == '1M':
-                expected_interval = pd.Timedelta(
-                    days=30)  # Approximate monthly interval
-            else:
-                expected_interval = pd.Timedelta(
-                    timeframe.replace("m",
-                                      "min").replace("h",
-                                                     "h").replace("d", "D"))
+            expected_interval = pd.Timedelta(
+                timeframe.replace("m", "min").replace("h",
+                                                      "h").replace("d", "D"))
             gaps = (time_diff > expected_interval * 1.5).sum()
             if gaps > 0:
                 self.logger.warning(
@@ -360,7 +355,9 @@ class BTCDataCollector:
         """
         Collect data for all configured timeframes with timeframe-specific date ranges
         """
-        self.logger.info("Starting data collection for all timeframes with timeframe-specific dates")
+        self.logger.info(
+            "Starting data collection for all timeframes with timeframe-specific dates"
+        )
 
         successful_timeframes = []
         failed_timeframes = []
@@ -368,11 +365,14 @@ class BTCDataCollector:
         for timeframe in COLLECTION_CONFIG["timeframes"]:
             try:
                 # Get timeframe-specific date range
-                timeframe_dates = COLLECTION_CONFIG["timeframe_dates"][timeframe]
+                timeframe_dates = COLLECTION_CONFIG["timeframe_dates"][
+                    timeframe]
                 start_date = timeframe_dates["start_date"]
                 end_date = timeframe_dates["end_date"]
-                
-                self.logger.info(f"Starting collection for {timeframe} from {start_date} to {end_date}")
+
+                self.logger.info(
+                    f"Starting collection for {timeframe} from {start_date} to {end_date}"
+                )
 
                 # Use retry logic for data collection
                 df = self._retry_with_backoff(
@@ -515,7 +515,7 @@ if __name__ == "__main__":
         exit(1)
 
     print("✅ Exchange health check passed")
-    print("📊 Collecting all timeframes (4h, 1d, 1w, 1M)...")
+    print("📊 Collecting all timeframes (4h, 1d, 1w)...")
     print("⏱️  Estimated time: 2-5 minutes")
     print()
 

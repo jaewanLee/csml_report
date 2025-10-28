@@ -1,0 +1,25 @@
+{
+  "timeframe": "1w",
+  "total_records": 413,
+  "date_range": {
+    "start": "2017-12-04T00:00:00",
+    "end": "2025-10-27T00:00:00"
+  },
+  "missing_values": {
+    "open": 0,
+    "high": 0,
+    "low": 0,
+    "close": 0,
+    "volume": 0
+  },
+  "price_statistics": {
+    "min_price": 3156.26,
+    "max_price": 126199.63,
+    "mean_price": 35824.62306900726
+  },
+  "volume_statistics": {
+    "min_volume": 22900.7849,
+    "max_volume": 3775888.94983,
+    "mean_volume": 459138.4764053487
+  }
+}

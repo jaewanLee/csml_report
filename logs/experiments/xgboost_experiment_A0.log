@@ -1,0 +1,1845 @@
+2025-10-27 18:35:59,453 - xgboost_experiment_A0 - INFO - 🚀 Starting complete XGBoost experiment for A0
+2025-10-27 18:35:59,453 - xgboost_experiment_A0 - INFO - Parameters: n_splits=5, n_iter=10, skip_tuning=False
+2025-10-27 18:35:59,453 - xgboost_experiment_A0 - INFO - ============================================================
+2025-10-27 18:35:59,453 - xgboost_experiment_A0 - INFO - STEP 1: Hyperparameter Tuning
+2025-10-27 18:35:59,453 - xgboost_experiment_A0 - INFO - ============================================================
+2025-10-27 18:35:59,453 - xgboost_experiment_A0 - INFO - Running: python training/xgboost/tune_hyperparameters.py --exp_id A0 --n_splits 5 --n_iter 10
+2025-10-27 18:36:02,972 - xgboost_experiment_A0 - ERROR - ❌ Hyperparameter tuning failed after 3.52 seconds
+2025-10-27 18:36:02,972 - xgboost_experiment_A0 - ERROR - Return code: 1
+2025-10-27 18:36:02,972 - xgboost_experiment_A0 - ERROR - STDERR: 2025-10-27 18:36:01,200 - xgboost_tuning_A0 - INFO - 🚀 Starting XGBoost hyperparameter tuning for A0
+2025-10-27 18:36:01,200 - xgboost_tuning_A0 - INFO - Parameters: n_splits=5, n_iter=10
+2025-10-27 18:36:01,200 - xgboost_tuning_A0 - INFO - 1. Loading data...
+2025-10-27 18:36:01,292 - xgboost_tuning_A0 - INFO -    Features shape: (11737, 19)
+2025-10-27 18:36:01,294 - xgboost_tuning_A0 - INFO -    Target distribution: {0: 9004, 1: 2733}
+2025-10-27 18:36:01,294 - xgboost_tuning_A0 - INFO - 2. Validating data quality...
+2025-10-27 18:36:01,296 - xgboost_tuning_A0 - INFO -    ✅ Data quality validation passed!
+2025-10-27 18:36:01,297 - xgboost_tuning_A0 - INFO - 3. Splitting data...
+2025-10-27 18:36:01,299 - xgboost_tuning_A0 - INFO - 4. Cross-validation splits info:
+2025-10-27 18:36:01,302 - xgboost_tuning_A0 - INFO - 5. Starting hyperparameter tuning...
+2025-10-27 18:36:01,302 - models.level0.xgboost_model.xgboost_A0 - INFO - Starting hyperparameter tuning for xgboost_A0
+2025-10-27 18:36:01,302 - models.level0.xgboost_model.xgboost_A0 - INFO - Data shape: (8629, 19), Target distribution: {0: 6393, 1: 2236}
+2025-10-27 18:36:01,307 - models.level0.xgboost_model.xgboost_A0 - INFO - Running Bayesian optimization...
+2025-10-27 18:36:02,841 - xgboost_tuning_A0 - ERROR - ❌ Hyperparameter tuning failed: Must have at least 1 validation dataset for early stopping.
+joblib.externals.loky.process_executor._RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "/opt/anaconda3/envs/ipradar/lib/python3.12/site-packages/joblib/externals/loky/process_executor.py", line 490, in _process_worker
+    r = call_item()
+        ^^^^^^^^^^^
+  File "/opt/anaconda3/envs/ipradar/lib/python3.12/site-packages/joblib/externals/loky/process_executor.py", line 291, in __call__
+    return self.fn(*self.args, **self.kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/ipradar/lib/python3.12/site-packages/joblib/parallel.py", line 607, in __call__
+    return [func(*args, **kwargs) for func, args, kwargs in self.items]
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/ipradar/lib/python3.12/site-packages/sklearn/utils/parallel.py", line 147, in __call__
+    return self.function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/ipradar/lib/python3.12/site-packages/sklearn/model_selection/_validation.py", line 859, in _fit_and_score
+    estimator.fit(X_train, y_train, **fit_params)
+  File "/opt/anaconda3/envs/ipradar/lib/python3.12/site-packages/xgboost/core.py", line 774, in inner_f
+    return func(**kwargs)
+           ^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/ipradar/lib/python3.12/site-packages/xgboost/sklearn.py", line 1803, in fit
+    self._Booster = train(
+                    ^^^^^^
+  File "/opt/anaconda3/envs/ipradar/lib/python3.12/site-packages/xgboost/core.py", line 774, in inner_f
+    return func(**kwargs)
+           ^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/ipradar/lib/python3.12/site-packages/xgboost/training.py", line 200, in train
+    if cb_container.after_iteration(bst, i, dtrain, evals):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/ipradar/lib/python3.12/site-packages/xgboost/callback.py", line 269, in after_iteration
+    ret = any(c.after_iteration(model, epoch, self.history) for c in self.callbacks)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/ipradar/lib/python3.12/site-packages/xgboost/callback.py", line 269, in <genexpr>
+    ret = any(c.after_iteration(model, epoch, self.history) for c in self.callbacks)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/ipradar/lib/python3.12/site-packages/xgboost/callback.py", line 461, in after_iteration
+    raise ValueError(msg)
+ValueError: Must have at least 1 validation dataset for early stopping.
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/al02260279/Documents/private/btc_prediction/training/xgboost/tune_hyperparameters.py", line 86, in tune_hyperparameters
+    best_params = model.tune_hyperparameters(X_train, y_train,
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/al02260279/Documents/private/btc_prediction/models/level0/xgboost_model.py", line 88, in tune_hyperparameters
+    bayes_search.fit(X, y['target'])
+  File "/opt/anaconda3/envs/ipradar/lib/python3.12/site-packages/skopt/searchcv.py", line 542, in fit
+    super().fit(X=X, y=y, groups=groups, **fit_params)
+  File "/opt/anaconda3/envs/ipradar/lib/python3.12/site-packages/sklearn/base.py", line 1365, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/ipradar/lib/python3.12/site-packages/sklearn/model_selection/_search.py", line 1051, in fit
+    self._run_search(evaluate_candidates)
+  File "/opt/anaconda3/envs/ipradar/lib/python3.12/site-packages/skopt/searchcv.py", line 599, in _run_search
+    optim_result, score_name = self._step(
+                               ^^^^^^^^^^^
+  File "/opt/anaconda3/envs/ipradar/lib/python3.12/site-packages/skopt/searchcv.py", line 453, in _step
+    all_results = evaluate_candidates(params_dict)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/ipradar/lib/python3.12/site-packages/sklearn/model_selection/_search.py", line 997, in evaluate_candidates
+    out = parallel(
+          ^^^^^^^^^
+  File "/opt/anaconda3/envs/ipradar/lib/python3.12/site-packages/sklearn/utils/parallel.py", line 82, in __call__
+    return super().__call__(iterable_with_config_and_warning_filters)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/ipradar/lib/python3.12/site-packages/joblib/parallel.py", line 2072, in __call__
+    return output if self.return_generator else list(output)
+                                                ^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/ipradar/lib/python3.12/site-packages/joblib/parallel.py", line 1682, in _get_outputs
+    yield from self._retrieve()
+  File "/opt/anaconda3/envs/ipradar/lib/python3.12/site-packages/joblib/parallel.py", line 1784, in _retrieve
+    self._raise_error_fast()
+  File "/opt/anaconda3/envs/ipradar/lib/python3.12/site-packages/joblib/parallel.py", line 1859, in _raise_error_fast
+    error_job.get_result(self.timeout)
+  File "/opt/anaconda3/envs/ipradar/lib/python3.12/site-packages/joblib/parallel.py", line 758, in get_result
+    return self._return_or_raise()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/ipradar/lib/python3.12/site-packages/joblib/parallel.py", line 773, in _return_or_raise
+    raise self._result
+ValueError: Must have at least 1 validation dataset for early stopping.
+
+2025-10-27 18:36:02,973 - xgboost_experiment_A0 - ERROR - STDOUT: 🔍 Data Quality Validation:
+  ✅ No missing values in features
+  ✅ No missing values in target
+  ✅ No infinite values in features
+  ✅ No infinite values in target
+  📊 Features shape: (11737, 19)
+  📊 Target shape: (11737, 1)
+  📊 Target distribution: {0: 9004, 1: 2733}
+Data split:
+  Training: 8629 samples (2020-05-12 00:00:00 to 2024-04-19 00:00:00)
+  Test: 3097 samples (2024-04-21 00:00:00 to 2025-09-19 00:00:00)
+🔄 TimeSeriesSplit (5 folds):
+================================================================================
+Fold 1:
+  Training: 2020-05-12 00:00:00 to 2021-01-06 16:00:00 (1439 samples)
+    - SELL: 135, REST: 1304
+  Validation: 2021-01-06 20:00:00 to 2021-09-03 08:00:00 (1438 samples)
+    - SELL: 541, REST: 897
+
+Fold 2:
+  Training: 2020-05-12 00:00:00 to 2021-09-03 08:00:00 (2877 samples)
+    - SELL: 676, REST: 2201
+  Validation: 2021-09-03 12:00:00 to 2022-05-01 00:00:00 (1438 samples)
+    - SELL: 783, REST: 655
+
+Fold 3:
+  Training: 2020-05-12 00:00:00 to 2022-05-01 00:00:00 (4315 samples)
+    - SELL: 1459, REST: 2856
+  Validation: 2022-05-01 04:00:00 to 2022-12-26 16:00:00 (1438 samples)
+    - SELL: 491, REST: 947
+
+Fold 4:
+  Training: 2020-05-12 00:00:00 to 2022-12-26 16:00:00 (5753 samples)
+    - SELL: 1950, REST: 3803
+  Validation: 2022-12-26 20:00:00 to 2023-08-23 08:00:00 (1438 samples)
+    - SELL: 162, REST: 1276
+
+Fold 5:
+  Training: 2020-05-12 00:00:00 to 2023-08-23 08:00:00 (7191 samples)
+    - SELL: 2112, REST: 5079
+  Validation: 2023-08-23 12:00:00 to 2024-04-19 00:00:00 (1438 samples)
+    - SELL: 124, REST: 1314
+
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+
+❌ XGBoost hyperparameter tuning for A0 failed!
+
+2025-10-27 18:36:02,973 - xgboost_experiment_A0 - ERROR - ❌ Hyperparameter tuning failed!
+2025-10-27 18:37:05,750 - xgboost_experiment_A0 - INFO - 🚀 Starting complete XGBoost experiment for A0
+2025-10-27 18:37:05,750 - xgboost_experiment_A0 - INFO - Parameters: n_splits=5, n_iter=10, skip_tuning=False
+2025-10-27 18:37:05,750 - xgboost_experiment_A0 - INFO - ============================================================
+2025-10-27 18:37:05,750 - xgboost_experiment_A0 - INFO - STEP 1: Hyperparameter Tuning
+2025-10-27 18:37:05,750 - xgboost_experiment_A0 - INFO - ============================================================
+2025-10-27 18:37:05,750 - xgboost_experiment_A0 - INFO - Running: python training/xgboost/tune_hyperparameters.py --exp_id A0 --n_splits 5 --n_iter 10
+2025-10-27 18:37:21,785 - xgboost_experiment_A0 - INFO - ✅ Hyperparameter tuning completed successfully in 16.03 seconds
+2025-10-27 18:37:21,785 - xgboost_experiment_A0 - INFO - STDOUT: 🔍 Data Quality Validation:
+  ✅ No missing values in features
+  ✅ No missing values in target
+  ✅ No infinite values in features
+  ✅ No infinite values in target
+  📊 Features shape: (11737, 19)
+  📊 Target shape: (11737, 1)
+  📊 Target distribution: {0: 9004, 1: 2733}
+Data split:
+  Training: 8629 samples (2020-05-12 00:00:00 to 2024-04-19 00:00:00)
+  Test: 3097 samples (2024-04-21 00:00:00 to 2025-09-19 00:00:00)
+🔄 TimeSeriesSplit (5 folds):
+================================================================================
+Fold 1:
+  Training: 2020-05-12 00:00:00 to 2021-01-06 16:00:00 (1439 samples)
+    - SELL: 135, REST: 1304
+  Validation: 2021-01-06 20:00:00 to 2021-09-03 08:00:00 (1438 samples)
+    - SELL: 541, REST: 897
+
+Fold 2:
+  Training: 2020-05-12 00:00:00 to 2021-09-03 08:00:00 (2877 samples)
+    - SELL: 676, REST: 2201
+  Validation: 2021-09-03 12:00:00 to 2022-05-01 00:00:00 (1438 samples)
+    - SELL: 783, REST: 655
+
+Fold 3:
+  Training: 2020-05-12 00:00:00 to 2022-05-01 00:00:00 (4315 samples)
+    - SELL: 1459, REST: 2856
+  Validation: 2022-05-01 04:00:00 to 2022-12-26 16:00:00 (1438 samples)
+    - SELL: 491, REST: 947
+
+Fold 4:
+  Training: 2020-05-12 00:00:00 to 2022-12-26 16:00:00 (5753 samples)
+    - SELL: 1950, REST: 3803
+  Validation: 2022-12-26 20:00:00 to 2023-08-23 08:00:00 (1438 samples)
+    - SELL: 162, REST: 1276
+
+Fold 5:
+  Training: 2020-05-12 00:00:00 to 2023-08-23 08:00:00 (7191 samples)
+    - SELL: 2112, REST: 5079
+  Validation: 2023-08-23 12:00:00 to 2024-04-19 00:00:00 (1438 samples)
+    - SELL: 124, REST: 1314
+
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+
+✅ XGBoost hyperparameter tuning for A0 completed successfully!
+
+2025-10-27 18:37:21,785 - xgboost_experiment_A0 - INFO - ============================================================
+2025-10-27 18:37:21,785 - xgboost_experiment_A0 - INFO - STEP 2: Training and Evaluation
+2025-10-27 18:37:21,785 - xgboost_experiment_A0 - INFO - ============================================================
+2025-10-27 18:37:21,785 - xgboost_experiment_A0 - INFO - Running: python training/xgboost/train_and_evaluate.py --exp_id A0 --use_tuned_params
+2025-10-27 18:37:28,706 - xgboost_experiment_A0 - INFO - ✅ Training and evaluation completed successfully in 6.92 seconds
+2025-10-27 18:37:28,706 - xgboost_experiment_A0 - INFO - STDOUT: 🔍 Data Quality Validation:
+  ✅ No missing values in features
+  ✅ No missing values in target
+  ✅ No infinite values in features
+  ✅ No infinite values in target
+  📊 Features shape: (11737, 19)
+  📊 Target shape: (11737, 1)
+  📊 Target distribution: {0: 9004, 1: 2733}
+Data split:
+  Training: 8629 samples (2020-05-12 00:00:00 to 2024-04-19 00:00:00)
+  Test: 3097 samples (2024-04-21 00:00:00 to 2025-09-19 00:00:00)
+
+✅ XGBoost training and evaluation for A0 completed successfully!
+
+2025-10-27 18:37:28,706 - xgboost_experiment_A0 - INFO - ============================================================
+2025-10-27 18:37:28,707 - xgboost_experiment_A0 - INFO - STEP 3: Results Summary
+2025-10-27 18:37:28,707 - xgboost_experiment_A0 - INFO - ============================================================
+2025-10-27 18:37:28,707 - xgboost_experiment_A0 - INFO - 🎉 Complete experiment for A0 finished successfully!
+2025-10-27 18:37:28,707 - xgboost_experiment_A0 - INFO - Total duration: 22.96 seconds (0.38 minutes)
+2025-10-27 18:37:28,707 - xgboost_experiment_A0 - INFO - Results saved to:
+2025-10-27 18:37:28,707 - xgboost_experiment_A0 - INFO -   - Tuning results: logs/xgboost_tuning_results_A0.pkl
+2025-10-27 18:37:28,707 - xgboost_experiment_A0 - INFO -   - Evaluation results: logs/xgboost_evaluation_results_A0.pkl
+2025-10-27 18:37:28,707 - xgboost_experiment_A0 - INFO -   - Model: logs/models/A0/l0/xgboost_model.pkl
+2025-10-27 18:37:28,707 - xgboost_experiment_A0 - INFO -   - Logs: logs/experiments/xgboost_experiment_A0.log
+2025-10-27 18:46:24,262 - xgboost_experiment_A0 - INFO - 🚀 Starting complete XGBoost experiment for A0
+2025-10-27 18:46:24,262 - xgboost_experiment_A0 - INFO - Parameters: n_splits=5, n_iter=10, skip_tuning=False
+2025-10-27 18:46:24,262 - xgboost_experiment_A0 - INFO - ============================================================
+2025-10-27 18:46:24,262 - xgboost_experiment_A0 - INFO - STEP 1: Hyperparameter Tuning
+2025-10-27 18:46:24,262 - xgboost_experiment_A0 - INFO - ============================================================
+2025-10-27 18:46:24,262 - xgboost_experiment_A0 - INFO - Running: python training/xgboost/tune_hyperparameters.py --exp_id A0 --n_splits 5 --n_iter 10
+2025-10-27 18:46:33,949 - xgboost_experiment_A0 - INFO - ✅ Hyperparameter tuning completed successfully in 9.69 seconds
+2025-10-27 18:46:33,949 - xgboost_experiment_A0 - INFO - STDOUT: 🔍 Data Quality Validation:
+  ✅ No missing values in features
+  ✅ No missing values in target
+  ✅ No infinite values in features
+  ✅ No infinite values in target
+  📊 Features shape: (11737, 19)
+  📊 Target shape: (11737, 1)
+  📊 Target distribution: {0: 9004, 1: 2733}
+Data split:
+  Training: 8629 samples (2020-05-12 00:00:00 to 2024-04-19 00:00:00)
+  Test: 3097 samples (2024-04-21 00:00:00 to 2025-09-19 00:00:00)
+🔄 TimeSeriesSplit (5 folds):
+================================================================================
+Fold 1:
+  Training: 2020-05-12 00:00:00 to 2021-01-06 16:00:00 (1439 samples)
+    - SELL: 135, REST: 1304
+  Validation: 2021-01-06 20:00:00 to 2021-09-03 08:00:00 (1438 samples)
+    - SELL: 541, REST: 897
+
+Fold 2:
+  Training: 2020-05-12 00:00:00 to 2021-09-03 08:00:00 (2877 samples)
+    - SELL: 676, REST: 2201
+  Validation: 2021-09-03 12:00:00 to 2022-05-01 00:00:00 (1438 samples)
+    - SELL: 783, REST: 655
+
+Fold 3:
+  Training: 2020-05-12 00:00:00 to 2022-05-01 00:00:00 (4315 samples)
+    - SELL: 1459, REST: 2856
+  Validation: 2022-05-01 04:00:00 to 2022-12-26 16:00:00 (1438 samples)
+    - SELL: 491, REST: 947
+
+Fold 4:
+  Training: 2020-05-12 00:00:00 to 2022-12-26 16:00:00 (5753 samples)
+    - SELL: 1950, REST: 3803
+  Validation: 2022-12-26 20:00:00 to 2023-08-23 08:00:00 (1438 samples)
+    - SELL: 162, REST: 1276
+
+Fold 5:
+  Training: 2020-05-12 00:00:00 to 2023-08-23 08:00:00 (7191 samples)
+    - SELL: 2112, REST: 5079
+  Validation: 2023-08-23 12:00:00 to 2024-04-19 00:00:00 (1438 samples)
+    - SELL: 124, REST: 1314
+
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+
+✅ XGBoost hyperparameter tuning for A0 completed successfully!
+
+2025-10-27 18:46:33,949 - xgboost_experiment_A0 - INFO - ============================================================
+2025-10-27 18:46:33,949 - xgboost_experiment_A0 - INFO - STEP 2: Training and Evaluation
+2025-10-27 18:46:33,950 - xgboost_experiment_A0 - INFO - ============================================================
+2025-10-27 18:46:33,950 - xgboost_experiment_A0 - INFO - Running: python training/xgboost/train_and_evaluate.py --exp_id A0 --use_tuned_params
+2025-10-27 18:46:37,304 - xgboost_experiment_A0 - INFO - ✅ Training and evaluation completed successfully in 3.35 seconds
+2025-10-27 18:46:37,304 - xgboost_experiment_A0 - INFO - STDOUT: 🔍 Data Quality Validation:
+  ✅ No missing values in features
+  ✅ No missing values in target
+  ✅ No infinite values in features
+  ✅ No infinite values in target
+  📊 Features shape: (11737, 19)
+  📊 Target shape: (11737, 1)
+  📊 Target distribution: {0: 9004, 1: 2733}
+Data split:
+  Training: 8629 samples (2020-05-12 00:00:00 to 2024-04-19 00:00:00)
+  Test: 3097 samples (2024-04-21 00:00:00 to 2025-09-19 00:00:00)
+
+✅ XGBoost training and evaluation for A0 completed successfully!
+
+2025-10-27 18:46:37,304 - xgboost_experiment_A0 - INFO - ============================================================
+2025-10-27 18:46:37,304 - xgboost_experiment_A0 - INFO - STEP 3: Results Summary
+2025-10-27 18:46:37,304 - xgboost_experiment_A0 - INFO - ============================================================
+2025-10-27 18:46:37,304 - xgboost_experiment_A0 - INFO - 🎉 Complete experiment for A0 finished successfully!
+2025-10-27 18:46:37,304 - xgboost_experiment_A0 - INFO - Total duration: 13.04 seconds (0.22 minutes)
+2025-10-27 18:46:37,304 - xgboost_experiment_A0 - INFO - Results saved to:
+2025-10-27 18:46:37,304 - xgboost_experiment_A0 - INFO -   - Tuning results: logs/xgboost_tuning_results_A0.pkl
+2025-10-27 18:46:37,304 - xgboost_experiment_A0 - INFO -   - Evaluation results: logs/xgboost_evaluation_results_A0.pkl
+2025-10-27 18:46:37,304 - xgboost_experiment_A0 - INFO -   - Model: logs/models/A0/l0/xgboost_model.pkl
+2025-10-27 18:46:37,304 - xgboost_experiment_A0 - INFO -   - Logs: logs/experiments/xgboost_experiment_A0.log
+2025-10-27 18:52:53,091 - xgboost_experiment_A0 - INFO - 🚀 Starting complete XGBoost experiment for A0
+2025-10-27 18:52:53,091 - xgboost_experiment_A0 - INFO - Parameters: n_splits=5, n_iter=10, skip_tuning=False
+2025-10-27 18:52:53,091 - xgboost_experiment_A0 - INFO - ============================================================
+2025-10-27 18:52:53,091 - xgboost_experiment_A0 - INFO - STEP 1: Hyperparameter Tuning
+2025-10-27 18:52:53,091 - xgboost_experiment_A0 - INFO - ============================================================
+2025-10-27 18:52:53,091 - xgboost_experiment_A0 - INFO - Running: python training/xgboost/tune_hyperparameters.py --exp_id A0 --n_splits 5 --n_iter 10
+2025-10-27 18:53:03,072 - xgboost_experiment_A0 - ERROR - ❌ Hyperparameter tuning failed after 9.98 seconds
+2025-10-27 18:53:03,072 - xgboost_experiment_A0 - ERROR - Return code: 1
+2025-10-27 18:53:03,072 - xgboost_experiment_A0 - ERROR - STDERR: 2025-10-27 18:53:01,127 - xgboost_tuning_A0 - INFO - 🚀 Starting XGBoost hyperparameter tuning for A0
+2025-10-27 18:53:01,127 - xgboost_tuning_A0 - INFO - Parameters: n_splits=5, n_iter=10
+2025-10-27 18:53:01,127 - xgboost_tuning_A0 - INFO - 1. Loading data...
+2025-10-27 18:53:01,222 - xgboost_tuning_A0 - INFO -    Features shape: (11737, 19)
+2025-10-27 18:53:01,224 - xgboost_tuning_A0 - INFO -    Target distribution: {0: 9004, 1: 2733}
+2025-10-27 18:53:01,224 - xgboost_tuning_A0 - INFO - 2. Validating data quality...
+2025-10-27 18:53:01,226 - xgboost_tuning_A0 - INFO -    ✅ Data quality validation passed!
+2025-10-27 18:53:01,226 - xgboost_tuning_A0 - INFO - 3. Splitting data...
+2025-10-27 18:53:01,229 - xgboost_tuning_A0 - INFO - 4. Cross-validation splits info:
+2025-10-27 18:53:01,232 - xgboost_tuning_A0 - INFO - 5. Starting hyperparameter tuning...
+2025-10-27 18:53:01,232 - models.level0.xgboost_model.xgboost_A0 - INFO - Starting hyperparameter tuning for xgboost_A0
+2025-10-27 18:53:01,233 - models.level0.xgboost_model.xgboost_A0 - INFO - Data shape: (8629, 19), Target distribution: {0: 6393, 1: 2236}
+2025-10-27 18:53:01,239 - models.level0.xgboost_model.xgboost_A0 - INFO - Running Bayesian optimization with early stopping...
+2025-10-27 18:53:02,931 - xgboost_tuning_A0 - ERROR - ❌ Hyperparameter tuning failed: XGBClassifier.fit() got an unexpected keyword argument 'early_stopping_rounds'
+joblib.externals.loky.process_executor._RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/joblib/externals/loky/process_executor.py", line 490, in _process_worker
+    r = call_item()
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/joblib/externals/loky/process_executor.py", line 291, in __call__
+    return self.fn(*self.args, **self.kwargs)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/joblib/parallel.py", line 607, in __call__
+    return [func(*args, **kwargs) for func, args, kwargs in self.items]
+            ~~~~^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/sklearn/utils/parallel.py", line 147, in __call__
+    return self.function(*args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/sklearn/model_selection/_validation.py", line 859, in _fit_and_score
+    estimator.fit(X_train, y_train, **fit_params)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/xgboost/core.py", line 774, in inner_f
+    return func(**kwargs)
+TypeError: XGBClassifier.fit() got an unexpected keyword argument 'early_stopping_rounds'
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/al02260279/Documents/private/btc_prediction/training/xgboost/tune_hyperparameters.py", line 86, in tune_hyperparameters
+    best_params = model.tune_hyperparameters(X_train, y_train,
+                                             n_splits)
+  File "/Users/al02260279/Documents/private/btc_prediction/models/level0/xgboost_model.py", line 102, in tune_hyperparameters
+    bayes_search.fit(X_train_main, y_train_main['target'], **fit_params)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/skopt/searchcv.py", line 542, in fit
+    super().fit(X=X, y=y, groups=groups, **fit_params)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/sklearn/base.py", line 1365, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/sklearn/model_selection/_search.py", line 1051, in fit
+    self._run_search(evaluate_candidates)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/skopt/searchcv.py", line 599, in _run_search
+    optim_result, score_name = self._step(
+                               ~~~~~~~~~~^
+        search_space,
+        ^^^^^^^^^^^^^
+    ...<3 lines>...
+        n_points=n_points_adjusted,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/skopt/searchcv.py", line 453, in _step
+    all_results = evaluate_candidates(params_dict)
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/sklearn/model_selection/_search.py", line 997, in evaluate_candidates
+    out = parallel(
+        delayed(_fit_and_score)(
+    ...<13 lines>...
+        )
+    )
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/sklearn/utils/parallel.py", line 82, in __call__
+    return super().__call__(iterable_with_config_and_warning_filters)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/joblib/parallel.py", line 2072, in __call__
+    return output if self.return_generator else list(output)
+                                                ~~~~^^^^^^^^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/joblib/parallel.py", line 1682, in _get_outputs
+    yield from self._retrieve()
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/joblib/parallel.py", line 1784, in _retrieve
+    self._raise_error_fast()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/joblib/parallel.py", line 1859, in _raise_error_fast
+    error_job.get_result(self.timeout)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/joblib/parallel.py", line 758, in get_result
+    return self._return_or_raise()
+           ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/joblib/parallel.py", line 773, in _return_or_raise
+    raise self._result
+TypeError: XGBClassifier.fit() got an unexpected keyword argument 'early_stopping_rounds'
+
+2025-10-27 18:53:03,073 - xgboost_experiment_A0 - ERROR - STDOUT: 🔍 Data Quality Validation:
+  ✅ No missing values in features
+  ✅ No missing values in target
+  ✅ No infinite values in features
+  ✅ No infinite values in target
+  📊 Features shape: (11737, 19)
+  📊 Target shape: (11737, 1)
+  📊 Target distribution: {0: 9004, 1: 2733}
+Data split:
+  Training: 8629 samples (2020-05-12 00:00:00 to 2024-04-19 00:00:00)
+  Test: 3097 samples (2024-04-21 00:00:00 to 2025-09-19 00:00:00)
+🔄 TimeSeriesSplit (5 folds):
+================================================================================
+Fold 1:
+  Training: 2020-05-12 00:00:00 to 2021-01-06 16:00:00 (1439 samples)
+    - SELL: 135, REST: 1304
+  Validation: 2021-01-06 20:00:00 to 2021-09-03 08:00:00 (1438 samples)
+    - SELL: 541, REST: 897
+
+Fold 2:
+  Training: 2020-05-12 00:00:00 to 2021-09-03 08:00:00 (2877 samples)
+    - SELL: 676, REST: 2201
+  Validation: 2021-09-03 12:00:00 to 2022-05-01 00:00:00 (1438 samples)
+    - SELL: 783, REST: 655
+
+Fold 3:
+  Training: 2020-05-12 00:00:00 to 2022-05-01 00:00:00 (4315 samples)
+    - SELL: 1459, REST: 2856
+  Validation: 2022-05-01 04:00:00 to 2022-12-26 16:00:00 (1438 samples)
+    - SELL: 491, REST: 947
+
+Fold 4:
+  Training: 2020-05-12 00:00:00 to 2022-12-26 16:00:00 (5753 samples)
+    - SELL: 1950, REST: 3803
+  Validation: 2022-12-26 20:00:00 to 2023-08-23 08:00:00 (1438 samples)
+    - SELL: 162, REST: 1276
+
+Fold 5:
+  Training: 2020-05-12 00:00:00 to 2023-08-23 08:00:00 (7191 samples)
+    - SELL: 2112, REST: 5079
+  Validation: 2023-08-23 12:00:00 to 2024-04-19 00:00:00 (1438 samples)
+    - SELL: 124, REST: 1314
+
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+
+❌ XGBoost hyperparameter tuning for A0 failed!
+
+2025-10-27 18:53:03,073 - xgboost_experiment_A0 - ERROR - ❌ Hyperparameter tuning failed!
+2025-10-27 18:54:17,699 - xgboost_experiment_A0 - INFO - 🚀 Starting complete XGBoost experiment for A0
+2025-10-27 18:54:17,699 - xgboost_experiment_A0 - INFO - Parameters: n_splits=5, n_iter=10, skip_tuning=False
+2025-10-27 18:54:17,699 - xgboost_experiment_A0 - INFO - ============================================================
+2025-10-27 18:54:17,699 - xgboost_experiment_A0 - INFO - STEP 1: Hyperparameter Tuning
+2025-10-27 18:54:17,699 - xgboost_experiment_A0 - INFO - ============================================================
+2025-10-27 18:54:17,699 - xgboost_experiment_A0 - INFO - Running: python training/xgboost/tune_hyperparameters.py --exp_id A0 --n_splits 5 --n_iter 10
+2025-10-27 18:54:20,632 - xgboost_experiment_A0 - ERROR - ❌ Hyperparameter tuning failed after 2.93 seconds
+2025-10-27 18:54:20,632 - xgboost_experiment_A0 - ERROR - Return code: 1
+2025-10-27 18:54:20,632 - xgboost_experiment_A0 - ERROR - STDERR: 2025-10-27 18:54:19,156 - xgboost_tuning_A0 - INFO - 🚀 Starting XGBoost hyperparameter tuning for A0
+2025-10-27 18:54:19,156 - xgboost_tuning_A0 - INFO - Parameters: n_splits=5, n_iter=10
+2025-10-27 18:54:19,156 - xgboost_tuning_A0 - INFO - 1. Loading data...
+2025-10-27 18:54:19,240 - xgboost_tuning_A0 - INFO -    Features shape: (11737, 19)
+2025-10-27 18:54:19,242 - xgboost_tuning_A0 - INFO -    Target distribution: {0: 9004, 1: 2733}
+2025-10-27 18:54:19,242 - xgboost_tuning_A0 - INFO - 2. Validating data quality...
+2025-10-27 18:54:19,244 - xgboost_tuning_A0 - INFO -    ✅ Data quality validation passed!
+2025-10-27 18:54:19,244 - xgboost_tuning_A0 - INFO - 3. Splitting data...
+2025-10-27 18:54:19,246 - xgboost_tuning_A0 - INFO - 4. Cross-validation splits info:
+2025-10-27 18:54:19,249 - xgboost_tuning_A0 - INFO - 5. Starting hyperparameter tuning...
+2025-10-27 18:54:19,249 - models.level0.xgboost_model.xgboost_A0 - INFO - Starting hyperparameter tuning for xgboost_A0
+2025-10-27 18:54:19,249 - models.level0.xgboost_model.xgboost_A0 - INFO - Data shape: (8629, 19), Target distribution: {0: 6393, 1: 2236}
+2025-10-27 18:54:19,253 - models.level0.xgboost_model.xgboost_A0 - INFO - Running Bayesian optimization with early stopping...
+2025-10-27 18:54:20,478 - xgboost_tuning_A0 - ERROR - ❌ Hyperparameter tuning failed: XGBClassifier.fit() got an unexpected keyword argument 'callbacks'
+joblib.externals.loky.process_executor._RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/joblib/externals/loky/process_executor.py", line 490, in _process_worker
+    r = call_item()
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/joblib/externals/loky/process_executor.py", line 291, in __call__
+    return self.fn(*self.args, **self.kwargs)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/joblib/parallel.py", line 607, in __call__
+    return [func(*args, **kwargs) for func, args, kwargs in self.items]
+            ~~~~^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/sklearn/utils/parallel.py", line 147, in __call__
+    return self.function(*args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/sklearn/model_selection/_validation.py", line 859, in _fit_and_score
+    estimator.fit(X_train, y_train, **fit_params)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/xgboost/core.py", line 774, in inner_f
+    return func(**kwargs)
+TypeError: XGBClassifier.fit() got an unexpected keyword argument 'callbacks'
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/al02260279/Documents/private/btc_prediction/training/xgboost/tune_hyperparameters.py", line 86, in tune_hyperparameters
+    best_params = model.tune_hyperparameters(X_train, y_train,
+                                             n_splits)
+  File "/Users/al02260279/Documents/private/btc_prediction/models/level0/xgboost_model.py", line 106, in tune_hyperparameters
+    bayes_search.fit(X_train_main, y_train_main['target'], **fit_params)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/skopt/searchcv.py", line 542, in fit
+    super().fit(X=X, y=y, groups=groups, **fit_params)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/sklearn/base.py", line 1365, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/sklearn/model_selection/_search.py", line 1051, in fit
+    self._run_search(evaluate_candidates)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/skopt/searchcv.py", line 599, in _run_search
+    optim_result, score_name = self._step(
+                               ~~~~~~~~~~^
+        search_space,
+        ^^^^^^^^^^^^^
+    ...<3 lines>...
+        n_points=n_points_adjusted,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/skopt/searchcv.py", line 453, in _step
+    all_results = evaluate_candidates(params_dict)
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/sklearn/model_selection/_search.py", line 997, in evaluate_candidates
+    out = parallel(
+        delayed(_fit_and_score)(
+    ...<13 lines>...
+        )
+    )
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/sklearn/utils/parallel.py", line 82, in __call__
+    return super().__call__(iterable_with_config_and_warning_filters)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/joblib/parallel.py", line 2072, in __call__
+    return output if self.return_generator else list(output)
+                                                ~~~~^^^^^^^^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/joblib/parallel.py", line 1682, in _get_outputs
+    yield from self._retrieve()
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/joblib/parallel.py", line 1784, in _retrieve
+    self._raise_error_fast()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/joblib/parallel.py", line 1859, in _raise_error_fast
+    error_job.get_result(self.timeout)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/joblib/parallel.py", line 758, in get_result
+    return self._return_or_raise()
+           ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/joblib/parallel.py", line 773, in _return_or_raise
+    raise self._result
+TypeError: XGBClassifier.fit() got an unexpected keyword argument 'callbacks'
+
+2025-10-27 18:54:20,633 - xgboost_experiment_A0 - ERROR - STDOUT: 🔍 Data Quality Validation:
+  ✅ No missing values in features
+  ✅ No missing values in target
+  ✅ No infinite values in features
+  ✅ No infinite values in target
+  📊 Features shape: (11737, 19)
+  📊 Target shape: (11737, 1)
+  📊 Target distribution: {0: 9004, 1: 2733}
+Data split:
+  Training: 8629 samples (2020-05-12 00:00:00 to 2024-04-19 00:00:00)
+  Test: 3097 samples (2024-04-21 00:00:00 to 2025-09-19 00:00:00)
+🔄 TimeSeriesSplit (5 folds):
+================================================================================
+Fold 1:
+  Training: 2020-05-12 00:00:00 to 2021-01-06 16:00:00 (1439 samples)
+    - SELL: 135, REST: 1304
+  Validation: 2021-01-06 20:00:00 to 2021-09-03 08:00:00 (1438 samples)
+    - SELL: 541, REST: 897
+
+Fold 2:
+  Training: 2020-05-12 00:00:00 to 2021-09-03 08:00:00 (2877 samples)
+    - SELL: 676, REST: 2201
+  Validation: 2021-09-03 12:00:00 to 2022-05-01 00:00:00 (1438 samples)
+    - SELL: 783, REST: 655
+
+Fold 3:
+  Training: 2020-05-12 00:00:00 to 2022-05-01 00:00:00 (4315 samples)
+    - SELL: 1459, REST: 2856
+  Validation: 2022-05-01 04:00:00 to 2022-12-26 16:00:00 (1438 samples)
+    - SELL: 491, REST: 947
+
+Fold 4:
+  Training: 2020-05-12 00:00:00 to 2022-12-26 16:00:00 (5753 samples)
+    - SELL: 1950, REST: 3803
+  Validation: 2022-12-26 20:00:00 to 2023-08-23 08:00:00 (1438 samples)
+    - SELL: 162, REST: 1276
+
+Fold 5:
+  Training: 2020-05-12 00:00:00 to 2023-08-23 08:00:00 (7191 samples)
+    - SELL: 2112, REST: 5079
+  Validation: 2023-08-23 12:00:00 to 2024-04-19 00:00:00 (1438 samples)
+    - SELL: 124, REST: 1314
+
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+
+❌ XGBoost hyperparameter tuning for A0 failed!
+
+2025-10-27 18:54:20,633 - xgboost_experiment_A0 - ERROR - ❌ Hyperparameter tuning failed!
+2025-10-27 18:55:46,419 - xgboost_experiment_A0 - INFO - 🚀 Starting complete XGBoost experiment for A0
+2025-10-27 18:55:46,419 - xgboost_experiment_A0 - INFO - Parameters: n_splits=5, n_iter=10, skip_tuning=False
+2025-10-27 18:55:46,419 - xgboost_experiment_A0 - INFO - ============================================================
+2025-10-27 18:55:46,419 - xgboost_experiment_A0 - INFO - STEP 1: Hyperparameter Tuning
+2025-10-27 18:55:46,420 - xgboost_experiment_A0 - INFO - ============================================================
+2025-10-27 18:55:46,420 - xgboost_experiment_A0 - INFO - Running: python training/xgboost/tune_hyperparameters.py --exp_id A0 --n_splits 5 --n_iter 10
+2025-10-27 18:55:48,110 - xgboost_experiment_A0 - ERROR - ❌ Hyperparameter tuning failed after 1.69 seconds
+2025-10-27 18:55:48,110 - xgboost_experiment_A0 - ERROR - Return code: 1
+2025-10-27 18:55:48,110 - xgboost_experiment_A0 - ERROR - STDERR: 2025-10-27 18:55:47,865 - xgboost_tuning_A0 - INFO - 🚀 Starting XGBoost hyperparameter tuning for A0
+2025-10-27 18:55:47,866 - xgboost_tuning_A0 - INFO - Parameters: n_splits=5, n_iter=10
+2025-10-27 18:55:47,866 - xgboost_tuning_A0 - INFO - 1. Loading data...
+2025-10-27 18:55:47,981 - xgboost_tuning_A0 - INFO -    Features shape: (11737, 19)
+2025-10-27 18:55:47,982 - xgboost_tuning_A0 - INFO -    Target distribution: {0: 9004, 1: 2733}
+2025-10-27 18:55:47,982 - xgboost_tuning_A0 - INFO - 2. Validating data quality...
+2025-10-27 18:55:47,984 - xgboost_tuning_A0 - INFO -    ✅ Data quality validation passed!
+2025-10-27 18:55:47,984 - xgboost_tuning_A0 - INFO - 3. Splitting data...
+2025-10-27 18:55:47,987 - xgboost_tuning_A0 - INFO - 4. Cross-validation splits info:
+2025-10-27 18:55:47,989 - xgboost_tuning_A0 - INFO - 5. Starting hyperparameter tuning...
+2025-10-27 18:55:47,989 - models.level0.xgboost_model.xgboost_A0 - INFO - Starting hyperparameter tuning for xgboost_A0
+2025-10-27 18:55:47,990 - models.level0.xgboost_model.xgboost_A0 - INFO - Data shape: (8629, 19), Target distribution: {0: 6393, 1: 2236}
+2025-10-27 18:55:47,991 - models.level0.xgboost_model.xgboost_A0 - INFO - Running Bayesian optimization with manual CV and early stopping...
+2025-10-27 18:55:47,999 - xgboost_tuning_A0 - ERROR - ❌ Hyperparameter tuning failed: XGBClassifier.fit() got an unexpected keyword argument 'callbacks'
+Traceback (most recent call last):
+  File "/Users/al02260279/Documents/private/btc_prediction/training/xgboost/tune_hyperparameters.py", line 86, in tune_hyperparameters
+    best_params = model.tune_hyperparameters(X_train, y_train,
+                                             n_splits)
+  File "/Users/al02260279/Documents/private/btc_prediction/models/level0/xgboost_model.py", line 102, in tune_hyperparameters
+    results = gp_minimize(
+        func=objective,
+    ...<3 lines>...
+        n_jobs=BAYESIAN_OPTIMIZATION.get('n_jobs', -1)
+    )
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/skopt/optimizer/gp.py", line 281, in gp_minimize
+    return base_minimize(
+        func,
+    ...<19 lines>...
+        model_queue_size=model_queue_size,
+    )
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/skopt/optimizer/base.py", line 332, in base_minimize
+    next_y = func(next_x)
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/skopt/utils.py", line 779, in wrapper
+    objective_value = func(**arg_dict)
+  File "/Users/al02260279/Documents/private/btc_prediction/models/level0/xgboost_model.py", line 82, in objective
+    model.fit(
+    ~~~~~~~~~^
+        X_train, y_train['target'],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        verbose=False
+        ^^^^^^^^^^^^^
+    )
+    ^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/xgboost/core.py", line 774, in inner_f
+    return func(**kwargs)
+TypeError: XGBClassifier.fit() got an unexpected keyword argument 'callbacks'
+
+2025-10-27 18:55:48,110 - xgboost_experiment_A0 - ERROR - STDOUT: 🔍 Data Quality Validation:
+  ✅ No missing values in features
+  ✅ No missing values in target
+  ✅ No infinite values in features
+  ✅ No infinite values in target
+  📊 Features shape: (11737, 19)
+  📊 Target shape: (11737, 1)
+  📊 Target distribution: {0: 9004, 1: 2733}
+Data split:
+  Training: 8629 samples (2020-05-12 00:00:00 to 2024-04-19 00:00:00)
+  Test: 3097 samples (2024-04-21 00:00:00 to 2025-09-19 00:00:00)
+🔄 TimeSeriesSplit (5 folds):
+================================================================================
+Fold 1:
+  Training: 2020-05-12 00:00:00 to 2021-01-06 16:00:00 (1439 samples)
+    - SELL: 135, REST: 1304
+  Validation: 2021-01-06 20:00:00 to 2021-09-03 08:00:00 (1438 samples)
+    - SELL: 541, REST: 897
+
+Fold 2:
+  Training: 2020-05-12 00:00:00 to 2021-09-03 08:00:00 (2877 samples)
+    - SELL: 676, REST: 2201
+  Validation: 2021-09-03 12:00:00 to 2022-05-01 00:00:00 (1438 samples)
+    - SELL: 783, REST: 655
+
+Fold 3:
+  Training: 2020-05-12 00:00:00 to 2022-05-01 00:00:00 (4315 samples)
+    - SELL: 1459, REST: 2856
+  Validation: 2022-05-01 04:00:00 to 2022-12-26 16:00:00 (1438 samples)
+    - SELL: 491, REST: 947
+
+Fold 4:
+  Training: 2020-05-12 00:00:00 to 2022-12-26 16:00:00 (5753 samples)
+    - SELL: 1950, REST: 3803
+  Validation: 2022-12-26 20:00:00 to 2023-08-23 08:00:00 (1438 samples)
+    - SELL: 162, REST: 1276
+
+Fold 5:
+  Training: 2020-05-12 00:00:00 to 2023-08-23 08:00:00 (7191 samples)
+    - SELL: 2112, REST: 5079
+  Validation: 2023-08-23 12:00:00 to 2024-04-19 00:00:00 (1438 samples)
+    - SELL: 124, REST: 1314
+
+
+❌ XGBoost hyperparameter tuning for A0 failed!
+
+2025-10-27 18:55:48,110 - xgboost_experiment_A0 - ERROR - ❌ Hyperparameter tuning failed!
+2025-10-27 18:57:06,592 - xgboost_experiment_A0 - INFO - 🚀 Starting complete XGBoost experiment for A0
+2025-10-27 18:57:06,592 - xgboost_experiment_A0 - INFO - Parameters: n_splits=5, n_iter=10, skip_tuning=False
+2025-10-27 18:57:06,592 - xgboost_experiment_A0 - INFO - ============================================================
+2025-10-27 18:57:06,592 - xgboost_experiment_A0 - INFO - STEP 1: Hyperparameter Tuning
+2025-10-27 18:57:06,592 - xgboost_experiment_A0 - INFO - ============================================================
+2025-10-27 18:57:06,592 - xgboost_experiment_A0 - INFO - Running: python training/xgboost/tune_hyperparameters.py --exp_id A0 --n_splits 5 --n_iter 10
+2025-10-27 18:57:08,235 - xgboost_experiment_A0 - ERROR - ❌ Hyperparameter tuning failed after 1.64 seconds
+2025-10-27 18:57:08,235 - xgboost_experiment_A0 - ERROR - Return code: 1
+2025-10-27 18:57:08,235 - xgboost_experiment_A0 - ERROR - STDERR: 2025-10-27 18:57:08,001 - xgboost_tuning_A0 - INFO - 🚀 Starting XGBoost hyperparameter tuning for A0
+2025-10-27 18:57:08,001 - xgboost_tuning_A0 - INFO - Parameters: n_splits=5, n_iter=10
+2025-10-27 18:57:08,001 - xgboost_tuning_A0 - INFO - 1. Loading data...
+2025-10-27 18:57:08,092 - xgboost_tuning_A0 - INFO -    Features shape: (11737, 19)
+2025-10-27 18:57:08,097 - xgboost_tuning_A0 - INFO -    Target distribution: {0: 9004, 1: 2733}
+2025-10-27 18:57:08,097 - xgboost_tuning_A0 - INFO - 2. Validating data quality...
+2025-10-27 18:57:08,098 - xgboost_tuning_A0 - INFO -    ✅ Data quality validation passed!
+2025-10-27 18:57:08,098 - xgboost_tuning_A0 - INFO - 3. Splitting data...
+2025-10-27 18:57:08,101 - xgboost_tuning_A0 - INFO - 4. Cross-validation splits info:
+2025-10-27 18:57:08,104 - xgboost_tuning_A0 - INFO - 5. Starting hyperparameter tuning...
+2025-10-27 18:57:08,104 - models.level0.xgboost_model.xgboost_A0 - INFO - Starting hyperparameter tuning for xgboost_A0
+2025-10-27 18:57:08,104 - models.level0.xgboost_model.xgboost_A0 - INFO - Data shape: (8629, 19), Target distribution: {0: 6393, 1: 2236}
+2025-10-27 18:57:08,106 - models.level0.xgboost_model.xgboost_A0 - INFO - Running Bayesian optimization with manual CV and early stopping...
+2025-10-27 18:57:08,114 - xgboost_tuning_A0 - ERROR - ❌ Hyperparameter tuning failed: XGBClassifier.fit() got an unexpected keyword argument 'early_stopping_rounds'
+Traceback (most recent call last):
+  File "/Users/al02260279/Documents/private/btc_prediction/training/xgboost/tune_hyperparameters.py", line 86, in tune_hyperparameters
+    best_params = model.tune_hyperparameters(X_train, y_train,
+                                             n_splits)
+  File "/Users/al02260279/Documents/private/btc_prediction/models/level0/xgboost_model.py", line 102, in tune_hyperparameters
+    results = gp_minimize(
+        func=objective,
+    ...<3 lines>...
+        n_jobs=BAYESIAN_OPTIMIZATION.get('n_jobs', -1)
+    )
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/skopt/optimizer/gp.py", line 281, in gp_minimize
+    return base_minimize(
+        func,
+    ...<19 lines>...
+        model_queue_size=model_queue_size,
+    )
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/skopt/optimizer/base.py", line 332, in base_minimize
+    next_y = func(next_x)
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/skopt/utils.py", line 779, in wrapper
+    objective_value = func(**arg_dict)
+  File "/Users/al02260279/Documents/private/btc_prediction/models/level0/xgboost_model.py", line 82, in objective
+    model.fit(
+    ~~~~~~~~~^
+        X_train, y_train['target'],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        verbose=False
+        ^^^^^^^^^^^^^
+    )
+    ^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/xgboost/core.py", line 774, in inner_f
+    return func(**kwargs)
+TypeError: XGBClassifier.fit() got an unexpected keyword argument 'early_stopping_rounds'
+
+2025-10-27 18:57:08,235 - xgboost_experiment_A0 - ERROR - STDOUT: 🔍 Data Quality Validation:
+  ✅ No missing values in features
+  ✅ No missing values in target
+  ✅ No infinite values in features
+  ✅ No infinite values in target
+  📊 Features shape: (11737, 19)
+  📊 Target shape: (11737, 1)
+  📊 Target distribution: {0: 9004, 1: 2733}
+Data split:
+  Training: 8629 samples (2020-05-12 00:00:00 to 2024-04-19 00:00:00)
+  Test: 3097 samples (2024-04-21 00:00:00 to 2025-09-19 00:00:00)
+🔄 TimeSeriesSplit (5 folds):
+================================================================================
+Fold 1:
+  Training: 2020-05-12 00:00:00 to 2021-01-06 16:00:00 (1439 samples)
+    - SELL: 135, REST: 1304
+  Validation: 2021-01-06 20:00:00 to 2021-09-03 08:00:00 (1438 samples)
+    - SELL: 541, REST: 897
+
+Fold 2:
+  Training: 2020-05-12 00:00:00 to 2021-09-03 08:00:00 (2877 samples)
+    - SELL: 676, REST: 2201
+  Validation: 2021-09-03 12:00:00 to 2022-05-01 00:00:00 (1438 samples)
+    - SELL: 783, REST: 655
+
+Fold 3:
+  Training: 2020-05-12 00:00:00 to 2022-05-01 00:00:00 (4315 samples)
+    - SELL: 1459, REST: 2856
+  Validation: 2022-05-01 04:00:00 to 2022-12-26 16:00:00 (1438 samples)
+    - SELL: 491, REST: 947
+
+Fold 4:
+  Training: 2020-05-12 00:00:00 to 2022-12-26 16:00:00 (5753 samples)
+    - SELL: 1950, REST: 3803
+  Validation: 2022-12-26 20:00:00 to 2023-08-23 08:00:00 (1438 samples)
+    - SELL: 162, REST: 1276
+
+Fold 5:
+  Training: 2020-05-12 00:00:00 to 2023-08-23 08:00:00 (7191 samples)
+    - SELL: 2112, REST: 5079
+  Validation: 2023-08-23 12:00:00 to 2024-04-19 00:00:00 (1438 samples)
+    - SELL: 124, REST: 1314
+
+
+❌ XGBoost hyperparameter tuning for A0 failed!
+
+2025-10-27 18:57:08,235 - xgboost_experiment_A0 - ERROR - ❌ Hyperparameter tuning failed!
+2025-10-27 19:00:13,311 - xgboost_experiment_A0 - INFO - 🚀 Starting complete XGBoost experiment for A0
+2025-10-27 19:00:13,311 - xgboost_experiment_A0 - INFO - Parameters: n_splits=5, n_iter=10, skip_tuning=False
+2025-10-27 19:00:13,311 - xgboost_experiment_A0 - INFO - ============================================================
+2025-10-27 19:00:13,311 - xgboost_experiment_A0 - INFO - STEP 1: Hyperparameter Tuning
+2025-10-27 19:00:13,311 - xgboost_experiment_A0 - INFO - ============================================================
+2025-10-27 19:00:13,311 - xgboost_experiment_A0 - INFO - Running: python training/xgboost/tune_hyperparameters.py --exp_id A0 --n_splits 5 --n_iter 10
+2025-10-27 19:00:15,155 - xgboost_experiment_A0 - ERROR - ❌ Hyperparameter tuning failed after 1.84 seconds
+2025-10-27 19:00:15,155 - xgboost_experiment_A0 - ERROR - Return code: 1
+2025-10-27 19:00:15,155 - xgboost_experiment_A0 - ERROR - STDERR: 2025-10-27 19:00:14,745 - xgboost_tuning_A0 - INFO - 🚀 Starting XGBoost hyperparameter tuning for A0
+2025-10-27 19:00:14,745 - xgboost_tuning_A0 - INFO - Parameters: n_splits=5, n_iter=10
+2025-10-27 19:00:14,745 - xgboost_tuning_A0 - INFO - 1. Loading data...
+2025-10-27 19:00:14,830 - xgboost_tuning_A0 - INFO -    Features shape: (11737, 19)
+2025-10-27 19:00:14,832 - xgboost_tuning_A0 - INFO -    Target distribution: {0: 9004, 1: 2733}
+2025-10-27 19:00:14,832 - xgboost_tuning_A0 - INFO - 2. Validating data quality...
+2025-10-27 19:00:14,833 - xgboost_tuning_A0 - INFO -    ✅ Data quality validation passed!
+2025-10-27 19:00:14,834 - xgboost_tuning_A0 - INFO - 3. Splitting data...
+2025-10-27 19:00:14,836 - xgboost_tuning_A0 - INFO - 4. Cross-validation splits info:
+2025-10-27 19:00:14,839 - xgboost_tuning_A0 - INFO - 5. Starting hyperparameter tuning...
+2025-10-27 19:00:14,839 - models.level0.xgboost_model.xgboost_A0 - INFO - Starting hyperparameter tuning for xgboost_A0
+2025-10-27 19:00:14,839 - models.level0.xgboost_model.xgboost_A0 - INFO - Data shape: (8629, 19), Target distribution: {0: 6393, 1: 2236}
+2025-10-27 19:00:14,841 - models.level0.xgboost_model.xgboost_A0 - INFO - Running Bayesian optimization with manual CV and early stopping...
+2025-10-27 19:00:15,018 - models.level0.xgboost_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(5), 'learning_rate': 0.03568087058126293, 'n_estimators': np.int64(412), 'subsample': 0.8193700315892974, 'colsample_bytree': 0.7891665505707183, 'reg_alpha': np.int64(3), 'reg_lambda': np.int64(10), 'scale_pos_weight': np.int64(2)} -> CV F1: -0.0471
+/opt/anaconda3/envs/csml/lib/python3.13/site-packages/numpy/_core/fromnumeric.py:3860: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/opt/anaconda3/envs/csml/lib/python3.13/site-packages/numpy/_core/_methods.py:144: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+2025-10-27 19:00:15,021 - models.level0.xgboost_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(3), 'learning_rate': 0.10112438621283941, 'n_estimators': np.int64(123), 'subsample': 0.844399754453365, 'colsample_bytree': 0.8877105418031501, 'reg_alpha': np.int64(1), 'reg_lambda': np.int64(20), 'scale_pos_weight': np.int64(3)} -> CV F1: nan
+2025-10-27 19:00:15,021 - models.level0.xgboost_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(5), 'learning_rate': 0.010989282730760438, 'n_estimators': np.int64(109), 'subsample': 0.8049549320516778, 'colsample_bytree': 0.7799721943430511, 'reg_alpha': np.int64(2), 'reg_lambda': np.int64(20), 'scale_pos_weight': np.int64(2)} -> CV F1: nan
+2025-10-27 19:00:15,021 - models.level0.xgboost_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(3), 'learning_rate': 0.09657404130663222, 'n_estimators': np.int64(253), 'subsample': 0.8966461771613576, 'colsample_bytree': 0.793352578649596, 'reg_alpha': np.int64(17), 'reg_lambda': np.int64(14), 'scale_pos_weight': np.int64(3)} -> CV F1: nan
+2025-10-27 19:00:15,022 - models.level0.xgboost_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(3), 'learning_rate': 0.1419082457958794, 'n_estimators': np.int64(325), 'subsample': 0.7770833005079832, 'colsample_bytree': 0.7031932504440428, 'reg_alpha': np.int64(5), 'reg_lambda': np.int64(6), 'scale_pos_weight': np.int64(4)} -> CV F1: nan
+2025-10-27 19:00:15,022 - models.level0.xgboost_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(5), 'learning_rate': 0.12664728764306302, 'n_estimators': np.int64(169), 'subsample': 0.7782121215146481, 'colsample_bytree': 0.7364472175576124, 'reg_alpha': np.int64(15), 'reg_lambda': np.int64(9), 'scale_pos_weight': np.int64(2)} -> CV F1: nan
+2025-10-27 19:00:15,022 - models.level0.xgboost_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(5), 'learning_rate': 0.014383860943778203, 'n_estimators': np.int64(437), 'subsample': 0.7899508266739531, 'colsample_bytree': 0.7790300472003628, 'reg_alpha': np.int64(19), 'reg_lambda': np.int64(15), 'scale_pos_weight': np.int64(2)} -> CV F1: nan
+2025-10-27 19:00:15,022 - models.level0.xgboost_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(5), 'learning_rate': 0.08291679640361532, 'n_estimators': np.int64(484), 'subsample': 0.8689067697356303, 'colsample_bytree': 0.8494640220274762, 'reg_alpha': np.int64(11), 'reg_lambda': np.int64(12), 'scale_pos_weight': np.int64(5)} -> CV F1: nan
+2025-10-27 19:00:15,023 - models.level0.xgboost_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(5), 'learning_rate': 0.04863988548315608, 'n_estimators': np.int64(219), 'subsample': 0.7330533878126004, 'colsample_bytree': 0.7031272813482388, 'reg_alpha': np.int64(9), 'reg_lambda': np.int64(9), 'scale_pos_weight': np.int64(2)} -> CV F1: nan
+2025-10-27 19:00:15,023 - models.level0.xgboost_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(3), 'learning_rate': 0.03783793657243273, 'n_estimators': np.int64(385), 'subsample': 0.8580351081062412, 'colsample_bytree': 0.8211919949562023, 'reg_alpha': np.int64(19), 'reg_lambda': np.int64(13), 'scale_pos_weight': np.int64(5)} -> CV F1: nan
+2025-10-27 19:00:15,024 - xgboost_tuning_A0 - ERROR - ❌ Hyperparameter tuning failed: Input y contains NaN.
+Traceback (most recent call last):
+  File "/Users/al02260279/Documents/private/btc_prediction/training/xgboost/tune_hyperparameters.py", line 86, in tune_hyperparameters
+    best_params = model.tune_hyperparameters(X_train, y_train,
+                                             n_splits)
+  File "/Users/al02260279/Documents/private/btc_prediction/models/level0/xgboost_model.py", line 103, in tune_hyperparameters
+    results = gp_minimize(
+        func=objective,
+    ...<3 lines>...
+        n_jobs=BAYESIAN_OPTIMIZATION.get('n_jobs', -1)
+    )
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/skopt/optimizer/gp.py", line 281, in gp_minimize
+    return base_minimize(
+        func,
+    ...<19 lines>...
+        model_queue_size=model_queue_size,
+    )
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/skopt/optimizer/base.py", line 333, in base_minimize
+    result = optimizer.tell(next_x, next_y)
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/skopt/optimizer/optimizer.py", line 570, in tell
+    return self._tell(x, y, fit=fit)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/skopt/optimizer/optimizer.py", line 615, in _tell
+    est.fit(self.space.transform(self.Xi), self.yi)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/skopt/learning/gaussian_process/gpr.py", line 203, in fit
+    super().fit(X, y)
+    ~~~~~~~~~~~^^^^^^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/sklearn/base.py", line 1365, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/sklearn/gaussian_process/_gpr.py", line 254, in fit
+    X, y = validate_data(
+           ~~~~~~~~~~~~~^
+        self,
+        ^^^^^
+    ...<5 lines>...
+        dtype=dtype,
+        ^^^^^^^^^^^^
+    )
+    ^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/sklearn/utils/validation.py", line 2971, in validate_data
+    X, y = check_X_y(X, y, **check_params)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/sklearn/utils/validation.py", line 1385, in check_X_y
+    y = _check_y(y, multi_output=multi_output, y_numeric=y_numeric, estimator=estimator)
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/sklearn/utils/validation.py", line 1395, in _check_y
+    y = check_array(
+        y,
+    ...<5 lines>...
+        estimator=estimator,
+    )
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/sklearn/utils/validation.py", line 1105, in check_array
+    _assert_all_finite(
+    ~~~~~~~~~~~~~~~~~~^
+        array,
+        ^^^^^^
+    ...<2 lines>...
+        allow_nan=ensure_all_finite == "allow-nan",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/sklearn/utils/validation.py", line 120, in _assert_all_finite
+    _assert_all_finite_element_wise(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        X,
+        ^^
+    ...<4 lines>...
+        input_name=input_name,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/sklearn/utils/validation.py", line 169, in _assert_all_finite_element_wise
+    raise ValueError(msg_err)
+ValueError: Input y contains NaN.
+
+2025-10-27 19:00:15,156 - xgboost_experiment_A0 - ERROR - STDOUT: 🔍 Data Quality Validation:
+  ✅ No missing values in features
+  ✅ No missing values in target
+  ✅ No infinite values in features
+  ✅ No infinite values in target
+  📊 Features shape: (11737, 19)
+  📊 Target shape: (11737, 1)
+  📊 Target distribution: {0: 9004, 1: 2733}
+Data split:
+  Training: 8629 samples (2020-05-12 00:00:00 to 2024-04-19 00:00:00)
+  Test: 3097 samples (2024-04-21 00:00:00 to 2025-09-19 00:00:00)
+🔄 TimeSeriesSplit (5 folds):
+================================================================================
+Fold 1:
+  Training: 2020-05-12 00:00:00 to 2021-01-06 16:00:00 (1439 samples)
+    - SELL: 135, REST: 1304
+  Validation: 2021-01-06 20:00:00 to 2021-09-03 08:00:00 (1438 samples)
+    - SELL: 541, REST: 897
+
+Fold 2:
+  Training: 2020-05-12 00:00:00 to 2021-09-03 08:00:00 (2877 samples)
+    - SELL: 676, REST: 2201
+  Validation: 2021-09-03 12:00:00 to 2022-05-01 00:00:00 (1438 samples)
+    - SELL: 783, REST: 655
+
+Fold 3:
+  Training: 2020-05-12 00:00:00 to 2022-05-01 00:00:00 (4315 samples)
+    - SELL: 1459, REST: 2856
+  Validation: 2022-05-01 04:00:00 to 2022-12-26 16:00:00 (1438 samples)
+    - SELL: 491, REST: 947
+
+Fold 4:
+  Training: 2020-05-12 00:00:00 to 2022-12-26 16:00:00 (5753 samples)
+    - SELL: 1950, REST: 3803
+  Validation: 2022-12-26 20:00:00 to 2023-08-23 08:00:00 (1438 samples)
+    - SELL: 162, REST: 1276
+
+Fold 5:
+  Training: 2020-05-12 00:00:00 to 2023-08-23 08:00:00 (7191 samples)
+    - SELL: 2112, REST: 5079
+  Validation: 2023-08-23 12:00:00 to 2024-04-19 00:00:00 (1438 samples)
+    - SELL: 124, REST: 1314
+
+
+❌ XGBoost hyperparameter tuning for A0 failed!
+
+2025-10-27 19:00:15,156 - xgboost_experiment_A0 - ERROR - ❌ Hyperparameter tuning failed!
+2025-10-27 19:00:57,028 - xgboost_experiment_A0 - INFO - 🚀 Starting complete XGBoost experiment for A0
+2025-10-27 19:00:57,029 - xgboost_experiment_A0 - INFO - Parameters: n_splits=5, n_iter=10, skip_tuning=False
+2025-10-27 19:00:57,029 - xgboost_experiment_A0 - INFO - ============================================================
+2025-10-27 19:00:57,029 - xgboost_experiment_A0 - INFO - STEP 1: Hyperparameter Tuning
+2025-10-27 19:00:57,029 - xgboost_experiment_A0 - INFO - ============================================================
+2025-10-27 19:00:57,029 - xgboost_experiment_A0 - INFO - Running: python training/xgboost/tune_hyperparameters.py --exp_id A0 --n_splits 5 --n_iter 10
+2025-10-27 19:00:58,755 - xgboost_experiment_A0 - ERROR - ❌ Hyperparameter tuning failed after 1.73 seconds
+2025-10-27 19:00:58,756 - xgboost_experiment_A0 - ERROR - Return code: 1
+2025-10-27 19:00:58,756 - xgboost_experiment_A0 - ERROR - STDERR: 2025-10-27 19:00:58,368 - xgboost_tuning_A0 - INFO - 🚀 Starting XGBoost hyperparameter tuning for A0
+2025-10-27 19:00:58,368 - xgboost_tuning_A0 - INFO - Parameters: n_splits=5, n_iter=10
+2025-10-27 19:00:58,368 - xgboost_tuning_A0 - INFO - 1. Loading data...
+2025-10-27 19:00:58,452 - xgboost_tuning_A0 - INFO -    Features shape: (11737, 19)
+2025-10-27 19:00:58,455 - xgboost_tuning_A0 - INFO -    Target distribution: {0: 9004, 1: 2733}
+2025-10-27 19:00:58,455 - xgboost_tuning_A0 - INFO - 2. Validating data quality...
+2025-10-27 19:00:58,456 - xgboost_tuning_A0 - INFO -    ✅ Data quality validation passed!
+2025-10-27 19:00:58,456 - xgboost_tuning_A0 - INFO - 3. Splitting data...
+2025-10-27 19:00:58,458 - xgboost_tuning_A0 - INFO - 4. Cross-validation splits info:
+2025-10-27 19:00:58,461 - xgboost_tuning_A0 - INFO - 5. Starting hyperparameter tuning...
+2025-10-27 19:00:58,461 - models.level0.xgboost_model.xgboost_A0 - INFO - Starting hyperparameter tuning for xgboost_A0
+2025-10-27 19:00:58,461 - models.level0.xgboost_model.xgboost_A0 - INFO - Data shape: (8629, 19), Target distribution: {0: 6393, 1: 2236}
+2025-10-27 19:00:58,463 - models.level0.xgboost_model.xgboost_A0 - INFO - Running Bayesian optimization with manual CV and early stopping...
+2025-10-27 19:00:58,636 - models.level0.xgboost_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(5), 'learning_rate': 0.03568087058126293, 'n_estimators': np.int64(412), 'subsample': 0.8193700315892974, 'colsample_bytree': 0.7891665505707183, 'reg_alpha': np.int64(3), 'reg_lambda': np.int64(10), 'scale_pos_weight': np.int64(2)} -> CV F1: -0.0471
+/opt/anaconda3/envs/csml/lib/python3.13/site-packages/numpy/_core/fromnumeric.py:3860: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/opt/anaconda3/envs/csml/lib/python3.13/site-packages/numpy/_core/_methods.py:144: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+2025-10-27 19:00:58,639 - models.level0.xgboost_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(3), 'learning_rate': 0.10112438621283941, 'n_estimators': np.int64(123), 'subsample': 0.844399754453365, 'colsample_bytree': 0.8877105418031501, 'reg_alpha': np.int64(1), 'reg_lambda': np.int64(20), 'scale_pos_weight': np.int64(3)} -> CV F1: nan
+2025-10-27 19:00:58,639 - models.level0.xgboost_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(5), 'learning_rate': 0.010989282730760438, 'n_estimators': np.int64(109), 'subsample': 0.8049549320516778, 'colsample_bytree': 0.7799721943430511, 'reg_alpha': np.int64(2), 'reg_lambda': np.int64(20), 'scale_pos_weight': np.int64(2)} -> CV F1: nan
+2025-10-27 19:00:58,639 - models.level0.xgboost_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(3), 'learning_rate': 0.09657404130663222, 'n_estimators': np.int64(253), 'subsample': 0.8966461771613576, 'colsample_bytree': 0.793352578649596, 'reg_alpha': np.int64(17), 'reg_lambda': np.int64(14), 'scale_pos_weight': np.int64(3)} -> CV F1: nan
+2025-10-27 19:00:58,639 - models.level0.xgboost_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(3), 'learning_rate': 0.1419082457958794, 'n_estimators': np.int64(325), 'subsample': 0.7770833005079832, 'colsample_bytree': 0.7031932504440428, 'reg_alpha': np.int64(5), 'reg_lambda': np.int64(6), 'scale_pos_weight': np.int64(4)} -> CV F1: nan
+2025-10-27 19:00:58,640 - models.level0.xgboost_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(5), 'learning_rate': 0.12664728764306302, 'n_estimators': np.int64(169), 'subsample': 0.7782121215146481, 'colsample_bytree': 0.7364472175576124, 'reg_alpha': np.int64(15), 'reg_lambda': np.int64(9), 'scale_pos_weight': np.int64(2)} -> CV F1: nan
+2025-10-27 19:00:58,640 - models.level0.xgboost_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(5), 'learning_rate': 0.014383860943778203, 'n_estimators': np.int64(437), 'subsample': 0.7899508266739531, 'colsample_bytree': 0.7790300472003628, 'reg_alpha': np.int64(19), 'reg_lambda': np.int64(15), 'scale_pos_weight': np.int64(2)} -> CV F1: nan
+2025-10-27 19:00:58,640 - models.level0.xgboost_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(5), 'learning_rate': 0.08291679640361532, 'n_estimators': np.int64(484), 'subsample': 0.8689067697356303, 'colsample_bytree': 0.8494640220274762, 'reg_alpha': np.int64(11), 'reg_lambda': np.int64(12), 'scale_pos_weight': np.int64(5)} -> CV F1: nan
+2025-10-27 19:00:58,640 - models.level0.xgboost_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(5), 'learning_rate': 0.04863988548315608, 'n_estimators': np.int64(219), 'subsample': 0.7330533878126004, 'colsample_bytree': 0.7031272813482388, 'reg_alpha': np.int64(9), 'reg_lambda': np.int64(9), 'scale_pos_weight': np.int64(2)} -> CV F1: nan
+2025-10-27 19:00:58,641 - models.level0.xgboost_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(3), 'learning_rate': 0.03783793657243273, 'n_estimators': np.int64(385), 'subsample': 0.8580351081062412, 'colsample_bytree': 0.8211919949562023, 'reg_alpha': np.int64(19), 'reg_lambda': np.int64(13), 'scale_pos_weight': np.int64(5)} -> CV F1: nan
+2025-10-27 19:00:58,641 - xgboost_tuning_A0 - ERROR - ❌ Hyperparameter tuning failed: Input y contains NaN.
+Traceback (most recent call last):
+  File "/Users/al02260279/Documents/private/btc_prediction/training/xgboost/tune_hyperparameters.py", line 86, in tune_hyperparameters
+    best_params = model.tune_hyperparameters(X_train, y_train,
+                                             n_splits)
+  File "/Users/al02260279/Documents/private/btc_prediction/models/level0/xgboost_model.py", line 108, in tune_hyperparameters
+    results = gp_minimize(
+        func=objective,
+    ...<3 lines>...
+        n_jobs=BAYESIAN_OPTIMIZATION.get('n_jobs', -1)
+    )
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/skopt/optimizer/gp.py", line 281, in gp_minimize
+    return base_minimize(
+        func,
+    ...<19 lines>...
+        model_queue_size=model_queue_size,
+    )
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/skopt/optimizer/base.py", line 333, in base_minimize
+    result = optimizer.tell(next_x, next_y)
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/skopt/optimizer/optimizer.py", line 570, in tell
+    return self._tell(x, y, fit=fit)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/skopt/optimizer/optimizer.py", line 615, in _tell
+    est.fit(self.space.transform(self.Xi), self.yi)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/skopt/learning/gaussian_process/gpr.py", line 203, in fit
+    super().fit(X, y)
+    ~~~~~~~~~~~^^^^^^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/sklearn/base.py", line 1365, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/sklearn/gaussian_process/_gpr.py", line 254, in fit
+    X, y = validate_data(
+           ~~~~~~~~~~~~~^
+        self,
+        ^^^^^
+    ...<5 lines>...
+        dtype=dtype,
+        ^^^^^^^^^^^^
+    )
+    ^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/sklearn/utils/validation.py", line 2971, in validate_data
+    X, y = check_X_y(X, y, **check_params)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/sklearn/utils/validation.py", line 1385, in check_X_y
+    y = _check_y(y, multi_output=multi_output, y_numeric=y_numeric, estimator=estimator)
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/sklearn/utils/validation.py", line 1395, in _check_y
+    y = check_array(
+        y,
+    ...<5 lines>...
+        estimator=estimator,
+    )
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/sklearn/utils/validation.py", line 1105, in check_array
+    _assert_all_finite(
+    ~~~~~~~~~~~~~~~~~~^
+        array,
+        ^^^^^^
+    ...<2 lines>...
+        allow_nan=ensure_all_finite == "allow-nan",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/sklearn/utils/validation.py", line 120, in _assert_all_finite
+    _assert_all_finite_element_wise(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        X,
+        ^^
+    ...<4 lines>...
+        input_name=input_name,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/sklearn/utils/validation.py", line 169, in _assert_all_finite_element_wise
+    raise ValueError(msg_err)
+ValueError: Input y contains NaN.
+
+2025-10-27 19:00:58,756 - xgboost_experiment_A0 - ERROR - STDOUT: 🔍 Data Quality Validation:
+  ✅ No missing values in features
+  ✅ No missing values in target
+  ✅ No infinite values in features
+  ✅ No infinite values in target
+  📊 Features shape: (11737, 19)
+  📊 Target shape: (11737, 1)
+  📊 Target distribution: {0: 9004, 1: 2733}
+Data split:
+  Training: 8629 samples (2020-05-12 00:00:00 to 2024-04-19 00:00:00)
+  Test: 3097 samples (2024-04-21 00:00:00 to 2025-09-19 00:00:00)
+🔄 TimeSeriesSplit (5 folds):
+================================================================================
+Fold 1:
+  Training: 2020-05-12 00:00:00 to 2021-01-06 16:00:00 (1439 samples)
+    - SELL: 135, REST: 1304
+  Validation: 2021-01-06 20:00:00 to 2021-09-03 08:00:00 (1438 samples)
+    - SELL: 541, REST: 897
+
+Fold 2:
+  Training: 2020-05-12 00:00:00 to 2021-09-03 08:00:00 (2877 samples)
+    - SELL: 676, REST: 2201
+  Validation: 2021-09-03 12:00:00 to 2022-05-01 00:00:00 (1438 samples)
+    - SELL: 783, REST: 655
+
+Fold 3:
+  Training: 2020-05-12 00:00:00 to 2022-05-01 00:00:00 (4315 samples)
+    - SELL: 1459, REST: 2856
+  Validation: 2022-05-01 04:00:00 to 2022-12-26 16:00:00 (1438 samples)
+    - SELL: 491, REST: 947
+
+Fold 4:
+  Training: 2020-05-12 00:00:00 to 2022-12-26 16:00:00 (5753 samples)
+    - SELL: 1950, REST: 3803
+  Validation: 2022-12-26 20:00:00 to 2023-08-23 08:00:00 (1438 samples)
+    - SELL: 162, REST: 1276
+
+Fold 5:
+  Training: 2020-05-12 00:00:00 to 2023-08-23 08:00:00 (7191 samples)
+    - SELL: 2112, REST: 5079
+  Validation: 2023-08-23 12:00:00 to 2024-04-19 00:00:00 (1438 samples)
+    - SELL: 124, REST: 1314
+
+
+❌ XGBoost hyperparameter tuning for A0 failed!
+
+2025-10-27 19:00:58,756 - xgboost_experiment_A0 - ERROR - ❌ Hyperparameter tuning failed!
+2025-10-27 19:21:29,429 - xgboost_experiment_A0 - INFO - 🚀 Starting complete XGBoost experiment for A0
+2025-10-27 19:21:29,429 - xgboost_experiment_A0 - INFO - Parameters: n_splits=5, n_iter=10, skip_tuning=False
+2025-10-27 19:21:29,429 - xgboost_experiment_A0 - INFO - ============================================================
+2025-10-27 19:21:29,429 - xgboost_experiment_A0 - INFO - STEP 1: Hyperparameter Tuning
+2025-10-27 19:21:29,429 - xgboost_experiment_A0 - INFO - ============================================================
+2025-10-27 19:21:29,429 - xgboost_experiment_A0 - INFO - Running: python training/xgboost/tune_hyperparameters.py --exp_id A0 --n_splits 5 --n_iter 10
+2025-10-27 19:21:31,552 - xgboost_experiment_A0 - ERROR - ❌ Hyperparameter tuning failed after 2.12 seconds
+2025-10-27 19:21:31,552 - xgboost_experiment_A0 - ERROR - Return code: 1
+2025-10-27 19:21:31,552 - xgboost_experiment_A0 - ERROR - STDERR: 2025-10-27 19:21:31,162 - xgboost_tuning_A0 - INFO - 🚀 Starting XGBoost hyperparameter tuning for A0
+2025-10-27 19:21:31,162 - xgboost_tuning_A0 - INFO - Parameters: n_splits=5, n_iter=10
+2025-10-27 19:21:31,162 - xgboost_tuning_A0 - INFO - 1. Loading data...
+2025-10-27 19:21:31,245 - xgboost_tuning_A0 - INFO -    Features shape: (11737, 19)
+2025-10-27 19:21:31,248 - xgboost_tuning_A0 - INFO -    Target distribution: {0: 9004, 1: 2733}
+2025-10-27 19:21:31,248 - xgboost_tuning_A0 - INFO - 2. Validating data quality...
+2025-10-27 19:21:31,249 - xgboost_tuning_A0 - INFO -    ✅ Data quality validation passed!
+2025-10-27 19:21:31,249 - xgboost_tuning_A0 - INFO - 3. Splitting data...
+2025-10-27 19:21:31,252 - xgboost_tuning_A0 - INFO - 4. Cross-validation splits info:
+2025-10-27 19:21:31,255 - xgboost_tuning_A0 - INFO - 5. Starting hyperparameter tuning...
+2025-10-27 19:21:31,255 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - 🚀 Starting hyperparameter tuning for xgboost_A0
+2025-10-27 19:21:31,255 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Data shape: (8629, 19), Target distribution: {0: 6393, 1: 2236}
+2025-10-27 19:21:31,257 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Running Bayesian optimization with manual CV and early stopping...
+2025-10-27 19:21:31,428 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(5), 'learning_rate': 0.03568087058126293, 'n_estimators': np.int64(412), 'subsample': 0.8193700315892974, 'colsample_bytree': 0.7891665505707183, 'reg_alpha': np.int64(3), 'reg_lambda': np.int64(10), 'scale_pos_weight': np.int64(2)} -> CV F1: -0.0471
+/opt/anaconda3/envs/csml/lib/python3.13/site-packages/numpy/_core/fromnumeric.py:3860: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/opt/anaconda3/envs/csml/lib/python3.13/site-packages/numpy/_core/_methods.py:144: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+2025-10-27 19:21:31,431 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(3), 'learning_rate': 0.10112438621283941, 'n_estimators': np.int64(123), 'subsample': 0.844399754453365, 'colsample_bytree': 0.8877105418031501, 'reg_alpha': np.int64(1), 'reg_lambda': np.int64(20), 'scale_pos_weight': np.int64(3)} -> CV F1: nan
+2025-10-27 19:21:31,431 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(5), 'learning_rate': 0.010989282730760438, 'n_estimators': np.int64(109), 'subsample': 0.8049549320516778, 'colsample_bytree': 0.7799721943430511, 'reg_alpha': np.int64(2), 'reg_lambda': np.int64(20), 'scale_pos_weight': np.int64(2)} -> CV F1: nan
+2025-10-27 19:21:31,431 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(3), 'learning_rate': 0.09657404130663222, 'n_estimators': np.int64(253), 'subsample': 0.8966461771613576, 'colsample_bytree': 0.793352578649596, 'reg_alpha': np.int64(17), 'reg_lambda': np.int64(14), 'scale_pos_weight': np.int64(3)} -> CV F1: nan
+2025-10-27 19:21:31,432 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(3), 'learning_rate': 0.1419082457958794, 'n_estimators': np.int64(325), 'subsample': 0.7770833005079832, 'colsample_bytree': 0.7031932504440428, 'reg_alpha': np.int64(5), 'reg_lambda': np.int64(6), 'scale_pos_weight': np.int64(4)} -> CV F1: nan
+2025-10-27 19:21:31,432 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(5), 'learning_rate': 0.12664728764306302, 'n_estimators': np.int64(169), 'subsample': 0.7782121215146481, 'colsample_bytree': 0.7364472175576124, 'reg_alpha': np.int64(15), 'reg_lambda': np.int64(9), 'scale_pos_weight': np.int64(2)} -> CV F1: nan
+2025-10-27 19:21:31,432 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(5), 'learning_rate': 0.014383860943778203, 'n_estimators': np.int64(437), 'subsample': 0.7899508266739531, 'colsample_bytree': 0.7790300472003628, 'reg_alpha': np.int64(19), 'reg_lambda': np.int64(15), 'scale_pos_weight': np.int64(2)} -> CV F1: nan
+2025-10-27 19:21:31,432 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(5), 'learning_rate': 0.08291679640361532, 'n_estimators': np.int64(484), 'subsample': 0.8689067697356303, 'colsample_bytree': 0.8494640220274762, 'reg_alpha': np.int64(11), 'reg_lambda': np.int64(12), 'scale_pos_weight': np.int64(5)} -> CV F1: nan
+2025-10-27 19:21:31,433 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(5), 'learning_rate': 0.04863988548315608, 'n_estimators': np.int64(219), 'subsample': 0.7330533878126004, 'colsample_bytree': 0.7031272813482388, 'reg_alpha': np.int64(9), 'reg_lambda': np.int64(9), 'scale_pos_weight': np.int64(2)} -> CV F1: nan
+2025-10-27 19:21:31,433 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(3), 'learning_rate': 0.03783793657243273, 'n_estimators': np.int64(385), 'subsample': 0.8580351081062412, 'colsample_bytree': 0.8211919949562023, 'reg_alpha': np.int64(19), 'reg_lambda': np.int64(13), 'scale_pos_weight': np.int64(5)} -> CV F1: nan
+2025-10-27 19:21:31,434 - xgboost_tuning_A0 - ERROR - ❌ Hyperparameter tuning failed: Input y contains NaN.
+Traceback (most recent call last):
+  File "/Users/al02260279/Documents/private/btc_prediction/training/xgboost/tune_hyperparameters.py", line 86, in tune_hyperparameters
+    best_params = model.tune_hyperparameters(X_train, y_train,
+                                             n_splits)
+  File "/Users/al02260279/Documents/private/btc_prediction/models/level0/xgboost_gemini_model.py", line 106, in tune_hyperparameters
+    results = gp_minimize(
+        func=objective,
+    ...<3 lines>...
+        n_jobs=BAYESIAN_OPTIMIZATION.get('n_jobs', -1)
+    )
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/skopt/optimizer/gp.py", line 281, in gp_minimize
+    return base_minimize(
+        func,
+    ...<19 lines>...
+        model_queue_size=model_queue_size,
+    )
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/skopt/optimizer/base.py", line 333, in base_minimize
+    result = optimizer.tell(next_x, next_y)
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/skopt/optimizer/optimizer.py", line 570, in tell
+    return self._tell(x, y, fit=fit)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/skopt/optimizer/optimizer.py", line 615, in _tell
+    est.fit(self.space.transform(self.Xi), self.yi)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/skopt/learning/gaussian_process/gpr.py", line 203, in fit
+    super().fit(X, y)
+    ~~~~~~~~~~~^^^^^^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/sklearn/base.py", line 1365, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/sklearn/gaussian_process/_gpr.py", line 254, in fit
+    X, y = validate_data(
+           ~~~~~~~~~~~~~^
+        self,
+        ^^^^^
+    ...<5 lines>...
+        dtype=dtype,
+        ^^^^^^^^^^^^
+    )
+    ^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/sklearn/utils/validation.py", line 2971, in validate_data
+    X, y = check_X_y(X, y, **check_params)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/sklearn/utils/validation.py", line 1385, in check_X_y
+    y = _check_y(y, multi_output=multi_output, y_numeric=y_numeric, estimator=estimator)
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/sklearn/utils/validation.py", line 1395, in _check_y
+    y = check_array(
+        y,
+    ...<5 lines>...
+        estimator=estimator,
+    )
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/sklearn/utils/validation.py", line 1105, in check_array
+    _assert_all_finite(
+    ~~~~~~~~~~~~~~~~~~^
+        array,
+        ^^^^^^
+    ...<2 lines>...
+        allow_nan=ensure_all_finite == "allow-nan",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/sklearn/utils/validation.py", line 120, in _assert_all_finite
+    _assert_all_finite_element_wise(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        X,
+        ^^
+    ...<4 lines>...
+        input_name=input_name,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/sklearn/utils/validation.py", line 169, in _assert_all_finite_element_wise
+    raise ValueError(msg_err)
+ValueError: Input y contains NaN.
+
+2025-10-27 19:21:31,552 - xgboost_experiment_A0 - ERROR - STDOUT: 🔍 Data Quality Validation:
+  ✅ No missing values in features
+  ✅ No missing values in target
+  ✅ No infinite values in features
+  ✅ No infinite values in target
+  📊 Features shape: (11737, 19)
+  📊 Target shape: (11737, 1)
+  📊 Target distribution: {0: 9004, 1: 2733}
+Data split:
+  Training: 8629 samples (2020-05-12 00:00:00 to 2024-04-19 00:00:00)
+  Test: 3097 samples (2024-04-21 00:00:00 to 2025-09-19 00:00:00)
+🔄 TimeSeriesSplit (5 folds):
+================================================================================
+Fold 1:
+  Training: 2020-05-12 00:00:00 to 2021-01-06 16:00:00 (1439 samples)
+    - SELL: 135, REST: 1304
+  Validation: 2021-01-06 20:00:00 to 2021-09-03 08:00:00 (1438 samples)
+    - SELL: 541, REST: 897
+
+Fold 2:
+  Training: 2020-05-12 00:00:00 to 2021-09-03 08:00:00 (2877 samples)
+    - SELL: 676, REST: 2201
+  Validation: 2021-09-03 12:00:00 to 2022-05-01 00:00:00 (1438 samples)
+    - SELL: 783, REST: 655
+
+Fold 3:
+  Training: 2020-05-12 00:00:00 to 2022-05-01 00:00:00 (4315 samples)
+    - SELL: 1459, REST: 2856
+  Validation: 2022-05-01 04:00:00 to 2022-12-26 16:00:00 (1438 samples)
+    - SELL: 491, REST: 947
+
+Fold 4:
+  Training: 2020-05-12 00:00:00 to 2022-12-26 16:00:00 (5753 samples)
+    - SELL: 1950, REST: 3803
+  Validation: 2022-12-26 20:00:00 to 2023-08-23 08:00:00 (1438 samples)
+    - SELL: 162, REST: 1276
+
+Fold 5:
+  Training: 2020-05-12 00:00:00 to 2023-08-23 08:00:00 (7191 samples)
+    - SELL: 2112, REST: 5079
+  Validation: 2023-08-23 12:00:00 to 2024-04-19 00:00:00 (1438 samples)
+    - SELL: 124, REST: 1314
+
+
+❌ XGBoost hyperparameter tuning for A0 failed!
+
+2025-10-27 19:21:31,552 - xgboost_experiment_A0 - ERROR - ❌ Hyperparameter tuning failed!
+2025-10-27 19:21:38,820 - xgboost_experiment_A0 - INFO - 🚀 Starting complete XGBoost experiment for A0
+2025-10-27 19:21:38,820 - xgboost_experiment_A0 - INFO - Parameters: n_splits=5, n_iter=10, skip_tuning=False
+2025-10-27 19:21:38,820 - xgboost_experiment_A0 - INFO - ============================================================
+2025-10-27 19:21:38,820 - xgboost_experiment_A0 - INFO - STEP 1: Hyperparameter Tuning
+2025-10-27 19:21:38,820 - xgboost_experiment_A0 - INFO - ============================================================
+2025-10-27 19:21:38,820 - xgboost_experiment_A0 - INFO - Running: python training/xgboost/tune_hyperparameters.py --exp_id A0 --n_splits 5 --n_iter 10
+2025-10-27 19:21:40,300 - xgboost_experiment_A0 - ERROR - ❌ Hyperparameter tuning failed after 1.48 seconds
+2025-10-27 19:21:40,300 - xgboost_experiment_A0 - ERROR - Return code: 1
+2025-10-27 19:21:40,300 - xgboost_experiment_A0 - ERROR - STDERR: 2025-10-27 19:21:39,887 - xgboost_tuning_A0 - INFO - 🚀 Starting XGBoost hyperparameter tuning for A0
+2025-10-27 19:21:39,887 - xgboost_tuning_A0 - INFO - Parameters: n_splits=5, n_iter=10
+2025-10-27 19:21:39,887 - xgboost_tuning_A0 - INFO - 1. Loading data...
+2025-10-27 19:21:39,926 - xgboost_tuning_A0 - INFO -    Features shape: (11737, 19)
+2025-10-27 19:21:39,926 - xgboost_tuning_A0 - INFO -    Target distribution: {0: 9004, 1: 2733}
+2025-10-27 19:21:39,926 - xgboost_tuning_A0 - INFO - 2. Validating data quality...
+2025-10-27 19:21:39,928 - xgboost_tuning_A0 - INFO -    ✅ Data quality validation passed!
+2025-10-27 19:21:39,928 - xgboost_tuning_A0 - INFO - 3. Splitting data...
+2025-10-27 19:21:39,929 - xgboost_tuning_A0 - INFO - 4. Cross-validation splits info:
+2025-10-27 19:21:39,932 - xgboost_tuning_A0 - INFO - 5. Starting hyperparameter tuning...
+2025-10-27 19:21:39,932 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - 🚀 Starting hyperparameter tuning for xgboost_A0
+2025-10-27 19:21:39,932 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Data shape: (8629, 19), Target distribution: {0: 6393, 1: 2236}
+2025-10-27 19:21:39,934 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Running Bayesian optimization with manual CV and early stopping...
+2025-10-27 19:21:40,180 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(5), 'learning_rate': 0.03568087058126293, 'n_estimators': np.int64(412), 'subsample': 0.8193700315892974, 'colsample_bytree': 0.7891665505707183, 'reg_alpha': np.int64(3), 'reg_lambda': np.int64(10), 'scale_pos_weight': np.int64(2)} -> CV F1: -0.0471
+/opt/anaconda3/envs/csml/lib/python3.13/site-packages/numpy/_core/fromnumeric.py:3860: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/opt/anaconda3/envs/csml/lib/python3.13/site-packages/numpy/_core/_methods.py:144: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+2025-10-27 19:21:40,183 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(3), 'learning_rate': 0.10112438621283941, 'n_estimators': np.int64(123), 'subsample': 0.844399754453365, 'colsample_bytree': 0.8877105418031501, 'reg_alpha': np.int64(1), 'reg_lambda': np.int64(20), 'scale_pos_weight': np.int64(3)} -> CV F1: nan
+2025-10-27 19:21:40,183 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(5), 'learning_rate': 0.010989282730760438, 'n_estimators': np.int64(109), 'subsample': 0.8049549320516778, 'colsample_bytree': 0.7799721943430511, 'reg_alpha': np.int64(2), 'reg_lambda': np.int64(20), 'scale_pos_weight': np.int64(2)} -> CV F1: nan
+2025-10-27 19:21:40,183 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(3), 'learning_rate': 0.09657404130663222, 'n_estimators': np.int64(253), 'subsample': 0.8966461771613576, 'colsample_bytree': 0.793352578649596, 'reg_alpha': np.int64(17), 'reg_lambda': np.int64(14), 'scale_pos_weight': np.int64(3)} -> CV F1: nan
+2025-10-27 19:21:40,184 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(3), 'learning_rate': 0.1419082457958794, 'n_estimators': np.int64(325), 'subsample': 0.7770833005079832, 'colsample_bytree': 0.7031932504440428, 'reg_alpha': np.int64(5), 'reg_lambda': np.int64(6), 'scale_pos_weight': np.int64(4)} -> CV F1: nan
+2025-10-27 19:21:40,184 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(5), 'learning_rate': 0.12664728764306302, 'n_estimators': np.int64(169), 'subsample': 0.7782121215146481, 'colsample_bytree': 0.7364472175576124, 'reg_alpha': np.int64(15), 'reg_lambda': np.int64(9), 'scale_pos_weight': np.int64(2)} -> CV F1: nan
+2025-10-27 19:21:40,184 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(5), 'learning_rate': 0.014383860943778203, 'n_estimators': np.int64(437), 'subsample': 0.7899508266739531, 'colsample_bytree': 0.7790300472003628, 'reg_alpha': np.int64(19), 'reg_lambda': np.int64(15), 'scale_pos_weight': np.int64(2)} -> CV F1: nan
+2025-10-27 19:21:40,184 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(5), 'learning_rate': 0.08291679640361532, 'n_estimators': np.int64(484), 'subsample': 0.8689067697356303, 'colsample_bytree': 0.8494640220274762, 'reg_alpha': np.int64(11), 'reg_lambda': np.int64(12), 'scale_pos_weight': np.int64(5)} -> CV F1: nan
+2025-10-27 19:21:40,185 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(5), 'learning_rate': 0.04863988548315608, 'n_estimators': np.int64(219), 'subsample': 0.7330533878126004, 'colsample_bytree': 0.7031272813482388, 'reg_alpha': np.int64(9), 'reg_lambda': np.int64(9), 'scale_pos_weight': np.int64(2)} -> CV F1: nan
+2025-10-27 19:21:40,185 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(3), 'learning_rate': 0.03783793657243273, 'n_estimators': np.int64(385), 'subsample': 0.8580351081062412, 'colsample_bytree': 0.8211919949562023, 'reg_alpha': np.int64(19), 'reg_lambda': np.int64(13), 'scale_pos_weight': np.int64(5)} -> CV F1: nan
+2025-10-27 19:21:40,186 - xgboost_tuning_A0 - ERROR - ❌ Hyperparameter tuning failed: Input y contains NaN.
+Traceback (most recent call last):
+  File "/Users/al02260279/Documents/private/btc_prediction/training/xgboost/tune_hyperparameters.py", line 86, in tune_hyperparameters
+    best_params = model.tune_hyperparameters(X_train, y_train,
+                                             n_splits)
+  File "/Users/al02260279/Documents/private/btc_prediction/models/level0/xgboost_gemini_model.py", line 106, in tune_hyperparameters
+    results = gp_minimize(
+        func=objective,
+    ...<3 lines>...
+        n_jobs=BAYESIAN_OPTIMIZATION.get('n_jobs', -1)
+    )
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/skopt/optimizer/gp.py", line 281, in gp_minimize
+    return base_minimize(
+        func,
+    ...<19 lines>...
+        model_queue_size=model_queue_size,
+    )
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/skopt/optimizer/base.py", line 333, in base_minimize
+    result = optimizer.tell(next_x, next_y)
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/skopt/optimizer/optimizer.py", line 570, in tell
+    return self._tell(x, y, fit=fit)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/skopt/optimizer/optimizer.py", line 615, in _tell
+    est.fit(self.space.transform(self.Xi), self.yi)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/skopt/learning/gaussian_process/gpr.py", line 203, in fit
+    super().fit(X, y)
+    ~~~~~~~~~~~^^^^^^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/sklearn/base.py", line 1365, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/sklearn/gaussian_process/_gpr.py", line 254, in fit
+    X, y = validate_data(
+           ~~~~~~~~~~~~~^
+        self,
+        ^^^^^
+    ...<5 lines>...
+        dtype=dtype,
+        ^^^^^^^^^^^^
+    )
+    ^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/sklearn/utils/validation.py", line 2971, in validate_data
+    X, y = check_X_y(X, y, **check_params)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/sklearn/utils/validation.py", line 1385, in check_X_y
+    y = _check_y(y, multi_output=multi_output, y_numeric=y_numeric, estimator=estimator)
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/sklearn/utils/validation.py", line 1395, in _check_y
+    y = check_array(
+        y,
+    ...<5 lines>...
+        estimator=estimator,
+    )
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/sklearn/utils/validation.py", line 1105, in check_array
+    _assert_all_finite(
+    ~~~~~~~~~~~~~~~~~~^
+        array,
+        ^^^^^^
+    ...<2 lines>...
+        allow_nan=ensure_all_finite == "allow-nan",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/sklearn/utils/validation.py", line 120, in _assert_all_finite
+    _assert_all_finite_element_wise(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        X,
+        ^^
+    ...<4 lines>...
+        input_name=input_name,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/sklearn/utils/validation.py", line 169, in _assert_all_finite_element_wise
+    raise ValueError(msg_err)
+ValueError: Input y contains NaN.
+
+2025-10-27 19:21:40,301 - xgboost_experiment_A0 - ERROR - STDOUT: 🔍 Data Quality Validation:
+  ✅ No missing values in features
+  ✅ No missing values in target
+  ✅ No infinite values in features
+  ✅ No infinite values in target
+  📊 Features shape: (11737, 19)
+  📊 Target shape: (11737, 1)
+  📊 Target distribution: {0: 9004, 1: 2733}
+Data split:
+  Training: 8629 samples (2020-05-12 00:00:00 to 2024-04-19 00:00:00)
+  Test: 3097 samples (2024-04-21 00:00:00 to 2025-09-19 00:00:00)
+🔄 TimeSeriesSplit (5 folds):
+================================================================================
+Fold 1:
+  Training: 2020-05-12 00:00:00 to 2021-01-06 16:00:00 (1439 samples)
+    - SELL: 135, REST: 1304
+  Validation: 2021-01-06 20:00:00 to 2021-09-03 08:00:00 (1438 samples)
+    - SELL: 541, REST: 897
+
+Fold 2:
+  Training: 2020-05-12 00:00:00 to 2021-09-03 08:00:00 (2877 samples)
+    - SELL: 676, REST: 2201
+  Validation: 2021-09-03 12:00:00 to 2022-05-01 00:00:00 (1438 samples)
+    - SELL: 783, REST: 655
+
+Fold 3:
+  Training: 2020-05-12 00:00:00 to 2022-05-01 00:00:00 (4315 samples)
+    - SELL: 1459, REST: 2856
+  Validation: 2022-05-01 04:00:00 to 2022-12-26 16:00:00 (1438 samples)
+    - SELL: 491, REST: 947
+
+Fold 4:
+  Training: 2020-05-12 00:00:00 to 2022-12-26 16:00:00 (5753 samples)
+    - SELL: 1950, REST: 3803
+  Validation: 2022-12-26 20:00:00 to 2023-08-23 08:00:00 (1438 samples)
+    - SELL: 162, REST: 1276
+
+Fold 5:
+  Training: 2020-05-12 00:00:00 to 2023-08-23 08:00:00 (7191 samples)
+    - SELL: 2112, REST: 5079
+  Validation: 2023-08-23 12:00:00 to 2024-04-19 00:00:00 (1438 samples)
+    - SELL: 124, REST: 1314
+
+
+❌ XGBoost hyperparameter tuning for A0 failed!
+
+2025-10-27 19:21:40,301 - xgboost_experiment_A0 - ERROR - ❌ Hyperparameter tuning failed!
+2025-10-27 19:22:06,131 - xgboost_experiment_A0 - INFO - 🚀 Starting complete XGBoost experiment for A0
+2025-10-27 19:22:06,132 - xgboost_experiment_A0 - INFO - Parameters: n_splits=5, n_iter=10, skip_tuning=False
+2025-10-27 19:22:06,132 - xgboost_experiment_A0 - INFO - ============================================================
+2025-10-27 19:22:06,132 - xgboost_experiment_A0 - INFO - STEP 1: Hyperparameter Tuning
+2025-10-27 19:22:06,132 - xgboost_experiment_A0 - INFO - ============================================================
+2025-10-27 19:22:06,132 - xgboost_experiment_A0 - INFO - Running: python training/xgboost/tune_hyperparameters.py --exp_id A0 --n_splits 5 --n_iter 10
+2025-10-27 19:22:07,906 - xgboost_experiment_A0 - ERROR - ❌ Hyperparameter tuning failed after 1.77 seconds
+2025-10-27 19:22:07,906 - xgboost_experiment_A0 - ERROR - Return code: 1
+2025-10-27 19:22:07,906 - xgboost_experiment_A0 - ERROR - STDERR: 2025-10-27 19:22:07,502 - xgboost_tuning_A0 - INFO - 🚀 Starting XGBoost hyperparameter tuning for A0
+2025-10-27 19:22:07,502 - xgboost_tuning_A0 - INFO - Parameters: n_splits=5, n_iter=10
+2025-10-27 19:22:07,502 - xgboost_tuning_A0 - INFO - 1. Loading data...
+2025-10-27 19:22:07,587 - xgboost_tuning_A0 - INFO -    Features shape: (11737, 19)
+2025-10-27 19:22:07,590 - xgboost_tuning_A0 - INFO -    Target distribution: {0: 9004, 1: 2733}
+2025-10-27 19:22:07,590 - xgboost_tuning_A0 - INFO - 2. Validating data quality...
+2025-10-27 19:22:07,592 - xgboost_tuning_A0 - INFO -    ✅ Data quality validation passed!
+2025-10-27 19:22:07,592 - xgboost_tuning_A0 - INFO - 3. Splitting data...
+2025-10-27 19:22:07,598 - xgboost_tuning_A0 - INFO - 4. Cross-validation splits info:
+2025-10-27 19:22:07,601 - xgboost_tuning_A0 - INFO - 5. Starting hyperparameter tuning...
+2025-10-27 19:22:07,601 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - 🚀 Starting hyperparameter tuning for xgboost_A0
+2025-10-27 19:22:07,601 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Data shape: (8629, 19), Target distribution: {0: 6393, 1: 2236}
+2025-10-27 19:22:07,603 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Running Bayesian optimization with manual CV and early stopping...
+2025-10-27 19:22:07,777 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(5), 'learning_rate': 0.03568087058126293, 'n_estimators': np.int64(412), 'subsample': 0.8193700315892974, 'colsample_bytree': 0.7891665505707183, 'reg_alpha': np.int64(3), 'reg_lambda': np.int64(10), 'scale_pos_weight': np.int64(2)} -> CV F1: -0.0471
+/opt/anaconda3/envs/csml/lib/python3.13/site-packages/numpy/_core/fromnumeric.py:3860: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/opt/anaconda3/envs/csml/lib/python3.13/site-packages/numpy/_core/_methods.py:144: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+2025-10-27 19:22:07,781 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(3), 'learning_rate': 0.10112438621283941, 'n_estimators': np.int64(123), 'subsample': 0.844399754453365, 'colsample_bytree': 0.8877105418031501, 'reg_alpha': np.int64(1), 'reg_lambda': np.int64(20), 'scale_pos_weight': np.int64(3)} -> CV F1: nan
+2025-10-27 19:22:07,781 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(5), 'learning_rate': 0.010989282730760438, 'n_estimators': np.int64(109), 'subsample': 0.8049549320516778, 'colsample_bytree': 0.7799721943430511, 'reg_alpha': np.int64(2), 'reg_lambda': np.int64(20), 'scale_pos_weight': np.int64(2)} -> CV F1: nan
+2025-10-27 19:22:07,782 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(3), 'learning_rate': 0.09657404130663222, 'n_estimators': np.int64(253), 'subsample': 0.8966461771613576, 'colsample_bytree': 0.793352578649596, 'reg_alpha': np.int64(17), 'reg_lambda': np.int64(14), 'scale_pos_weight': np.int64(3)} -> CV F1: nan
+2025-10-27 19:22:07,782 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(3), 'learning_rate': 0.1419082457958794, 'n_estimators': np.int64(325), 'subsample': 0.7770833005079832, 'colsample_bytree': 0.7031932504440428, 'reg_alpha': np.int64(5), 'reg_lambda': np.int64(6), 'scale_pos_weight': np.int64(4)} -> CV F1: nan
+2025-10-27 19:22:07,782 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(5), 'learning_rate': 0.12664728764306302, 'n_estimators': np.int64(169), 'subsample': 0.7782121215146481, 'colsample_bytree': 0.7364472175576124, 'reg_alpha': np.int64(15), 'reg_lambda': np.int64(9), 'scale_pos_weight': np.int64(2)} -> CV F1: nan
+2025-10-27 19:22:07,782 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(5), 'learning_rate': 0.014383860943778203, 'n_estimators': np.int64(437), 'subsample': 0.7899508266739531, 'colsample_bytree': 0.7790300472003628, 'reg_alpha': np.int64(19), 'reg_lambda': np.int64(15), 'scale_pos_weight': np.int64(2)} -> CV F1: nan
+2025-10-27 19:22:07,783 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(5), 'learning_rate': 0.08291679640361532, 'n_estimators': np.int64(484), 'subsample': 0.8689067697356303, 'colsample_bytree': 0.8494640220274762, 'reg_alpha': np.int64(11), 'reg_lambda': np.int64(12), 'scale_pos_weight': np.int64(5)} -> CV F1: nan
+2025-10-27 19:22:07,783 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(5), 'learning_rate': 0.04863988548315608, 'n_estimators': np.int64(219), 'subsample': 0.7330533878126004, 'colsample_bytree': 0.7031272813482388, 'reg_alpha': np.int64(9), 'reg_lambda': np.int64(9), 'scale_pos_weight': np.int64(2)} -> CV F1: nan
+2025-10-27 19:22:07,783 - models.level0.xgboost_gemini_model.xgboost_A0 - INFO - Params: {'max_depth': np.int64(3), 'learning_rate': 0.03783793657243273, 'n_estimators': np.int64(385), 'subsample': 0.8580351081062412, 'colsample_bytree': 0.8211919949562023, 'reg_alpha': np.int64(19), 'reg_lambda': np.int64(13), 'scale_pos_weight': np.int64(5)} -> CV F1: nan
+2025-10-27 19:22:07,784 - xgboost_tuning_A0 - ERROR - ❌ Hyperparameter tuning failed: Input y contains NaN.
+Traceback (most recent call last):
+  File "/Users/al02260279/Documents/private/btc_prediction/training/xgboost/tune_hyperparameters.py", line 86, in tune_hyperparameters
+    best_params = model.tune_hyperparameters(X_train, y_train,
+                                             n_splits)
+  File "/Users/al02260279/Documents/private/btc_prediction/models/level0/xgboost_gemini_model.py", line 106, in tune_hyperparameters
+    results = gp_minimize(
+        func=objective,
+    ...<3 lines>...
+        n_jobs=BAYESIAN_OPTIMIZATION.get('n_jobs', -1)
+    )
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/skopt/optimizer/gp.py", line 281, in gp_minimize
+    return base_minimize(
+        func,
+    ...<19 lines>...
+        model_queue_size=model_queue_size,
+    )
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/skopt/optimizer/base.py", line 333, in base_minimize
+    result = optimizer.tell(next_x, next_y)
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/skopt/optimizer/optimizer.py", line 570, in tell
+    return self._tell(x, y, fit=fit)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/skopt/optimizer/optimizer.py", line 615, in _tell
+    est.fit(self.space.transform(self.Xi), self.yi)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/skopt/learning/gaussian_process/gpr.py", line 203, in fit
+    super().fit(X, y)
+    ~~~~~~~~~~~^^^^^^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/sklearn/base.py", line 1365, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/sklearn/gaussian_process/_gpr.py", line 254, in fit
+    X, y = validate_data(
+           ~~~~~~~~~~~~~^
+        self,
+        ^^^^^
+    ...<5 lines>...
+        dtype=dtype,
+        ^^^^^^^^^^^^
+    )
+    ^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/sklearn/utils/validation.py", line 2971, in validate_data
+    X, y = check_X_y(X, y, **check_params)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/sklearn/utils/validation.py", line 1385, in check_X_y
+    y = _check_y(y, multi_output=multi_output, y_numeric=y_numeric, estimator=estimator)
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/sklearn/utils/validation.py", line 1395, in _check_y
+    y = check_array(
+        y,
+    ...<5 lines>...
+        estimator=estimator,
+    )
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/sklearn/utils/validation.py", line 1105, in check_array
+    _assert_all_finite(
+    ~~~~~~~~~~~~~~~~~~^
+        array,
+        ^^^^^^
+    ...<2 lines>...
+        allow_nan=ensure_all_finite == "allow-nan",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/sklearn/utils/validation.py", line 120, in _assert_all_finite
+    _assert_all_finite_element_wise(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        X,
+        ^^
+    ...<4 lines>...
+        input_name=input_name,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/sklearn/utils/validation.py", line 169, in _assert_all_finite_element_wise
+    raise ValueError(msg_err)
+ValueError: Input y contains NaN.
+
+2025-10-27 19:22:07,906 - xgboost_experiment_A0 - ERROR - STDOUT: 🔍 Data Quality Validation:
+  ✅ No missing values in features
+  ✅ No missing values in target
+  ✅ No infinite values in features
+  ✅ No infinite values in target
+  📊 Features shape: (11737, 19)
+  📊 Target shape: (11737, 1)
+  📊 Target distribution: {0: 9004, 1: 2733}
+Data split:
+  Training: 8629 samples (2020-05-12 00:00:00 to 2024-04-19 00:00:00)
+  Test: 3097 samples (2024-04-21 00:00:00 to 2025-09-19 00:00:00)
+🔄 TimeSeriesSplit (5 folds):
+================================================================================
+Fold 1:
+  Training: 2020-05-12 00:00:00 to 2021-01-06 16:00:00 (1439 samples)
+    - SELL: 135, REST: 1304
+  Validation: 2021-01-06 20:00:00 to 2021-09-03 08:00:00 (1438 samples)
+    - SELL: 541, REST: 897
+
+Fold 2:
+  Training: 2020-05-12 00:00:00 to 2021-09-03 08:00:00 (2877 samples)
+    - SELL: 676, REST: 2201
+  Validation: 2021-09-03 12:00:00 to 2022-05-01 00:00:00 (1438 samples)
+    - SELL: 783, REST: 655
+
+Fold 3:
+  Training: 2020-05-12 00:00:00 to 2022-05-01 00:00:00 (4315 samples)
+    - SELL: 1459, REST: 2856
+  Validation: 2022-05-01 04:00:00 to 2022-12-26 16:00:00 (1438 samples)
+    - SELL: 491, REST: 947
+
+Fold 4:
+  Training: 2020-05-12 00:00:00 to 2022-12-26 16:00:00 (5753 samples)
+    - SELL: 1950, REST: 3803
+  Validation: 2022-12-26 20:00:00 to 2023-08-23 08:00:00 (1438 samples)
+    - SELL: 162, REST: 1276
+
+Fold 5:
+  Training: 2020-05-12 00:00:00 to 2023-08-23 08:00:00 (7191 samples)
+    - SELL: 2112, REST: 5079
+  Validation: 2023-08-23 12:00:00 to 2024-04-19 00:00:00 (1438 samples)
+    - SELL: 124, REST: 1314
+
+
+❌ XGBoost hyperparameter tuning for A0 failed!
+
+2025-10-27 19:22:07,906 - xgboost_experiment_A0 - ERROR - ❌ Hyperparameter tuning failed!
+2025-10-27 19:23:04,480 - xgboost_experiment_A0 - INFO - 🚀 Starting complete XGBoost experiment for A0
+2025-10-27 19:23:04,480 - xgboost_experiment_A0 - INFO - Parameters: n_splits=5, n_iter=10, skip_tuning=False
+2025-10-27 19:23:04,480 - xgboost_experiment_A0 - INFO - ============================================================
+2025-10-27 19:23:04,480 - xgboost_experiment_A0 - INFO - STEP 1: Hyperparameter Tuning
+2025-10-27 19:23:04,480 - xgboost_experiment_A0 - INFO - ============================================================
+2025-10-27 19:23:04,480 - xgboost_experiment_A0 - INFO - Running: python training/xgboost/tune_hyperparameters.py --exp_id A0 --n_splits 5 --n_iter 10
+2025-10-27 19:23:06,044 - xgboost_experiment_A0 - ERROR - ❌ Hyperparameter tuning failed after 1.56 seconds
+2025-10-27 19:23:06,044 - xgboost_experiment_A0 - ERROR - Return code: 1
+2025-10-27 19:23:06,044 - xgboost_experiment_A0 - ERROR - STDERR: 2025-10-27 19:23:05,838 - xgboost_tuning_A0 - INFO - 🚀 Starting XGBoost hyperparameter tuning for A0
+2025-10-27 19:23:05,838 - xgboost_tuning_A0 - INFO - Parameters: n_splits=5, n_iter=10
+2025-10-27 19:23:05,838 - xgboost_tuning_A0 - INFO - 1. Loading data...
+2025-10-27 19:23:05,922 - xgboost_tuning_A0 - INFO -    Features shape: (11737, 19)
+2025-10-27 19:23:05,924 - xgboost_tuning_A0 - INFO -    Target distribution: {0: 9004, 1: 2733}
+2025-10-27 19:23:05,924 - xgboost_tuning_A0 - INFO - 2. Validating data quality...
+2025-10-27 19:23:05,926 - xgboost_tuning_A0 - INFO -    ✅ Data quality validation passed!
+2025-10-27 19:23:05,926 - xgboost_tuning_A0 - INFO - 3. Splitting data...
+2025-10-27 19:23:05,928 - xgboost_tuning_A0 - INFO - 4. Cross-validation splits info:
+2025-10-27 19:23:05,931 - xgboost_tuning_A0 - INFO - 5. Starting hyperparameter tuning...
+2025-10-27 19:23:05,931 - xgboost_tuning_A0 - ERROR - ❌ Hyperparameter tuning failed: XGBoostGeminiModel() takes no arguments
+Traceback (most recent call last):
+  File "/Users/al02260279/Documents/private/btc_prediction/training/xgboost/tune_hyperparameters.py", line 78, in tune_hyperparameters
+    model = XGBoostGeminiModel(f"xgboost_{exp_id}")
+TypeError: XGBoostGeminiModel() takes no arguments
+
+2025-10-27 19:23:06,044 - xgboost_experiment_A0 - ERROR - STDOUT: 🔍 Data Quality Validation:
+  ✅ No missing values in features
+  ✅ No missing values in target
+  ✅ No infinite values in features
+  ✅ No infinite values in target
+  📊 Features shape: (11737, 19)
+  📊 Target shape: (11737, 1)
+  📊 Target distribution: {0: 9004, 1: 2733}
+Data split:
+  Training: 8629 samples (2020-05-12 00:00:00 to 2024-04-19 00:00:00)
+  Test: 3097 samples (2024-04-21 00:00:00 to 2025-09-19 00:00:00)
+🔄 TimeSeriesSplit (5 folds):
+================================================================================
+Fold 1:
+  Training: 2020-05-12 00:00:00 to 2021-01-06 16:00:00 (1439 samples)
+    - SELL: 135, REST: 1304
+  Validation: 2021-01-06 20:00:00 to 2021-09-03 08:00:00 (1438 samples)
+    - SELL: 541, REST: 897
+
+Fold 2:
+  Training: 2020-05-12 00:00:00 to 2021-09-03 08:00:00 (2877 samples)
+    - SELL: 676, REST: 2201
+  Validation: 2021-09-03 12:00:00 to 2022-05-01 00:00:00 (1438 samples)
+    - SELL: 783, REST: 655
+
+Fold 3:
+  Training: 2020-05-12 00:00:00 to 2022-05-01 00:00:00 (4315 samples)
+    - SELL: 1459, REST: 2856
+  Validation: 2022-05-01 04:00:00 to 2022-12-26 16:00:00 (1438 samples)
+    - SELL: 491, REST: 947
+
+Fold 4:
+  Training: 2020-05-12 00:00:00 to 2022-12-26 16:00:00 (5753 samples)
+    - SELL: 1950, REST: 3803
+  Validation: 2022-12-26 20:00:00 to 2023-08-23 08:00:00 (1438 samples)
+    - SELL: 162, REST: 1276
+
+Fold 5:
+  Training: 2020-05-12 00:00:00 to 2023-08-23 08:00:00 (7191 samples)
+    - SELL: 2112, REST: 5079
+  Validation: 2023-08-23 12:00:00 to 2024-04-19 00:00:00 (1438 samples)
+    - SELL: 124, REST: 1314
+
+
+❌ XGBoost hyperparameter tuning for A0 failed!
+
+2025-10-27 19:23:06,044 - xgboost_experiment_A0 - ERROR - ❌ Hyperparameter tuning failed!
+2025-10-27 19:24:38,467 - xgboost_experiment_A0 - INFO - 🚀 Starting complete XGBoost experiment for A0
+2025-10-27 19:24:38,467 - xgboost_experiment_A0 - INFO - Parameters: n_splits=5, n_iter=10, skip_tuning=False
+2025-10-27 19:24:38,467 - xgboost_experiment_A0 - INFO - ============================================================
+2025-10-27 19:24:38,467 - xgboost_experiment_A0 - INFO - STEP 1: Hyperparameter Tuning
+2025-10-27 19:24:38,467 - xgboost_experiment_A0 - INFO - ============================================================
+2025-10-27 19:24:38,467 - xgboost_experiment_A0 - INFO - Running: python training/xgboost/tune_hyperparameters.py --exp_id A0 --n_splits 5 --n_iter 10
+2025-10-27 19:24:40,095 - xgboost_experiment_A0 - ERROR - ❌ Hyperparameter tuning failed after 1.63 seconds
+2025-10-27 19:24:40,095 - xgboost_experiment_A0 - ERROR - Return code: 1
+2025-10-27 19:24:40,095 - xgboost_experiment_A0 - ERROR - STDERR: 2025-10-27 19:24:39,869 - xgboost_tuning_A0 - INFO - 🚀 Starting XGBoost hyperparameter tuning for A0
+2025-10-27 19:24:39,870 - xgboost_tuning_A0 - INFO - Parameters: n_splits=5, n_iter=10
+2025-10-27 19:24:39,870 - xgboost_tuning_A0 - INFO - 1. Loading data...
+2025-10-27 19:24:39,964 - xgboost_tuning_A0 - INFO -    Features shape: (11737, 19)
+2025-10-27 19:24:39,967 - xgboost_tuning_A0 - INFO -    Target distribution: {0: 9004, 1: 2733}
+2025-10-27 19:24:39,967 - xgboost_tuning_A0 - INFO - 2. Validating data quality...
+2025-10-27 19:24:39,968 - xgboost_tuning_A0 - INFO -    ✅ Data quality validation passed!
+2025-10-27 19:24:39,968 - xgboost_tuning_A0 - INFO - 3. Splitting data...
+2025-10-27 19:24:39,971 - xgboost_tuning_A0 - INFO - 4. Cross-validation splits info:
+2025-10-27 19:24:39,974 - xgboost_tuning_A0 - INFO - 5. Starting hyperparameter tuning...
+2025-10-27 19:24:39,974 - xgboost_tuning_A0 - ERROR - ❌ Hyperparameter tuning failed: name 'create_time_series_cv' is not defined
+Traceback (most recent call last):
+  File "/Users/al02260279/Documents/private/btc_prediction/training/xgboost/tune_hyperparameters.py", line 86, in tune_hyperparameters
+    best_params = model.tune_hyperparameters(X_train, y_train,
+                                             n_splits)
+  File "/Users/al02260279/Documents/private/btc_prediction/models/level0/xgboost_gemini_model.py", line 43, in tune_hyperparameters
+    tscv = create_time_series_cv(X, y, n_splits)
+           ^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'create_time_series_cv' is not defined
+
+2025-10-27 19:24:40,095 - xgboost_experiment_A0 - ERROR - STDOUT: 🔍 Data Quality Validation:
+  ✅ No missing values in features
+  ✅ No missing values in target
+  ✅ No infinite values in features
+  ✅ No infinite values in target
+  📊 Features shape: (11737, 19)
+  📊 Target shape: (11737, 1)
+  📊 Target distribution: {0: 9004, 1: 2733}
+Data split:
+  Training: 8629 samples (2020-05-12 00:00:00 to 2024-04-19 00:00:00)
+  Test: 3097 samples (2024-04-21 00:00:00 to 2025-09-19 00:00:00)
+🔄 TimeSeriesSplit (5 folds):
+================================================================================
+Fold 1:
+  Training: 2020-05-12 00:00:00 to 2021-01-06 16:00:00 (1439 samples)
+    - SELL: 135, REST: 1304
+  Validation: 2021-01-06 20:00:00 to 2021-09-03 08:00:00 (1438 samples)
+    - SELL: 541, REST: 897
+
+Fold 2:
+  Training: 2020-05-12 00:00:00 to 2021-09-03 08:00:00 (2877 samples)
+    - SELL: 676, REST: 2201
+  Validation: 2021-09-03 12:00:00 to 2022-05-01 00:00:00 (1438 samples)
+    - SELL: 783, REST: 655
+
+Fold 3:
+  Training: 2020-05-12 00:00:00 to 2022-05-01 00:00:00 (4315 samples)
+    - SELL: 1459, REST: 2856
+  Validation: 2022-05-01 04:00:00 to 2022-12-26 16:00:00 (1438 samples)
+    - SELL: 491, REST: 947
+
+Fold 4:
+  Training: 2020-05-12 00:00:00 to 2022-12-26 16:00:00 (5753 samples)
+    - SELL: 1950, REST: 3803
+  Validation: 2022-12-26 20:00:00 to 2023-08-23 08:00:00 (1438 samples)
+    - SELL: 162, REST: 1276
+
+Fold 5:
+  Training: 2020-05-12 00:00:00 to 2023-08-23 08:00:00 (7191 samples)
+    - SELL: 2112, REST: 5079
+  Validation: 2023-08-23 12:00:00 to 2024-04-19 00:00:00 (1438 samples)
+    - SELL: 124, REST: 1314
+
+
+❌ XGBoost hyperparameter tuning for A0 failed!
+
+2025-10-27 19:24:40,095 - xgboost_experiment_A0 - ERROR - ❌ Hyperparameter tuning failed!
+2025-10-27 19:25:34,116 - xgboost_experiment_A0 - INFO - 🚀 Starting complete XGBoost experiment for A0
+2025-10-27 19:25:34,117 - xgboost_experiment_A0 - INFO - Parameters: n_splits=5, n_iter=10, skip_tuning=False
+2025-10-27 19:25:34,117 - xgboost_experiment_A0 - INFO - ============================================================
+2025-10-27 19:25:34,117 - xgboost_experiment_A0 - INFO - STEP 1: Hyperparameter Tuning
+2025-10-27 19:25:34,117 - xgboost_experiment_A0 - INFO - ============================================================
+2025-10-27 19:25:34,117 - xgboost_experiment_A0 - INFO - Running: python training/xgboost/tune_hyperparameters.py --exp_id A0 --n_splits 5 --n_iter 10
+2025-10-27 19:25:35,742 - xgboost_experiment_A0 - ERROR - ❌ Hyperparameter tuning failed after 1.63 seconds
+2025-10-27 19:25:35,743 - xgboost_experiment_A0 - ERROR - Return code: 1
+2025-10-27 19:25:35,743 - xgboost_experiment_A0 - ERROR - STDERR: 2025-10-27 19:25:35,524 - xgboost_tuning_A0 - INFO - 🚀 Starting XGBoost hyperparameter tuning for A0
+2025-10-27 19:25:35,524 - xgboost_tuning_A0 - INFO - Parameters: n_splits=5, n_iter=10
+2025-10-27 19:25:35,524 - xgboost_tuning_A0 - INFO - 1. Loading data...
+2025-10-27 19:25:35,614 - xgboost_tuning_A0 - INFO -    Features shape: (11737, 19)
+2025-10-27 19:25:35,616 - xgboost_tuning_A0 - INFO -    Target distribution: {0: 9004, 1: 2733}
+2025-10-27 19:25:35,616 - xgboost_tuning_A0 - INFO - 2. Validating data quality...
+2025-10-27 19:25:35,618 - xgboost_tuning_A0 - INFO -    ✅ Data quality validation passed!
+2025-10-27 19:25:35,618 - xgboost_tuning_A0 - INFO - 3. Splitting data...
+2025-10-27 19:25:35,620 - xgboost_tuning_A0 - INFO - 4. Cross-validation splits info:
+2025-10-27 19:25:35,623 - xgboost_tuning_A0 - INFO - 5. Starting hyperparameter tuning...
+2025-10-27 19:25:35,623 - xgboost_tuning_A0 - ERROR - ❌ Hyperparameter tuning failed: name 'param_space' is not defined
+Traceback (most recent call last):
+  File "/Users/al02260279/Documents/private/btc_prediction/training/xgboost/tune_hyperparameters.py", line 86, in tune_hyperparameters
+    best_params = model.tune_hyperparameters(X_train, y_train,
+                                             n_splits)
+  File "/Users/al02260279/Documents/private/btc_prediction/models/level0/xgboost_gemini_model.py", line 49, in tune_hyperparameters
+    @use_named_args(param_space)
+                    ^^^^^^^^^^^
+NameError: name 'param_space' is not defined
+
+2025-10-27 19:25:35,744 - xgboost_experiment_A0 - ERROR - STDOUT: 🔍 Data Quality Validation:
+  ✅ No missing values in features
+  ✅ No missing values in target
+  ✅ No infinite values in features
+  ✅ No infinite values in target
+  📊 Features shape: (11737, 19)
+  📊 Target shape: (11737, 1)
+  📊 Target distribution: {0: 9004, 1: 2733}
+Data split:
+  Training: 8629 samples (2020-05-12 00:00:00 to 2024-04-19 00:00:00)
+  Test: 3097 samples (2024-04-21 00:00:00 to 2025-09-19 00:00:00)
+🔄 TimeSeriesSplit (5 folds):
+================================================================================
+Fold 1:
+  Training: 2020-05-12 00:00:00 to 2021-01-06 16:00:00 (1439 samples)
+    - SELL: 135, REST: 1304
+  Validation: 2021-01-06 20:00:00 to 2021-09-03 08:00:00 (1438 samples)
+    - SELL: 541, REST: 897
+
+Fold 2:
+  Training: 2020-05-12 00:00:00 to 2021-09-03 08:00:00 (2877 samples)
+    - SELL: 676, REST: 2201
+  Validation: 2021-09-03 12:00:00 to 2022-05-01 00:00:00 (1438 samples)
+    - SELL: 783, REST: 655
+
+Fold 3:
+  Training: 2020-05-12 00:00:00 to 2022-05-01 00:00:00 (4315 samples)
+    - SELL: 1459, REST: 2856
+  Validation: 2022-05-01 04:00:00 to 2022-12-26 16:00:00 (1438 samples)
+    - SELL: 491, REST: 947
+
+Fold 4:
+  Training: 2020-05-12 00:00:00 to 2022-12-26 16:00:00 (5753 samples)
+    - SELL: 1950, REST: 3803
+  Validation: 2022-12-26 20:00:00 to 2023-08-23 08:00:00 (1438 samples)
+    - SELL: 162, REST: 1276
+
+Fold 5:
+  Training: 2020-05-12 00:00:00 to 2023-08-23 08:00:00 (7191 samples)
+    - SELL: 2112, REST: 5079
+  Validation: 2023-08-23 12:00:00 to 2024-04-19 00:00:00 (1438 samples)
+    - SELL: 124, REST: 1314
+
+
+❌ XGBoost hyperparameter tuning for A0 failed!
+
+2025-10-27 19:25:35,744 - xgboost_experiment_A0 - ERROR - ❌ Hyperparameter tuning failed!
