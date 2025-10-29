@@ -16,6 +16,7 @@ MODELS_DIR = LOGS_DIR / "models"
 FEATURE_SETS = {
     'A0': FEATURES_DIR / 'A0.parquet',
     'A1': FEATURES_DIR / 'A1.parquet',
+    'A1_pruned': FEATURES_DIR / 'A1_pruned.parquet',
     'A2': FEATURES_DIR / 'A2.parquet',
     'A3': FEATURES_DIR / 'A3.parquet',
     'A4': FEATURES_DIR / 'A4.parquet',

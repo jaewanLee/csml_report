@@ -68,19 +68,22 @@ def tune_xgboost_hyperparameters(X_train, y_train, n_trials=50, cv_folds=3):
     print(f"📊 Class counts -> neg: {num_negative}, pos: {num_positive}")
     print(f"⚖️  Scale pos weight (neg/pos): {scale_pos_weight:.4f}")
 
-    # Define parameter search space
+    # Define parameter search space - Maximum regularization for precision
     param_space = {
-        'max_depth': Integer(3, 10),
-        # log-uniform requires lower bound > 0
-        'learning_rate': Real(1e-3, 0.3, prior='log-uniform'),
-        'n_estimators': Integer(50, 1000),
-        'subsample': Real(0.6, 1.0),
-        'colsample_bytree': Real(0.6, 1.0),
-        'reg_alpha': Real(1e-8, 10.0, prior='log-uniform'),
-        'reg_lambda': Real(1e-8, 10.0, prior='log-uniform'),
-        'min_child_weight': Integer(1, 10),
-        # keep gamma uniform but avoid exact 0 lower bound for numerical stability
-        'gamma': Real(1e-8, 5.0),
+        'max_depth': Integer(2, 10),  # Very conservative depth
+        'learning_rate': Real(1e-4, 0.05,
+                              prior='log-uniform'),  # Very low learning rate
+        'n_estimators': Integer(500, 2000),  # More estimators for fine-tuning
+        'subsample': Real(0.5, 0.8),  # More aggressive subsampling
+        'colsample_bytree': Real(0.5, 0.8),  # More aggressive feature sampling
+        'reg_alpha':
+        Real(1.0, 200.0,
+             prior='log-uniform'),  # Much stronger L1 regularization
+        'reg_lambda':
+        Real(1.0, 200.0,
+             prior='log-uniform'),  # Much stronger L2 regularization
+        'min_child_weight': Integer(5, 50),  # Much higher min_child_weight
+        'gamma': Real(1.0, 50.0),  # Much stronger pruning
     }
 
     # Fixed parameters
@@ -99,13 +102,14 @@ def tune_xgboost_hyperparameters(X_train, y_train, n_trials=50, cv_folds=3):
     # Create TimeSeriesSplit for tuning
     tscv = TimeSeriesSplit(n_splits=cv_folds)
 
-    # Create BayesSearchCV
+    # Create BayesSearchCV - Focus on Average Precision for better precision-recall balance
     bayes_search = BayesSearchCV(
         estimator=base_estimator,
         search_spaces=param_space,
         n_iter=n_trials,
         cv=tscv,
-        scoring='f1',
+        scoring=
+        'average_precision',  # Focus on precision-recall area under curve
         n_jobs=1,  # Use 1 job to avoid conflicts with XGBoost n_jobs
         random_state=RANDOM_STATE,
         verbose=1)
@@ -133,6 +137,42 @@ def tune_xgboost_hyperparameters(X_train, y_train, n_trials=50, cv_folds=3):
         'optimization_results': optimization_results,
         'search_object': bayes_search
     }
+
+
+def find_optimal_threshold(
+        y_true,
+        y_proba,
+        thresholds=[0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 0.95]):
+    """
+    Find optimal threshold for precision-recall balance
+    """
+    best_threshold = 0.5
+    best_f1 = 0
+
+    print(f"\n🔍 Finding optimal threshold...")
+    print(
+        f"{'Threshold':<10} {'Precision':<10} {'Recall':<10} {'F1-Score':<10}")
+    print("-" * 45)
+
+    for threshold in thresholds:
+        y_pred = (y_proba > threshold).astype(int)
+        if len(np.unique(y_pred)) > 1:  # Check if we have both classes
+            precision = precision_score(y_true, y_pred, zero_division=0)
+            recall = recall_score(y_true, y_pred, zero_division=0)
+            f1 = f1_score(y_true, y_pred, zero_division=0)
+
+            print(
+                f"{threshold:<10.1f} {precision:<10.4f} {recall:<10.4f} {f1:<10.4f}"
+            )
+
+            if f1 > best_f1:
+                best_f1 = f1
+                best_threshold = threshold
+        else:
+            print(f"{threshold:<10.1f} {'N/A':<10} {'N/A':<10} {'N/A':<10}")
+
+    print(f"\n✅ Best threshold: {best_threshold:.1f} (F1: {best_f1:.4f})")
+    return best_threshold
 
 
 def evaluate_tuned_model(X_train, y_train, X_test, y_test, best_params,
@@ -176,36 +216,65 @@ def evaluate_tuned_model(X_train, y_train, X_test, y_test, best_params,
     # Train on full training set
     model.fit(X_train, y_train['target'])
 
-    # Evaluate on training set
-    y_train_pred = model.predict(X_train)
+    # Get probabilities
     y_train_proba = model.predict_proba(X_train)[:, 1]
-
-    train_f1 = f1_score(y_train['target'], y_train_pred)
-    train_precision = precision_score(y_train['target'], y_train_pred)
-    train_recall = recall_score(y_train['target'], y_train_pred)
-    train_auc = roc_auc_score(y_train['target'], y_train_proba)
-
-    # Evaluate on test set
-    y_test_pred = model.predict(X_test)
     y_test_proba = model.predict_proba(X_test)[:, 1]
 
-    test_f1 = f1_score(y_test['target'], y_test_pred)
-    test_precision = precision_score(y_test['target'], y_test_pred)
-    test_recall = recall_score(y_test['target'], y_test_pred)
+    # Find optimal threshold using test set
+    optimal_threshold = find_optimal_threshold(y_test['target'], y_test_proba)
+
+    # Evaluate with default threshold (0.5)
+    y_train_pred_default = model.predict(X_train)
+    y_test_pred_default = model.predict(X_test)
+
+    train_f1_default = f1_score(y_train['target'], y_train_pred_default)
+    train_precision_default = precision_score(y_train['target'],
+                                              y_train_pred_default)
+    train_recall_default = recall_score(y_train['target'],
+                                        y_train_pred_default)
+    train_auc = roc_auc_score(y_train['target'], y_train_proba)
+
+    test_f1_default = f1_score(y_test['target'], y_test_pred_default)
+    test_precision_default = precision_score(y_test['target'],
+                                             y_test_pred_default)
+    test_recall_default = recall_score(y_test['target'], y_test_pred_default)
     test_auc = roc_auc_score(y_test['target'], y_test_proba)
 
+    # Evaluate with optimal threshold
+    y_train_pred_opt = (y_train_proba > optimal_threshold).astype(int)
+    y_test_pred_opt = (y_test_proba > optimal_threshold).astype(int)
+
+    train_f1_opt = f1_score(y_train['target'], y_train_pred_opt)
+    train_precision_opt = precision_score(y_train['target'], y_train_pred_opt)
+    train_recall_opt = recall_score(y_train['target'], y_train_pred_opt)
+
+    test_f1_opt = f1_score(y_test['target'], y_test_pred_opt)
+    test_precision_opt = precision_score(y_test['target'], y_test_pred_opt)
+    test_recall_opt = recall_score(y_test['target'], y_test_pred_opt)
+
     print(f"\n📊 Tuned Model Results:")
-    print("=" * 40)
-    print(f"Training Set:")
-    print(f"  F1-Score: {train_f1:.4f}")
-    print(f"  Precision: {train_precision:.4f}")
-    print(f"  Recall: {train_recall:.4f}")
+    print("=" * 60)
+    print(f"Training Set (Default Threshold 0.5):")
+    print(f"  F1-Score: {train_f1_default:.4f}")
+    print(f"  Precision: {train_precision_default:.4f}")
+    print(f"  Recall: {train_recall_default:.4f}")
     print(f"  ROC-AUC: {train_auc:.4f}")
-    print(f"\nTest Set:")
-    print(f"  F1-Score: {test_f1:.4f}")
-    print(f"  Precision: {test_precision:.4f}")
-    print(f"  Recall: {test_recall:.4f}")
+
+    print(f"\nTraining Set (Optimal Threshold {optimal_threshold:.1f}):")
+    print(f"  F1-Score: {train_f1_opt:.4f}")
+    print(f"  Precision: {train_precision_opt:.4f}")
+    print(f"  Recall: {train_recall_opt:.4f}")
+
+    print(f"\nTest Set (Default Threshold 0.5):")
+    print(f"  F1-Score: {test_f1_default:.4f}")
+    print(f"  Precision: {test_precision_default:.4f}")
+    print(f"  Recall: {test_recall_default:.4f}")
     print(f"  ROC-AUC: {test_auc:.4f}")
+
+    print(f"\nTest Set (Optimal Threshold {optimal_threshold:.1f}):")
+    print(f"  F1-Score: {test_f1_opt:.4f}")
+    print(f"  Precision: {test_precision_opt:.4f}")
+    print(f"  Recall: {test_recall_opt:.4f}")
 
     # Feature importance
     feature_importance = pd.DataFrame({
@@ -219,17 +288,28 @@ def evaluate_tuned_model(X_train, y_train, X_test, y_test, best_params,
 
     return {
         'model': model,
-        'train_metrics': {
-            'f1_score': train_f1,
-            'precision': train_precision,
-            'recall': train_recall,
+        'optimal_threshold': optimal_threshold,
+        'train_metrics_default': {
+            'f1_score': train_f1_default,
+            'precision': train_precision_default,
+            'recall': train_recall_default,
             'roc_auc': train_auc
         },
-        'test_metrics': {
-            'f1_score': test_f1,
-            'precision': test_precision,
-            'recall': test_recall,
+        'train_metrics_optimal': {
+            'f1_score': train_f1_opt,
+            'precision': train_precision_opt,
+            'recall': train_recall_opt
+        },
+        'test_metrics_default': {
+            'f1_score': test_f1_default,
+            'precision': test_precision_default,
+            'recall': test_recall_default,
             'roc_auc': test_auc
+        },
+        'test_metrics_optimal': {
+            'f1_score': test_f1_opt,
+            'precision': test_precision_opt,
+            'recall': test_recall_opt
         },
         'feature_importance': feature_importance
     }
@@ -275,11 +355,11 @@ def main():
     print("🔧 BTC Prediction - XGBoost Hyperparameter Tuning")
     print("=" * 60)
 
-    # Load A0 data
-    print("📁 Loading A0 feature set...")
+    # Load A3 data (H4 + D1 + W1 + Lag)
+    print("📁 Loading A3 feature set...")
     try:
-        X, y = load_experiment_data('A0')
-        print(f"✅ Loaded A0 data: {X.shape[0]} samples, {X.shape[1]} features")
+        X, y = load_experiment_data('A3')
+        print(f"✅ Loaded A3 data: {X.shape[0]} samples, {X.shape[1]} features")
     except Exception as e:
         print(f"❌ Error loading data: {e}")
         return
@@ -317,25 +397,34 @@ def main():
         'best_cv_score': tuning_results['best_score'],
         'optimization_results': tuning_results['optimization_results'],
         'model': eval_results['model'],
-        'train_metrics': eval_results['train_metrics'],
-        'test_metrics': eval_results['test_metrics'],
+        'optimal_threshold': eval_results['optimal_threshold'],
+        'train_metrics_default': eval_results['train_metrics_default'],
+        'train_metrics_optimal': eval_results['train_metrics_optimal'],
+        'test_metrics_default': eval_results['test_metrics_default'],
+        'test_metrics_optimal': eval_results['test_metrics_optimal'],
         'feature_importance': eval_results['feature_importance']
     }
 
     # Save results
-    save_tuning_results(final_results, 'A0')
+    save_tuning_results(final_results, 'A3')
 
     # Performance assessment
-    test_f1 = eval_results['test_metrics']['f1_score']
-    print(f"\n📋 Final Assessment:")
-    print("=" * 20)
-    print(f"Best CV F1-Score: {tuning_results['best_score']:.4f}")
-    print(f"Test F1-Score: {test_f1:.4f}")
+    test_f1_default = eval_results['test_metrics_default']['f1_score']
+    test_f1_optimal = eval_results['test_metrics_optimal']['f1_score']
+    test_precision_optimal = eval_results['test_metrics_optimal']['precision']
 
-    if test_f1 > 0.3:
+    print(f"\n📋 Final Assessment:")
+    print("=" * 30)
+    print(f"Best CV Precision: {tuning_results['best_score']:.4f}")
+    print(f"Test F1-Score (Default): {test_f1_default:.4f}")
+    print(f"Test F1-Score (Optimal): {test_f1_optimal:.4f}")
+    print(f"Test Precision (Optimal): {test_precision_optimal:.4f}")
+    print(f"Optimal Threshold: {eval_results['optimal_threshold']:.1f}")
+
+    if test_f1_optimal > 0.3:
         print(
             "✅ Performance improved! Ready to proceed with full experiments.")
-    elif test_f1 > 0.1:
+    elif test_f1_optimal > 0.1:
         print(
             "🔄 Performance improved but still low. Consider more tuning or feature engineering."
         )

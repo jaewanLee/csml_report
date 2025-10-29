@@ -1,0 +1,302 @@
+2025-10-29 15:31:03 - data_processing - ERROR - __main__:280 - ❌ Pipeline failed: [Errno 2] No such file or directory: '../../data_collection/data/btc_4h_20251028.parquet'
+2025-10-29 15:31:03 - data_processing - ERROR - __main__:281 - Full traceback:
+Traceback (most recent call last):
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/main_pipeline.py", line 244, in __main__
+    df_h4, df_d1, df_w1 = load_all_data()
+                          ~~~~~~~~~~~~~^^
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/data/load_data.py", line 27, in load_all_data
+    df_h4 = load_4h_data()
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/data/load_data.py", line 12, in load_4h_data
+    df = load_data('4h')
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/data/load_data.py", line 6, in load_data
+    df = pd.read_parquet(
+        f'../../data_collection/data/btc_{file_name}_20251028.parquet')
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/pandas/io/parquet.py", line 669, in read_parquet
+    return impl.read(
+           ~~~~~~~~~^
+        path,
+        ^^^^^
+    ...<6 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/pandas/io/parquet.py", line 258, in read
+    path_or_handle, handles, filesystem = _get_path_or_handle(
+                                          ~~~~~~~~~~~~~~~~~~~^
+        path,
+        ^^^^^
+    ...<2 lines>...
+        mode="rb",
+        ^^^^^^^^^^
+    )
+    ^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/pandas/io/parquet.py", line 141, in _get_path_or_handle
+    handles = get_handle(
+        path_or_handle, mode, is_text=False, storage_options=storage_options
+    )
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/pandas/io/common.py", line 882, in get_handle
+    handle = open(handle, ioargs.mode)
+FileNotFoundError: [Errno 2] No such file or directory: '../../data_collection/data/btc_4h_20251028.parquet'
+2025-10-29 15:31:41 - data_processing - ERROR - __main__:280 - ❌ Pipeline failed: [Errno 2] No such file or directory: '../data_collection/data/btc_4h_20251028.parquet'
+2025-10-29 15:31:41 - data_processing - ERROR - __main__:281 - Full traceback:
+Traceback (most recent call last):
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/main_pipeline.py", line 244, in __main__
+    df_h4, df_d1, df_w1 = load_all_data()
+                          ~~~~~~~~~~~~~^^
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/data/load_data.py", line 27, in load_all_data
+    df_h4 = load_4h_data()
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/data/load_data.py", line 12, in load_4h_data
+    df = load_data('4h')
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/data/load_data.py", line 6, in load_data
+    df = pd.read_parquet(
+        f'../data_collection/data/btc_{file_name}_20251028.parquet')
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/pandas/io/parquet.py", line 669, in read_parquet
+    return impl.read(
+           ~~~~~~~~~^
+        path,
+        ^^^^^
+    ...<6 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/pandas/io/parquet.py", line 258, in read
+    path_or_handle, handles, filesystem = _get_path_or_handle(
+                                          ~~~~~~~~~~~~~~~~~~~^
+        path,
+        ^^^^^
+    ...<2 lines>...
+        mode="rb",
+        ^^^^^^^^^^
+    )
+    ^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/pandas/io/parquet.py", line 141, in _get_path_or_handle
+    handles = get_handle(
+        path_or_handle, mode, is_text=False, storage_options=storage_options
+    )
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/pandas/io/common.py", line 882, in get_handle
+    handle = open(handle, ioargs.mode)
+FileNotFoundError: [Errno 2] No such file or directory: '../data_collection/data/btc_4h_20251028.parquet'
+2025-10-29 15:32:48 - data_processing - ERROR - __main__:280 - ❌ Pipeline failed: 'close'
+2025-10-29 15:32:48 - data_processing - ERROR - __main__:281 - Full traceback:
+Traceback (most recent call last):
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'close'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/main_pipeline.py", line 248, in __main__
+    df_h4, df_d1, df_w1 = calculate_indicators_on_all_data(df_h4, df_d1, df_w1)
+                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/main_pipeline.py", line 65, in calculate_indicators_on_all_data
+    df_h4 = calculate_all_indicators(df_h4)
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/features/indicators.py", line 18, in calculate_all_indicators
+    data = transform_ichimoku_features(data)
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/features/ichimoku.py", line 93, in transform_ichimoku_features
+    data = normalize_ichimoku(data)
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/features/ichimoku.py", line 52, in normalize_ichimoku
+    normalized_val = (data['close'] / data[line_col]) - 1
+                      ~~~~^^^^^^^^^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/pandas/core/frame.py", line 4113, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/pandas/core/indexes/base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'close'
+2025-10-29 15:34:36 - data_processing - ERROR - __main__:280 - ❌ Pipeline failed: 'high'
+2025-10-29 15:34:36 - data_processing - ERROR - __main__:281 - Full traceback:
+Traceback (most recent call last):
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'high'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/main_pipeline.py", line 248, in __main__
+    df_h4, df_d1, df_w1 = calculate_indicators_on_all_data(df_h4, df_d1, df_w1)
+                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/main_pipeline.py", line 65, in calculate_indicators_on_all_data
+    df_h4 = calculate_all_indicators(df_h4)
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/features/indicators.py", line 19, in calculate_all_indicators
+    data = transform_atr_features(data)
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/features/atr.py", line 41, in transform_atr_features
+    data = calculate_atr(data)
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/features/atr.py", line 8, in calculate_atr
+    high = data['high']
+           ~~~~^^^^^^^^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/pandas/core/frame.py", line 4113, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/pandas/core/indexes/base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'high'
+2025-10-29 15:38:08 - data_processing - ERROR - __main__:280 - ❌ Pipeline failed: 'close'
+2025-10-29 15:38:08 - data_processing - ERROR - __main__:281 - Full traceback:
+Traceback (most recent call last):
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/main_pipeline.py", line 248, in __main__
+    df_h4, df_d1, df_w1 = calculate_indicators_on_all_data(df_h4, df_d1, df_w1)
+                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/main_pipeline.py", line 65, in calculate_indicators_on_all_data
+    df_h4 = calculate_all_indicators(df_h4)
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/features/indicators.py", line 19, in calculate_all_indicators
+    data = transform_atr_features(data)
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/features/atr.py", line 42, in transform_atr_features
+    data = normalize_atr(data)
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/features/atr.py", line 20, in normalize_atr
+    close = data['close']
+            ~~~~^^^^^^^^^
+KeyError: 'close'
+2025-10-29 15:38:34 - data_processing - ERROR - __main__:280 - ❌ Pipeline failed: 'numpy.ndarray' object has no attribute 'replace'
+2025-10-29 15:38:34 - data_processing - ERROR - __main__:281 - Full traceback:
+Traceback (most recent call last):
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/main_pipeline.py", line 248, in __main__
+    df_h4, df_d1, df_w1 = calculate_indicators_on_all_data(df_h4, df_d1, df_w1)
+                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/main_pipeline.py", line 65, in calculate_indicators_on_all_data
+    df_h4 = calculate_all_indicators(df_h4)
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/features/indicators.py", line 19, in calculate_all_indicators
+    data = transform_atr_features(data)
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/features/atr.py", line 41, in transform_atr_features
+    data = normalize_atr(data)
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/features/atr.py", line 25, in normalize_atr
+    0).replace([np.inf, -np.inf], 0)
+       ^^^^^^^
+AttributeError: 'numpy.ndarray' object has no attribute 'replace'
+2025-10-29 15:40:22 - data_processing - ERROR - __main__:280 - ❌ Pipeline failed: 'close'
+2025-10-29 15:40:22 - data_processing - ERROR - __main__:281 - Full traceback:
+Traceback (most recent call last):
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'close'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/main_pipeline.py", line 248, in __main__
+    df_h4, df_d1, df_w1 = calculate_indicators_on_all_data(df_h4, df_d1, df_w1)
+                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/main_pipeline.py", line 65, in calculate_indicators_on_all_data
+    df_h4 = calculate_all_indicators(df_h4)
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/features/indicators.py", line 20, in calculate_all_indicators
+    data = transform_bollinger_bands_features(data)
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/features/bollinger_bands.py", line 49, in transform_bollinger_bands_features
+    data = normalize_bollinger_bands(data)
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/features/bollinger_bands.py", line 26, in normalize_bollinger_bands
+    close = data['close']
+            ~~~~^^^^^^^^^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/pandas/core/frame.py", line 4113, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/pandas/core/indexes/base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'close'
+2025-10-29 15:41:53 - data_processing - ERROR - __main__:280 - ❌ Pipeline failed: 'H4_lags'
+2025-10-29 15:41:53 - data_processing - ERROR - __main__:281 - Full traceback:
+Traceback (most recent call last):
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/main_pipeline.py", line 257, in __main__
+    A3 = combine_timeframe_and_lag_features(A2, h4_lags, 'H4', 'H4_lags')
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/main_pipeline.py", line 131, in combine_timeframe_and_lag_features
+    lagged_data = combine_timeframe_data(base_data, lag_data, base_timeframe, lag_timeframe)
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/time/time_align.py", line 48, in combine_timeframe_data
+    aligned_data = align_timeframe_data(base_data, target_data, base_timeframe,
+                                        target_timeframe)
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/time/time_align.py", line 23, in align_timeframe_data
+    offset = timeframe_offsets[target_timeframe]
+             ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+KeyError: 'H4_lags'
+2025-10-29 15:47:56 - data_processing.validation.feature_validation - ERROR - validate_filtered_features:92 - ❌ A4_filtered contains 4009800 NaN values in columns: {'MA_7_norm_lag_1': np.int64(9780), 'close_vs_lagging_span_pct_lag_7': np.int64(9780), 'is_doji_lag_7': np.int64(9780), 'is_engulfing_lag_7': np.int64(9780), 'is_hangingman_lag_7': np.int64(9780), 'is_hammer_lag_7': np.int64(9780), 'band_width_pct_lag_7': np.int64(9780), 'band_width_lag_7': np.int64(9780), 'ATR_norm_ma_lag_7': np.int64(9780), 'ATR_norm_lag_7': np.int64(9780)}
+2025-10-29 15:47:56 - data_processing - ERROR - log_validation_result:165 - ❌ Filtered Data validation failed
+2025-10-29 15:47:56 - data_processing - ERROR - __main__:282 - ❌ Pipeline failed: A4_filtered contains 4009800 NaN values in columns: {'MA_7_norm_lag_1': np.int64(9780), 'close_vs_lagging_span_pct_lag_7': np.int64(9780), 'is_doji_lag_7': np.int64(9780), 'is_engulfing_lag_7': np.int64(9780), 'is_hangingman_lag_7': np.int64(9780), 'is_hammer_lag_7': np.int64(9780), 'band_width_pct_lag_7': np.int64(9780), 'band_width_lag_7': np.int64(9780), 'ATR_norm_ma_lag_7': np.int64(9780), 'ATR_norm_lag_7': np.int64(9780)}
+2025-10-29 15:47:56 - data_processing - ERROR - __main__:283 - Full traceback:
+Traceback (most recent call last):
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/main_pipeline.py", line 266, in __main__
+    validate_filtered_data(A0_filtered, A1_filtered, A2_filtered,
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                           A3_filtered, A4_filtered, A5_filtered)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/main_pipeline.py", line 187, in validate_filtered_data
+    validate_filtered_features(A4_filtered, "A4_filtered")
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/validation/feature_validation.py", line 93, in validate_filtered_features
+    raise ValueError(error_msg)
+ValueError: A4_filtered contains 4009800 NaN values in columns: {'MA_7_norm_lag_1': np.int64(9780), 'close_vs_lagging_span_pct_lag_7': np.int64(9780), 'is_doji_lag_7': np.int64(9780), 'is_engulfing_lag_7': np.int64(9780), 'is_hangingman_lag_7': np.int64(9780), 'is_hammer_lag_7': np.int64(9780), 'band_width_pct_lag_7': np.int64(9780), 'band_width_lag_7': np.int64(9780), 'ATR_norm_ma_lag_7': np.int64(9780), 'ATR_norm_lag_7': np.int64(9780)}
+2025-10-29 15:52:07 - data_processing.validation.feature_validation - ERROR - validate_filtered_features:92 - ❌ A4_filtered contains 4009800 NaN values in columns: {'MA_7_norm_lag_1': np.int64(9780), 'close_vs_lagging_span_pct_lag_7': np.int64(9780), 'is_doji_lag_7': np.int64(9780), 'is_engulfing_lag_7': np.int64(9780), 'is_hangingman_lag_7': np.int64(9780), 'is_hammer_lag_7': np.int64(9780), 'band_width_pct_lag_7': np.int64(9780), 'band_width_lag_7': np.int64(9780), 'ATR_norm_ma_lag_7': np.int64(9780), 'ATR_norm_lag_7': np.int64(9780)}
+2025-10-29 15:52:07 - data_processing - ERROR - log_validation_result:165 - ❌ Filtered Data validation failed
+2025-10-29 15:52:07 - data_processing - ERROR - __main__:282 - ❌ Pipeline failed: A4_filtered contains 4009800 NaN values in columns: {'MA_7_norm_lag_1': np.int64(9780), 'close_vs_lagging_span_pct_lag_7': np.int64(9780), 'is_doji_lag_7': np.int64(9780), 'is_engulfing_lag_7': np.int64(9780), 'is_hangingman_lag_7': np.int64(9780), 'is_hammer_lag_7': np.int64(9780), 'band_width_pct_lag_7': np.int64(9780), 'band_width_lag_7': np.int64(9780), 'ATR_norm_ma_lag_7': np.int64(9780), 'ATR_norm_lag_7': np.int64(9780)}
+2025-10-29 15:52:07 - data_processing - ERROR - __main__:283 - Full traceback:
+Traceback (most recent call last):
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/main_pipeline.py", line 266, in __main__
+    validate_filtered_data(A0_filtered, A1_filtered, A2_filtered,
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                           A3_filtered, A4_filtered, A5_filtered)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/main_pipeline.py", line 187, in validate_filtered_data
+    validate_filtered_features(A4_filtered, "A4_filtered")
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/validation/feature_validation.py", line 93, in validate_filtered_features
+    raise ValueError(error_msg)
+ValueError: A4_filtered contains 4009800 NaN values in columns: {'MA_7_norm_lag_1': np.int64(9780), 'close_vs_lagging_span_pct_lag_7': np.int64(9780), 'is_doji_lag_7': np.int64(9780), 'is_engulfing_lag_7': np.int64(9780), 'is_hangingman_lag_7': np.int64(9780), 'is_hammer_lag_7': np.int64(9780), 'band_width_pct_lag_7': np.int64(9780), 'band_width_lag_7': np.int64(9780), 'ATR_norm_ma_lag_7': np.int64(9780), 'ATR_norm_lag_7': np.int64(9780)}
+2025-10-29 16:11:09 - data_processing.validation.feature_validation - ERROR - validate_filtered_features:109 - ❌ A4_filtered contains 4005700 NaN values in columns: {'MA_7_norm_lag_1': np.int64(9780), 'close_vs_lagging_span_pct_lag_7': np.int64(9780), 'is_doji_lag_7': np.int64(9780), 'is_engulfing_lag_7': np.int64(9780), 'is_hangingman_lag_7': np.int64(9780), 'is_hammer_lag_7': np.int64(9780), 'band_width_pct_lag_7': np.int64(9780), 'band_width_lag_7': np.int64(9780), 'ATR_norm_ma_lag_7': np.int64(9780), 'ATR_norm_lag_7': np.int64(9780)}
+2025-10-29 16:11:09 - data_processing - ERROR - log_validation_result:165 - ❌ Filtered Data validation failed
+2025-10-29 16:11:09 - data_processing - ERROR - __main__:351 - ❌ Pipeline failed: A4_filtered contains 4005700 NaN values in columns: {'MA_7_norm_lag_1': np.int64(9780), 'close_vs_lagging_span_pct_lag_7': np.int64(9780), 'is_doji_lag_7': np.int64(9780), 'is_engulfing_lag_7': np.int64(9780), 'is_hangingman_lag_7': np.int64(9780), 'is_hammer_lag_7': np.int64(9780), 'band_width_pct_lag_7': np.int64(9780), 'band_width_lag_7': np.int64(9780), 'ATR_norm_ma_lag_7': np.int64(9780), 'ATR_norm_lag_7': np.int64(9780)}
+2025-10-29 16:11:09 - data_processing - ERROR - __main__:352 - Full traceback:
+Traceback (most recent call last):
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/main_pipeline.py", line 335, in __main__
+    validate_filtered_data(A0_filtered, A1_filtered, A2_filtered,
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                           A3_filtered, A4_filtered, A5_filtered)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/main_pipeline.py", line 248, in validate_filtered_data
+    validate_filtered_features(A4_filtered,
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+                               "A4_filtered",
+                               ^^^^^^^^^^^^^^
+                               start=pd.to_datetime(TRAIN_START),
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                               end=pd.to_datetime(TEST_END),
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                               drop_head_rows=12)
+                               ^^^^^^^^^^^^^^^^^^
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/validation/feature_validation.py", line 110, in validate_filtered_features
+    raise ValueError(error_msg)
+ValueError: A4_filtered contains 4005700 NaN values in columns: {'MA_7_norm_lag_1': np.int64(9780), 'close_vs_lagging_span_pct_lag_7': np.int64(9780), 'is_doji_lag_7': np.int64(9780), 'is_engulfing_lag_7': np.int64(9780), 'is_hangingman_lag_7': np.int64(9780), 'is_hammer_lag_7': np.int64(9780), 'band_width_pct_lag_7': np.int64(9780), 'band_width_lag_7': np.int64(9780), 'ATR_norm_ma_lag_7': np.int64(9780), 'ATR_norm_lag_7': np.int64(9780)}
+2025-10-29 16:16:11 - data_processing.validation.feature_validation - ERROR - validate_filtered_features:109 - ❌ A4_filtered contains 4005700 NaN values in columns: {'MA_7_norm_lag_1': np.int64(9780), 'close_vs_lagging_span_pct_lag_7': np.int64(9780), 'is_doji_lag_7': np.int64(9780), 'is_engulfing_lag_7': np.int64(9780), 'is_hangingman_lag_7': np.int64(9780), 'is_hammer_lag_7': np.int64(9780), 'band_width_pct_lag_7': np.int64(9780), 'band_width_lag_7': np.int64(9780), 'ATR_norm_ma_lag_7': np.int64(9780), 'ATR_norm_lag_7': np.int64(9780)}
+2025-10-29 16:16:11 - data_processing - ERROR - log_validation_result:165 - ❌ Filtered Data validation failed
+2025-10-29 16:16:11 - data_processing - ERROR - __main__:351 - ❌ Pipeline failed: A4_filtered contains 4005700 NaN values in columns: {'MA_7_norm_lag_1': np.int64(9780), 'close_vs_lagging_span_pct_lag_7': np.int64(9780), 'is_doji_lag_7': np.int64(9780), 'is_engulfing_lag_7': np.int64(9780), 'is_hangingman_lag_7': np.int64(9780), 'is_hammer_lag_7': np.int64(9780), 'band_width_pct_lag_7': np.int64(9780), 'band_width_lag_7': np.int64(9780), 'ATR_norm_ma_lag_7': np.int64(9780), 'ATR_norm_lag_7': np.int64(9780)}
+2025-10-29 16:16:11 - data_processing - ERROR - __main__:352 - Full traceback:
+Traceback (most recent call last):
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/main_pipeline.py", line 335, in __main__
+    validate_filtered_data(A0_filtered, A1_filtered, A2_filtered,
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                           A3_filtered, A4_filtered, A5_filtered)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/main_pipeline.py", line 248, in validate_filtered_data
+    validate_filtered_features(A4_filtered,
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+                               "A4_filtered",
+                               ^^^^^^^^^^^^^^
+                               start=pd.to_datetime(TRAIN_START),
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                               end=pd.to_datetime(TEST_END),
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                               drop_head_rows=12)
+                               ^^^^^^^^^^^^^^^^^^
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/validation/feature_validation.py", line 110, in validate_filtered_features
+    raise ValueError(error_msg)
+ValueError: A4_filtered contains 4005700 NaN values in columns: {'MA_7_norm_lag_1': np.int64(9780), 'close_vs_lagging_span_pct_lag_7': np.int64(9780), 'is_doji_lag_7': np.int64(9780), 'is_engulfing_lag_7': np.int64(9780), 'is_hangingman_lag_7': np.int64(9780), 'is_hammer_lag_7': np.int64(9780), 'band_width_pct_lag_7': np.int64(9780), 'band_width_lag_7': np.int64(9780), 'ATR_norm_ma_lag_7': np.int64(9780), 'ATR_norm_lag_7': np.int64(9780)}

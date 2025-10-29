@@ -27,11 +27,11 @@ COLLECTION_CONFIG = {
     # Timeframe-specific date ranges for efficient data collection
     'timeframe_dates': {
         '4h': {
-            'start_date': '2020-03-01T00:00:00Z',  # Keep current for buffer
+            'start_date': '2017-12-01T00:00:00Z',  # Keep current for buffer
             'end_date': '2025-10-19T23:59:59Z'
         },
         '1d': {
-            'start_date': '2019-12-08T00:00:00Z',  # 2020-05-12 - 125 days
+            'start_date': '2017-12-01T00:00:00Z',  # 2020-05-12 - 125 days
             'end_date': '2025-10-19T23:59:59Z'
         },
         '1w': {

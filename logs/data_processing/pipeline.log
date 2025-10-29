@@ -1,0 +1,827 @@
+2025-10-29 15:31:03 - data_processing - INFO - setup_logging:74 - Logging configured: level=INFO, dir=logs/data_processing
+2025-10-29 15:31:03 - data_processing - INFO - __main__:235 - 🚀 Starting BTC Data Processing Pipeline
+2025-10-29 15:31:03 - data_processing - INFO - __main__:236 - ============================================================
+2025-10-29 15:31:03 - data_processing - INFO - log_stage_start:100 - 🚀 Starting Data Loading
+2025-10-29 15:31:03 - data_processing - ERROR - __main__:280 - ❌ Pipeline failed: [Errno 2] No such file or directory: '../../data_collection/data/btc_4h_20251028.parquet'
+2025-10-29 15:31:03 - data_processing - ERROR - __main__:281 - Full traceback:
+Traceback (most recent call last):
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/main_pipeline.py", line 244, in __main__
+    df_h4, df_d1, df_w1 = load_all_data()
+                          ~~~~~~~~~~~~~^^
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/data/load_data.py", line 27, in load_all_data
+    df_h4 = load_4h_data()
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/data/load_data.py", line 12, in load_4h_data
+    df = load_data('4h')
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/data/load_data.py", line 6, in load_data
+    df = pd.read_parquet(
+        f'../../data_collection/data/btc_{file_name}_20251028.parquet')
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/pandas/io/parquet.py", line 669, in read_parquet
+    return impl.read(
+           ~~~~~~~~~^
+        path,
+        ^^^^^
+    ...<6 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/pandas/io/parquet.py", line 258, in read
+    path_or_handle, handles, filesystem = _get_path_or_handle(
+                                          ~~~~~~~~~~~~~~~~~~~^
+        path,
+        ^^^^^
+    ...<2 lines>...
+        mode="rb",
+        ^^^^^^^^^^
+    )
+    ^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/pandas/io/parquet.py", line 141, in _get_path_or_handle
+    handles = get_handle(
+        path_or_handle, mode, is_text=False, storage_options=storage_options
+    )
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/pandas/io/common.py", line 882, in get_handle
+    handle = open(handle, ioargs.mode)
+FileNotFoundError: [Errno 2] No such file or directory: '../../data_collection/data/btc_4h_20251028.parquet'
+2025-10-29 15:31:41 - data_processing - INFO - setup_logging:74 - Logging configured: level=INFO, dir=logs/data_processing
+2025-10-29 15:31:41 - data_processing - INFO - __main__:235 - 🚀 Starting BTC Data Processing Pipeline
+2025-10-29 15:31:41 - data_processing - INFO - __main__:236 - ============================================================
+2025-10-29 15:31:41 - data_processing - INFO - log_stage_start:100 - 🚀 Starting Data Loading
+2025-10-29 15:31:41 - data_processing - ERROR - __main__:280 - ❌ Pipeline failed: [Errno 2] No such file or directory: '../data_collection/data/btc_4h_20251028.parquet'
+2025-10-29 15:31:41 - data_processing - ERROR - __main__:281 - Full traceback:
+Traceback (most recent call last):
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/main_pipeline.py", line 244, in __main__
+    df_h4, df_d1, df_w1 = load_all_data()
+                          ~~~~~~~~~~~~~^^
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/data/load_data.py", line 27, in load_all_data
+    df_h4 = load_4h_data()
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/data/load_data.py", line 12, in load_4h_data
+    df = load_data('4h')
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/data/load_data.py", line 6, in load_data
+    df = pd.read_parquet(
+        f'../data_collection/data/btc_{file_name}_20251028.parquet')
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/pandas/io/parquet.py", line 669, in read_parquet
+    return impl.read(
+           ~~~~~~~~~^
+        path,
+        ^^^^^
+    ...<6 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/pandas/io/parquet.py", line 258, in read
+    path_or_handle, handles, filesystem = _get_path_or_handle(
+                                          ~~~~~~~~~~~~~~~~~~~^
+        path,
+        ^^^^^
+    ...<2 lines>...
+        mode="rb",
+        ^^^^^^^^^^
+    )
+    ^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/pandas/io/parquet.py", line 141, in _get_path_or_handle
+    handles = get_handle(
+        path_or_handle, mode, is_text=False, storage_options=storage_options
+    )
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/pandas/io/common.py", line 882, in get_handle
+    handle = open(handle, ioargs.mode)
+FileNotFoundError: [Errno 2] No such file or directory: '../data_collection/data/btc_4h_20251028.parquet'
+2025-10-29 15:32:48 - data_processing - INFO - setup_logging:74 - Logging configured: level=INFO, dir=logs/data_processing
+2025-10-29 15:32:48 - data_processing - INFO - __main__:235 - 🚀 Starting BTC Data Processing Pipeline
+2025-10-29 15:32:48 - data_processing - INFO - __main__:236 - ============================================================
+2025-10-29 15:32:48 - data_processing - INFO - log_stage_start:100 - 🚀 Starting Data Loading
+2025-10-29 15:32:48 - data_processing - INFO - log_stage_end:120 - ✅ Completed Data Loading in 0.07s
+2025-10-29 15:32:48 - data_processing - INFO - log_stage_start:100 - 🚀 Starting Technical Indicators Calculation
+2025-10-29 15:32:48 - data_processing - ERROR - __main__:280 - ❌ Pipeline failed: 'close'
+2025-10-29 15:32:48 - data_processing - ERROR - __main__:281 - Full traceback:
+Traceback (most recent call last):
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'close'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/main_pipeline.py", line 248, in __main__
+    df_h4, df_d1, df_w1 = calculate_indicators_on_all_data(df_h4, df_d1, df_w1)
+                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/main_pipeline.py", line 65, in calculate_indicators_on_all_data
+    df_h4 = calculate_all_indicators(df_h4)
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/features/indicators.py", line 18, in calculate_all_indicators
+    data = transform_ichimoku_features(data)
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/features/ichimoku.py", line 93, in transform_ichimoku_features
+    data = normalize_ichimoku(data)
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/features/ichimoku.py", line 52, in normalize_ichimoku
+    normalized_val = (data['close'] / data[line_col]) - 1
+                      ~~~~^^^^^^^^^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/pandas/core/frame.py", line 4113, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/pandas/core/indexes/base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'close'
+2025-10-29 15:34:35 - data_processing - INFO - setup_logging:74 - Logging configured: level=INFO, dir=logs/data_processing
+2025-10-29 15:34:35 - data_processing - INFO - __main__:235 - 🚀 Starting BTC Data Processing Pipeline
+2025-10-29 15:34:35 - data_processing - INFO - __main__:236 - ============================================================
+2025-10-29 15:34:35 - data_processing - INFO - log_stage_start:100 - 🚀 Starting Data Loading
+2025-10-29 15:34:36 - data_processing - INFO - log_stage_end:120 - ✅ Completed Data Loading in 0.07s
+2025-10-29 15:34:36 - data_processing - INFO - log_stage_start:100 - 🚀 Starting Technical Indicators Calculation
+2025-10-29 15:34:36 - data_processing - ERROR - __main__:280 - ❌ Pipeline failed: 'high'
+2025-10-29 15:34:36 - data_processing - ERROR - __main__:281 - Full traceback:
+Traceback (most recent call last):
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'high'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/main_pipeline.py", line 248, in __main__
+    df_h4, df_d1, df_w1 = calculate_indicators_on_all_data(df_h4, df_d1, df_w1)
+                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/main_pipeline.py", line 65, in calculate_indicators_on_all_data
+    df_h4 = calculate_all_indicators(df_h4)
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/features/indicators.py", line 19, in calculate_all_indicators
+    data = transform_atr_features(data)
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/features/atr.py", line 41, in transform_atr_features
+    data = calculate_atr(data)
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/features/atr.py", line 8, in calculate_atr
+    high = data['high']
+           ~~~~^^^^^^^^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/pandas/core/frame.py", line 4113, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/pandas/core/indexes/base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'high'
+2025-10-29 15:38:08 - data_processing - INFO - setup_logging:74 - Logging configured: level=INFO, dir=logs/data_processing
+2025-10-29 15:38:08 - data_processing - INFO - __main__:235 - 🚀 Starting BTC Data Processing Pipeline
+2025-10-29 15:38:08 - data_processing - INFO - __main__:236 - ============================================================
+2025-10-29 15:38:08 - data_processing - INFO - log_stage_start:100 - 🚀 Starting Data Loading
+2025-10-29 15:38:08 - data_processing - INFO - log_stage_end:120 - ✅ Completed Data Loading in 0.13s
+2025-10-29 15:38:08 - data_processing - INFO - log_stage_start:100 - 🚀 Starting Technical Indicators Calculation
+2025-10-29 15:38:08 - data_processing - ERROR - __main__:280 - ❌ Pipeline failed: 'close'
+2025-10-29 15:38:08 - data_processing - ERROR - __main__:281 - Full traceback:
+Traceback (most recent call last):
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/main_pipeline.py", line 248, in __main__
+    df_h4, df_d1, df_w1 = calculate_indicators_on_all_data(df_h4, df_d1, df_w1)
+                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/main_pipeline.py", line 65, in calculate_indicators_on_all_data
+    df_h4 = calculate_all_indicators(df_h4)
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/features/indicators.py", line 19, in calculate_all_indicators
+    data = transform_atr_features(data)
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/features/atr.py", line 42, in transform_atr_features
+    data = normalize_atr(data)
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/features/atr.py", line 20, in normalize_atr
+    close = data['close']
+            ~~~~^^^^^^^^^
+KeyError: 'close'
+2025-10-29 15:38:34 - data_processing - INFO - setup_logging:74 - Logging configured: level=INFO, dir=logs/data_processing
+2025-10-29 15:38:34 - data_processing - INFO - __main__:235 - 🚀 Starting BTC Data Processing Pipeline
+2025-10-29 15:38:34 - data_processing - INFO - __main__:236 - ============================================================
+2025-10-29 15:38:34 - data_processing - INFO - log_stage_start:100 - 🚀 Starting Data Loading
+2025-10-29 15:38:34 - data_processing - INFO - log_stage_end:120 - ✅ Completed Data Loading in 0.03s
+2025-10-29 15:38:34 - data_processing - INFO - log_stage_start:100 - 🚀 Starting Technical Indicators Calculation
+2025-10-29 15:38:34 - data_processing - ERROR - __main__:280 - ❌ Pipeline failed: 'numpy.ndarray' object has no attribute 'replace'
+2025-10-29 15:38:34 - data_processing - ERROR - __main__:281 - Full traceback:
+Traceback (most recent call last):
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/main_pipeline.py", line 248, in __main__
+    df_h4, df_d1, df_w1 = calculate_indicators_on_all_data(df_h4, df_d1, df_w1)
+                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/main_pipeline.py", line 65, in calculate_indicators_on_all_data
+    df_h4 = calculate_all_indicators(df_h4)
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/features/indicators.py", line 19, in calculate_all_indicators
+    data = transform_atr_features(data)
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/features/atr.py", line 41, in transform_atr_features
+    data = normalize_atr(data)
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/features/atr.py", line 25, in normalize_atr
+    0).replace([np.inf, -np.inf], 0)
+       ^^^^^^^
+AttributeError: 'numpy.ndarray' object has no attribute 'replace'
+2025-10-29 15:40:22 - data_processing - INFO - setup_logging:74 - Logging configured: level=INFO, dir=logs/data_processing
+2025-10-29 15:40:22 - data_processing - INFO - __main__:235 - 🚀 Starting BTC Data Processing Pipeline
+2025-10-29 15:40:22 - data_processing - INFO - __main__:236 - ============================================================
+2025-10-29 15:40:22 - data_processing - INFO - log_stage_start:100 - 🚀 Starting Data Loading
+2025-10-29 15:40:22 - data_processing - INFO - log_stage_end:120 - ✅ Completed Data Loading in 0.03s
+2025-10-29 15:40:22 - data_processing - INFO - log_stage_start:100 - 🚀 Starting Technical Indicators Calculation
+2025-10-29 15:40:22 - data_processing - ERROR - __main__:280 - ❌ Pipeline failed: 'close'
+2025-10-29 15:40:22 - data_processing - ERROR - __main__:281 - Full traceback:
+Traceback (most recent call last):
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'close'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/main_pipeline.py", line 248, in __main__
+    df_h4, df_d1, df_w1 = calculate_indicators_on_all_data(df_h4, df_d1, df_w1)
+                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/main_pipeline.py", line 65, in calculate_indicators_on_all_data
+    df_h4 = calculate_all_indicators(df_h4)
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/features/indicators.py", line 20, in calculate_all_indicators
+    data = transform_bollinger_bands_features(data)
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/features/bollinger_bands.py", line 49, in transform_bollinger_bands_features
+    data = normalize_bollinger_bands(data)
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/features/bollinger_bands.py", line 26, in normalize_bollinger_bands
+    close = data['close']
+            ~~~~^^^^^^^^^
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/pandas/core/frame.py", line 4113, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/opt/anaconda3/envs/csml/lib/python3.13/site-packages/pandas/core/indexes/base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'close'
+2025-10-29 15:41:45 - data_processing - INFO - setup_logging:74 - Logging configured: level=INFO, dir=logs/data_processing
+2025-10-29 15:41:45 - data_processing - INFO - __main__:235 - 🚀 Starting BTC Data Processing Pipeline
+2025-10-29 15:41:45 - data_processing - INFO - __main__:236 - ============================================================
+2025-10-29 15:41:45 - data_processing - INFO - log_stage_start:100 - 🚀 Starting Data Loading
+2025-10-29 15:41:45 - data_processing - INFO - log_stage_end:120 - ✅ Completed Data Loading in 0.03s
+2025-10-29 15:41:45 - data_processing - INFO - log_stage_start:100 - 🚀 Starting Technical Indicators Calculation
+2025-10-29 15:41:45 - data_processing.validation.feature_validation - INFO - validate_raw_features:40 - 📊 H4_indicators raw features: 12403 rows × 41 cols
+2025-10-29 15:41:45 - data_processing.validation.feature_validation - INFO - validate_raw_features:43 -    Memory: 4.23 MB
+2025-10-29 15:41:45 - data_processing.validation.feature_validation - WARNING - validate_raw_features:50 - ⚠️  H4_indicators has 1112 NaNs (0.2%)
+2025-10-29 15:41:45 - data_processing.validation.feature_validation - WARNING - validate_raw_features:53 -    Top NaN columns: {'MA_14_MA_120_norm': np.int64(119), 'MA_60_MA_120_norm': np.int64(119), 'MA_120_norm': np.int64(119), 'MA_7_MA_120_norm': np.int64(119), 'MA_20_MA_120_norm': np.int64(119), 'MA_60_norm': np.int64(59), 'MA_7_MA_60_norm': np.int64(59), 'MA_14_MA_60_norm': np.int64(59), 'MA_20_MA_60_norm': np.int64(59), 'MACD_histogram': np.int64(33)}
+2025-10-29 15:41:45 - data_processing.validation.feature_validation - INFO - validate_raw_features:61 - ✅ H4_indicators has no infinite values
+2025-10-29 15:41:45 - data_processing.validation.feature_validation - INFO - validate_raw_features:68 - ✅ H4_indicators has unique indices
+2025-10-29 15:41:45 - data_processing.validation.feature_validation - INFO - validate_raw_features:40 - 📊 D1_indicators raw features: 2152 rows × 41 cols
+2025-10-29 15:41:45 - data_processing.validation.feature_validation - INFO - validate_raw_features:43 -    Memory: 0.75 MB
+2025-10-29 15:41:45 - data_processing.validation.feature_validation - WARNING - validate_raw_features:50 - ⚠️  D1_indicators has 1112 NaNs (1.3%)
+2025-10-29 15:41:45 - data_processing.validation.feature_validation - WARNING - validate_raw_features:53 -    Top NaN columns: {'MA_14_MA_120_norm': np.int64(119), 'MA_60_MA_120_norm': np.int64(119), 'MA_120_norm': np.int64(119), 'MA_7_MA_120_norm': np.int64(119), 'MA_20_MA_120_norm': np.int64(119), 'MA_60_norm': np.int64(59), 'MA_7_MA_60_norm': np.int64(59), 'MA_14_MA_60_norm': np.int64(59), 'MA_20_MA_60_norm': np.int64(59), 'MACD_histogram': np.int64(33)}
+2025-10-29 15:41:45 - data_processing.validation.feature_validation - INFO - validate_raw_features:61 - ✅ D1_indicators has no infinite values
+2025-10-29 15:41:45 - data_processing.validation.feature_validation - INFO - validate_raw_features:68 - ✅ D1_indicators has unique indices
+2025-10-29 15:41:45 - data_processing.validation.feature_validation - INFO - validate_raw_features:40 - 📊 W1_indicators raw features: 413 rows × 41 cols
+2025-10-29 15:41:45 - data_processing.validation.feature_validation - INFO - validate_raw_features:43 -    Memory: 0.15 MB
+2025-10-29 15:41:45 - data_processing.validation.feature_validation - WARNING - validate_raw_features:50 - ⚠️  W1_indicators has 1112 NaNs (6.6%)
+2025-10-29 15:41:45 - data_processing.validation.feature_validation - WARNING - validate_raw_features:53 -    Top NaN columns: {'MA_14_MA_120_norm': np.int64(119), 'MA_60_MA_120_norm': np.int64(119), 'MA_120_norm': np.int64(119), 'MA_7_MA_120_norm': np.int64(119), 'MA_20_MA_120_norm': np.int64(119), 'MA_60_norm': np.int64(59), 'MA_7_MA_60_norm': np.int64(59), 'MA_14_MA_60_norm': np.int64(59), 'MA_20_MA_60_norm': np.int64(59), 'MACD_histogram': np.int64(33)}
+2025-10-29 15:41:45 - data_processing.validation.feature_validation - INFO - validate_raw_features:61 - ✅ W1_indicators has no infinite values
+2025-10-29 15:41:45 - data_processing.validation.feature_validation - INFO - validate_raw_features:68 - ✅ W1_indicators has unique indices
+2025-10-29 15:41:45 - data_processing - INFO - log_stage_end:120 - ✅ Completed Technical Indicators Calculation in 0.06s
+2025-10-29 15:41:45 - data_processing - INFO - log_stage_start:100 - 🚀 Starting Timeframe Alignment
+2025-10-29 15:41:53 - data_processing.validation.feature_validation - INFO - validate_raw_features:40 - 📊 A0 raw features: 12403 rows × 41 cols
+2025-10-29 15:41:53 - data_processing.validation.feature_validation - INFO - validate_raw_features:43 -    Memory: 4.23 MB
+2025-10-29 15:41:53 - data_processing.validation.feature_validation - WARNING - validate_raw_features:50 - ⚠️  A0 has 1112 NaNs (0.2%)
+2025-10-29 15:41:53 - data_processing.validation.feature_validation - WARNING - validate_raw_features:53 -    Top NaN columns: {'MA_14_MA_120_norm': np.int64(119), 'MA_60_MA_120_norm': np.int64(119), 'MA_120_norm': np.int64(119), 'MA_7_MA_120_norm': np.int64(119), 'MA_20_MA_120_norm': np.int64(119), 'MA_60_norm': np.int64(59), 'MA_7_MA_60_norm': np.int64(59), 'MA_14_MA_60_norm': np.int64(59), 'MA_20_MA_60_norm': np.int64(59), 'MACD_histogram': np.int64(33)}
+2025-10-29 15:41:53 - data_processing.validation.feature_validation - INFO - validate_raw_features:61 - ✅ A0 has no infinite values
+2025-10-29 15:41:53 - data_processing.validation.feature_validation - INFO - validate_raw_features:68 - ✅ A0 has unique indices
+2025-10-29 15:41:53 - data_processing.validation.feature_validation - INFO - validate_raw_features:40 - 📊 A1 raw features: 12403 rows × 82 cols
+2025-10-29 15:41:53 - data_processing.validation.feature_validation - INFO - validate_raw_features:43 -    Memory: 19.75 MB
+2025-10-29 15:41:53 - data_processing.validation.feature_validation - WARNING - validate_raw_features:50 - ⚠️  A1 has 2192 NaNs (0.2%)
+2025-10-29 15:41:53 - data_processing.validation.feature_validation - WARNING - validate_raw_features:53 -    Top NaN columns: {'D1_MA_60_MA_120_norm': np.int64(216), 'D1_MA_20_MA_120_norm': np.int64(216), 'D1_MA_14_MA_120_norm': np.int64(216), 'D1_MA_7_MA_120_norm': np.int64(216), 'D1_MA_120_norm': np.int64(216), 'MA_7_MA_120_norm': np.int64(119), 'MA_20_MA_120_norm': np.int64(119), 'MA_14_MA_120_norm': np.int64(119), 'MA_60_MA_120_norm': np.int64(119), 'MA_120_norm': np.int64(119)}
+2025-10-29 15:41:53 - data_processing.validation.feature_validation - INFO - validate_raw_features:61 - ✅ A1 has no infinite values
+2025-10-29 15:41:53 - data_processing.validation.feature_validation - INFO - validate_raw_features:68 - ✅ A1 has unique indices
+2025-10-29 15:41:53 - data_processing.validation.feature_validation - INFO - validate_raw_features:40 - 📊 A2 raw features: 12403 rows × 82 cols
+2025-10-29 15:41:53 - data_processing.validation.feature_validation - INFO - validate_raw_features:43 -    Memory: 19.75 MB
+2025-10-29 15:41:53 - data_processing.validation.feature_validation - WARNING - validate_raw_features:50 - ⚠️  A2 has 1772 NaNs (0.2%)
+2025-10-29 15:41:53 - data_processing.validation.feature_validation - WARNING - validate_raw_features:53 -    Top NaN columns: {'W1_MA_60_MA_120_norm': np.int64(132), 'W1_MA_20_MA_120_norm': np.int64(132), 'W1_MA_14_MA_120_norm': np.int64(132), 'W1_MA_7_MA_120_norm': np.int64(132), 'W1_MA_120_norm': np.int64(132), 'MA_7_MA_120_norm': np.int64(119), 'MA_20_MA_120_norm': np.int64(119), 'MA_14_MA_120_norm': np.int64(119), 'MA_60_MA_120_norm': np.int64(119), 'MA_120_norm': np.int64(119)}
+2025-10-29 15:41:53 - data_processing.validation.feature_validation - INFO - validate_raw_features:61 - ✅ A2 has no infinite values
+2025-10-29 15:41:53 - data_processing.validation.feature_validation - INFO - validate_raw_features:68 - ✅ A2 has unique indices
+2025-10-29 15:41:53 - data_processing - INFO - log_stage_end:120 - ✅ Completed Timeframe Alignment in 7.93s
+2025-10-29 15:41:53 - data_processing - INFO - log_stage_start:100 - 🚀 Starting Lag Features Creation
+2025-10-29 15:41:53 - data_processing.validation.feature_validation - INFO - validate_raw_features:40 - 📊 H4_lags raw features: 12403 rows × 410 cols
+2025-10-29 15:41:53 - data_processing.validation.feature_validation - INFO - validate_raw_features:43 -    Memory: 39.14 MB
+2025-10-29 15:41:53 - data_processing.validation.feature_validation - WARNING - validate_raw_features:50 - ⚠️  H4_lags has 13375 NaNs (0.3%)
+2025-10-29 15:41:53 - data_processing.validation.feature_validation - WARNING - validate_raw_features:53 -    Top NaN columns: {'MA_60_MA_120_norm_lag_10': np.int64(129), 'MA_20_MA_120_norm_lag_10': np.int64(129), 'MA_14_MA_120_norm_lag_10': np.int64(129), 'MA_7_MA_120_norm_lag_10': np.int64(129), 'MA_120_norm_lag_10': np.int64(129), 'MA_7_MA_120_norm_lag_9': np.int64(128), 'MA_120_norm_lag_9': np.int64(128), 'MA_60_MA_120_norm_lag_9': np.int64(128), 'MA_20_MA_120_norm_lag_9': np.int64(128), 'MA_14_MA_120_norm_lag_9': np.int64(128)}
+2025-10-29 15:41:53 - data_processing.validation.feature_validation - INFO - validate_raw_features:61 - ✅ H4_lags has no infinite values
+2025-10-29 15:41:53 - data_processing.validation.feature_validation - INFO - validate_raw_features:68 - ✅ H4_lags has unique indices
+2025-10-29 15:41:53 - data_processing.validation.feature_validation - INFO - validate_raw_features:40 - 📊 D1_lags raw features: 2152 rows × 410 cols
+2025-10-29 15:41:53 - data_processing.validation.feature_validation - INFO - validate_raw_features:43 -    Memory: 6.81 MB
+2025-10-29 15:41:53 - data_processing.validation.feature_validation - WARNING - validate_raw_features:50 - ⚠️  D1_lags has 13375 NaNs (1.5%)
+2025-10-29 15:41:53 - data_processing.validation.feature_validation - WARNING - validate_raw_features:53 -    Top NaN columns: {'MA_60_MA_120_norm_lag_10': np.int64(129), 'MA_20_MA_120_norm_lag_10': np.int64(129), 'MA_14_MA_120_norm_lag_10': np.int64(129), 'MA_7_MA_120_norm_lag_10': np.int64(129), 'MA_120_norm_lag_10': np.int64(129), 'MA_7_MA_120_norm_lag_9': np.int64(128), 'MA_120_norm_lag_9': np.int64(128), 'MA_60_MA_120_norm_lag_9': np.int64(128), 'MA_20_MA_120_norm_lag_9': np.int64(128), 'MA_14_MA_120_norm_lag_9': np.int64(128)}
+2025-10-29 15:41:53 - data_processing.validation.feature_validation - INFO - validate_raw_features:61 - ✅ D1_lags has no infinite values
+2025-10-29 15:41:53 - data_processing.validation.feature_validation - INFO - validate_raw_features:68 - ✅ D1_lags has unique indices
+2025-10-29 15:41:53 - data_processing.validation.feature_validation - INFO - validate_raw_features:40 - 📊 W1_lags raw features: 413 rows × 410 cols
+2025-10-29 15:41:53 - data_processing.validation.feature_validation - INFO - validate_raw_features:43 -    Memory: 1.31 MB
+2025-10-29 15:41:53 - data_processing.validation.feature_validation - WARNING - validate_raw_features:50 - ⚠️  W1_lags has 13375 NaNs (7.9%)
+2025-10-29 15:41:53 - data_processing.validation.feature_validation - WARNING - validate_raw_features:53 -    Top NaN columns: {'MA_60_MA_120_norm_lag_10': np.int64(129), 'MA_20_MA_120_norm_lag_10': np.int64(129), 'MA_14_MA_120_norm_lag_10': np.int64(129), 'MA_7_MA_120_norm_lag_10': np.int64(129), 'MA_120_norm_lag_10': np.int64(129), 'MA_7_MA_120_norm_lag_9': np.int64(128), 'MA_120_norm_lag_9': np.int64(128), 'MA_60_MA_120_norm_lag_9': np.int64(128), 'MA_20_MA_120_norm_lag_9': np.int64(128), 'MA_14_MA_120_norm_lag_9': np.int64(128)}
+2025-10-29 15:41:53 - data_processing.validation.feature_validation - INFO - validate_raw_features:61 - ✅ W1_lags has no infinite values
+2025-10-29 15:41:53 - data_processing.validation.feature_validation - INFO - validate_raw_features:68 - ✅ W1_lags has unique indices
+2025-10-29 15:41:53 - data_processing - INFO - log_stage_end:120 - ✅ Completed Lag Features Creation in 0.24s
+2025-10-29 15:41:53 - data_processing - INFO - log_stage_start:100 - 🚀 Starting Combining H4 + H4_lags
+2025-10-29 15:41:53 - data_processing - ERROR - __main__:280 - ❌ Pipeline failed: 'H4_lags'
+2025-10-29 15:41:53 - data_processing - ERROR - __main__:281 - Full traceback:
+Traceback (most recent call last):
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/main_pipeline.py", line 257, in __main__
+    A3 = combine_timeframe_and_lag_features(A2, h4_lags, 'H4', 'H4_lags')
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/main_pipeline.py", line 131, in combine_timeframe_and_lag_features
+    lagged_data = combine_timeframe_data(base_data, lag_data, base_timeframe, lag_timeframe)
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/time/time_align.py", line 48, in combine_timeframe_data
+    aligned_data = align_timeframe_data(base_data, target_data, base_timeframe,
+                                        target_timeframe)
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/time/time_align.py", line 23, in align_timeframe_data
+    offset = timeframe_offsets[target_timeframe]
+             ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+KeyError: 'H4_lags'
+2025-10-29 15:47:46 - data_processing - INFO - setup_logging:74 - Logging configured: level=INFO, dir=logs/data_processing
+2025-10-29 15:47:46 - data_processing - INFO - __main__:234 - 🚀 Starting BTC Data Processing Pipeline
+2025-10-29 15:47:46 - data_processing - INFO - __main__:235 - ============================================================
+2025-10-29 15:47:46 - data_processing - INFO - log_stage_start:100 - 🚀 Starting Data Loading
+2025-10-29 15:47:46 - data_processing - INFO - log_stage_end:120 - ✅ Completed Data Loading in 0.03s
+2025-10-29 15:47:46 - data_processing - INFO - log_stage_start:100 - 🚀 Starting Technical Indicators Calculation
+2025-10-29 15:47:46 - data_processing.validation.feature_validation - INFO - validate_raw_features:40 - 📊 H4_indicators raw features: 12403 rows × 41 cols
+2025-10-29 15:47:46 - data_processing.validation.feature_validation - INFO - validate_raw_features:43 -    Memory: 4.23 MB
+2025-10-29 15:47:46 - data_processing.validation.feature_validation - WARNING - validate_raw_features:50 - ⚠️  H4_indicators has 1112 NaNs (0.2%)
+2025-10-29 15:47:46 - data_processing.validation.feature_validation - WARNING - validate_raw_features:53 -    Top NaN columns: {'MA_14_MA_120_norm': np.int64(119), 'MA_60_MA_120_norm': np.int64(119), 'MA_120_norm': np.int64(119), 'MA_7_MA_120_norm': np.int64(119), 'MA_20_MA_120_norm': np.int64(119), 'MA_60_norm': np.int64(59), 'MA_7_MA_60_norm': np.int64(59), 'MA_14_MA_60_norm': np.int64(59), 'MA_20_MA_60_norm': np.int64(59), 'MACD_histogram': np.int64(33)}
+2025-10-29 15:47:46 - data_processing.validation.feature_validation - INFO - validate_raw_features:61 - ✅ H4_indicators has no infinite values
+2025-10-29 15:47:46 - data_processing.validation.feature_validation - INFO - validate_raw_features:68 - ✅ H4_indicators has unique indices
+2025-10-29 15:47:46 - data_processing.validation.feature_validation - INFO - validate_raw_features:40 - 📊 D1_indicators raw features: 2152 rows × 41 cols
+2025-10-29 15:47:46 - data_processing.validation.feature_validation - INFO - validate_raw_features:43 -    Memory: 0.75 MB
+2025-10-29 15:47:46 - data_processing.validation.feature_validation - WARNING - validate_raw_features:50 - ⚠️  D1_indicators has 1112 NaNs (1.3%)
+2025-10-29 15:47:46 - data_processing.validation.feature_validation - WARNING - validate_raw_features:53 -    Top NaN columns: {'MA_14_MA_120_norm': np.int64(119), 'MA_60_MA_120_norm': np.int64(119), 'MA_120_norm': np.int64(119), 'MA_7_MA_120_norm': np.int64(119), 'MA_20_MA_120_norm': np.int64(119), 'MA_60_norm': np.int64(59), 'MA_7_MA_60_norm': np.int64(59), 'MA_14_MA_60_norm': np.int64(59), 'MA_20_MA_60_norm': np.int64(59), 'MACD_histogram': np.int64(33)}
+2025-10-29 15:47:46 - data_processing.validation.feature_validation - INFO - validate_raw_features:61 - ✅ D1_indicators has no infinite values
+2025-10-29 15:47:46 - data_processing.validation.feature_validation - INFO - validate_raw_features:68 - ✅ D1_indicators has unique indices
+2025-10-29 15:47:46 - data_processing.validation.feature_validation - INFO - validate_raw_features:40 - 📊 W1_indicators raw features: 413 rows × 41 cols
+2025-10-29 15:47:46 - data_processing.validation.feature_validation - INFO - validate_raw_features:43 -    Memory: 0.15 MB
+2025-10-29 15:47:46 - data_processing.validation.feature_validation - WARNING - validate_raw_features:50 - ⚠️  W1_indicators has 1112 NaNs (6.6%)
+2025-10-29 15:47:46 - data_processing.validation.feature_validation - WARNING - validate_raw_features:53 -    Top NaN columns: {'MA_14_MA_120_norm': np.int64(119), 'MA_60_MA_120_norm': np.int64(119), 'MA_120_norm': np.int64(119), 'MA_7_MA_120_norm': np.int64(119), 'MA_20_MA_120_norm': np.int64(119), 'MA_60_norm': np.int64(59), 'MA_7_MA_60_norm': np.int64(59), 'MA_14_MA_60_norm': np.int64(59), 'MA_20_MA_60_norm': np.int64(59), 'MACD_histogram': np.int64(33)}
+2025-10-29 15:47:46 - data_processing.validation.feature_validation - INFO - validate_raw_features:61 - ✅ W1_indicators has no infinite values
+2025-10-29 15:47:46 - data_processing.validation.feature_validation - INFO - validate_raw_features:68 - ✅ W1_indicators has unique indices
+2025-10-29 15:47:46 - data_processing - INFO - log_stage_end:120 - ✅ Completed Technical Indicators Calculation in 0.06s
+2025-10-29 15:47:46 - data_processing - INFO - log_stage_start:100 - 🚀 Starting Timeframe Alignment
+2025-10-29 15:47:54 - data_processing.validation.feature_validation - INFO - validate_raw_features:40 - 📊 A0 raw features: 12403 rows × 41 cols
+2025-10-29 15:47:54 - data_processing.validation.feature_validation - INFO - validate_raw_features:43 -    Memory: 4.23 MB
+2025-10-29 15:47:54 - data_processing.validation.feature_validation - WARNING - validate_raw_features:50 - ⚠️  A0 has 1112 NaNs (0.2%)
+2025-10-29 15:47:54 - data_processing.validation.feature_validation - WARNING - validate_raw_features:53 -    Top NaN columns: {'MA_14_MA_120_norm': np.int64(119), 'MA_60_MA_120_norm': np.int64(119), 'MA_120_norm': np.int64(119), 'MA_7_MA_120_norm': np.int64(119), 'MA_20_MA_120_norm': np.int64(119), 'MA_60_norm': np.int64(59), 'MA_7_MA_60_norm': np.int64(59), 'MA_14_MA_60_norm': np.int64(59), 'MA_20_MA_60_norm': np.int64(59), 'MACD_histogram': np.int64(33)}
+2025-10-29 15:47:54 - data_processing.validation.feature_validation - INFO - validate_raw_features:61 - ✅ A0 has no infinite values
+2025-10-29 15:47:54 - data_processing.validation.feature_validation - INFO - validate_raw_features:68 - ✅ A0 has unique indices
+2025-10-29 15:47:54 - data_processing.validation.feature_validation - INFO - validate_raw_features:40 - 📊 A1 raw features: 12403 rows × 82 cols
+2025-10-29 15:47:54 - data_processing.validation.feature_validation - INFO - validate_raw_features:43 -    Memory: 19.75 MB
+2025-10-29 15:47:54 - data_processing.validation.feature_validation - WARNING - validate_raw_features:50 - ⚠️  A1 has 2192 NaNs (0.2%)
+2025-10-29 15:47:54 - data_processing.validation.feature_validation - WARNING - validate_raw_features:53 -    Top NaN columns: {'D1_MA_60_MA_120_norm': np.int64(216), 'D1_MA_20_MA_120_norm': np.int64(216), 'D1_MA_14_MA_120_norm': np.int64(216), 'D1_MA_7_MA_120_norm': np.int64(216), 'D1_MA_120_norm': np.int64(216), 'MA_7_MA_120_norm': np.int64(119), 'MA_20_MA_120_norm': np.int64(119), 'MA_14_MA_120_norm': np.int64(119), 'MA_60_MA_120_norm': np.int64(119), 'MA_120_norm': np.int64(119)}
+2025-10-29 15:47:54 - data_processing.validation.feature_validation - INFO - validate_raw_features:61 - ✅ A1 has no infinite values
+2025-10-29 15:47:54 - data_processing.validation.feature_validation - INFO - validate_raw_features:68 - ✅ A1 has unique indices
+2025-10-29 15:47:54 - data_processing.validation.feature_validation - INFO - validate_raw_features:40 - 📊 A2 raw features: 12403 rows × 82 cols
+2025-10-29 15:47:54 - data_processing.validation.feature_validation - INFO - validate_raw_features:43 -    Memory: 19.75 MB
+2025-10-29 15:47:54 - data_processing.validation.feature_validation - WARNING - validate_raw_features:50 - ⚠️  A2 has 1772 NaNs (0.2%)
+2025-10-29 15:47:54 - data_processing.validation.feature_validation - WARNING - validate_raw_features:53 -    Top NaN columns: {'W1_MA_60_MA_120_norm': np.int64(132), 'W1_MA_20_MA_120_norm': np.int64(132), 'W1_MA_14_MA_120_norm': np.int64(132), 'W1_MA_7_MA_120_norm': np.int64(132), 'W1_MA_120_norm': np.int64(132), 'MA_7_MA_120_norm': np.int64(119), 'MA_20_MA_120_norm': np.int64(119), 'MA_14_MA_120_norm': np.int64(119), 'MA_60_MA_120_norm': np.int64(119), 'MA_120_norm': np.int64(119)}
+2025-10-29 15:47:54 - data_processing.validation.feature_validation - INFO - validate_raw_features:61 - ✅ A2 has no infinite values
+2025-10-29 15:47:54 - data_processing.validation.feature_validation - INFO - validate_raw_features:68 - ✅ A2 has unique indices
+2025-10-29 15:47:54 - data_processing - INFO - log_stage_end:120 - ✅ Completed Timeframe Alignment in 8.33s
+2025-10-29 15:47:54 - data_processing - INFO - log_stage_start:100 - 🚀 Starting Lag Features Creation
+2025-10-29 15:47:55 - data_processing.validation.feature_validation - INFO - validate_raw_features:40 - 📊 H4_lags raw features: 12403 rows × 410 cols
+2025-10-29 15:47:55 - data_processing.validation.feature_validation - INFO - validate_raw_features:43 -    Memory: 39.14 MB
+2025-10-29 15:47:55 - data_processing.validation.feature_validation - WARNING - validate_raw_features:50 - ⚠️  H4_lags has 13375 NaNs (0.3%)
+2025-10-29 15:47:55 - data_processing.validation.feature_validation - WARNING - validate_raw_features:53 -    Top NaN columns: {'MA_60_MA_120_norm_lag_10': np.int64(129), 'MA_20_MA_120_norm_lag_10': np.int64(129), 'MA_14_MA_120_norm_lag_10': np.int64(129), 'MA_7_MA_120_norm_lag_10': np.int64(129), 'MA_120_norm_lag_10': np.int64(129), 'MA_7_MA_120_norm_lag_9': np.int64(128), 'MA_120_norm_lag_9': np.int64(128), 'MA_60_MA_120_norm_lag_9': np.int64(128), 'MA_20_MA_120_norm_lag_9': np.int64(128), 'MA_14_MA_120_norm_lag_9': np.int64(128)}
+2025-10-29 15:47:55 - data_processing.validation.feature_validation - INFO - validate_raw_features:61 - ✅ H4_lags has no infinite values
+2025-10-29 15:47:55 - data_processing.validation.feature_validation - INFO - validate_raw_features:68 - ✅ H4_lags has unique indices
+2025-10-29 15:47:55 - data_processing.validation.feature_validation - INFO - validate_raw_features:40 - 📊 D1_lags raw features: 2152 rows × 410 cols
+2025-10-29 15:47:55 - data_processing.validation.feature_validation - INFO - validate_raw_features:43 -    Memory: 6.81 MB
+2025-10-29 15:47:55 - data_processing.validation.feature_validation - WARNING - validate_raw_features:50 - ⚠️  D1_lags has 13375 NaNs (1.5%)
+2025-10-29 15:47:55 - data_processing.validation.feature_validation - WARNING - validate_raw_features:53 -    Top NaN columns: {'MA_60_MA_120_norm_lag_10': np.int64(129), 'MA_20_MA_120_norm_lag_10': np.int64(129), 'MA_14_MA_120_norm_lag_10': np.int64(129), 'MA_7_MA_120_norm_lag_10': np.int64(129), 'MA_120_norm_lag_10': np.int64(129), 'MA_7_MA_120_norm_lag_9': np.int64(128), 'MA_120_norm_lag_9': np.int64(128), 'MA_60_MA_120_norm_lag_9': np.int64(128), 'MA_20_MA_120_norm_lag_9': np.int64(128), 'MA_14_MA_120_norm_lag_9': np.int64(128)}
+2025-10-29 15:47:55 - data_processing.validation.feature_validation - INFO - validate_raw_features:61 - ✅ D1_lags has no infinite values
+2025-10-29 15:47:55 - data_processing.validation.feature_validation - INFO - validate_raw_features:68 - ✅ D1_lags has unique indices
+2025-10-29 15:47:55 - data_processing.validation.feature_validation - INFO - validate_raw_features:40 - 📊 W1_lags raw features: 413 rows × 410 cols
+2025-10-29 15:47:55 - data_processing.validation.feature_validation - INFO - validate_raw_features:43 -    Memory: 1.31 MB
+2025-10-29 15:47:55 - data_processing.validation.feature_validation - WARNING - validate_raw_features:50 - ⚠️  W1_lags has 13375 NaNs (7.9%)
+2025-10-29 15:47:55 - data_processing.validation.feature_validation - WARNING - validate_raw_features:53 -    Top NaN columns: {'MA_60_MA_120_norm_lag_10': np.int64(129), 'MA_20_MA_120_norm_lag_10': np.int64(129), 'MA_14_MA_120_norm_lag_10': np.int64(129), 'MA_7_MA_120_norm_lag_10': np.int64(129), 'MA_120_norm_lag_10': np.int64(129), 'MA_7_MA_120_norm_lag_9': np.int64(128), 'MA_120_norm_lag_9': np.int64(128), 'MA_60_MA_120_norm_lag_9': np.int64(128), 'MA_20_MA_120_norm_lag_9': np.int64(128), 'MA_14_MA_120_norm_lag_9': np.int64(128)}
+2025-10-29 15:47:55 - data_processing.validation.feature_validation - INFO - validate_raw_features:61 - ✅ W1_lags has no infinite values
+2025-10-29 15:47:55 - data_processing.validation.feature_validation - INFO - validate_raw_features:68 - ✅ W1_lags has unique indices
+2025-10-29 15:47:55 - data_processing - INFO - log_stage_end:120 - ✅ Completed Lag Features Creation in 0.24s
+2025-10-29 15:47:55 - data_processing - INFO - log_stage_start:100 - 🚀 Starting Combining H4 + H4_lags
+2025-10-29 15:47:55 - data_processing.validation.feature_validation - INFO - validate_raw_features:40 - 📊 H4_H4_lags raw features: 12403 rows × 492 cols
+2025-10-29 15:47:55 - data_processing.validation.feature_validation - INFO - validate_raw_features:43 -    Memory: 58.54 MB
+2025-10-29 15:47:55 - data_processing.validation.feature_validation - WARNING - validate_raw_features:50 - ⚠️  H4_H4_lags has 15147 NaNs (0.2%)
+2025-10-29 15:47:55 - data_processing.validation.feature_validation - WARNING - validate_raw_features:53 -    Top NaN columns: {'W1_MA_60_MA_120_norm': np.int64(132), 'W1_MA_20_MA_120_norm': np.int64(132), 'W1_MA_14_MA_120_norm': np.int64(132), 'W1_MA_7_MA_120_norm': np.int64(132), 'W1_MA_120_norm': np.int64(132), 'MA_14_MA_120_norm_lag_10': np.int64(129), 'MA_60_MA_120_norm_lag_10': np.int64(129), 'MA_120_norm_lag_10': np.int64(129), 'MA_7_MA_120_norm_lag_10': np.int64(129), 'MA_20_MA_120_norm_lag_10': np.int64(129)}
+2025-10-29 15:47:55 - data_processing.validation.feature_validation - INFO - validate_raw_features:61 - ✅ H4_H4_lags has no infinite values
+2025-10-29 15:47:55 - data_processing.validation.feature_validation - INFO - validate_raw_features:68 - ✅ H4_H4_lags has unique indices
+2025-10-29 15:47:55 - data_processing - INFO - log_stage_end:120 - ✅ Completed Combining H4 + H4_lags in 0.13s
+2025-10-29 15:47:55 - data_processing - INFO - log_stage_start:100 - 🚀 Starting Combining H4 + D1_lags
+2025-10-29 15:47:55 - data_processing.validation.feature_validation - INFO - validate_raw_features:40 - 📊 H4_D1_lags raw features: 12487 rows × 902 cols
+2025-10-29 15:47:55 - data_processing.validation.feature_validation - INFO - validate_raw_features:43 -    Memory: 98.00 MB
+2025-10-29 15:47:55 - data_processing.validation.feature_validation - WARNING - validate_raw_features:50 - ⚠️  H4_D1_lags has 4307200 NaNs (38.2%)
+2025-10-29 15:47:55 - data_processing.validation.feature_validation - WARNING - validate_raw_features:53 -    Top NaN columns: {'MA_14_MA_120_norm_lag_10': np.int64(10464), 'MA_20_MA_120_norm_lag_10': np.int64(10464), 'MA_60_MA_120_norm_lag_10': np.int64(10464), 'MA_7_MA_120_norm_lag_10': np.int64(10464), 'MA_120_norm_lag_10': np.int64(10464), 'MA_7_MA_120_norm_lag_9': np.int64(10463), 'MA_14_MA_120_norm_lag_9': np.int64(10463), 'MA_120_norm_lag_9': np.int64(10463), 'MA_20_MA_120_norm_lag_9': np.int64(10463), 'MA_60_MA_120_norm_lag_9': np.int64(10463)}
+2025-10-29 15:47:55 - data_processing.validation.feature_validation - INFO - validate_raw_features:61 - ✅ H4_D1_lags has no infinite values
+2025-10-29 15:47:55 - data_processing.validation.feature_validation - INFO - validate_raw_features:68 - ✅ H4_D1_lags has unique indices
+2025-10-29 15:47:55 - data_processing - INFO - log_stage_end:120 - ✅ Completed Combining H4 + D1_lags in 0.18s
+2025-10-29 15:47:55 - data_processing - INFO - log_stage_start:100 - 🚀 Starting Combining H4 + W1_lags
+2025-10-29 15:47:55 - data_processing.validation.feature_validation - INFO - validate_raw_features:40 - 📊 H4_W1_lags raw features: 12592 rows × 1312 cols
+2025-10-29 15:47:55 - data_processing.validation.feature_validation - INFO - validate_raw_features:43 -    Memory: 138.21 MB
+2025-10-29 15:47:55 - data_processing.validation.feature_validation - WARNING - validate_raw_features:50 - ⚠️  H4_W1_lags has 9408675 NaNs (57.0%)
+2025-10-29 15:47:55 - data_processing.validation.feature_validation - WARNING - validate_raw_features:53 -    Top NaN columns: {'MA_14_MA_120_norm_lag_10': np.int64(12308), 'MA_7_MA_120_norm_lag_10': np.int64(12308), 'MA_20_MA_120_norm_lag_10': np.int64(12308), 'MA_60_MA_120_norm_lag_10': np.int64(12308), 'MA_120_norm_lag_10': np.int64(12308), 'MA_20_MA_120_norm_lag_9': np.int64(12307), 'MA_120_norm_lag_9': np.int64(12307), 'MA_14_MA_120_norm_lag_9': np.int64(12307), 'MA_7_MA_120_norm_lag_9': np.int64(12307), 'MA_60_MA_120_norm_lag_9': np.int64(12307)}
+2025-10-29 15:47:55 - data_processing.validation.feature_validation - INFO - validate_raw_features:61 - ✅ H4_W1_lags has no infinite values
+2025-10-29 15:47:55 - data_processing.validation.feature_validation - INFO - validate_raw_features:68 - ✅ H4_W1_lags has unique indices
+2025-10-29 15:47:55 - data_processing - INFO - log_stage_end:120 - ✅ Completed Combining H4 + W1_lags in 0.26s
+2025-10-29 15:47:55 - data_processing - INFO - log_stage_start:100 - 🚀 Starting Data Filtering
+2025-10-29 15:47:55 - data_processing - INFO - log_stage_start:103 -    train_start: 2020-05-12
+2025-10-29 15:47:55 - data_processing - INFO - log_stage_start:103 -    test_end: 2025-09-19
+2025-10-29 15:47:55 - data_processing - INFO - log_data_info:141 - 📊 A0_filtered: 11,737 rows × 41 cols (3.76 MB)
+2025-10-29 15:47:55 - data_processing - INFO - log_data_info:141 - 📊 A1_filtered: 11,737 rows × 82 cols (18.45 MB)
+2025-10-29 15:47:55 - data_processing - INFO - log_data_info:141 - 📊 A2_filtered: 11,737 rows × 82 cols (18.45 MB)
+2025-10-29 15:47:55 - data_processing - INFO - log_data_info:141 - 📊 A3_filtered: 11,737 rows × 492 cols (55.16 MB)
+2025-10-29 15:47:56 - data_processing - INFO - log_data_info:141 - 📊 A4_filtered: 11,737 rows × 902 cols (91.87 MB)
+2025-10-29 15:47:56 - data_processing - INFO - log_data_info:141 - 📊 A5_filtered: 11,737 rows × 1,312 cols (128.59 MB)
+2025-10-29 15:47:56 - data_processing - INFO - log_stage_end:120 - ✅ Completed Data Filtering in 0.38s
+2025-10-29 15:47:56 - data_processing - INFO - log_stage_start:100 - 🚀 Starting Filtered Data Validation
+2025-10-29 15:47:56 - data_processing.validation.feature_validation - INFO - validate_filtered_features:84 - 🔍 Validating A0_filtered filtered features...
+2025-10-29 15:47:56 - data_processing.validation.feature_validation - INFO - validate_filtered_features:117 - ✅ A0_filtered validation passed: 11737 rows × 41 cols
+2025-10-29 15:47:56 - data_processing.validation.feature_validation - INFO - validate_filtered_features:84 - 🔍 Validating A1_filtered filtered features...
+2025-10-29 15:47:56 - data_processing.validation.feature_validation - INFO - validate_filtered_features:117 - ✅ A1_filtered validation passed: 11737 rows × 82 cols
+2025-10-29 15:47:56 - data_processing.validation.feature_validation - INFO - validate_filtered_features:84 - 🔍 Validating A2_filtered filtered features...
+2025-10-29 15:47:56 - data_processing.validation.feature_validation - INFO - validate_filtered_features:117 - ✅ A2_filtered validation passed: 11737 rows × 82 cols
+2025-10-29 15:47:56 - data_processing.validation.feature_validation - INFO - validate_filtered_features:84 - 🔍 Validating A3_filtered filtered features...
+2025-10-29 15:47:56 - data_processing.validation.feature_validation - INFO - validate_filtered_features:117 - ✅ A3_filtered validation passed: 11737 rows × 492 cols
+2025-10-29 15:47:56 - data_processing.validation.feature_validation - INFO - validate_filtered_features:84 - 🔍 Validating A4_filtered filtered features...
+2025-10-29 15:47:56 - data_processing.validation.feature_validation - ERROR - validate_filtered_features:92 - ❌ A4_filtered contains 4009800 NaN values in columns: {'MA_7_norm_lag_1': np.int64(9780), 'close_vs_lagging_span_pct_lag_7': np.int64(9780), 'is_doji_lag_7': np.int64(9780), 'is_engulfing_lag_7': np.int64(9780), 'is_hangingman_lag_7': np.int64(9780), 'is_hammer_lag_7': np.int64(9780), 'band_width_pct_lag_7': np.int64(9780), 'band_width_lag_7': np.int64(9780), 'ATR_norm_ma_lag_7': np.int64(9780), 'ATR_norm_lag_7': np.int64(9780)}
+2025-10-29 15:47:56 - data_processing - ERROR - log_validation_result:165 - ❌ Filtered Data validation failed
+2025-10-29 15:47:56 - data_processing - INFO - log_validation_result:168 -    Details: A4_filtered contains 4009800 NaN values in columns: {'MA_7_norm_lag_1': np.int64(9780), 'close_vs_lagging_span_pct_lag_7': np.int64(9780), 'is_doji_lag_7': np.int64(9780), 'is_engulfing_lag_7': np.int64(9780), 'is_hangingman_lag_7': np.int64(9780), 'is_hammer_lag_7': np.int64(9780), 'band_width_pct_lag_7': np.int64(9780), 'band_width_lag_7': np.int64(9780), 'ATR_norm_ma_lag_7': np.int64(9780), 'ATR_norm_lag_7': np.int64(9780)}
+2025-10-29 15:47:56 - data_processing - ERROR - __main__:282 - ❌ Pipeline failed: A4_filtered contains 4009800 NaN values in columns: {'MA_7_norm_lag_1': np.int64(9780), 'close_vs_lagging_span_pct_lag_7': np.int64(9780), 'is_doji_lag_7': np.int64(9780), 'is_engulfing_lag_7': np.int64(9780), 'is_hangingman_lag_7': np.int64(9780), 'is_hammer_lag_7': np.int64(9780), 'band_width_pct_lag_7': np.int64(9780), 'band_width_lag_7': np.int64(9780), 'ATR_norm_ma_lag_7': np.int64(9780), 'ATR_norm_lag_7': np.int64(9780)}
+2025-10-29 15:47:56 - data_processing - ERROR - __main__:283 - Full traceback:
+Traceback (most recent call last):
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/main_pipeline.py", line 266, in __main__
+    validate_filtered_data(A0_filtered, A1_filtered, A2_filtered,
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                           A3_filtered, A4_filtered, A5_filtered)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/main_pipeline.py", line 187, in validate_filtered_data
+    validate_filtered_features(A4_filtered, "A4_filtered")
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/validation/feature_validation.py", line 93, in validate_filtered_features
+    raise ValueError(error_msg)
+ValueError: A4_filtered contains 4009800 NaN values in columns: {'MA_7_norm_lag_1': np.int64(9780), 'close_vs_lagging_span_pct_lag_7': np.int64(9780), 'is_doji_lag_7': np.int64(9780), 'is_engulfing_lag_7': np.int64(9780), 'is_hangingman_lag_7': np.int64(9780), 'is_hammer_lag_7': np.int64(9780), 'band_width_pct_lag_7': np.int64(9780), 'band_width_lag_7': np.int64(9780), 'ATR_norm_ma_lag_7': np.int64(9780), 'ATR_norm_lag_7': np.int64(9780)}
+2025-10-29 15:51:59 - data_processing - INFO - setup_logging:74 - Logging configured: level=INFO, dir=logs/data_processing
+2025-10-29 15:51:59 - data_processing - INFO - __main__:234 - 🚀 Starting BTC Data Processing Pipeline
+2025-10-29 15:51:59 - data_processing - INFO - __main__:235 - ============================================================
+2025-10-29 15:51:59 - data_processing - INFO - log_stage_start:100 - 🚀 Starting Data Loading
+2025-10-29 15:51:59 - data_processing - INFO - log_stage_end:120 - ✅ Completed Data Loading in 0.03s
+2025-10-29 15:51:59 - data_processing - INFO - log_stage_start:100 - 🚀 Starting Technical Indicators Calculation
+2025-10-29 15:51:59 - data_processing.validation.feature_validation - INFO - validate_raw_features:40 - 📊 H4_indicators raw features: 12403 rows × 41 cols
+2025-10-29 15:51:59 - data_processing.validation.feature_validation - INFO - validate_raw_features:43 -    Memory: 4.23 MB
+2025-10-29 15:51:59 - data_processing.validation.feature_validation - WARNING - validate_raw_features:50 - ⚠️  H4_indicators has 1112 NaNs (0.2%)
+2025-10-29 15:51:59 - data_processing.validation.feature_validation - WARNING - validate_raw_features:53 -    Top NaN columns: {'MA_14_MA_120_norm': np.int64(119), 'MA_60_MA_120_norm': np.int64(119), 'MA_120_norm': np.int64(119), 'MA_7_MA_120_norm': np.int64(119), 'MA_20_MA_120_norm': np.int64(119), 'MA_60_norm': np.int64(59), 'MA_7_MA_60_norm': np.int64(59), 'MA_14_MA_60_norm': np.int64(59), 'MA_20_MA_60_norm': np.int64(59), 'MACD_histogram': np.int64(33)}
+2025-10-29 15:51:59 - data_processing.validation.feature_validation - INFO - validate_raw_features:61 - ✅ H4_indicators has no infinite values
+2025-10-29 15:51:59 - data_processing.validation.feature_validation - INFO - validate_raw_features:68 - ✅ H4_indicators has unique indices
+2025-10-29 15:51:59 - data_processing.validation.feature_validation - INFO - validate_raw_features:40 - 📊 D1_indicators raw features: 2152 rows × 41 cols
+2025-10-29 15:51:59 - data_processing.validation.feature_validation - INFO - validate_raw_features:43 -    Memory: 0.75 MB
+2025-10-29 15:51:59 - data_processing.validation.feature_validation - WARNING - validate_raw_features:50 - ⚠️  D1_indicators has 1112 NaNs (1.3%)
+2025-10-29 15:51:59 - data_processing.validation.feature_validation - WARNING - validate_raw_features:53 -    Top NaN columns: {'MA_14_MA_120_norm': np.int64(119), 'MA_60_MA_120_norm': np.int64(119), 'MA_120_norm': np.int64(119), 'MA_7_MA_120_norm': np.int64(119), 'MA_20_MA_120_norm': np.int64(119), 'MA_60_norm': np.int64(59), 'MA_7_MA_60_norm': np.int64(59), 'MA_14_MA_60_norm': np.int64(59), 'MA_20_MA_60_norm': np.int64(59), 'MACD_histogram': np.int64(33)}
+2025-10-29 15:51:59 - data_processing.validation.feature_validation - INFO - validate_raw_features:61 - ✅ D1_indicators has no infinite values
+2025-10-29 15:51:59 - data_processing.validation.feature_validation - INFO - validate_raw_features:68 - ✅ D1_indicators has unique indices
+2025-10-29 15:51:59 - data_processing.validation.feature_validation - INFO - validate_raw_features:40 - 📊 W1_indicators raw features: 413 rows × 41 cols
+2025-10-29 15:51:59 - data_processing.validation.feature_validation - INFO - validate_raw_features:43 -    Memory: 0.15 MB
+2025-10-29 15:51:59 - data_processing.validation.feature_validation - WARNING - validate_raw_features:50 - ⚠️  W1_indicators has 1112 NaNs (6.6%)
+2025-10-29 15:51:59 - data_processing.validation.feature_validation - WARNING - validate_raw_features:53 -    Top NaN columns: {'MA_14_MA_120_norm': np.int64(119), 'MA_60_MA_120_norm': np.int64(119), 'MA_120_norm': np.int64(119), 'MA_7_MA_120_norm': np.int64(119), 'MA_20_MA_120_norm': np.int64(119), 'MA_60_norm': np.int64(59), 'MA_7_MA_60_norm': np.int64(59), 'MA_14_MA_60_norm': np.int64(59), 'MA_20_MA_60_norm': np.int64(59), 'MACD_histogram': np.int64(33)}
+2025-10-29 15:51:59 - data_processing.validation.feature_validation - INFO - validate_raw_features:61 - ✅ W1_indicators has no infinite values
+2025-10-29 15:51:59 - data_processing.validation.feature_validation - INFO - validate_raw_features:68 - ✅ W1_indicators has unique indices
+2025-10-29 15:51:59 - data_processing - INFO - log_stage_end:120 - ✅ Completed Technical Indicators Calculation in 0.05s
+2025-10-29 15:51:59 - data_processing - INFO - log_stage_start:100 - 🚀 Starting Timeframe Alignment
+2025-10-29 15:52:06 - data_processing.validation.feature_validation - INFO - validate_raw_features:40 - 📊 A0 raw features: 12403 rows × 41 cols
+2025-10-29 15:52:06 - data_processing.validation.feature_validation - INFO - validate_raw_features:43 -    Memory: 4.23 MB
+2025-10-29 15:52:06 - data_processing.validation.feature_validation - WARNING - validate_raw_features:50 - ⚠️  A0 has 1112 NaNs (0.2%)
+2025-10-29 15:52:06 - data_processing.validation.feature_validation - WARNING - validate_raw_features:53 -    Top NaN columns: {'MA_14_MA_120_norm': np.int64(119), 'MA_60_MA_120_norm': np.int64(119), 'MA_120_norm': np.int64(119), 'MA_7_MA_120_norm': np.int64(119), 'MA_20_MA_120_norm': np.int64(119), 'MA_60_norm': np.int64(59), 'MA_7_MA_60_norm': np.int64(59), 'MA_14_MA_60_norm': np.int64(59), 'MA_20_MA_60_norm': np.int64(59), 'MACD_histogram': np.int64(33)}
+2025-10-29 15:52:06 - data_processing.validation.feature_validation - INFO - validate_raw_features:61 - ✅ A0 has no infinite values
+2025-10-29 15:52:06 - data_processing.validation.feature_validation - INFO - validate_raw_features:68 - ✅ A0 has unique indices
+2025-10-29 15:52:06 - data_processing.validation.feature_validation - INFO - validate_raw_features:40 - 📊 A1 raw features: 12403 rows × 82 cols
+2025-10-29 15:52:06 - data_processing.validation.feature_validation - INFO - validate_raw_features:43 -    Memory: 19.75 MB
+2025-10-29 15:52:06 - data_processing.validation.feature_validation - WARNING - validate_raw_features:50 - ⚠️  A1 has 2192 NaNs (0.2%)
+2025-10-29 15:52:06 - data_processing.validation.feature_validation - WARNING - validate_raw_features:53 -    Top NaN columns: {'D1_MA_60_MA_120_norm': np.int64(216), 'D1_MA_20_MA_120_norm': np.int64(216), 'D1_MA_14_MA_120_norm': np.int64(216), 'D1_MA_7_MA_120_norm': np.int64(216), 'D1_MA_120_norm': np.int64(216), 'MA_7_MA_120_norm': np.int64(119), 'MA_20_MA_120_norm': np.int64(119), 'MA_14_MA_120_norm': np.int64(119), 'MA_60_MA_120_norm': np.int64(119), 'MA_120_norm': np.int64(119)}
+2025-10-29 15:52:06 - data_processing.validation.feature_validation - INFO - validate_raw_features:61 - ✅ A1 has no infinite values
+2025-10-29 15:52:06 - data_processing.validation.feature_validation - INFO - validate_raw_features:68 - ✅ A1 has unique indices
+2025-10-29 15:52:06 - data_processing.validation.feature_validation - INFO - validate_raw_features:40 - 📊 A2 raw features: 12403 rows × 82 cols
+2025-10-29 15:52:06 - data_processing.validation.feature_validation - INFO - validate_raw_features:43 -    Memory: 19.75 MB
+2025-10-29 15:52:06 - data_processing.validation.feature_validation - WARNING - validate_raw_features:50 - ⚠️  A2 has 1772 NaNs (0.2%)
+2025-10-29 15:52:06 - data_processing.validation.feature_validation - WARNING - validate_raw_features:53 -    Top NaN columns: {'W1_MA_60_MA_120_norm': np.int64(132), 'W1_MA_20_MA_120_norm': np.int64(132), 'W1_MA_14_MA_120_norm': np.int64(132), 'W1_MA_7_MA_120_norm': np.int64(132), 'W1_MA_120_norm': np.int64(132), 'MA_7_MA_120_norm': np.int64(119), 'MA_20_MA_120_norm': np.int64(119), 'MA_14_MA_120_norm': np.int64(119), 'MA_60_MA_120_norm': np.int64(119), 'MA_120_norm': np.int64(119)}
+2025-10-29 15:52:06 - data_processing.validation.feature_validation - INFO - validate_raw_features:61 - ✅ A2 has no infinite values
+2025-10-29 15:52:06 - data_processing.validation.feature_validation - INFO - validate_raw_features:68 - ✅ A2 has unique indices
+2025-10-29 15:52:06 - data_processing - INFO - log_stage_end:120 - ✅ Completed Timeframe Alignment in 7.80s
+2025-10-29 15:52:06 - data_processing - INFO - log_stage_start:100 - 🚀 Starting Lag Features Creation
+2025-10-29 15:52:07 - data_processing.validation.feature_validation - INFO - validate_raw_features:40 - 📊 H4_lags raw features: 12403 rows × 410 cols
+2025-10-29 15:52:07 - data_processing.validation.feature_validation - INFO - validate_raw_features:43 -    Memory: 39.14 MB
+2025-10-29 15:52:07 - data_processing.validation.feature_validation - WARNING - validate_raw_features:50 - ⚠️  H4_lags has 13375 NaNs (0.3%)
+2025-10-29 15:52:07 - data_processing.validation.feature_validation - WARNING - validate_raw_features:53 -    Top NaN columns: {'MA_60_MA_120_norm_lag_10': np.int64(129), 'MA_20_MA_120_norm_lag_10': np.int64(129), 'MA_14_MA_120_norm_lag_10': np.int64(129), 'MA_7_MA_120_norm_lag_10': np.int64(129), 'MA_120_norm_lag_10': np.int64(129), 'MA_7_MA_120_norm_lag_9': np.int64(128), 'MA_120_norm_lag_9': np.int64(128), 'MA_60_MA_120_norm_lag_9': np.int64(128), 'MA_20_MA_120_norm_lag_9': np.int64(128), 'MA_14_MA_120_norm_lag_9': np.int64(128)}
+2025-10-29 15:52:07 - data_processing.validation.feature_validation - INFO - validate_raw_features:61 - ✅ H4_lags has no infinite values
+2025-10-29 15:52:07 - data_processing.validation.feature_validation - INFO - validate_raw_features:68 - ✅ H4_lags has unique indices
+2025-10-29 15:52:07 - data_processing.validation.feature_validation - INFO - validate_raw_features:40 - 📊 D1_lags raw features: 2152 rows × 410 cols
+2025-10-29 15:52:07 - data_processing.validation.feature_validation - INFO - validate_raw_features:43 -    Memory: 6.81 MB
+2025-10-29 15:52:07 - data_processing.validation.feature_validation - WARNING - validate_raw_features:50 - ⚠️  D1_lags has 13375 NaNs (1.5%)
+2025-10-29 15:52:07 - data_processing.validation.feature_validation - WARNING - validate_raw_features:53 -    Top NaN columns: {'MA_60_MA_120_norm_lag_10': np.int64(129), 'MA_20_MA_120_norm_lag_10': np.int64(129), 'MA_14_MA_120_norm_lag_10': np.int64(129), 'MA_7_MA_120_norm_lag_10': np.int64(129), 'MA_120_norm_lag_10': np.int64(129), 'MA_7_MA_120_norm_lag_9': np.int64(128), 'MA_120_norm_lag_9': np.int64(128), 'MA_60_MA_120_norm_lag_9': np.int64(128), 'MA_20_MA_120_norm_lag_9': np.int64(128), 'MA_14_MA_120_norm_lag_9': np.int64(128)}
+2025-10-29 15:52:07 - data_processing.validation.feature_validation - INFO - validate_raw_features:61 - ✅ D1_lags has no infinite values
+2025-10-29 15:52:07 - data_processing.validation.feature_validation - INFO - validate_raw_features:68 - ✅ D1_lags has unique indices
+2025-10-29 15:52:07 - data_processing.validation.feature_validation - INFO - validate_raw_features:40 - 📊 W1_lags raw features: 413 rows × 410 cols
+2025-10-29 15:52:07 - data_processing.validation.feature_validation - INFO - validate_raw_features:43 -    Memory: 1.31 MB
+2025-10-29 15:52:07 - data_processing.validation.feature_validation - WARNING - validate_raw_features:50 - ⚠️  W1_lags has 13375 NaNs (7.9%)
+2025-10-29 15:52:07 - data_processing.validation.feature_validation - WARNING - validate_raw_features:53 -    Top NaN columns: {'MA_60_MA_120_norm_lag_10': np.int64(129), 'MA_20_MA_120_norm_lag_10': np.int64(129), 'MA_14_MA_120_norm_lag_10': np.int64(129), 'MA_7_MA_120_norm_lag_10': np.int64(129), 'MA_120_norm_lag_10': np.int64(129), 'MA_7_MA_120_norm_lag_9': np.int64(128), 'MA_120_norm_lag_9': np.int64(128), 'MA_60_MA_120_norm_lag_9': np.int64(128), 'MA_20_MA_120_norm_lag_9': np.int64(128), 'MA_14_MA_120_norm_lag_9': np.int64(128)}
+2025-10-29 15:52:07 - data_processing.validation.feature_validation - INFO - validate_raw_features:61 - ✅ W1_lags has no infinite values
+2025-10-29 15:52:07 - data_processing.validation.feature_validation - INFO - validate_raw_features:68 - ✅ W1_lags has unique indices
+2025-10-29 15:52:07 - data_processing - INFO - log_stage_end:120 - ✅ Completed Lag Features Creation in 0.11s
+2025-10-29 15:52:07 - data_processing - INFO - log_stage_start:100 - 🚀 Starting Combining H4 + H4_lags
+2025-10-29 15:52:07 - data_processing.validation.feature_validation - INFO - validate_raw_features:40 - 📊 H4_H4_lags raw features: 12403 rows × 492 cols
+2025-10-29 15:52:07 - data_processing.validation.feature_validation - INFO - validate_raw_features:43 -    Memory: 58.54 MB
+2025-10-29 15:52:07 - data_processing.validation.feature_validation - WARNING - validate_raw_features:50 - ⚠️  H4_H4_lags has 15147 NaNs (0.2%)
+2025-10-29 15:52:07 - data_processing.validation.feature_validation - WARNING - validate_raw_features:53 -    Top NaN columns: {'W1_MA_60_MA_120_norm': np.int64(132), 'W1_MA_20_MA_120_norm': np.int64(132), 'W1_MA_14_MA_120_norm': np.int64(132), 'W1_MA_7_MA_120_norm': np.int64(132), 'W1_MA_120_norm': np.int64(132), 'MA_14_MA_120_norm_lag_10': np.int64(129), 'MA_60_MA_120_norm_lag_10': np.int64(129), 'MA_120_norm_lag_10': np.int64(129), 'MA_7_MA_120_norm_lag_10': np.int64(129), 'MA_20_MA_120_norm_lag_10': np.int64(129)}
+2025-10-29 15:52:07 - data_processing.validation.feature_validation - INFO - validate_raw_features:61 - ✅ H4_H4_lags has no infinite values
+2025-10-29 15:52:07 - data_processing.validation.feature_validation - INFO - validate_raw_features:68 - ✅ H4_H4_lags has unique indices
+2025-10-29 15:52:07 - data_processing - INFO - log_stage_end:120 - ✅ Completed Combining H4 + H4_lags in 0.12s
+2025-10-29 15:52:07 - data_processing - INFO - log_stage_start:100 - 🚀 Starting Combining H4 + D1_lags
+2025-10-29 15:52:07 - data_processing.validation.feature_validation - INFO - validate_raw_features:40 - 📊 H4_D1_lags raw features: 12487 rows × 902 cols
+2025-10-29 15:52:07 - data_processing.validation.feature_validation - INFO - validate_raw_features:43 -    Memory: 98.00 MB
+2025-10-29 15:52:07 - data_processing.validation.feature_validation - WARNING - validate_raw_features:50 - ⚠️  H4_D1_lags has 4307200 NaNs (38.2%)
+2025-10-29 15:52:07 - data_processing.validation.feature_validation - WARNING - validate_raw_features:53 -    Top NaN columns: {'MA_14_MA_120_norm_lag_10': np.int64(10464), 'MA_20_MA_120_norm_lag_10': np.int64(10464), 'MA_60_MA_120_norm_lag_10': np.int64(10464), 'MA_7_MA_120_norm_lag_10': np.int64(10464), 'MA_120_norm_lag_10': np.int64(10464), 'MA_7_MA_120_norm_lag_9': np.int64(10463), 'MA_14_MA_120_norm_lag_9': np.int64(10463), 'MA_120_norm_lag_9': np.int64(10463), 'MA_20_MA_120_norm_lag_9': np.int64(10463), 'MA_60_MA_120_norm_lag_9': np.int64(10463)}
+2025-10-29 15:52:07 - data_processing.validation.feature_validation - INFO - validate_raw_features:61 - ✅ H4_D1_lags has no infinite values
+2025-10-29 15:52:07 - data_processing.validation.feature_validation - INFO - validate_raw_features:68 - ✅ H4_D1_lags has unique indices
+2025-10-29 15:52:07 - data_processing - INFO - log_stage_end:120 - ✅ Completed Combining H4 + D1_lags in 0.16s
+2025-10-29 15:52:07 - data_processing - INFO - log_stage_start:100 - 🚀 Starting Combining H4 + W1_lags
+2025-10-29 15:52:07 - data_processing.validation.feature_validation - INFO - validate_raw_features:40 - 📊 H4_W1_lags raw features: 12592 rows × 1312 cols
+2025-10-29 15:52:07 - data_processing.validation.feature_validation - INFO - validate_raw_features:43 -    Memory: 138.21 MB
+2025-10-29 15:52:07 - data_processing.validation.feature_validation - WARNING - validate_raw_features:50 - ⚠️  H4_W1_lags has 9408675 NaNs (57.0%)
+2025-10-29 15:52:07 - data_processing.validation.feature_validation - WARNING - validate_raw_features:53 -    Top NaN columns: {'MA_14_MA_120_norm_lag_10': np.int64(12308), 'MA_7_MA_120_norm_lag_10': np.int64(12308), 'MA_20_MA_120_norm_lag_10': np.int64(12308), 'MA_60_MA_120_norm_lag_10': np.int64(12308), 'MA_120_norm_lag_10': np.int64(12308), 'MA_20_MA_120_norm_lag_9': np.int64(12307), 'MA_120_norm_lag_9': np.int64(12307), 'MA_14_MA_120_norm_lag_9': np.int64(12307), 'MA_7_MA_120_norm_lag_9': np.int64(12307), 'MA_60_MA_120_norm_lag_9': np.int64(12307)}
+2025-10-29 15:52:07 - data_processing.validation.feature_validation - INFO - validate_raw_features:61 - ✅ H4_W1_lags has no infinite values
+2025-10-29 15:52:07 - data_processing.validation.feature_validation - INFO - validate_raw_features:68 - ✅ H4_W1_lags has unique indices
+2025-10-29 15:52:07 - data_processing - INFO - log_stage_end:120 - ✅ Completed Combining H4 + W1_lags in 0.22s
+2025-10-29 15:52:07 - data_processing - INFO - log_stage_start:100 - 🚀 Starting Data Filtering
+2025-10-29 15:52:07 - data_processing - INFO - log_stage_start:103 -    train_start: 2020-05-12
+2025-10-29 15:52:07 - data_processing - INFO - log_stage_start:103 -    test_end: 2025-09-19
+2025-10-29 15:52:07 - data_processing - INFO - log_data_info:141 - 📊 A0_filtered: 11,737 rows × 41 cols (3.76 MB)
+2025-10-29 15:52:07 - data_processing - INFO - log_data_info:141 - 📊 A1_filtered: 11,737 rows × 82 cols (18.45 MB)
+2025-10-29 15:52:07 - data_processing - INFO - log_data_info:141 - 📊 A2_filtered: 11,737 rows × 82 cols (18.45 MB)
+2025-10-29 15:52:07 - data_processing - INFO - log_data_info:141 - 📊 A3_filtered: 11,737 rows × 492 cols (55.16 MB)
+2025-10-29 15:52:07 - data_processing - INFO - log_data_info:141 - 📊 A4_filtered: 11,737 rows × 902 cols (91.87 MB)
+2025-10-29 15:52:07 - data_processing - INFO - log_data_info:141 - 📊 A5_filtered: 11,737 rows × 1,312 cols (128.59 MB)
+2025-10-29 15:52:07 - data_processing - INFO - log_stage_end:120 - ✅ Completed Data Filtering in 0.34s
+2025-10-29 15:52:07 - data_processing - INFO - log_stage_start:100 - 🚀 Starting Filtered Data Validation
+2025-10-29 15:52:07 - data_processing.validation.feature_validation - INFO - validate_filtered_features:84 - 🔍 Validating A0_filtered filtered features...
+2025-10-29 15:52:07 - data_processing.validation.feature_validation - INFO - validate_filtered_features:117 - ✅ A0_filtered validation passed: 11737 rows × 41 cols
+2025-10-29 15:52:07 - data_processing.validation.feature_validation - INFO - validate_filtered_features:84 - 🔍 Validating A1_filtered filtered features...
+2025-10-29 15:52:07 - data_processing.validation.feature_validation - INFO - validate_filtered_features:117 - ✅ A1_filtered validation passed: 11737 rows × 82 cols
+2025-10-29 15:52:07 - data_processing.validation.feature_validation - INFO - validate_filtered_features:84 - 🔍 Validating A2_filtered filtered features...
+2025-10-29 15:52:07 - data_processing.validation.feature_validation - INFO - validate_filtered_features:117 - ✅ A2_filtered validation passed: 11737 rows × 82 cols
+2025-10-29 15:52:07 - data_processing.validation.feature_validation - INFO - validate_filtered_features:84 - 🔍 Validating A3_filtered filtered features...
+2025-10-29 15:52:07 - data_processing.validation.feature_validation - INFO - validate_filtered_features:117 - ✅ A3_filtered validation passed: 11737 rows × 492 cols
+2025-10-29 15:52:07 - data_processing.validation.feature_validation - INFO - validate_filtered_features:84 - 🔍 Validating A4_filtered filtered features...
+2025-10-29 15:52:07 - data_processing.validation.feature_validation - ERROR - validate_filtered_features:92 - ❌ A4_filtered contains 4009800 NaN values in columns: {'MA_7_norm_lag_1': np.int64(9780), 'close_vs_lagging_span_pct_lag_7': np.int64(9780), 'is_doji_lag_7': np.int64(9780), 'is_engulfing_lag_7': np.int64(9780), 'is_hangingman_lag_7': np.int64(9780), 'is_hammer_lag_7': np.int64(9780), 'band_width_pct_lag_7': np.int64(9780), 'band_width_lag_7': np.int64(9780), 'ATR_norm_ma_lag_7': np.int64(9780), 'ATR_norm_lag_7': np.int64(9780)}
+2025-10-29 15:52:07 - data_processing - ERROR - log_validation_result:165 - ❌ Filtered Data validation failed
+2025-10-29 15:52:07 - data_processing - INFO - log_validation_result:168 -    Details: A4_filtered contains 4009800 NaN values in columns: {'MA_7_norm_lag_1': np.int64(9780), 'close_vs_lagging_span_pct_lag_7': np.int64(9780), 'is_doji_lag_7': np.int64(9780), 'is_engulfing_lag_7': np.int64(9780), 'is_hangingman_lag_7': np.int64(9780), 'is_hammer_lag_7': np.int64(9780), 'band_width_pct_lag_7': np.int64(9780), 'band_width_lag_7': np.int64(9780), 'ATR_norm_ma_lag_7': np.int64(9780), 'ATR_norm_lag_7': np.int64(9780)}
+2025-10-29 15:52:07 - data_processing - ERROR - __main__:282 - ❌ Pipeline failed: A4_filtered contains 4009800 NaN values in columns: {'MA_7_norm_lag_1': np.int64(9780), 'close_vs_lagging_span_pct_lag_7': np.int64(9780), 'is_doji_lag_7': np.int64(9780), 'is_engulfing_lag_7': np.int64(9780), 'is_hangingman_lag_7': np.int64(9780), 'is_hammer_lag_7': np.int64(9780), 'band_width_pct_lag_7': np.int64(9780), 'band_width_lag_7': np.int64(9780), 'ATR_norm_ma_lag_7': np.int64(9780), 'ATR_norm_lag_7': np.int64(9780)}
+2025-10-29 15:52:07 - data_processing - ERROR - __main__:283 - Full traceback:
+Traceback (most recent call last):
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/main_pipeline.py", line 266, in __main__
+    validate_filtered_data(A0_filtered, A1_filtered, A2_filtered,
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                           A3_filtered, A4_filtered, A5_filtered)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/main_pipeline.py", line 187, in validate_filtered_data
+    validate_filtered_features(A4_filtered, "A4_filtered")
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/validation/feature_validation.py", line 93, in validate_filtered_features
+    raise ValueError(error_msg)
+ValueError: A4_filtered contains 4009800 NaN values in columns: {'MA_7_norm_lag_1': np.int64(9780), 'close_vs_lagging_span_pct_lag_7': np.int64(9780), 'is_doji_lag_7': np.int64(9780), 'is_engulfing_lag_7': np.int64(9780), 'is_hangingman_lag_7': np.int64(9780), 'is_hammer_lag_7': np.int64(9780), 'band_width_pct_lag_7': np.int64(9780), 'band_width_lag_7': np.int64(9780), 'ATR_norm_ma_lag_7': np.int64(9780), 'ATR_norm_lag_7': np.int64(9780)}
+2025-10-29 16:11:00 - data_processing - INFO - setup_logging:74 - Logging configured: level=INFO, dir=logs/data_processing
+2025-10-29 16:11:00 - data_processing - INFO - __main__:303 - 🚀 Starting BTC Data Processing Pipeline
+2025-10-29 16:11:00 - data_processing - INFO - __main__:304 - ============================================================
+2025-10-29 16:11:00 - data_processing - INFO - log_stage_start:100 - 🚀 Starting Data Loading
+2025-10-29 16:11:00 - data_processing - INFO - log_stage_end:120 - ✅ Completed Data Loading in 0.07s
+2025-10-29 16:11:00 - data_processing - INFO - log_stage_start:100 - 🚀 Starting Technical Indicators Calculation
+2025-10-29 16:11:00 - data_processing.validation.feature_validation - INFO - validate_raw_features:48 - 📊 H4_indicators raw features: 11749 rows × 41 cols
+2025-10-29 16:11:00 - data_processing.validation.feature_validation - INFO - validate_raw_features:51 -    Memory: 4.02 MB
+2025-10-29 16:11:00 - data_processing.validation.feature_validation - INFO - validate_raw_features:63 - ✅ H4_indicators has no NaN values
+2025-10-29 16:11:00 - data_processing.validation.feature_validation - INFO - validate_raw_features:69 - ✅ H4_indicators has no infinite values
+2025-10-29 16:11:00 - data_processing.validation.feature_validation - INFO - validate_raw_features:76 - ✅ H4_indicators has unique indices
+2025-10-29 16:11:00 - data_processing.validation.feature_validation - INFO - validate_raw_features:48 - 📊 D1_indicators raw features: 1959 rows × 41 cols
+2025-10-29 16:11:00 - data_processing.validation.feature_validation - INFO - validate_raw_features:51 -    Memory: 0.69 MB
+2025-10-29 16:11:00 - data_processing.validation.feature_validation - INFO - validate_raw_features:63 - ✅ D1_indicators has no NaN values
+2025-10-29 16:11:00 - data_processing.validation.feature_validation - INFO - validate_raw_features:69 - ✅ D1_indicators has no infinite values
+2025-10-29 16:11:00 - data_processing.validation.feature_validation - INFO - validate_raw_features:76 - ✅ D1_indicators has unique indices
+2025-10-29 16:11:00 - data_processing.validation.feature_validation - INFO - validate_raw_features:48 - 📊 W1_indicators raw features: 280 rows × 41 cols
+2025-10-29 16:11:00 - data_processing.validation.feature_validation - INFO - validate_raw_features:51 -    Memory: 0.10 MB
+2025-10-29 16:11:00 - data_processing.validation.feature_validation - INFO - validate_raw_features:63 - ✅ W1_indicators has no NaN values
+2025-10-29 16:11:00 - data_processing.validation.feature_validation - INFO - validate_raw_features:69 - ✅ W1_indicators has no infinite values
+2025-10-29 16:11:00 - data_processing.validation.feature_validation - INFO - validate_raw_features:76 - ✅ W1_indicators has unique indices
+2025-10-29 16:11:00 - data_processing - INFO - log_stage_end:120 - ✅ Completed Technical Indicators Calculation in 0.07s
+2025-10-29 16:11:00 - data_processing - INFO - log_stage_start:100 - 🚀 Starting Timeframe Alignment
+2025-10-29 16:11:07 - data_processing.validation.feature_validation - INFO - validate_raw_features:48 - 📊 A0 raw features: 11749 rows × 41 cols
+2025-10-29 16:11:07 - data_processing.validation.feature_validation - INFO - validate_raw_features:51 -    Memory: 4.02 MB
+2025-10-29 16:11:07 - data_processing.validation.feature_validation - INFO - validate_raw_features:63 - ✅ A0 has no NaN values
+2025-10-29 16:11:07 - data_processing.validation.feature_validation - INFO - validate_raw_features:69 - ✅ A0 has no infinite values
+2025-10-29 16:11:07 - data_processing.validation.feature_validation - INFO - validate_raw_features:76 - ✅ A0 has unique indices
+2025-10-29 16:11:07 - data_processing.validation.feature_validation - INFO - validate_raw_features:48 - 📊 A1 raw features: 11749 rows × 82 cols
+2025-10-29 16:11:07 - data_processing.validation.feature_validation - INFO - validate_raw_features:51 -    Memory: 18.72 MB
+2025-10-29 16:11:07 - data_processing.validation.feature_validation - INFO - validate_raw_features:63 - ✅ A1 has no NaN values
+2025-10-29 16:11:07 - data_processing.validation.feature_validation - INFO - validate_raw_features:69 - ✅ A1 has no infinite values
+2025-10-29 16:11:07 - data_processing.validation.feature_validation - INFO - validate_raw_features:76 - ✅ A1 has unique indices
+2025-10-29 16:11:07 - data_processing.validation.feature_validation - INFO - validate_raw_features:48 - 📊 A2 raw features: 11749 rows × 82 cols
+2025-10-29 16:11:07 - data_processing.validation.feature_validation - INFO - validate_raw_features:51 -    Memory: 18.72 MB
+2025-10-29 16:11:07 - data_processing.validation.feature_validation - INFO - validate_raw_features:63 - ✅ A2 has no NaN values
+2025-10-29 16:11:07 - data_processing.validation.feature_validation - INFO - validate_raw_features:69 - ✅ A2 has no infinite values
+2025-10-29 16:11:07 - data_processing.validation.feature_validation - INFO - validate_raw_features:76 - ✅ A2 has unique indices
+2025-10-29 16:11:08 - data_processing - INFO - log_stage_end:120 - ✅ Completed Timeframe Alignment in 7.73s
+2025-10-29 16:11:08 - data_processing - INFO - log_stage_start:100 - 🚀 Starting Lag Features Creation
+2025-10-29 16:11:08 - data_processing.validation.feature_validation - INFO - validate_raw_features:48 - 📊 H4_lags raw features: 11739 rows × 410 cols
+2025-10-29 16:11:08 - data_processing.validation.feature_validation - INFO - validate_raw_features:51 -    Memory: 37.06 MB
+2025-10-29 16:11:08 - data_processing.validation.feature_validation - INFO - validate_raw_features:63 - ✅ H4_lags has no NaN values
+2025-10-29 16:11:08 - data_processing.validation.feature_validation - INFO - validate_raw_features:69 - ✅ H4_lags has no infinite values
+2025-10-29 16:11:08 - data_processing.validation.feature_validation - INFO - validate_raw_features:76 - ✅ H4_lags has unique indices
+2025-10-29 16:11:08 - data_processing.validation.feature_validation - INFO - validate_raw_features:48 - 📊 D1_lags raw features: 1959 rows × 410 cols
+2025-10-29 16:11:08 - data_processing.validation.feature_validation - INFO - validate_raw_features:51 -    Memory: 6.21 MB
+2025-10-29 16:11:08 - data_processing.validation.feature_validation - INFO - validate_raw_features:63 - ✅ D1_lags has no NaN values
+2025-10-29 16:11:08 - data_processing.validation.feature_validation - INFO - validate_raw_features:69 - ✅ D1_lags has no infinite values
+2025-10-29 16:11:08 - data_processing.validation.feature_validation - INFO - validate_raw_features:76 - ✅ D1_lags has unique indices
+2025-10-29 16:11:08 - data_processing.validation.feature_validation - INFO - validate_raw_features:48 - 📊 W1_lags raw features: 281 rows × 410 cols
+2025-10-29 16:11:08 - data_processing.validation.feature_validation - INFO - validate_raw_features:51 -    Memory: 0.89 MB
+2025-10-29 16:11:08 - data_processing.validation.feature_validation - WARNING - validate_raw_features:58 - ⚠️  W1_lags has 30 NaNs (0.0%)
+2025-10-29 16:11:08 - data_processing.validation.feature_validation - WARNING - validate_raw_features:61 -    Top NaN columns: {'MA_120_norm_lag_10': np.int64(3), 'MA_7_MA_120_norm_lag_10': np.int64(3), 'MA_14_MA_120_norm_lag_10': np.int64(3), 'MA_20_MA_120_norm_lag_10': np.int64(3), 'MA_60_MA_120_norm_lag_10': np.int64(3), 'MA_120_norm_lag_9': np.int64(2), 'MA_7_MA_120_norm_lag_9': np.int64(2), 'MA_14_MA_120_norm_lag_9': np.int64(2), 'MA_20_MA_120_norm_lag_9': np.int64(2), 'MA_60_MA_120_norm_lag_9': np.int64(2)}
+2025-10-29 16:11:08 - data_processing.validation.feature_validation - INFO - validate_raw_features:69 - ✅ W1_lags has no infinite values
+2025-10-29 16:11:08 - data_processing.validation.feature_validation - INFO - validate_raw_features:76 - ✅ W1_lags has unique indices
+2025-10-29 16:11:08 - data_processing - INFO - log_stage_end:120 - ✅ Completed Lag Features Creation in 0.13s
+2025-10-29 16:11:08 - data_processing - INFO - log_stage_start:100 - 🚀 Starting Combining H4 + H4_lags
+2025-10-29 16:11:08 - data_processing.validation.feature_validation - INFO - validate_raw_features:48 - 📊 H4_H4_lags raw features: 11739 rows × 492 cols
+2025-10-29 16:11:08 - data_processing.validation.feature_validation - INFO - validate_raw_features:51 -    Memory: 55.42 MB
+2025-10-29 16:11:08 - data_processing.validation.feature_validation - INFO - validate_raw_features:63 - ✅ H4_H4_lags has no NaN values
+2025-10-29 16:11:08 - data_processing.validation.feature_validation - INFO - validate_raw_features:69 - ✅ H4_H4_lags has no infinite values
+2025-10-29 16:11:08 - data_processing.validation.feature_validation - INFO - validate_raw_features:76 - ✅ H4_H4_lags has unique indices
+2025-10-29 16:11:08 - data_processing - INFO - log_stage_end:120 - ✅ Completed Combining H4 + H4_lags in 0.14s
+2025-10-29 16:11:08 - data_processing - INFO - log_stage_start:100 - 🚀 Starting Combining H4 + D1_lags
+2025-10-29 16:11:08 - data_processing.validation.feature_validation - INFO - validate_raw_features:48 - 📊 H4_D1_lags raw features: 11739 rows × 902 cols
+2025-10-29 16:11:08 - data_processing.validation.feature_validation - INFO - validate_raw_features:51 -    Memory: 92.14 MB
+2025-10-29 16:11:08 - data_processing.validation.feature_validation - WARNING - validate_raw_features:58 - ⚠️  H4_D1_lags has 4010620 NaNs (37.9%)
+2025-10-29 16:11:08 - data_processing.validation.feature_validation - WARNING - validate_raw_features:61 -    Top NaN columns: {'MA_7_norm_lag_1': np.int64(9782), 'close_vs_lagging_span_pct_lag_7': np.int64(9782), 'is_doji_lag_7': np.int64(9782), 'is_engulfing_lag_7': np.int64(9782), 'is_hangingman_lag_7': np.int64(9782), 'is_hammer_lag_7': np.int64(9782), 'band_width_pct_lag_7': np.int64(9782), 'band_width_lag_7': np.int64(9782), 'ATR_norm_ma_lag_7': np.int64(9782), 'ATR_norm_lag_7': np.int64(9782)}
+2025-10-29 16:11:08 - data_processing.validation.feature_validation - INFO - validate_raw_features:69 - ✅ H4_D1_lags has no infinite values
+2025-10-29 16:11:08 - data_processing.validation.feature_validation - INFO - validate_raw_features:76 - ✅ H4_D1_lags has unique indices
+2025-10-29 16:11:08 - data_processing - INFO - log_stage_end:120 - ✅ Completed Combining H4 + D1_lags in 0.18s
+2025-10-29 16:11:08 - data_processing - INFO - log_stage_start:100 - 🚀 Starting Combining H4 + W1_lags
+2025-10-29 16:11:08 - data_processing.validation.feature_validation - INFO - validate_raw_features:48 - 📊 H4_W1_lags raw features: 11739 rows × 1312 cols
+2025-10-29 16:11:08 - data_processing.validation.feature_validation - INFO - validate_raw_features:51 -    Memory: 128.86 MB
+2025-10-29 16:11:08 - data_processing.validation.feature_validation - WARNING - validate_raw_features:58 - ⚠️  H4_W1_lags has 8709225 NaNs (56.5%)
+2025-10-29 16:11:08 - data_processing.validation.feature_validation - WARNING - validate_raw_features:61 -    Top NaN columns: {'MA_60_MA_120_norm_lag_10': np.int64(11461), 'MA_14_MA_120_norm_lag_10': np.int64(11461), 'MA_7_MA_120_norm_lag_10': np.int64(11461), 'MA_120_norm_lag_10': np.int64(11461), 'MA_20_MA_120_norm_lag_10': np.int64(11461), 'RSI_lag_4': np.int64(11460), 'MA_7_MA_60_norm_lag_4': np.int64(11460), 'MA_7_MA_120_norm_lag_4': np.int64(11460), 'MA_14_MA_20_norm_lag_4': np.int64(11460), 'MA_14_MA_60_norm_lag_4': np.int64(11460)}
+2025-10-29 16:11:08 - data_processing.validation.feature_validation - INFO - validate_raw_features:69 - ✅ H4_W1_lags has no infinite values
+2025-10-29 16:11:08 - data_processing.validation.feature_validation - INFO - validate_raw_features:76 - ✅ H4_W1_lags has unique indices
+2025-10-29 16:11:08 - data_processing - INFO - log_stage_end:120 - ✅ Completed Combining H4 + W1_lags in 0.23s
+2025-10-29 16:11:08 - data_processing - INFO - log_stage_start:100 - 🚀 Starting Data Filtering
+2025-10-29 16:11:08 - data_processing - INFO - log_stage_start:103 -    train_start: 2020-05-12
+2025-10-29 16:11:08 - data_processing - INFO - log_stage_start:103 -    test_end: 2025-09-19
+2025-10-29 16:11:08 - data_processing - INFO - log_data_info:141 - 📊 A0_filtered: 11,737 rows × 41 cols (3.76 MB)
+2025-10-29 16:11:08 - data_processing - INFO - log_data_info:141 - 📊 A1_filtered: 11,737 rows × 82 cols (18.45 MB)
+2025-10-29 16:11:08 - data_processing - INFO - log_data_info:141 - 📊 A2_filtered: 11,737 rows × 82 cols (18.45 MB)
+2025-10-29 16:11:08 - data_processing - INFO - log_data_info:141 - 📊 A3_filtered: 11,737 rows × 492 cols (55.16 MB)
+2025-10-29 16:11:08 - data_processing - INFO - log_data_info:141 - 📊 A4_filtered: 11,737 rows × 902 cols (91.87 MB)
+2025-10-29 16:11:09 - data_processing - INFO - log_data_info:141 - 📊 A5_filtered: 11,737 rows × 1,312 cols (128.59 MB)
+2025-10-29 16:11:09 - data_processing - INFO - log_stage_end:120 - ✅ Completed Data Filtering in 0.33s
+2025-10-29 16:11:09 - data_processing - INFO - log_stage_start:100 - 🚀 Starting Filtered Data Validation
+2025-10-29 16:11:09 - data_processing.validation.feature_validation - INFO - validate_filtered_features:92 - 🔍 Validating A0_filtered filtered features...
+2025-10-29 16:11:09 - data_processing.validation.feature_validation - INFO - validate_filtered_features:134 - ✅ A0_filtered validation passed: 11725 rows × 41 cols
+2025-10-29 16:11:09 - data_processing.validation.feature_validation - INFO - validate_filtered_features:92 - 🔍 Validating A1_filtered filtered features...
+2025-10-29 16:11:09 - data_processing.validation.feature_validation - INFO - validate_filtered_features:134 - ✅ A1_filtered validation passed: 11725 rows × 82 cols
+2025-10-29 16:11:09 - data_processing.validation.feature_validation - INFO - validate_filtered_features:92 - 🔍 Validating A2_filtered filtered features...
+2025-10-29 16:11:09 - data_processing.validation.feature_validation - INFO - validate_filtered_features:134 - ✅ A2_filtered validation passed: 11725 rows × 82 cols
+2025-10-29 16:11:09 - data_processing.validation.feature_validation - INFO - validate_filtered_features:92 - 🔍 Validating A3_filtered filtered features...
+2025-10-29 16:11:09 - data_processing.validation.feature_validation - INFO - validate_filtered_features:134 - ✅ A3_filtered validation passed: 11725 rows × 492 cols
+2025-10-29 16:11:09 - data_processing.validation.feature_validation - INFO - validate_filtered_features:92 - 🔍 Validating A4_filtered filtered features...
+2025-10-29 16:11:09 - data_processing.validation.feature_validation - ERROR - validate_filtered_features:109 - ❌ A4_filtered contains 4005700 NaN values in columns: {'MA_7_norm_lag_1': np.int64(9780), 'close_vs_lagging_span_pct_lag_7': np.int64(9780), 'is_doji_lag_7': np.int64(9780), 'is_engulfing_lag_7': np.int64(9780), 'is_hangingman_lag_7': np.int64(9780), 'is_hammer_lag_7': np.int64(9780), 'band_width_pct_lag_7': np.int64(9780), 'band_width_lag_7': np.int64(9780), 'ATR_norm_ma_lag_7': np.int64(9780), 'ATR_norm_lag_7': np.int64(9780)}
+2025-10-29 16:11:09 - data_processing - ERROR - log_validation_result:165 - ❌ Filtered Data validation failed
+2025-10-29 16:11:09 - data_processing - INFO - log_validation_result:168 -    Details: A4_filtered contains 4005700 NaN values in columns: {'MA_7_norm_lag_1': np.int64(9780), 'close_vs_lagging_span_pct_lag_7': np.int64(9780), 'is_doji_lag_7': np.int64(9780), 'is_engulfing_lag_7': np.int64(9780), 'is_hangingman_lag_7': np.int64(9780), 'is_hammer_lag_7': np.int64(9780), 'band_width_pct_lag_7': np.int64(9780), 'band_width_lag_7': np.int64(9780), 'ATR_norm_ma_lag_7': np.int64(9780), 'ATR_norm_lag_7': np.int64(9780)}
+2025-10-29 16:11:09 - data_processing - ERROR - __main__:351 - ❌ Pipeline failed: A4_filtered contains 4005700 NaN values in columns: {'MA_7_norm_lag_1': np.int64(9780), 'close_vs_lagging_span_pct_lag_7': np.int64(9780), 'is_doji_lag_7': np.int64(9780), 'is_engulfing_lag_7': np.int64(9780), 'is_hangingman_lag_7': np.int64(9780), 'is_hammer_lag_7': np.int64(9780), 'band_width_pct_lag_7': np.int64(9780), 'band_width_lag_7': np.int64(9780), 'ATR_norm_ma_lag_7': np.int64(9780), 'ATR_norm_lag_7': np.int64(9780)}
+2025-10-29 16:11:09 - data_processing - ERROR - __main__:352 - Full traceback:
+Traceback (most recent call last):
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/main_pipeline.py", line 335, in __main__
+    validate_filtered_data(A0_filtered, A1_filtered, A2_filtered,
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                           A3_filtered, A4_filtered, A5_filtered)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/main_pipeline.py", line 248, in validate_filtered_data
+    validate_filtered_features(A4_filtered,
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+                               "A4_filtered",
+                               ^^^^^^^^^^^^^^
+                               start=pd.to_datetime(TRAIN_START),
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                               end=pd.to_datetime(TEST_END),
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                               drop_head_rows=12)
+                               ^^^^^^^^^^^^^^^^^^
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/validation/feature_validation.py", line 110, in validate_filtered_features
+    raise ValueError(error_msg)
+ValueError: A4_filtered contains 4005700 NaN values in columns: {'MA_7_norm_lag_1': np.int64(9780), 'close_vs_lagging_span_pct_lag_7': np.int64(9780), 'is_doji_lag_7': np.int64(9780), 'is_engulfing_lag_7': np.int64(9780), 'is_hangingman_lag_7': np.int64(9780), 'is_hammer_lag_7': np.int64(9780), 'band_width_pct_lag_7': np.int64(9780), 'band_width_lag_7': np.int64(9780), 'ATR_norm_ma_lag_7': np.int64(9780), 'ATR_norm_lag_7': np.int64(9780)}
+2025-10-29 16:16:02 - data_processing - INFO - setup_logging:74 - Logging configured: level=INFO, dir=logs/data_processing
+2025-10-29 16:16:02 - data_processing - INFO - __main__:303 - 🚀 Starting BTC Data Processing Pipeline
+2025-10-29 16:16:02 - data_processing - INFO - __main__:304 - ============================================================
+2025-10-29 16:16:02 - data_processing - INFO - log_stage_start:100 - 🚀 Starting Data Loading
+2025-10-29 16:16:02 - data_processing - INFO - log_stage_end:120 - ✅ Completed Data Loading in 0.03s
+2025-10-29 16:16:02 - data_processing - INFO - log_stage_start:100 - 🚀 Starting Technical Indicators Calculation
+2025-10-29 16:16:02 - data_processing.validation.feature_validation - INFO - validate_raw_features:48 - 📊 H4_indicators raw features: 11749 rows × 41 cols
+2025-10-29 16:16:02 - data_processing.validation.feature_validation - INFO - validate_raw_features:51 -    Memory: 4.02 MB
+2025-10-29 16:16:02 - data_processing.validation.feature_validation - INFO - validate_raw_features:63 - ✅ H4_indicators has no NaN values
+2025-10-29 16:16:02 - data_processing.validation.feature_validation - INFO - validate_raw_features:69 - ✅ H4_indicators has no infinite values
+2025-10-29 16:16:02 - data_processing.validation.feature_validation - INFO - validate_raw_features:76 - ✅ H4_indicators has unique indices
+2025-10-29 16:16:02 - data_processing.validation.feature_validation - INFO - validate_raw_features:48 - 📊 D1_indicators raw features: 1959 rows × 41 cols
+2025-10-29 16:16:02 - data_processing.validation.feature_validation - INFO - validate_raw_features:51 -    Memory: 0.69 MB
+2025-10-29 16:16:02 - data_processing.validation.feature_validation - INFO - validate_raw_features:63 - ✅ D1_indicators has no NaN values
+2025-10-29 16:16:02 - data_processing.validation.feature_validation - INFO - validate_raw_features:69 - ✅ D1_indicators has no infinite values
+2025-10-29 16:16:02 - data_processing.validation.feature_validation - INFO - validate_raw_features:76 - ✅ D1_indicators has unique indices
+2025-10-29 16:16:02 - data_processing.validation.feature_validation - INFO - validate_raw_features:48 - 📊 W1_indicators raw features: 280 rows × 41 cols
+2025-10-29 16:16:02 - data_processing.validation.feature_validation - INFO - validate_raw_features:51 -    Memory: 0.10 MB
+2025-10-29 16:16:02 - data_processing.validation.feature_validation - INFO - validate_raw_features:63 - ✅ W1_indicators has no NaN values
+2025-10-29 16:16:02 - data_processing.validation.feature_validation - INFO - validate_raw_features:69 - ✅ W1_indicators has no infinite values
+2025-10-29 16:16:02 - data_processing.validation.feature_validation - INFO - validate_raw_features:76 - ✅ W1_indicators has unique indices
+2025-10-29 16:16:02 - data_processing - INFO - log_stage_end:120 - ✅ Completed Technical Indicators Calculation in 0.06s
+2025-10-29 16:16:02 - data_processing - INFO - log_stage_start:100 - 🚀 Starting Timeframe Alignment
+2025-10-29 16:16:10 - data_processing.validation.feature_validation - INFO - validate_raw_features:48 - 📊 A0 raw features: 11749 rows × 41 cols
+2025-10-29 16:16:10 - data_processing.validation.feature_validation - INFO - validate_raw_features:51 -    Memory: 4.02 MB
+2025-10-29 16:16:10 - data_processing.validation.feature_validation - INFO - validate_raw_features:63 - ✅ A0 has no NaN values
+2025-10-29 16:16:10 - data_processing.validation.feature_validation - INFO - validate_raw_features:69 - ✅ A0 has no infinite values
+2025-10-29 16:16:10 - data_processing.validation.feature_validation - INFO - validate_raw_features:76 - ✅ A0 has unique indices
+2025-10-29 16:16:10 - data_processing.validation.feature_validation - INFO - validate_raw_features:48 - 📊 A1 raw features: 11749 rows × 82 cols
+2025-10-29 16:16:10 - data_processing.validation.feature_validation - INFO - validate_raw_features:51 -    Memory: 18.72 MB
+2025-10-29 16:16:10 - data_processing.validation.feature_validation - INFO - validate_raw_features:63 - ✅ A1 has no NaN values
+2025-10-29 16:16:10 - data_processing.validation.feature_validation - INFO - validate_raw_features:69 - ✅ A1 has no infinite values
+2025-10-29 16:16:10 - data_processing.validation.feature_validation - INFO - validate_raw_features:76 - ✅ A1 has unique indices
+2025-10-29 16:16:10 - data_processing.validation.feature_validation - INFO - validate_raw_features:48 - 📊 A2 raw features: 11749 rows × 82 cols
+2025-10-29 16:16:10 - data_processing.validation.feature_validation - INFO - validate_raw_features:51 -    Memory: 18.72 MB
+2025-10-29 16:16:10 - data_processing.validation.feature_validation - INFO - validate_raw_features:63 - ✅ A2 has no NaN values
+2025-10-29 16:16:10 - data_processing.validation.feature_validation - INFO - validate_raw_features:69 - ✅ A2 has no infinite values
+2025-10-29 16:16:10 - data_processing.validation.feature_validation - INFO - validate_raw_features:76 - ✅ A2 has unique indices
+2025-10-29 16:16:10 - data_processing - INFO - log_stage_end:120 - ✅ Completed Timeframe Alignment in 7.73s
+2025-10-29 16:16:10 - data_processing - INFO - log_stage_start:100 - 🚀 Starting Lag Features Creation
+2025-10-29 16:16:10 - data_processing.validation.feature_validation - INFO - validate_raw_features:48 - 📊 H4_lags raw features: 11739 rows × 410 cols
+2025-10-29 16:16:10 - data_processing.validation.feature_validation - INFO - validate_raw_features:51 -    Memory: 37.06 MB
+2025-10-29 16:16:10 - data_processing.validation.feature_validation - INFO - validate_raw_features:63 - ✅ H4_lags has no NaN values
+2025-10-29 16:16:10 - data_processing.validation.feature_validation - INFO - validate_raw_features:69 - ✅ H4_lags has no infinite values
+2025-10-29 16:16:10 - data_processing.validation.feature_validation - INFO - validate_raw_features:76 - ✅ H4_lags has unique indices
+2025-10-29 16:16:10 - data_processing.validation.feature_validation - INFO - validate_raw_features:48 - 📊 D1_lags raw features: 1959 rows × 410 cols
+2025-10-29 16:16:10 - data_processing.validation.feature_validation - INFO - validate_raw_features:51 -    Memory: 6.21 MB
+2025-10-29 16:16:10 - data_processing.validation.feature_validation - INFO - validate_raw_features:63 - ✅ D1_lags has no NaN values
+2025-10-29 16:16:10 - data_processing.validation.feature_validation - INFO - validate_raw_features:69 - ✅ D1_lags has no infinite values
+2025-10-29 16:16:10 - data_processing.validation.feature_validation - INFO - validate_raw_features:76 - ✅ D1_lags has unique indices
+2025-10-29 16:16:10 - data_processing.validation.feature_validation - INFO - validate_raw_features:48 - 📊 W1_lags raw features: 281 rows × 164 cols
+2025-10-29 16:16:10 - data_processing.validation.feature_validation - INFO - validate_raw_features:51 -    Memory: 0.36 MB
+2025-10-29 16:16:10 - data_processing.validation.feature_validation - INFO - validate_raw_features:63 - ✅ W1_lags has no NaN values
+2025-10-29 16:16:10 - data_processing.validation.feature_validation - INFO - validate_raw_features:69 - ✅ W1_lags has no infinite values
+2025-10-29 16:16:10 - data_processing.validation.feature_validation - INFO - validate_raw_features:76 - ✅ W1_lags has unique indices
+2025-10-29 16:16:10 - data_processing - INFO - log_stage_end:120 - ✅ Completed Lag Features Creation in 0.11s
+2025-10-29 16:16:10 - data_processing - INFO - log_stage_start:100 - 🚀 Starting Combining H4 + H4_lags
+2025-10-29 16:16:10 - data_processing.validation.feature_validation - INFO - validate_raw_features:48 - 📊 H4_H4_lags raw features: 11739 rows × 492 cols
+2025-10-29 16:16:10 - data_processing.validation.feature_validation - INFO - validate_raw_features:51 -    Memory: 55.42 MB
+2025-10-29 16:16:10 - data_processing.validation.feature_validation - INFO - validate_raw_features:63 - ✅ H4_H4_lags has no NaN values
+2025-10-29 16:16:10 - data_processing.validation.feature_validation - INFO - validate_raw_features:69 - ✅ H4_H4_lags has no infinite values
+2025-10-29 16:16:10 - data_processing.validation.feature_validation - INFO - validate_raw_features:76 - ✅ H4_H4_lags has unique indices
+2025-10-29 16:16:10 - data_processing - INFO - log_stage_end:120 - ✅ Completed Combining H4 + H4_lags in 0.14s
+2025-10-29 16:16:10 - data_processing - INFO - log_stage_start:100 - 🚀 Starting Combining H4 + D1_lags
+2025-10-29 16:16:10 - data_processing.validation.feature_validation - INFO - validate_raw_features:48 - 📊 H4_D1_lags raw features: 11739 rows × 902 cols
+2025-10-29 16:16:10 - data_processing.validation.feature_validation - INFO - validate_raw_features:51 -    Memory: 92.14 MB
+2025-10-29 16:16:10 - data_processing.validation.feature_validation - WARNING - validate_raw_features:58 - ⚠️  H4_D1_lags has 4010620 NaNs (37.9%)
+2025-10-29 16:16:10 - data_processing.validation.feature_validation - WARNING - validate_raw_features:61 -    Top NaN columns: {'MA_7_norm_lag_1': np.int64(9782), 'close_vs_lagging_span_pct_lag_7': np.int64(9782), 'is_doji_lag_7': np.int64(9782), 'is_engulfing_lag_7': np.int64(9782), 'is_hangingman_lag_7': np.int64(9782), 'is_hammer_lag_7': np.int64(9782), 'band_width_pct_lag_7': np.int64(9782), 'band_width_lag_7': np.int64(9782), 'ATR_norm_ma_lag_7': np.int64(9782), 'ATR_norm_lag_7': np.int64(9782)}
+2025-10-29 16:16:10 - data_processing.validation.feature_validation - INFO - validate_raw_features:69 - ✅ H4_D1_lags has no infinite values
+2025-10-29 16:16:10 - data_processing.validation.feature_validation - INFO - validate_raw_features:76 - ✅ H4_D1_lags has unique indices
+2025-10-29 16:16:10 - data_processing - INFO - log_stage_end:120 - ✅ Completed Combining H4 + D1_lags in 0.18s
+2025-10-29 16:16:10 - data_processing - INFO - log_stage_start:100 - 🚀 Starting Combining H4 + W1_lags
+2025-10-29 16:16:10 - data_processing.validation.feature_validation - INFO - validate_raw_features:48 - 📊 H4_W1_lags raw features: 11739 rows × 1066 cols
+2025-10-29 16:16:10 - data_processing.validation.feature_validation - INFO - validate_raw_features:51 -    Memory: 106.83 MB
+2025-10-29 16:16:10 - data_processing.validation.feature_validation - WARNING - validate_raw_features:58 - ⚠️  H4_W1_lags has 5890060 NaNs (47.1%)
+2025-10-29 16:16:10 - data_processing.validation.feature_validation - WARNING - validate_raw_features:61 -    Top NaN columns: {'range_pct_lag_4': np.int64(11460), 'close_vs_conversion_line_pct_lag_2': np.int64(11460), 'MACD_signal_lag_2': np.int64(11460), 'MACD_line_lag_2': np.int64(11460), 'RSI_lag_2': np.int64(11460), 'MA_60_MA_120_norm_lag_2': np.int64(11460), 'MA_20_MA_120_norm_lag_2': np.int64(11460), 'MA_20_MA_60_norm_lag_2': np.int64(11460), 'MA_14_MA_120_norm_lag_2': np.int64(11460), 'MA_14_MA_60_norm_lag_2': np.int64(11460)}
+2025-10-29 16:16:10 - data_processing.validation.feature_validation - INFO - validate_raw_features:69 - ✅ H4_W1_lags has no infinite values
+2025-10-29 16:16:10 - data_processing.validation.feature_validation - INFO - validate_raw_features:76 - ✅ H4_W1_lags has unique indices
+2025-10-29 16:16:10 - data_processing - INFO - log_stage_end:120 - ✅ Completed Combining H4 + W1_lags in 0.23s
+2025-10-29 16:16:10 - data_processing - INFO - log_stage_start:100 - 🚀 Starting Data Filtering
+2025-10-29 16:16:10 - data_processing - INFO - log_stage_start:103 -    train_start: 2020-05-12
+2025-10-29 16:16:10 - data_processing - INFO - log_stage_start:103 -    test_end: 2025-09-19
+2025-10-29 16:16:10 - data_processing - INFO - log_data_info:141 - 📊 A0_filtered: 11,737 rows × 41 cols (3.76 MB)
+2025-10-29 16:16:11 - data_processing - INFO - log_data_info:141 - 📊 A1_filtered: 11,737 rows × 82 cols (18.45 MB)
+2025-10-29 16:16:11 - data_processing - INFO - log_data_info:141 - 📊 A2_filtered: 11,737 rows × 82 cols (18.45 MB)
+2025-10-29 16:16:11 - data_processing - INFO - log_data_info:141 - 📊 A3_filtered: 11,737 rows × 492 cols (55.16 MB)
+2025-10-29 16:16:11 - data_processing - INFO - log_data_info:141 - 📊 A4_filtered: 11,737 rows × 902 cols (91.87 MB)
+2025-10-29 16:16:11 - data_processing - INFO - log_data_info:141 - 📊 A5_filtered: 11,737 rows × 1,066 cols (106.56 MB)
+2025-10-29 16:16:11 - data_processing - INFO - log_stage_end:120 - ✅ Completed Data Filtering in 0.34s
+2025-10-29 16:16:11 - data_processing - INFO - log_stage_start:100 - 🚀 Starting Filtered Data Validation
+2025-10-29 16:16:11 - data_processing.validation.feature_validation - INFO - validate_filtered_features:92 - 🔍 Validating A0_filtered filtered features...
+2025-10-29 16:16:11 - data_processing.validation.feature_validation - INFO - validate_filtered_features:134 - ✅ A0_filtered validation passed: 11725 rows × 41 cols
+2025-10-29 16:16:11 - data_processing.validation.feature_validation - INFO - validate_filtered_features:92 - 🔍 Validating A1_filtered filtered features...
+2025-10-29 16:16:11 - data_processing.validation.feature_validation - INFO - validate_filtered_features:134 - ✅ A1_filtered validation passed: 11725 rows × 82 cols
+2025-10-29 16:16:11 - data_processing.validation.feature_validation - INFO - validate_filtered_features:92 - 🔍 Validating A2_filtered filtered features...
+2025-10-29 16:16:11 - data_processing.validation.feature_validation - INFO - validate_filtered_features:134 - ✅ A2_filtered validation passed: 11725 rows × 82 cols
+2025-10-29 16:16:11 - data_processing.validation.feature_validation - INFO - validate_filtered_features:92 - 🔍 Validating A3_filtered filtered features...
+2025-10-29 16:16:11 - data_processing.validation.feature_validation - INFO - validate_filtered_features:134 - ✅ A3_filtered validation passed: 11725 rows × 492 cols
+2025-10-29 16:16:11 - data_processing.validation.feature_validation - INFO - validate_filtered_features:92 - 🔍 Validating A4_filtered filtered features...
+2025-10-29 16:16:11 - data_processing.validation.feature_validation - ERROR - validate_filtered_features:109 - ❌ A4_filtered contains 4005700 NaN values in columns: {'MA_7_norm_lag_1': np.int64(9780), 'close_vs_lagging_span_pct_lag_7': np.int64(9780), 'is_doji_lag_7': np.int64(9780), 'is_engulfing_lag_7': np.int64(9780), 'is_hangingman_lag_7': np.int64(9780), 'is_hammer_lag_7': np.int64(9780), 'band_width_pct_lag_7': np.int64(9780), 'band_width_lag_7': np.int64(9780), 'ATR_norm_ma_lag_7': np.int64(9780), 'ATR_norm_lag_7': np.int64(9780)}
+2025-10-29 16:16:11 - data_processing - ERROR - log_validation_result:165 - ❌ Filtered Data validation failed
+2025-10-29 16:16:11 - data_processing - INFO - log_validation_result:168 -    Details: A4_filtered contains 4005700 NaN values in columns: {'MA_7_norm_lag_1': np.int64(9780), 'close_vs_lagging_span_pct_lag_7': np.int64(9780), 'is_doji_lag_7': np.int64(9780), 'is_engulfing_lag_7': np.int64(9780), 'is_hangingman_lag_7': np.int64(9780), 'is_hammer_lag_7': np.int64(9780), 'band_width_pct_lag_7': np.int64(9780), 'band_width_lag_7': np.int64(9780), 'ATR_norm_ma_lag_7': np.int64(9780), 'ATR_norm_lag_7': np.int64(9780)}
+2025-10-29 16:16:11 - data_processing - ERROR - __main__:351 - ❌ Pipeline failed: A4_filtered contains 4005700 NaN values in columns: {'MA_7_norm_lag_1': np.int64(9780), 'close_vs_lagging_span_pct_lag_7': np.int64(9780), 'is_doji_lag_7': np.int64(9780), 'is_engulfing_lag_7': np.int64(9780), 'is_hangingman_lag_7': np.int64(9780), 'is_hammer_lag_7': np.int64(9780), 'band_width_pct_lag_7': np.int64(9780), 'band_width_lag_7': np.int64(9780), 'ATR_norm_ma_lag_7': np.int64(9780), 'ATR_norm_lag_7': np.int64(9780)}
+2025-10-29 16:16:11 - data_processing - ERROR - __main__:352 - Full traceback:
+Traceback (most recent call last):
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/main_pipeline.py", line 335, in __main__
+    validate_filtered_data(A0_filtered, A1_filtered, A2_filtered,
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                           A3_filtered, A4_filtered, A5_filtered)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/main_pipeline.py", line 248, in validate_filtered_data
+    validate_filtered_features(A4_filtered,
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+                               "A4_filtered",
+                               ^^^^^^^^^^^^^^
+                               start=pd.to_datetime(TRAIN_START),
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                               end=pd.to_datetime(TEST_END),
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                               drop_head_rows=12)
+                               ^^^^^^^^^^^^^^^^^^
+  File "/Users/al02260279/Documents/private/btc_prediction/data_processing/validation/feature_validation.py", line 110, in validate_filtered_features
+    raise ValueError(error_msg)
+ValueError: A4_filtered contains 4005700 NaN values in columns: {'MA_7_norm_lag_1': np.int64(9780), 'close_vs_lagging_span_pct_lag_7': np.int64(9780), 'is_doji_lag_7': np.int64(9780), 'is_engulfing_lag_7': np.int64(9780), 'is_hangingman_lag_7': np.int64(9780), 'is_hammer_lag_7': np.int64(9780), 'band_width_pct_lag_7': np.int64(9780), 'band_width_lag_7': np.int64(9780), 'ATR_norm_ma_lag_7': np.int64(9780), 'ATR_norm_lag_7': np.int64(9780)}
