@@ -138,6 +138,111 @@ def validate_filtered_target(y: pd.DataFrame,
     logger.info(f"   Sell percentage: {target_series.mean()*100:.2f}%")
 
 
+def validate_target_distribution_with_folds(y: pd.DataFrame,
+                                            n_folds: int = 5,
+                                            name: str = "target") -> Dict:
+    """
+    Validate target distribution with fold analysis.
+    
+    Args:
+        y: Target DataFrame with 'target' column
+        n_folds: Number of folds for analysis
+        name: Name for logging
+    
+    Returns:
+        Dict with distribution statistics
+    """
+    logger.info(
+        f"🔍 Validating {name} distribution with {n_folds}-fold analysis...")
+
+    if 'target' not in y.columns:
+        error_msg = f"{name} missing 'target' column"
+        logger.error(f"❌ {error_msg}")
+        raise ValueError(error_msg)
+
+    target_series = y['target']
+    total_samples = len(target_series)
+
+    # 전체 분포 계산
+    value_counts = target_series.value_counts().sort_index()
+    positive_count = value_counts.get(1, 0)
+    negative_count = value_counts.get(0, 0)
+    positive_ratio = positive_count / total_samples if total_samples > 0 else 0
+
+    logger.info(f"📊 Overall distribution:")
+    logger.info(f"   Total samples: {total_samples}")
+    logger.info(f"   Positive (1): {positive_count} ({positive_ratio:.3f})")
+    logger.info(f"   Negative (0): {negative_count} ({1-positive_ratio:.3f})")
+
+    # 5-fold 분석
+    fold_size = total_samples // n_folds
+    fold_stats = []
+
+    for fold in range(n_folds):
+        start_idx = fold * fold_size
+        if fold == n_folds - 1:  # 마지막 fold는 나머지 모든 데이터 포함
+            end_idx = total_samples
+        else:
+            end_idx = (fold + 1) * fold_size
+
+        fold_data = target_series.iloc[start_idx:end_idx]
+        fold_positive = fold_data.sum()
+        fold_total = len(fold_data)
+        fold_positive_ratio = fold_positive / fold_total if fold_total > 0 else 0
+
+        fold_stats.append({
+            'fold': fold + 1,
+            'start_idx': start_idx,
+            'end_idx': end_idx,
+            'total_samples': fold_total,
+            'positive_samples': fold_positive,
+            'positive_ratio': fold_positive_ratio,
+            'negative_samples': fold_total - fold_positive,
+            'negative_ratio': 1 - fold_positive_ratio
+        })
+
+        logger.info(
+            f"   Fold {fold+1}: {fold_positive}/{fold_total} ({fold_positive_ratio:.3f})"
+        )
+
+    # Fold별 비율 균형 검사
+    fold_ratios = [stat['positive_ratio'] for stat in fold_stats]
+    ratio_std = np.std(fold_ratios)
+    ratio_range = max(fold_ratios) - min(fold_ratios)
+
+    logger.info(f"📈 Fold balance analysis:")
+    logger.info(f"   Ratio std: {ratio_std:.3f}")
+    logger.info(f"   Ratio range: {ratio_range:.3f}")
+
+    # 균형 검사 (std < 0.05, range < 0.1)
+    if ratio_std > 0.05:
+        logger.warning(
+            f"⚠️  High fold ratio variance (std={ratio_std:.3f} > 0.05)")
+    if ratio_range > 0.1:
+        logger.warning(f"⚠️  High fold ratio range ({ratio_range:.3f} > 0.1)")
+
+    if ratio_std <= 0.05 and ratio_range <= 0.1:
+        logger.info("✅ Fold distribution is well balanced")
+    else:
+        logger.warning("⚠️  Fold distribution shows imbalance")
+
+    return {
+        'overall': {
+            'total_samples': total_samples,
+            'positive_samples': positive_count,
+            'positive_ratio': positive_ratio,
+            'negative_samples': negative_count,
+            'negative_ratio': 1 - positive_ratio
+        },
+        'folds': fold_stats,
+        'balance_metrics': {
+            'ratio_std': ratio_std,
+            'ratio_range': ratio_range,
+            'is_balanced': ratio_std <= 0.05 and ratio_range <= 0.1
+        }
+    }
+
+
 def validate_target_feature_alignment(y: pd.DataFrame,
                                       X: pd.DataFrame,
                                       target_name: str = "target",

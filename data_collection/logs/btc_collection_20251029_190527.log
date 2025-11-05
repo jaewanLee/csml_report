@@ -1,0 +1,76 @@
+2025-10-29 19:05:27,597 - INFO - Successfully connected to bitstamp
+2025-10-29 19:05:30,251 - INFO - Exchange health check passed
+2025-10-29 19:05:30,251 - INFO - Starting data collection for all timeframes with timeframe-specific dates
+2025-10-29 19:05:30,252 - INFO - Starting collection for 4h from 2013-01-01T00:00:00Z to 2025-10-19T23:59:59Z
+2025-10-29 19:05:30,252 - INFO - Collecting 4h data from 2013-01-01T00:00:00Z to 2025-10-19T23:59:59Z
+2025-10-29 19:05:58,865 - INFO - Reached end date
+2025-10-29 19:05:58,885 - INFO - Validating 4h data...
+2025-10-29 19:05:58,892 - WARNING - Found 3 extreme price changes in low for 4h
+2025-10-29 19:05:58,892 - WARNING - Found 1 extreme price changes in close for 4h
+2025-10-29 19:05:58,894 - WARNING - Found 30 zero volume records in 4h data
+2025-10-29 19:05:58,898 - INFO - Data validation completed for 4h
+2025-10-29 19:05:58,898 - INFO - Successfully collected 28107 records for 4h
+2025-10-29 19:05:58,978 - INFO - Saved 4h data to /Users/al02260279/Documents/private/btc_prediction/data_collection/data/btc_4h_20251029.parquet
+2025-10-29 19:05:58,982 - INFO - Quality report saved for 4h
+2025-10-29 19:05:58,982 - INFO - Successfully completed 4h
+2025-10-29 19:05:58,982 - INFO - Starting collection for 1d from 2011-08-01T00:00:00Z to 2025-10-19T23:59:59Z
+2025-10-29 19:05:58,982 - INFO - Collecting 1d data from 2011-08-01T00:00:00Z to 2025-10-19T23:59:59Z
+2025-10-29 19:06:04,914 - INFO - Reached end date
+2025-10-29 19:06:04,917 - INFO - Validating 1d data...
+2025-10-29 19:06:04,918 - WARNING - Found 3 extreme price changes in high for 1d
+2025-10-29 19:06:04,918 - WARNING - Found 3 extreme price changes in low for 1d
+2025-10-29 19:06:04,918 - WARNING - Found 1 extreme price changes in close for 1d
+2025-10-29 19:06:04,919 - WARNING - Found 33 zero volume records in 1d data
+2025-10-29 19:06:04,919 - INFO - Data validation completed for 1d
+2025-10-29 19:06:04,920 - INFO - Successfully collected 5187 records for 1d
+2025-10-29 19:06:04,925 - INFO - Saved 1d data to /Users/al02260279/Documents/private/btc_prediction/data_collection/data/btc_1d_20251029.parquet
+2025-10-29 19:06:04,927 - INFO - Quality report saved for 1d
+2025-10-29 19:06:04,927 - INFO - Successfully completed 1d
+2025-10-29 19:06:04,927 - INFO - Starting collection for 1w from 2011-08-01T00:00:00Z to 2025-10-19T23:59:59Z
+2025-10-29 19:06:04,927 - INFO - Collecting 1w data from 2011-08-01T00:00:00Z to 2025-10-19T23:59:59Z
+2025-10-29 19:06:05,926 - INFO - Reached end date
+2025-10-29 19:06:05,927 - INFO - Validating 1w data...
+2025-10-29 19:06:05,929 - INFO - Data validation completed for 1w
+2025-10-29 19:06:05,929 - INFO - Successfully collected 403 records for 1w
+2025-10-29 19:06:05,931 - INFO - Saved 1w data to /Users/al02260279/Documents/private/btc_prediction/data_collection/data/btc_1w_20251029.parquet
+2025-10-29 19:06:05,933 - INFO - Quality report saved for 1w
+2025-10-29 19:06:05,933 - INFO - Successfully completed 1w
+2025-10-29 19:06:05,933 - INFO - Data collection completed:
+2025-10-29 19:06:05,933 - INFO -   Successful: 3 timeframes - ['4h', '1d', '1w']
+2025-10-29 19:06:05,996 - INFO - Starting data collection for all timeframes with timeframe-specific dates
+2025-10-29 19:06:05,996 - INFO - Starting collection for 4h from 2013-01-01T00:00:00Z to 2025-10-19T23:59:59Z
+2025-10-29 19:06:05,996 - INFO - Collecting 4h data from 2013-01-01T00:00:00Z to 2025-10-19T23:59:59Z
+2025-10-29 19:06:35,033 - INFO - Reached end date
+2025-10-29 19:06:35,060 - INFO - Validating 4h data...
+2025-10-29 19:06:35,062 - WARNING - Found 3 extreme price changes in low for 4h
+2025-10-29 19:06:35,063 - WARNING - Found 1 extreme price changes in close for 4h
+2025-10-29 19:06:35,064 - WARNING - Found 30 zero volume records in 4h data
+2025-10-29 19:06:35,066 - INFO - Data validation completed for 4h
+2025-10-29 19:06:35,066 - INFO - Successfully collected 28107 records for 4h
+2025-10-29 19:06:35,094 - INFO - Saved 4h data to /Users/al02260279/Documents/private/btc_prediction/data_collection/data/btc_4h_20251029.parquet
+2025-10-29 19:06:35,096 - INFO - Quality report saved for 4h
+2025-10-29 19:06:35,097 - INFO - Successfully completed 4h
+2025-10-29 19:06:35,097 - INFO - Starting collection for 1d from 2011-08-01T00:00:00Z to 2025-10-19T23:59:59Z
+2025-10-29 19:06:35,097 - INFO - Collecting 1d data from 2011-08-01T00:00:00Z to 2025-10-19T23:59:59Z
+2025-10-29 19:06:41,087 - INFO - Reached end date
+2025-10-29 19:06:41,093 - INFO - Validating 1d data...
+2025-10-29 19:06:41,095 - WARNING - Found 3 extreme price changes in high for 1d
+2025-10-29 19:06:41,095 - WARNING - Found 3 extreme price changes in low for 1d
+2025-10-29 19:06:41,096 - WARNING - Found 1 extreme price changes in close for 1d
+2025-10-29 19:06:41,097 - WARNING - Found 33 zero volume records in 1d data
+2025-10-29 19:06:41,098 - INFO - Data validation completed for 1d
+2025-10-29 19:06:41,098 - INFO - Successfully collected 5187 records for 1d
+2025-10-29 19:06:41,106 - INFO - Saved 1d data to /Users/al02260279/Documents/private/btc_prediction/data_collection/data/btc_1d_20251029.parquet
+2025-10-29 19:06:41,110 - INFO - Quality report saved for 1d
+2025-10-29 19:06:41,110 - INFO - Successfully completed 1d
+2025-10-29 19:06:41,110 - INFO - Starting collection for 1w from 2011-08-01T00:00:00Z to 2025-10-19T23:59:59Z
+2025-10-29 19:06:41,110 - INFO - Collecting 1w data from 2011-08-01T00:00:00Z to 2025-10-19T23:59:59Z
+2025-10-29 19:06:42,152 - INFO - Reached end date
+2025-10-29 19:06:42,154 - INFO - Validating 1w data...
+2025-10-29 19:06:42,155 - INFO - Data validation completed for 1w
+2025-10-29 19:06:42,156 - INFO - Successfully collected 403 records for 1w
+2025-10-29 19:06:42,158 - INFO - Saved 1w data to /Users/al02260279/Documents/private/btc_prediction/data_collection/data/btc_1w_20251029.parquet
+2025-10-29 19:06:42,160 - INFO - Quality report saved for 1w
+2025-10-29 19:06:42,160 - INFO - Successfully completed 1w
+2025-10-29 19:06:42,160 - INFO - Data collection completed:
+2025-10-29 19:06:42,160 - INFO -   Successful: 3 timeframes - ['4h', '1d', '1w']

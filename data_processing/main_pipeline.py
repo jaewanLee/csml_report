@@ -12,6 +12,7 @@ This module orchestrates the entire data processing workflow:
 8. Save processed data
 """
 
+from calendar import week
 import sys
 import time
 from pathlib import Path
@@ -27,7 +28,7 @@ from data_processing.config.config import TEST_END, TRAIN_START
 from data_processing.data.load_data import load_all_data
 import pandas as pd
 from data_processing.features.indicators import calculate_all_indicators
-from data_processing.time.time_align import combine_timeframe_data
+from data_processing.time.time_align import align_timeframe_data, combine_timeframe_data
 from data_processing.data.save_data import save_data_to_parquet
 from data_processing.time.lagging import create_lag_features as create_lag_features_func
 
@@ -69,12 +70,12 @@ def calculate_indicators_on_all_data(df_h4, df_d1, df_w1):
     validate_raw_features(df_d1,
                           "D1_indicators",
                           start=pd.to_datetime(TRAIN_START) -
-                          pd.Timedelta(hours=4 * 12),
+                          pd.Timedelta(days=10),
                           end=pd.to_datetime(TEST_END))
     validate_raw_features(df_w1,
                           "W1_indicators",
                           start=pd.to_datetime(TRAIN_START) -
-                          pd.Timedelta(hours=4 * 12),
+                          pd.Timedelta(weeks=4),
                           end=pd.to_datetime(TEST_END))
 
     duration = time.time() - start_time
@@ -103,12 +104,12 @@ def align_timeframe(df_h4, df_d1, df_w1):
     validate_raw_features(A1,
                           "A1",
                           start=pd.to_datetime(TRAIN_START) -
-                          pd.Timedelta(hours=4 * 12),
+                          pd.Timedelta(days=12),
                           end=pd.to_datetime(TEST_END))
     validate_raw_features(A2,
                           "A2",
                           start=pd.to_datetime(TRAIN_START) -
-                          pd.Timedelta(hours=4 * 12),
+                          pd.Timedelta(weeks=4),
                           end=pd.to_datetime(TEST_END))
 
     duration = time.time() - start_time
@@ -131,22 +132,19 @@ def create_lag_features(df_h4, df_d1, df_w1):
     # Validate raw features
     validate_raw_features(h4_lags,
                           "H4_lags",
-                          start=pd.to_datetime(TRAIN_START) -
-                          pd.Timedelta(hours=4 * 12),
+                          start=pd.to_datetime(TRAIN_START),
                           end=pd.to_datetime(TEST_END),
                           drop_head_rows=10)
     validate_raw_features(d1_lags,
                           "D1_lags",
-                          start=pd.to_datetime(TRAIN_START) -
-                          pd.Timedelta(hours=24 * 12),
+                          start=pd.to_datetime(TRAIN_START),
                           end=pd.to_datetime(TEST_END),
                           drop_head_rows=10)
     validate_raw_features(w1_lags,
                           "W1_lags",
-                          start=pd.to_datetime(TRAIN_START) -
-                          pd.Timedelta(weeks=12),
+                          start=pd.to_datetime(TRAIN_START),
                           end=pd.to_datetime(TEST_END),
-                          drop_head_rows=10)
+                          drop_head_rows=3)  # W1 has 3-week lag
 
     duration = time.time() - start_time
     log_stage_end(logger, "Lag Features Creation", duration)
@@ -161,16 +159,25 @@ def combine_timeframe_and_lag_features(base_data, lag_data, base_timeframe,
 
     start_time = time.time()
 
-    # Combine data
-    lagged_data = pd.concat([base_data, lag_data], axis=1)
+    if lag_timeframe == 'H4_lags':
+        lagged_data = pd.concat([base_data, lag_data], axis=1)
+    elif lag_timeframe == 'D1_lags':
+        lagged_data = align_timeframe_data(base_data, lag_data, 'H4',
+                                           'D1_lags')
+    elif lag_timeframe == 'W1_lags':
+        lagged_data = align_timeframe_data(base_data, lag_data, 'H4',
+                                           'W1_lags')
+    else:
+        raise ValueError(f"Invalid lag timeframe name: {lag_timeframe}")
 
     # Validate raw features
+    # Adjust drop_head_rows based on lag timeframe
+    drop_rows = 3 if 'W1' in lag_timeframe else 10
     validate_raw_features(lagged_data,
                           f"{base_timeframe}_{lag_timeframe}",
-                          start=pd.to_datetime(TRAIN_START) -
-                          pd.Timedelta(hours=4 * 12),
+                          start=pd.to_datetime(TRAIN_START),
                           end=pd.to_datetime(TEST_END),
-                          drop_head_rows=10)
+                          drop_head_rows=drop_rows)
 
     duration = time.time() - start_time
     log_stage_end(logger, f"Combining {base_timeframe} + {lag_timeframe}",
@@ -179,7 +186,7 @@ def combine_timeframe_and_lag_features(base_data, lag_data, base_timeframe,
     return lagged_data
 
 
-def filter_data(A0, A1, A2, A3, A4, A5, train_start, test_end):
+def filter_data(A0, A1, A2, A3, A4, A5, A6, A7, train_start, test_end):
     """Filter data to specified time range."""
     log_stage_start(logger,
                     "Data Filtering",
@@ -195,7 +202,8 @@ def filter_data(A0, A1, A2, A3, A4, A5, train_start, test_end):
     A3_filtered = A3[(A3.index >= train_start) & (A3.index <= test_end)]
     A4_filtered = A4[(A4.index >= train_start) & (A4.index <= test_end)]
     A5_filtered = A5[(A5.index >= train_start) & (A5.index <= test_end)]
-
+    A6_filtered = A6[(A6.index >= train_start) & (A6.index <= test_end)]
+    A7_filtered = A7[(A7.index >= train_start) & (A7.index <= test_end)]
     # Log data info
     log_data_info(logger, "A0_filtered", A0_filtered.shape,
                   A0_filtered.memory_usage(deep=True).sum() / 1024 / 1024)
@@ -209,15 +217,19 @@ def filter_data(A0, A1, A2, A3, A4, A5, train_start, test_end):
                   A4_filtered.memory_usage(deep=True).sum() / 1024 / 1024)
     log_data_info(logger, "A5_filtered", A5_filtered.shape,
                   A5_filtered.memory_usage(deep=True).sum() / 1024 / 1024)
+    log_data_info(logger, "A6_filtered", A6_filtered.shape,
+                  A6_filtered.memory_usage(deep=True).sum() / 1024 / 1024)
+    log_data_info(logger, "A7_filtered", A7_filtered.shape,
+                  A7_filtered.memory_usage(deep=True).sum() / 1024 / 1024)
 
     duration = time.time() - start_time
     log_stage_end(logger, "Data Filtering", duration)
 
-    return A0_filtered, A1_filtered, A2_filtered, A3_filtered, A4_filtered, A5_filtered
+    return A0_filtered, A1_filtered, A2_filtered, A3_filtered, A4_filtered, A5_filtered, A6_filtered, A7_filtered
 
 
 def validate_filtered_data(A0_filtered, A1_filtered, A2_filtered, A3_filtered,
-                           A4_filtered, A5_filtered):
+                           A4_filtered, A5_filtered, A6_filtered, A7_filtered):
     """Validate all filtered feature sets."""
     log_stage_start(logger, "Filtered Data Validation")
 
@@ -254,8 +266,17 @@ def validate_filtered_data(A0_filtered, A1_filtered, A2_filtered, A3_filtered,
                                    "A5_filtered",
                                    start=pd.to_datetime(TRAIN_START),
                                    end=pd.to_datetime(TEST_END),
-                                   drop_head_rows=12)
-
+                                   drop_head_rows=3)  # A5 has W1 lags
+        validate_filtered_features(A6_filtered,
+                                   "A6_filtered",
+                                   start=pd.to_datetime(TRAIN_START),
+                                   end=pd.to_datetime(TEST_END),
+                                   drop_head_rows=3)  # A6 has W1 lags
+        validate_filtered_features(A7_filtered,
+                                   "A7_filtered",
+                                   start=pd.to_datetime(TRAIN_START),
+                                   end=pd.to_datetime(TEST_END),
+                                   drop_head_rows=3)  # A7 has W1 lags
         # Validate consistency across sets
         feature_sets = {
             "A0": A0_filtered,
@@ -263,7 +284,9 @@ def validate_filtered_data(A0_filtered, A1_filtered, A2_filtered, A3_filtered,
             "A2": A2_filtered,
             "A3": A3_filtered,
             "A4": A4_filtered,
-            "A5": A5_filtered
+            "A5": A5_filtered,
+            "A6": A6_filtered,
+            "A7": A7_filtered
         }
         validate_feature_consistency(feature_sets)
 
@@ -278,7 +301,7 @@ def validate_filtered_data(A0_filtered, A1_filtered, A2_filtered, A3_filtered,
 
 
 def save_data(A0_filtered, A1_filtered, A2_filtered, A3_filtered, A4_filtered,
-              A5_filtered):
+              A5_filtered, A6_filtered, A7_filtered):
     """Save all filtered feature sets."""
     log_stage_start(logger, "Data Saving")
 
@@ -291,15 +314,19 @@ def save_data(A0_filtered, A1_filtered, A2_filtered, A3_filtered, A4_filtered,
     save_data_to_parquet(A3_filtered, 'A3')
     save_data_to_parquet(A4_filtered, 'A4')
     save_data_to_parquet(A5_filtered, 'A5')
+    save_data_to_parquet(A6_filtered, 'A6')
+    save_data_to_parquet(A7_filtered, 'A7')
 
     duration = time.time() - start_time
     log_stage_end(logger, "Data Saving", duration)
 
-    return A0_filtered, A1_filtered, A2_filtered, A3_filtered, A4_filtered, A5_filtered
+    return A0_filtered, A1_filtered, A2_filtered, A3_filtered, A4_filtered, A5_filtered, A6_filtered, A7_filtered
 
 
 def __main__():
-    """Main pipeline execution function."""
+    """Main pipeline execution function.
+    python -m data_processing.main_pipeline
+    """
     logger.info("🚀 Starting BTC Data Processing Pipeline")
     logger.info("=" * 60)
 
@@ -323,21 +350,25 @@ def __main__():
         h4_lags, d1_lags, w1_lags = create_lag_features(df_h4, df_d1, df_w1)
 
         # Stage 5: Combine features
-        A3 = combine_timeframe_and_lag_features(A2, h4_lags, 'H4', 'H4_lags')
+        A3 = combine_timeframe_and_lag_features(A1, h4_lags, 'H4', 'H4_lags')
         A4 = combine_timeframe_and_lag_features(A3, d1_lags, 'H4', 'D1_lags')
-        A5 = combine_timeframe_and_lag_features(A4, w1_lags, 'H4', 'W1_lags')
+
+        A5 = combine_timeframe_and_lag_features(A2, h4_lags, 'H4', 'H4_lags')
+        A6 = combine_timeframe_and_lag_features(A5, d1_lags, 'H4', 'D1_lags')
+        A7 = combine_timeframe_and_lag_features(A6, w1_lags, 'H4', 'W1_lags')
 
         # Stage 6: Filter data
-        A0_filtered, A1_filtered, A2_filtered, A3_filtered, A4_filtered, A5_filtered = filter_data(
-            A0, A1, A2, A3, A4, A5, TRAIN_START, TEST_END)
+        A0_filtered, A1_filtered, A2_filtered, A3_filtered, A4_filtered, A5_filtered, A6_filtered, A7_filtered = filter_data(
+            A0, A1, A2, A3, A4, A5, A6, A7, TRAIN_START, TEST_END)
 
         # Stage 7: Validate filtered data
         validate_filtered_data(A0_filtered, A1_filtered, A2_filtered,
-                               A3_filtered, A4_filtered, A5_filtered)
+                               A3_filtered, A4_filtered, A5_filtered,
+                               A6_filtered, A7_filtered)
 
         # Stage 8: Save data
         save_data(A0_filtered, A1_filtered, A2_filtered, A3_filtered,
-                  A4_filtered, A5_filtered)
+                  A4_filtered, A5_filtered, A6_filtered, A7_filtered)
 
         # Pipeline completion
         total_duration = time.time() - pipeline_start_time

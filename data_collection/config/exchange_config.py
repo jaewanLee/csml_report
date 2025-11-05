@@ -4,6 +4,13 @@ Exchange configuration for ccxt data collection
 
 # Exchange settings
 EXCHANGE_CONFIG = {
+    'bitstamp': {
+        'id': 'bitstamp',
+        'apiKey': None,  # Not needed for public data
+        'secret': None,  # Not needed for public data
+        'sandbox': False,
+        'rateLimit': 1000,  # Bitstamp rate limit
+    },
     'binance': {
         'id': 'binance',
         'apiKey': None,  # Not needed for public data
@@ -22,24 +29,29 @@ EXCHANGE_CONFIG = {
 
 # Data collection settings - TIMEFRAME-SPECIFIC DATE RANGES
 COLLECTION_CONFIG = {
-    'symbol': 'BTC/USDT',
+    'symbol': 'BTC/USD',  # Bitstamp uses BTC/USD instead of BTC/USDT
     'timeframes': ['4h', '1d', '1w'],
     # Timeframe-specific date ranges for efficient data collection
     'timeframe_dates': {
         '4h': {
-            'start_date': '2017-12-01T00:00:00Z',  # Keep current for buffer
+            'start_date':
+            '2013-01-01T00:00:00Z',  # 4h data available from 2013
             'end_date': '2025-10-19T23:59:59Z'
         },
         '1d': {
-            'start_date': '2017-12-01T00:00:00Z',  # 2020-05-12 - 125 days
+            'start_date':
+            '2011-08-01T00:00:00Z',  # Daily data from Bitstamp start
             'end_date': '2025-10-19T23:59:59Z'
         },
         '1w': {
-            'start_date': '2017-12-01T00:00:00Z',  # 2020-05-12 - 26 months
+            'start_date':
+            '2011-08-01T00:00:00Z',  # Weekly data from Bitstamp start
             'end_date': '2025-10-19T23:59:59Z'
         }
     },
     'batch_size': 1000,  # Records per API call
+    'weekly_batch_size':
+    5,  # Smaller batch size for weekly data due to API limits
     'retry_attempts': 3,
     'retry_delay': 1,  # seconds
 }

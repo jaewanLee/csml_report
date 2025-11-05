@@ -1,0 +1,12 @@
+2025-10-29 19:14:43,327 - INFO - Successfully connected to bitstamp
+2025-10-29 19:14:43,327 - INFO - Collecting 1w data from 2011-08-01T00:00:00Z to 2025-10-19T23:59:59Z
+2025-10-29 19:17:21,882 - INFO - Reached end date
+2025-10-29 19:17:21,888 - INFO - Validating 1w data...
+2025-10-29 19:17:21,892 - WARNING - Found 9 extreme price changes in open for 1w
+2025-10-29 19:17:21,893 - WARNING - Found 12 extreme price changes in high for 1w
+2025-10-29 19:17:21,893 - WARNING - Found 12 extreme price changes in low for 1w
+2025-10-29 19:17:21,893 - WARNING - Found 9 extreme price changes in close for 1w
+2025-10-29 19:17:21,895 - WARNING - Found 1 zero volume records in 1w data
+2025-10-29 19:17:21,895 - WARNING - Found 157 potential time gaps in 1w data
+2025-10-29 19:17:21,896 - INFO - Data validation completed for 1w
+2025-10-29 19:17:21,896 - INFO - Successfully collected 787 records for 1w

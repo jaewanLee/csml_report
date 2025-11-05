@@ -4,6 +4,41 @@
 
 This directory contains Jupyter notebooks for the BTC 'Sell' signal prediction project. Each notebook focuses on a specific aspect of the machine learning pipeline.
 
+## 🚀 Quick Commands
+
+### **Data Collection & Processing**
+```bash
+# 1. Collect BTC data from Bitstamp (2011-2025)
+conda activate csml
+python data_collection/scripts/btc_collector.py
+
+# 2. Run main pipeline (feature engineering)
+python -m data_processing.main_pipeline
+
+# 3. Generate rolling window targets
+python -m data_processing.target.rolling_window_target
+```
+
+### **Model Training & Tuning**
+```bash
+# 4. XGBoost hyperparameter tuning (A4 features)
+python models/level0/tune_xgboost.py
+
+# 5. XGBoost tuning with pruned features (top 24 features)
+python models/level0/tune_xgboost_pruned.py
+```
+
+### **Complete Workflow**
+```bash
+# Step-by-step execution:
+conda activate csml
+python data_collection/scripts/btc_collector.py      # Collect data
+python -m data_processing.main_pipeline              # Create features (A0-A5)
+python -m data_processing.target.rolling_window_target  # Create target variable
+python models/level0/tune_xgboost.py                # Tune A4 features
+python models/level0/tune_xgboost_pruned.py         # Tune pruned features
+```
+
 ## 📋 Notebook Structure
 
 ### **01_data_exploration.ipynb**

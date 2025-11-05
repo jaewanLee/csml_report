@@ -1,0 +1,25 @@
+{
+  "timeframe": "1d",
+  "total_records": 5187,
+  "date_range": {
+    "start": "2011-08-18T00:00:00",
+    "end": "2025-10-29T00:00:00"
+  },
+  "missing_values": {
+    "open": 0,
+    "high": 0,
+    "low": 0,
+    "close": 0,
+    "volume": 0
+  },
+  "price_statistics": {
+    "min_price": 2.22,
+    "max_price": 126272.0,
+    "mean_price": 20227.126134085214
+  },
+  "volume_statistics": {
+    "min_volume": 0.0,
+    "max_volume": 137070.17833806,
+    "mean_volume": 7218.831186421811
+  }
+}

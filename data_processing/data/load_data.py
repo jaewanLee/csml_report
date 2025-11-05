@@ -6,7 +6,7 @@ from pathlib import Path
 def load_data(file_name: str):
     # Use absolute path from project root
     project_root = Path(__file__).parent.parent.parent
-    file_path = project_root / "data_collection" / "data" / f"btc_{file_name}_20251028.parquet"
+    file_path = project_root / "data_collection" / "data" / f"btc_{file_name}_20251029.parquet"
     df = pd.read_parquet(file_path)
     return df
 

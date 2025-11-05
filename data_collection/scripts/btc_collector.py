@@ -155,6 +155,17 @@ class BTCDataCollector:
         )
 
         try:
+            # Define timeframe intervals for pagination
+            timeframe_intervals = {
+                '1m': 60 * 1000,  # 1 minute in milliseconds
+                '5m': 5 * 60 * 1000,  # 5 minutes
+                '15m': 15 * 60 * 1000,  # 15 minutes
+                '1h': 60 * 60 * 1000,  # 1 hour
+                '4h': 4 * 60 * 60 * 1000,  # 4 hours
+                '1d': 24 * 60 * 60 * 1000,  # 1 day
+                '1w': 7 * 24 * 60 * 60 * 1000,  # 1 week
+            }
+
             # Convert dates to timestamps
             start_timestamp = int(pd.Timestamp(start_date).timestamp() * 1000)
             end_timestamp = (int(pd.Timestamp(end_date).timestamp() *
@@ -165,25 +176,50 @@ class BTCDataCollector:
             current_timestamp = start_timestamp
             max_retries = 3
             retry_count = 0
+            consecutive_empty_batches = 0
+            max_empty_batches = 5  # Stop if we get 5 consecutive empty batches
 
             while True:
                 try:
                     # Fetch data batch with proper error handling
+                    # Use smaller batch size for weekly data due to API limits
+                    batch_size = COLLECTION_CONFIG.get(
+                        "weekly_batch_size", COLLECTION_CONFIG["batch_size"]
+                    ) if timeframe == '1w' else COLLECTION_CONFIG["batch_size"]
+
                     ohlcv = self.exchange.fetch_ohlcv(
                         COLLECTION_CONFIG["symbol"],
                         timeframe,
                         since=current_timestamp,
-                        limit=COLLECTION_CONFIG["batch_size"],
+                        limit=batch_size,
                     )
 
                     if not ohlcv:
-                        self.logger.info("No more data available")
-                        break
+                        consecutive_empty_batches += 1
+                        self.logger.warning(
+                            f"Empty batch received (consecutive: {consecutive_empty_batches})"
+                        )
+
+                        if consecutive_empty_batches >= max_empty_batches:
+                            self.logger.info(
+                                "Too many consecutive empty batches, stopping collection"
+                            )
+                            break
+
+                        # Still advance timestamp to continue searching
+                        interval = timeframe_intervals.get(timeframe, 1000)
+                        current_timestamp += interval
+                        continue
+                    else:
+                        consecutive_empty_batches = 0  # Reset counter on successful fetch
 
                     all_data.extend(ohlcv)
 
                     # Update timestamp for next batch (avoid duplicates)
-                    current_timestamp = ohlcv[-1][0] + 1
+                    # Calculate appropriate interval based on timeframe
+                    interval = timeframe_intervals.get(
+                        timeframe, 1000)  # Default to 1 second
+                    current_timestamp = ohlcv[-1][0] + interval
 
                     # Check if we've reached the end date
                     if end_timestamp and current_timestamp >= end_timestamp:
@@ -507,7 +543,7 @@ if __name__ == "__main__":
     print("🚀 Starting BTC data collection...")
     print("=" * 50)
 
-    collector = BTCDataCollector(exchange_name="binance")
+    collector = BTCDataCollector(exchange_name="bitstamp")
 
     # Check exchange health before starting
     if not collector._check_exchange_health():
@@ -515,8 +551,10 @@ if __name__ == "__main__":
         exit(1)
 
     print("✅ Exchange health check passed")
-    print("📊 Collecting all timeframes (4h, 1d, 1w)...")
-    print("⏱️  Estimated time: 2-5 minutes")
+    print("📊 Collecting all timeframes (4h, 1d, 1w) from Bitstamp...")
+    print("📅 Date range: 2011-08-01 to 2025-10-19 (4h from 2013-01-01)")
+    print(
+        "⏱️  Estimated time: 5-10 minutes (longer due to extended date range)")
     print()
 
     # Collect all timeframes

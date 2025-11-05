@@ -68,22 +68,17 @@ def tune_xgboost_hyperparameters(X_train, y_train, n_trials=50, cv_folds=3):
     print(f"📊 Class counts -> neg: {num_negative}, pos: {num_positive}")
     print(f"⚖️  Scale pos weight (neg/pos): {scale_pos_weight:.4f}")
 
-    # Define parameter search space - Maximum regularization for precision
+    # Define parameter search space - Slightly relaxed regularization for precision
     param_space = {
-        'max_depth': Integer(2, 10),  # Very conservative depth
-        'learning_rate': Real(1e-4, 0.05,
-                              prior='log-uniform'),  # Very low learning rate
-        'n_estimators': Integer(500, 2000),  # More estimators for fine-tuning
-        'subsample': Real(0.5, 0.8),  # More aggressive subsampling
-        'colsample_bytree': Real(0.5, 0.8),  # More aggressive feature sampling
-        'reg_alpha':
-        Real(1.0, 200.0,
-             prior='log-uniform'),  # Much stronger L1 regularization
-        'reg_lambda':
-        Real(1.0, 200.0,
-             prior='log-uniform'),  # Much stronger L2 regularization
-        'min_child_weight': Integer(5, 50),  # Much higher min_child_weight
-        'gamma': Real(1.0, 50.0),  # Much stronger pruning
+        'max_depth': Integer(3, 8),  # ↑ 여유 확대
+        'learning_rate': Real(1e-4, 0.05, prior='log-uniform'),
+        'n_estimators': Integer(600, 1800),  # 약간 좁힘
+        'subsample': Real(0.6, 0.9),  # 살짝 상향
+        'colsample_bytree': Real(0.6, 0.9),  # 살짝 상향
+        'reg_alpha': Real(0.5, 50.0, prior='log-uniform'),  # 완화
+        'reg_lambda': Real(0.5, 50.0, prior='log-uniform'),  # 완화
+        'min_child_weight': Integer(3, 20),  # 완화
+        'gamma': Real(0.5, 30.0),  # 완화
     }
 
     # Fixed parameters
@@ -139,44 +134,68 @@ def tune_xgboost_hyperparameters(X_train, y_train, n_trials=50, cv_folds=3):
     }
 
 
-def find_optimal_threshold(
-        y_true,
-        y_proba,
-        thresholds=[0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 0.95]):
+def find_threshold_with_precision_constraint(y_true,
+                                             y_proba,
+                                             min_precision: float = 0.20,
+                                             thresholds: list = [
+                                                 0.10, 0.12, 0.14, 0.16, 0.18,
+                                                 0.20, 0.22, 0.24, 0.26, 0.28,
+                                                 0.30, 0.32, 0.34, 0.36, 0.38,
+                                                 0.40
+                                             ]):
     """
-    Find optimal threshold for precision-recall balance
+    Choose threshold maximizing recall while meeting a minimum precision constraint.
+    Searches primarily in low-threshold region [0.10, 0.40].
     """
     best_threshold = 0.5
-    best_f1 = 0
+    best_recall = -1.0
 
-    print(f"\n🔍 Finding optimal threshold...")
+    print("\n🔍 Finding threshold with precision constraint...")
+    print(f"Target min precision: {min_precision:.2f}")
+    print(f"{'Thr':<6} {'Prec':<8} {'Rec':<8} {'F1':<8}")
+
+    for thr in thresholds:
+        y_pred = (y_proba >= thr).astype(int)
+        # Need both classes to compute stable metrics
+        if len(np.unique(y_pred)) < 2:
+            print(f"{thr:<6.2f} {'N/A':<8} {'N/A':<8} {'N/A':<8}")
+            continue
+
+        prec = precision_score(y_true, y_pred, zero_division=0)
+        rec = recall_score(y_true, y_pred, zero_division=0)
+        f1 = f1_score(y_true, y_pred, zero_division=0)
+        print(f"{thr:<6.2f} {prec:<8.4f} {rec:<8.4f} {f1:<8.4f}")
+
+        if prec >= min_precision and rec > best_recall:
+            best_recall = rec
+            best_threshold = thr
+
+    if best_recall < 0:
+        # Fallback: choose threshold with highest recall even if precision < min_precision
+        print(
+            "⚠️ No threshold met the precision constraint. Falling back to max recall overall."
+        )
+        fallback_thr = None
+        fallback_recall = -1.0
+        for thr in thresholds:
+            y_pred = (y_proba >= thr).astype(int)
+            if len(np.unique(y_pred)) < 2:
+                continue
+            rec = recall_score(y_true, y_pred, zero_division=0)
+            if rec > fallback_recall:
+                fallback_recall = rec
+                fallback_thr = thr
+        if fallback_thr is not None:
+            best_threshold = fallback_thr
+
     print(
-        f"{'Threshold':<10} {'Precision':<10} {'Recall':<10} {'F1-Score':<10}")
-    print("-" * 45)
-
-    for threshold in thresholds:
-        y_pred = (y_proba > threshold).astype(int)
-        if len(np.unique(y_pred)) > 1:  # Check if we have both classes
-            precision = precision_score(y_true, y_pred, zero_division=0)
-            recall = recall_score(y_true, y_pred, zero_division=0)
-            f1 = f1_score(y_true, y_pred, zero_division=0)
-
-            print(
-                f"{threshold:<10.1f} {precision:<10.4f} {recall:<10.4f} {f1:<10.4f}"
-            )
-
-            if f1 > best_f1:
-                best_f1 = f1
-                best_threshold = threshold
-        else:
-            print(f"{threshold:<10.1f} {'N/A':<10} {'N/A':<10} {'N/A':<10}")
-
-    print(f"\n✅ Best threshold: {best_threshold:.1f} (F1: {best_f1:.4f})")
+        f"\n✅ Chosen threshold: {best_threshold:.2f} (min_precision={min_precision:.2f})"
+    )
     return best_threshold
 
 
 def evaluate_tuned_model(X_train, y_train, X_test, y_test, best_params,
-                         class_weights):
+                         class_weights, optimal_threshold):
     """
     Evaluate the tuned model on both training and test sets
     
@@ -187,6 +206,7 @@ def evaluate_tuned_model(X_train, y_train, X_test, y_test, best_params,
         y_test: Test target
         best_params: Best hyperparameters from tuning
         class_weights: Class weights
+        optimal_threshold: Pre-determined optimal threshold (found using training data only)
     
     Returns:
         Evaluation results
@@ -220,8 +240,8 @@ def evaluate_tuned_model(X_train, y_train, X_test, y_test, best_params,
     y_train_proba = model.predict_proba(X_train)[:, 1]
     y_test_proba = model.predict_proba(X_test)[:, 1]
 
-    # Find optimal threshold using test set
-    optimal_threshold = find_optimal_threshold(y_test['target'], y_test_proba)
+    # Use pre-determined optimal threshold (found using training data only)
+    print(f"\nUsing pre-determined optimal threshold: {optimal_threshold:.2f}")
 
     # Evaluate with default threshold (0.5)
     y_train_pred_default = model.predict(X_train)
@@ -352,14 +372,20 @@ def main():
     """
     Main function to run XGBoost hyperparameter tuning
     """
+    # ===== CONFIGURATION =====
+    FEATURE_SET = 'A0'  # Change this to A0, A1, A2, A3, A4, A5, A6, A7, etc.
+    # =========================
+
     print("🔧 BTC Prediction - XGBoost Hyperparameter Tuning")
     print("=" * 60)
 
-    # Load A3 data (H4 + D1 + W1 + Lag)
-    print("📁 Loading A3 feature set...")
+    # Load specified feature set
+    print(f"📁 Loading {FEATURE_SET} feature set...")
     try:
-        X, y = load_experiment_data('A3')
-        print(f"✅ Loaded A3 data: {X.shape[0]} samples, {X.shape[1]} features")
+        X, y = load_experiment_data(FEATURE_SET)
+        print(
+            f"✅ Loaded {FEATURE_SET} data: {X.shape[0]} samples, {X.shape[1]} features"
+        )
     except Exception as e:
         print(f"❌ Error loading data: {e}")
         return
@@ -383,13 +409,41 @@ def main():
         X_train,
         y_train,
         n_trials=50,  # Adjust based on available time
-        cv_folds=3  # Use 3 folds for faster tuning
+        cv_folds=5  # Use 5 folds for consistent evaluation
     )
 
-    # Evaluate tuned model
+    # Find optimal threshold using CV predictions on Training Data (NO DATA LEAKAGE)
+    print(
+        "\n🔍 Finding optimal threshold using CV predictions on Training Data..."
+    )
+    from sklearn.model_selection import cross_val_predict
+
+    # Use the same CV strategy as tuning - convert TimeSeriesSplit to list of splits
+    tscv_iterator = TimeSeriesSplit(n_splits=5)  # Match cv_folds from tuning
+    cv_splits = list(tscv_iterator.split(X_train, y_train['target']))
+
+    y_train_cv_proba = cross_val_predict(
+        tuning_results['search_object'].best_estimator_,
+        X_train,
+        y_train['target'],
+        cv=cv_splits,  # Use list of splits instead of iterator
+        method='predict_proba',
+        n_jobs=1  # Match BayesSearch n_jobs
+    )[:, 1]
+
+    optimal_threshold = find_threshold_with_precision_constraint(
+        y_train['target'],  # Use TRAINING target
+        y_train_cv_proba,  # Use CV probabilities
+        min_precision=0.20,
+        thresholds=[
+            0.10, 0.12, 0.14, 0.16, 0.18, 0.20, 0.22, 0.24, 0.26, 0.28, 0.30,
+            0.32, 0.34, 0.36, 0.38, 0.40
+        ])
+
+    # Evaluate tuned model with pre-determined threshold
     eval_results = evaluate_tuned_model(X_train, y_train, X_test, y_test,
                                         tuning_results['best_params'],
-                                        class_weights)
+                                        class_weights, optimal_threshold)
 
     # Combine results
     final_results = {
@@ -406,7 +460,7 @@ def main():
     }
 
     # Save results
-    save_tuning_results(final_results, 'A3')
+    save_tuning_results(final_results, FEATURE_SET)
 
     # Performance assessment
     test_f1_default = eval_results['test_metrics_default']['f1_score']

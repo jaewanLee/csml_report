@@ -20,14 +20,17 @@ FEATURE_SETS = {
     'A2': FEATURES_DIR / 'A2.parquet',
     'A3': FEATURES_DIR / 'A3.parquet',
     'A4': FEATURES_DIR / 'A4.parquet',
-    'A4_Pruned': FEATURES_DIR / 'A4_Pruned.parquet'
+    'A4_Pruned': FEATURES_DIR / 'A4_Pruned.parquet',
+    'A5': FEATURES_DIR / 'A5.parquet',
+    'A6': FEATURES_DIR / 'A6.parquet',
+    'A7': FEATURES_DIR / 'A7.parquet',
 }
 
 TARGET_FILE = FEATURES_DIR / 'y.parquet'
 RESULTS_FILE = LOGS_DIR / 'experiment_results.csv'
 
 # Data split configuration
-TRAIN_START = '2020-05-12'
+TRAIN_START = '2014-02-01'  # W1 120MA + 3주 lag + 여유분 (안전한 시작점)
 TRAIN_END = '2024-04-19'
 TEST_START = '2024-04-21'
 TEST_END = '2025-09-19'

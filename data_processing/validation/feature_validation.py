@@ -14,7 +14,12 @@ from typing import Dict, List, Optional
 logger = logging.getLogger(__name__)
 
 
-def validate_raw_features(df: pd.DataFrame, name: str, *, start: Optional[pd.Timestamp] = None, end: Optional[pd.Timestamp] = None, drop_head_rows: int = 0) -> Dict[str, any]:
+def validate_raw_features(df: pd.DataFrame,
+                          name: str,
+                          *,
+                          start: Optional[pd.Timestamp] = None,
+                          end: Optional[pd.Timestamp] = None,
+                          drop_head_rows: int = 0) -> Dict[str, any]:
     """
     Validate raw features before filtering. Logs statistics but never raises.
     
@@ -30,18 +35,26 @@ def validate_raw_features(df: pd.DataFrame, name: str, *, start: Optional[pd.Tim
     if start is not None or end is not None:
         start_dt = start if start is not None else df.index.min()
         end_dt = end if end is not None else df.index.max()
-        df_view = df_view[(df_view.index >= start_dt) & (df_view.index <= end_dt)]
+        df_view = df_view[(df_view.index >= start_dt)
+                          & (df_view.index <= end_dt)]
     if drop_head_rows > 0 and len(df_view) > drop_head_rows:
         df_view = df_view.iloc[drop_head_rows:]
 
     stats = {
-        'name': name,
-        'shape': df_view.shape,
-        'total_cells': df_view.shape[0] * df_view.shape[1],
-        'nan_count': df_view.isnull().sum().sum(),
-        'inf_count': np.isinf(df_view.select_dtypes(include=[np.number])).sum().sum(),
-        'duplicate_indices': df_view.index.duplicated().sum(),
-        'memory_usage_mb': df_view.memory_usage(deep=True).sum() / 1024 / 1024
+        'name':
+        name,
+        'shape':
+        df_view.shape,
+        'total_cells':
+        df_view.shape[0] * df_view.shape[1],
+        'nan_count':
+        df_view.isnull().sum().sum(),
+        'inf_count':
+        np.isinf(df_view.select_dtypes(include=[np.number])).sum().sum(),
+        'duplicate_indices':
+        df_view.index.duplicated().sum(),
+        'memory_usage_mb':
+        df_view.memory_usage(deep=True).sum() / 1024 / 1024
     }
 
     # Log basic statistics
@@ -78,7 +91,12 @@ def validate_raw_features(df: pd.DataFrame, name: str, *, start: Optional[pd.Tim
     return stats
 
 
-def validate_filtered_features(df: pd.DataFrame, name: str, *, start: Optional[pd.Timestamp] = None, end: Optional[pd.Timestamp] = None, drop_head_rows: int = 0) -> None:
+def validate_filtered_features(df: pd.DataFrame,
+                               name: str,
+                               *,
+                               start: Optional[pd.Timestamp] = None,
+                               end: Optional[pd.Timestamp] = None,
+                               drop_head_rows: int = 0) -> None:
     """
     Strict validation for filtered features. Raises ValueError on any issues.
     
@@ -96,21 +114,30 @@ def validate_filtered_features(df: pd.DataFrame, name: str, *, start: Optional[p
     if start is not None or end is not None:
         start_dt = start if start is not None else df.index.min()
         end_dt = end if end is not None else df.index.max()
-        df_view = df_view[(df_view.index >= start_dt) & (df_view.index <= end_dt)]
+        df_view = df_view[(df_view.index >= start_dt)
+                          & (df_view.index <= end_dt)]
     if drop_head_rows > 0 and len(df_view) > drop_head_rows:
         df_view = df_view.iloc[drop_head_rows:]
 
     # Check for NaN values
     nan_count = df_view.isnull().sum().sum()
     if nan_count > 0:
-        nan_cols = df.isnull().sum()
+        nan_cols = df_view.isnull().sum()
         nan_cols = nan_cols[nan_cols > 0].sort_values(ascending=False)
-        error_msg = f"{name} contains {nan_count} NaN values in columns: {dict(nan_cols.head(10))}"
+
+        # Get first 5 NaN indices for each column
+        nan_details = {}
+        for col in nan_cols.head(5).index:
+            nan_indices = df_view.index[df_view[col].isnull()][:5].tolist()
+            nan_details[col] = nan_indices
+
+        error_msg = f"{name} contains {nan_count} NaN values. First 5 NaN indices per column: {nan_details}"
         logger.error(f"❌ {error_msg}")
         raise ValueError(error_msg)
 
     # Check for infinite values
-    inf_count = np.isinf(df_view.select_dtypes(include=[np.number])).sum().sum()
+    inf_count = np.isinf(
+        df_view.select_dtypes(include=[np.number])).sum().sum()
     if inf_count > 0:
         inf_cols = np.isinf(df.select_dtypes(include=[np.number])).sum()
         inf_cols = inf_cols[inf_cols > 0].sort_values(ascending=False)
@@ -132,7 +159,8 @@ def validate_filtered_features(df: pd.DataFrame, name: str, *, start: Optional[p
         raise ValueError(error_msg)
 
     logger.info(
-        f"✅ {name} validation passed: {df_view.shape[0]} rows × {df_view.shape[1]} cols")
+        f"✅ {name} validation passed: {df_view.shape[0]} rows × {df_view.shape[1]} cols"
+    )
 
 
 def validate_feature_consistency(dfs: Dict[str, pd.DataFrame]) -> None:
